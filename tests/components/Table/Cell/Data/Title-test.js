@@ -1,5 +1,4 @@
 jest.unmock("../../../../factories/components/table-factory")
-jest.unmock("../../../../../helpers/table")
 
 import TableFactory from "../../../../factories/components/table-factory"
 

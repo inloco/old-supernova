@@ -1,9 +1,9 @@
-jest.unmock("../../components/Ballon")
+jest.unmock("../../src/components/Ballon")
 
 import React from "react"
 import ReactDOM from "react-dom"
 import TestUtils from "react-addons-test-utils"
-import Ballon from "../../components/Ballon"
+import Ballon from "../../src/components/Ballon"
 
 describe("Ballon", () => {
   const ballon = TestUtils.renderIntoDocument(

@@ -1,10 +1,10 @@
-jest.unmock("../../../../components/Chart/Area")
+jest.unmock("../../../../src/components/Chart/Area")
 jest.unmock("./../base-factory")
 jest.unmock("react-google-charts")
 
 import React from "react"
 import Factory from "./../base-factory" 
-import AreaChart from "../../../../components/Chart/Area"
+import AreaChart from "../../../../src/components/Chart/Area"
 
 class AreaChartFactory extends Factory{
   template() {

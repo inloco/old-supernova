@@ -1,11 +1,11 @@
 jest.unmock("./base-factory")
-jest.unmock("../../../components/Dropdown/Main")
-jest.unmock("../../../components/Dropdown/Item")
+jest.unmock("../../../src/components/Dropdown/Main")
+jest.unmock("../../../src/components/Dropdown/Item")
 
 import React from "react"
 import Factory from "./base-factory" 
-import Dropdown from "../../../components/Dropdown/Main"
-import DropdownItem from "../../../components/Dropdown/Item"
+import Dropdown from "../../../src/components/Dropdown/Main"
+import DropdownItem from "../../../src/components/Dropdown/Item"
 
 class DropdownFactory extends Factory{
   template() {

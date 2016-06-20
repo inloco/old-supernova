@@ -1,5 +1,4 @@
 jest.unmock("../../factories/components/sidebar-factory")
-jest.unmock("../../../helpers/sidebar")
 
 import SidebarFactory from "../../factories/components/sidebar-factory"
 
@@ -20,7 +19,6 @@ describe("Sidebar Item", () => {
   })
 
   it("has href", () => {
-    console.log("a: ", node.querySelectorAll("li")[3].innerHTML)
     expect(node.querySelectorAll("li")[3]
                .querySelector("a")
                .getAttribute("href")).toEqual("#B")

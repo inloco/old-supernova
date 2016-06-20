@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "autoprefixer": "^6.3.5",
-    "axios": "^0.9.1",
     "babel": "^6.5.2",
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.4",
@@ -40,10 +39,14 @@
   },
   "jest": {
     "testRegex": "(.*)-test.js$",
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/"
+    ],
     "unmockedModulePathPatterns": [
       "<rootDir>/node_modules/react/",
       "<rootDir>/node_modules/react-dom/",
-      "<rootDir>/node_modules/react-addons-test-utils/"
+      "<rootDir>/node_modules/react-addons-test-utils/",
+      "<rootDir>/src/helpers/"
     ],
     "moduleFileExtensions": [
       "js",
