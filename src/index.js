@@ -11,6 +11,8 @@ import TableBody from "./components/Table/Body"
 import CellHead from "./components/Table/Cell/Head"
 import CellData from "./components/Table/Cell/Data/Main"
 import CellDataTitle from "./components/Table/Cell/Data/Title"
+import Header from "./components/Header/Main"
+import HeaderItem from "./components/Header/Item"
 
 export {
   Ballon,
@@ -25,5 +27,7 @@ export {
   TableBody,
   CellHead,
   CellData,
-  CellDataTitle
+  CellDataTitle,
+  Header,
+  HeaderItem
 }
