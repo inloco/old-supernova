@@ -10,18 +10,6 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _baseFactory = require("./base-factory");
-
-var _baseFactory2 = _interopRequireDefault(_baseFactory);
-
-var _Main = require("../../../src/components/Sidebar/Main");
-
-var _Main2 = _interopRequireDefault(_Main);
-
-var _Item = require("../../../src/components/Sidebar/Item");
-
-var _Item2 = _interopRequireDefault(_Item);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30,37 +18,45 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-jest.unmock("../../../src/components/Sidebar/Main");
-jest.unmock("../../../src/components/Sidebar/Item");
-jest.unmock("./base-factory");
+var Link = function (_React$Component) {
+  _inherits(Link, _React$Component);
 
-var SidebarFactory = function (_Factory) {
-  _inherits(SidebarFactory, _Factory);
+  function Link() {
+    _classCallCheck(this, Link);
 
-  function SidebarFactory() {
-    _classCallCheck(this, SidebarFactory);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(SidebarFactory).apply(this, arguments));
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Link).apply(this, arguments));
   }
 
-  _createClass(SidebarFactory, [{
-    key: "template",
-    value: function template() {
+  _createClass(Link, [{
+    key: "render",
+    value: function render() {
+      var _props = this.props;
+      var href = _props.href;
+      var label = _props.label;
+
+
       return _react2.default.createElement(
-        _Main2.default,
-        { currentPath: "#A" },
+        "span",
+        null,
         _react2.default.createElement(
-          _Item2.default,
-          { label: "Apps", href: "#A", icon: "icon-nav-campaigns" },
-          _react2.default.createElement(_Item2.default, { label: "New App", href: "A1" }),
-          _react2.default.createElement(_Item2.default, { label: "New Ad Unit", href: "#A2" })
+          "a",
+          { href: href, target: "_blank" },
+          label
         ),
-        _react2.default.createElement(_Item2.default, { label: "Earnings", href: "#B", icon: "icon-nav-cash" })
+        _react2.default.createElement(
+          "span",
+          { className: "divider" },
+          "|"
+        )
       );
     }
   }]);
 
-  return SidebarFactory;
-}(_baseFactory2.default);
+  return Link;
+}(_react2.default.Component);
 
-exports.default = SidebarFactory;
+Link.propTyes = {
+  href: _react.PropTypes.string.isRequired,
+  label: _react.PropTypes.string.isRequired
+};
+exports.default = Link;

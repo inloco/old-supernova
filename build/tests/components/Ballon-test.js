@@ -12,13 +12,13 @@ var _reactAddonsTestUtils = require("react-addons-test-utils");
 
 var _reactAddonsTestUtils2 = _interopRequireDefault(_reactAddonsTestUtils);
 
-var _Ballon = require("../../components/Ballon");
+var _Ballon = require("../../src/components/Ballon");
 
 var _Ballon2 = _interopRequireDefault(_Ballon);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-jest.unmock("../../components/Ballon");
+jest.unmock("../../src/components/Ballon");
 
 describe("Ballon", function () {
   var ballon = _reactAddonsTestUtils2.default.renderIntoDocument(_react2.default.createElement(_Ballon2.default, { label: "impressions",
