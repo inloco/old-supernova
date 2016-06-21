@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.CellDataTitle = exports.CellData = exports.CellHead = exports.TableBody = exports.TableRow = exports.TableHead = exports.Table = exports.ChartArea = exports.DropdownItem = exports.Dropdown = exports.SidebarItem = exports.Sidebar = exports.Ballon = undefined;
+exports.HeaderItem = exports.Header = exports.CellDataTitle = exports.CellData = exports.CellHead = exports.TableBody = exports.TableRow = exports.TableHead = exports.Table = exports.ChartArea = exports.DropdownItem = exports.Dropdown = exports.SidebarItem = exports.Sidebar = exports.Ballon = undefined;
 
 var _Ballon = require("./components/Ballon");
 
@@ -57,6 +57,14 @@ var _Title = require("./components/Table/Cell/Data/Title");
 
 var _Title2 = _interopRequireDefault(_Title);
 
+var _Main9 = require("./components/Header/Main");
+
+var _Main10 = _interopRequireDefault(_Main9);
+
+var _Item5 = require("./components/Header/Item");
+
+var _Item6 = _interopRequireDefault(_Item5);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.Ballon = _Ballon2.default;
@@ -72,3 +80,5 @@ exports.TableBody = _Body2.default;
 exports.CellHead = _Head4.default;
 exports.CellData = _Main8.default;
 exports.CellDataTitle = _Title2.default;
+exports.Header = _Main10.default;
+exports.HeaderItem = _Item6.default;
