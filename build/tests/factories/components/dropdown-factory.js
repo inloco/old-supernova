@@ -14,11 +14,11 @@ var _baseFactory = require("./base-factory");
 
 var _baseFactory2 = _interopRequireDefault(_baseFactory);
 
-var _Main = require("../../../components/Dropdown/Main");
+var _Main = require("../../../src/components/Dropdown/Main");
 
 var _Main2 = _interopRequireDefault(_Main);
 
-var _Item = require("../../../components/Dropdown/Item");
+var _Item = require("../../../src/components/Dropdown/Item");
 
 var _Item2 = _interopRequireDefault(_Item);
 
@@ -31,8 +31,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 jest.unmock("./base-factory");
-jest.unmock("../../../components/Dropdown/Main");
-jest.unmock("../../../components/Dropdown/Item");
+jest.unmock("../../../src/components/Dropdown/Main");
+jest.unmock("../../../src/components/Dropdown/Item");
 
 var DropdownFactory = function (_Factory) {
   _inherits(DropdownFactory, _Factory);

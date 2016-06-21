@@ -14,31 +14,31 @@ var _baseFactory = require("./base-factory");
 
 var _baseFactory2 = _interopRequireDefault(_baseFactory);
 
-var _Main = require("../../../components/Table/Main");
+var _Main = require("../../../src/components/Table/Main");
 
 var _Main2 = _interopRequireDefault(_Main);
 
-var _Head = require("../../../components/Table/Head");
+var _Head = require("../../../src/components/Table/Head");
 
 var _Head2 = _interopRequireDefault(_Head);
 
-var _Body = require("../../../components/Table/Body");
+var _Body = require("../../../src/components/Table/Body");
 
 var _Body2 = _interopRequireDefault(_Body);
 
-var _Row = require("../../../components/Table/Row");
+var _Row = require("../../../src/components/Table/Row");
 
 var _Row2 = _interopRequireDefault(_Row);
 
-var _Head3 = require("../../../components/Table/Cell/Head");
+var _Head3 = require("../../../src/components/Table/Cell/Head");
 
 var _Head4 = _interopRequireDefault(_Head3);
 
-var _Main3 = require("../../../components/Table/Cell/Data/Main");
+var _Main3 = require("../../../src/components/Table/Cell/Data/Main");
 
 var _Main4 = _interopRequireDefault(_Main3);
 
-var _Title = require("../../../components/Table/Cell/Data/Title");
+var _Title = require("../../../src/components/Table/Cell/Data/Title");
 
 var _Title2 = _interopRequireDefault(_Title);
 
@@ -50,13 +50,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-jest.unmock("../../../components/Table/Main");
-jest.unmock("../../../components/Table/Head");
-jest.unmock("../../../components/Table/Body");
-jest.unmock("../../../components/Table/Row");
-jest.unmock("../../../components/Table/Cell/Head");
-jest.unmock("../../../components/Table/Cell/Data/Main");
-jest.unmock("../../../components/Table/Cell/Data/Title");
+jest.unmock("../../../src/components/Table/Main");
+jest.unmock("../../../src/components/Table/Head");
+jest.unmock("../../../src/components/Table/Body");
+jest.unmock("../../../src/components/Table/Row");
+jest.unmock("../../../src/components/Table/Cell/Head");
+jest.unmock("../../../src/components/Table/Cell/Data/Main");
+jest.unmock("../../../src/components/Table/Cell/Data/Title");
 jest.unmock("../../factories/components/base-factory");
 
 var TableFactory = function (_Factory) {

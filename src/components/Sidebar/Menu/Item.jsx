@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react"
-import { bindItems } from "../../helpers/sidebar"
+import { bindItems } from "../../../helpers/sidebar"
 
 class Item extends React.Component {
   static propTyes = {

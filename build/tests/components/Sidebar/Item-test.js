@@ -7,7 +7,7 @@ var _sidebarFactory2 = _interopRequireDefault(_sidebarFactory);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 jest.unmock("../../factories/components/sidebar-factory");
-jest.unmock("../../../helpers/sidebar");
+jest.unmock("../../../src/helpers/sidebar");
 
 describe("Sidebar Item", function () {
   var factory = new _sidebarFactory2.default();

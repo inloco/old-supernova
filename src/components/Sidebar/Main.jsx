@@ -1,26 +1,8 @@
 import React, { PropTypes } from "react"
-import { bindItems } from "../../helpers/sidebar"
 
 class Sidebar extends React.Component {
-  constructor(props) {
-    super()
-
-    this.state = { currentPath: props.currentPath }
-  }
-
   static propTyes = {
-    children: PropTypes.node.isRequired,
-    currentPath: PropTypes.string
-  }
-
-  static defaultProps = {
-    currentPath: ""
-  }
-
-  handleClick(href) {
-    this.setState({
-      currentPath: href
-    })
+    children: PropTypes.node.isRequired
   }
 
   render() {
@@ -29,9 +11,7 @@ class Sidebar extends React.Component {
     return (
       <div className="side">
         <div className="geral">
-          <ul className="main-menu">
-            { bindItems(this.props.children, this) }
-          </ul>
+          { children }
         </div>
       </div>
     )

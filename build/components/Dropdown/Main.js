@@ -28,6 +28,40 @@ var Dropdown = function (_React$Component) {
   }
 
   _createClass(Dropdown, [{
+    key: 'getSecondaryLabel',
+    value: function getSecondaryLabel() {
+      var secondaryLabel = this.props.secondaryLabel;
+
+
+      return secondaryLabel !== undefined ? _react2.default.createElement(
+        'p',
+        { className: 'type-caption secondary-txt' },
+        secondaryLabel
+      ) : null;
+    }
+  }, {
+    key: 'getSecondaryIcon',
+    value: function getSecondaryIcon() {
+      var secondaryIcon = this.props.secondaryIcon;
+
+
+      return secondaryIcon !== undefined ? _react2.default.createElement('span', { className: "icon-16 " + secondaryIcon + " chart-icons disabled-txt" }) : null;
+    }
+  }, {
+    key: 'getLabel',
+    value: function getLabel() {
+      var label = this.props.label;
+
+
+      return label !== undefined ? _react2.default.createElement(
+        'span',
+        { className: 'type-body-1' },
+        ' ',
+        label,
+        ' '
+      ) : null;
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props;
@@ -39,9 +73,12 @@ var Dropdown = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'dropdown' },
+        this.getSecondaryLabel(),
+        this.getSecondaryIcon(),
         _react2.default.createElement(
           'a',
           { className: 'dropdown-toggle', 'data-toggle': 'dropdown', 'aria-expanded': 'true', href: '#' },
+          this.getLabel(),
           _react2.default.createElement('span', { className: 'icon-24 ' + icon })
         ),
         _react2.default.createElement(
@@ -59,6 +96,9 @@ var Dropdown = function (_React$Component) {
 Dropdown.propTypes = {
   icon: _react.PropTypes.string,
   side: _react.PropTypes.string,
+  label: _react.PropTypes.string,
+  secondaryLabel: _react.PropTypes.string,
+  secondaryIcon: _react.PropTypes.string,
   children: _react.PropTypes.node.isRequired
 };
 Dropdown.defaultProps = {

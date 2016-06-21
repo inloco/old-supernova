@@ -2,7 +2,7 @@ jest.unmock("../../factories/components/sidebar-factory")
 
 import SidebarFactory from "../../factories/components/sidebar-factory"
 
-describe("Sidebar", () => {
+describe("Sidebar Menu", () => {
   const factory = new SidebarFactory
   const node = factory.getNode()
 

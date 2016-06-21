@@ -1,6 +1,6 @@
-jest.unmock("../../factories/components/sidebar-factory")
+jest.unmock("../../../factories/components/sidebar-factory")
 
-import SidebarFactory from "../../factories/components/sidebar-factory"
+import SidebarFactory from "../../../factories/components/sidebar-factory"
 
 describe("Sidebar Item", () => {
   const factory = new SidebarFactory

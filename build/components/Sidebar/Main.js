@@ -10,8 +10,6 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _sidebar = require("../../helpers/sidebar");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23,23 +21,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Sidebar = function (_React$Component) {
   _inherits(Sidebar, _React$Component);
 
-  function Sidebar(props) {
+  function Sidebar() {
     _classCallCheck(this, Sidebar);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Sidebar).call(this));
-
-    _this.state = { currentPath: props.currentPath };
-    return _this;
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Sidebar).apply(this, arguments));
   }
 
   _createClass(Sidebar, [{
-    key: "handleClick",
-    value: function handleClick(href) {
-      this.setState({
-        currentPath: href
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       var children = this.props.children;
@@ -51,11 +39,7 @@ var Sidebar = function (_React$Component) {
         _react2.default.createElement(
           "div",
           { className: "geral" },
-          _react2.default.createElement(
-            "ul",
-            { className: "main-menu" },
-            (0, _sidebar.bindItems)(this.props.children, this)
-          )
+          children
         )
       );
     }
@@ -65,10 +49,6 @@ var Sidebar = function (_React$Component) {
 }(_react2.default.Component);
 
 Sidebar.propTyes = {
-  children: _react.PropTypes.node.isRequired,
-  currentPath: _react.PropTypes.string
-};
-Sidebar.defaultProps = {
-  currentPath: ""
+  children: _react.PropTypes.node.isRequired
 };
 exports.default = Sidebar;

@@ -3,7 +3,7 @@ jest.unmock("./../base-factory")
 jest.unmock("react-google-charts")
 
 import React from "react"
-import Factory from "./../base-factory" 
+import Factory from "./../base-factory"
 import AreaChart from "../../../../src/components/Chart/Area"
 
 class AreaChartFactory extends Factory{
@@ -15,7 +15,7 @@ class AreaChartFactory extends Factory{
       ["2015",660,1120],
       ["2016",1030,540]
     ]
-    
+
     return(
       <AreaChart data={ data }/>
     )

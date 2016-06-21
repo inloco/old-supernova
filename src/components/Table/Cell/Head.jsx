@@ -6,10 +6,10 @@ class Head extends React.Component {
     children: PropTypes.node.isRequired,
     type: PropTypes.string
   }
-  
+
   render() {
     const { children, type } = this.props
-    
+
     return (
       <th className={ getColumnClassByType(type) }>{ children }</th>
     )
