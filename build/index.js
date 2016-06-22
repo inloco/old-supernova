@@ -3,7 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+<<<<<<< 8fb1350564e528319f35031e4e8e94fee03dc11b
 exports.Ballon = exports.CellDataTitle = exports.CellData = exports.CellHead = exports.TableBody = exports.TableRow = exports.TableHead = exports.Table = exports.Sidebar = exports.SidebarUser = exports.SidebarLogo = exports.SidebarMenuItem = exports.SidebarMenu = exports.SidebarFooterLink = exports.SidebarFooter = exports.HeaderItem = exports.Header = exports.DropdownGroup = exports.DropdownItem = exports.Dropdown = exports.ChartArea = undefined;
+=======
+exports.Info = exports.Ballon = exports.CellDataTitle = exports.CellData = exports.CellHead = exports.TableBody = exports.TableRow = exports.TableHead = exports.Table = exports.Sidebar = exports.SidebarLogo = exports.SidebarMenuItem = exports.SidebarMenu = exports.SidebarFooterLink = exports.SidebarFooter = exports.HeaderItem = exports.Header = exports.DropdownGroup = exports.DropdownItem = exports.Dropdown = exports.ChartArea = undefined;
+>>>>>>> feat(helper-tooltip): add helper tooltip component
 
 var _Area = require("./components/Chart/Area");
 
@@ -89,6 +93,10 @@ var _Ballon = require("./components/Ballon");
 
 var _Ballon2 = _interopRequireDefault(_Ballon);
 
+var _Info = require("./components/Info");
+
+var _Info2 = _interopRequireDefault(_Info);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.ChartArea = _Area2.default;
@@ -112,3 +120,4 @@ exports.CellHead = _Head4.default;
 exports.CellData = _Main14.default;
 exports.CellDataTitle = _Title2.default;
 exports.Ballon = _Ballon2.default;
+exports.Info = _Info2.default;
