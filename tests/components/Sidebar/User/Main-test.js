@@ -1,6 +1,6 @@
-jest.unmock("../../factories/components/sidebar-factory")
+jest.unmock("../../../factories/components/sidebar-factory")
 
-import SidebarFactory from "../../factories/components/sidebar-factory"
+import SidebarFactory from "../../../factories/components/sidebar-factory"
 
 describe("Sidebar User", () => {
   const factory = new SidebarFactory
@@ -40,23 +40,12 @@ describe("Sidebar User", () => {
 
   it("has dropdown", () => {
     expect(node.querySelector(".dropdown > a > span").textContent)
-               .toEqual("Advertiser")
+               .toEqual(" Advertiser ")
 
     expect(node.querySelector(".dropdown > ul > li > a").textContent)
                .toEqual("Publisher")
 
     expect(node.querySelector(".dropdown > ul > li > a").getAttribute("href"))
                .toEqual("/en/publishers")
-  })
-
-  it("has credits", () => {
-    expect(node.querySelector(".user-credits-cash > p").textContent)
-               .toEqual("Credits")
-
-    expect(node.querySelector(".user-credits-cash > .user-currency").textContent)
-               .toEqual("R$")
-
-    expect(node.querySelector(".user-credits-cash > .user-cash").textContent)
-               .toEqual("0.00")
   })
 })

@@ -1,4 +1,7 @@
 import React, { PropTypes } from "react"
+import UserItem from "./Item"
+import Dropdown from "../../Dropdown/Main"
+import DropdownItem from "../../Dropdown/Item"
 
 class User extends React.Component {
   static propTyes = {
@@ -39,31 +42,21 @@ class User extends React.Component {
         <span className="user-type">
           { userEmail }
         </span>
-        { currentDropdownItemName !== undefined ? this.getDropdown(currentDropdownItemName) : null}
+        { currentDropdownItemName !== undefined ? this.getDropdown() : null}
         { this.getUserLogin() }
       </div>
     )
   }
 
-  getDropdown(currentDropdownItemName) {
-    const{ dropdownItemHref, dropdownItemName } = this.props
+  getDropdown() {
+    const{ currentDropdownItemName, dropdownItemHref, dropdownItemName } = this.props
 
     return (
-      <div className="dropdown">
-        <a className="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="">
-          <span className="type-body-1">
-            { currentDropdownItemName }
-          </span>
-          <span className="icon-24 icon-drop-down"></span>
-        </a>
-        <ul className="dropdown-menu dropdown-menu-center" role="menu" aria-labelledby="dropdownMenu2">
-          <li role="presentation">
-            <a role="menuitem" tabindex="-1" href={ dropdownItemHref }>
-              { dropdownItemName }
-            </a>
-          </li>
-        </ul>
-      </div>
+      <Dropdown label={ currentDropdownItemName }
+                side="center"
+                icon="icon-drop-down">
+        <DropdownItem label={ dropdownItemName } href={ dropdownItemHref } />
+      </Dropdown>
     )
   }
 
@@ -88,21 +81,14 @@ class User extends React.Component {
     )
   }
 
-  getUserCredits(userCreditsCash) {
-    const{ userCreditsCurrency, userCreditsTitle } = this.props
+  getUserCredits() {
+    const{ userCreditsCash, userCreditsCurrency, userCreditsTitle } = this.props
 
     return (
-      <div className="user-credits">
-        <div className="user-credits-cash">
-          <p className="credits-title">
-            { userCreditsTitle }
-          </p>
-          <span className="icon-nav icon-nav-cash"></span>
-          <span className="user-currency">{ userCreditsCurrency }</span>
-          <span className="user-cash">{ userCreditsCash }</span>
-          <span className="icon-drop icon-expand-downs"></span>
-        </div>
-      </div>
+      <UserItem value={ userCreditsCash }
+                addon={ userCreditsCurrency }
+                label={ userCreditsTitle }
+                icon="icon-nav-cash" />
     )
   }
 
@@ -117,7 +103,7 @@ class User extends React.Component {
         <div className="user-info">
           { this.getUserInfo() }
         </div>
-        { userCreditsCash !== undefined ? this.getUserCredits(userCreditsCash) : null }
+        { userCreditsCash !== undefined ? this.getUserCredits() : null }
       </div>
     )
   }

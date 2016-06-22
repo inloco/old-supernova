@@ -1,10 +1,13 @@
 jest.unmock("../../../src/components/Sidebar/Main")
 jest.unmock("../../../src/components/Sidebar/Logo")
-jest.unmock("../../../src/components/Sidebar/User")
+jest.unmock("../../../src/components/Sidebar/User/Main")
+jest.unmock("../../../src/components/Sidebar/User/Item")
 jest.unmock("../../../src/components/Sidebar/Menu/Main")
 jest.unmock("../../../src/components/Sidebar/Menu/Item")
 jest.unmock("../../../src/components/Sidebar/Footer/Main")
 jest.unmock("../../../src/components/Sidebar/Footer/Link")
+jest.unmock("../../../src/components/Dropdown/Main")
+jest.unmock("../../../src/components/Dropdown/Item")
 jest.unmock("../../../src/helpers/sidebar")
 jest.unmock("./base-factory")
 
@@ -12,7 +15,7 @@ import React from "react"
 import Factory from "./base-factory"
 import Sidebar from "../../../src/components/Sidebar/Main"
 import SidebarLogo from "../../../src/components/Sidebar/Logo"
-import SidebarUser from "../../../src/components/Sidebar/User"
+import SidebarUser from "../../../src/components/Sidebar/User/Main"
 import SidebarMenu from "../../../src/components/Sidebar/Menu/Main"
 import SidebarMenuItem from "../../../src/components/Sidebar/Menu/Item"
 import SidebarFooter from "../../../src/components/Sidebar/Footer/Main"
