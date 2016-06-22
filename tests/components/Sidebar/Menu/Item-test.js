@@ -7,31 +7,35 @@ describe("Sidebar Item", () => {
   const node = factory.getNode()
 
   it("has one item with two children", () => {
-    expect(node.querySelector("ul")
+    expect(node.querySelector(".main-menu")
                .querySelector("ul")
                .children
                .length).toEqual(2)
   })
 
   it("has four items", () => {
-    expect(node.querySelectorAll("li")
+    expect(node.querySelector(".main-menu")
+               .querySelectorAll("li")
                .length).toEqual(4)
   })
 
   it("has href", () => {
-    expect(node.querySelectorAll("li")[3]
+    expect(node.querySelector(".main-menu")
+               .querySelectorAll("li")[3]
                .querySelector("a")
                .getAttribute("href")).toEqual("#B")
   })
 
   it("has icon", () => {
-    expect(node.querySelectorAll("li")[3]
+    expect(node.querySelector(".main-menu")
+               .querySelectorAll("li")[3]
                .getAttribute("class")
                .includes("icon-nav-cash")).toBeTruthy
   })
 
   it("has label", () => {
-    expect(node.querySelectorAll("li")[3]
+    expect(node.querySelector(".main-menu")
+               .querySelectorAll("li")[3]
                .textContent).toEqual("Earnings")
   })
 })
