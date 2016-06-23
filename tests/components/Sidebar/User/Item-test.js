@@ -9,10 +9,14 @@ describe("Sidebar User item", () => {
   it("has credits", () => {
     expect(node.querySelector(".user-credits-cash > p").textContent)
                .toEqual("Credits")
+  })
 
+  it("has currency", () => {
     expect(node.querySelector(".user-credits-cash > .user-currency").textContent)
                .toEqual("R$")
+  })
 
+  it("has cash", () => {
     expect(node.querySelector(".user-credits-cash > .user-cash").textContent)
                .toEqual("0.00")
   })
