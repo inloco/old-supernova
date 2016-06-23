@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Ballon = exports.CellDataTitle = exports.CellData = exports.CellHead = exports.TableBody = exports.TableRow = exports.TableHead = exports.Table = exports.Sidebar = exports.SidebarLogo = exports.SidebarMenuItem = exports.SidebarMenu = exports.SidebarFooterLink = exports.SidebarFooter = exports.HeaderItem = exports.Header = exports.DropdownGroup = exports.DropdownItem = exports.Dropdown = exports.ChartArea = undefined;
+exports.Ballon = exports.CellDataTitle = exports.CellData = exports.CellHead = exports.TableBody = exports.TableRow = exports.TableHead = exports.Table = exports.Sidebar = exports.SidebarUser = exports.SidebarLogo = exports.SidebarMenuItem = exports.SidebarMenu = exports.SidebarFooterLink = exports.SidebarFooter = exports.HeaderItem = exports.Header = exports.DropdownGroup = exports.DropdownItem = exports.Dropdown = exports.ChartArea = undefined;
 
 var _Area = require("./components/Chart/Area");
 
@@ -48,6 +48,10 @@ var _Item6 = _interopRequireDefault(_Item5);
 var _Logo = require("./components/Sidebar/Logo");
 
 var _Logo2 = _interopRequireDefault(_Logo);
+
+var _User = require("./components/Sidebar/User");
+
+var _User2 = _interopRequireDefault(_User);
 
 var _Main9 = require("./components/Sidebar/Main");
 
@@ -98,6 +102,7 @@ exports.SidebarFooterLink = _Link2.default;
 exports.SidebarMenu = _Main8.default;
 exports.SidebarMenuItem = _Item6.default;
 exports.SidebarLogo = _Logo2.default;
+exports.SidebarUser = _User2.default;
 exports.Sidebar = _Main10.default;
 exports.Table = _Main12.default;
 exports.TableHead = _Head2.default;
