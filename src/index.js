@@ -19,6 +19,7 @@ import CellHead from "./components/Table/Cell/Head"
 import CellData from "./components/Table/Cell/Data/Main"
 import CellDataTitle from "./components/Table/Cell/Data/Title"
 import Ballon from "./components/Ballon"
+import Info from "./components/Info"
 
 export {
   ChartArea,
@@ -41,5 +42,7 @@ export {
   CellHead,
   CellData,
   CellDataTitle,
-  Ballon
+  Ballon,
+  Info
 }
+
