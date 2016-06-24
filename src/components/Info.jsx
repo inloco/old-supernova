@@ -9,7 +9,7 @@ class Info extends React.Component {
     const{ text } = this.props
 
     return (      
-      <span className="helper-bottom-left" data-original-title={text}>
+      <span className="helper-bottom-left" data-original-title={ text }>
          <span className="icon-16 icon-info"></span>
       </span>
     )
