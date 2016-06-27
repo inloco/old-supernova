@@ -1,6 +1,7 @@
 import React, { PropTypes } from "react"
+import BaseComponent from "./Component"
 
-class Ballon extends React.Component {
+class Ballon extends BaseComponent {
   static propTyes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
