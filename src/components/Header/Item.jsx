@@ -5,14 +5,22 @@ class Item extends React.Component {
     label: PropTypes.string.isRequired,
     href: PropTypes.string.isRequired
   }
+  
+  static defaultProps = {
+    noArrow: false
+  }
+  
+  getArrow() {
+    return <span className="icon icon-arrow-right"></span>
+  }
 
   render() {
-    const { label, href } = this.props
+    const { label, href, noArrow } = this.props
 
     return (
       <span>
-         <a href={ href }>{ label }</a>
-         <span className="icon icon-arrow-right"></span>
+        <a href={ href }>{ label }</a>
+        { noArrow ? null : this.getArrow() }
       </span>
     )
   }
