@@ -7,6 +7,7 @@
   "license": "ISC",
   "scripts": {
     "build": "babel ./src --out-dir ./build",
+    "build:watch": "babel ./src --out-dir ./build --watch",
     "test": "jest",
     "test:watch": "jest --watch"
   },
