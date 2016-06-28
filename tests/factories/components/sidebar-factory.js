@@ -41,7 +41,9 @@ class SidebarFactory extends Factory{
                      dropdownItemName="Publisher"
                      userCreditsCash="0.00"
                      userCreditsCurrency="R$"
-                     userCreditsTitle="Credits" />
+                     userCreditsTitle="Credits"
+                     userImpersonateHref="/en/applications"
+                     userImpersonateLabel="Retorne para x@inlocomedia.com" />
         <SidebarMenu currentPath="#A">
           <SidebarMenuItem label="Apps" href="#A" icon="icon-nav-campaigns">
             <SidebarMenuItem label="New App" href="A1"/>

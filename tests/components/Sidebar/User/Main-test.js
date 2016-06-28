@@ -66,4 +66,14 @@ describe("Sidebar User", () => {
     expect(node.querySelector(".dropdown > ul > li > a").getAttribute("href"))
                .toEqual("/en/publishers")
   })
+
+  it("has impersonate label", () => {
+    expect(node.querySelector(".user-info > div > a").textContent)
+               .toEqual("Retorne para x@inlocomedia.com")
+  })
+
+  it("has impersonate href", () => {
+    expect(node.querySelector(".user-info > div > a").getAttribute("href"))
+               .toEqual("/en/applications")
+  })
 })
