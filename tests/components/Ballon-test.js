@@ -5,7 +5,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import TestUtils from "react-addons-test-utils"
 import Ballon from "../../src/components/Ballon"
-import hasWrapperClass from "../shared/hasWrapperClass"
+import { hasWrapperClass, hasWrapperId } from "../shared/hasWrapper"
 
 describe("Ballon", () => {
   const ballon = TestUtils.renderIntoDocument(
@@ -13,11 +13,14 @@ describe("Ballon", () => {
             value="0"
             icon="icon-impressions"
             color="balloon-impressions"
-            wrapperClass="foo-wrapper" />
+            wrapperClass="foo-wrapper"
+            wrapperId="id-wrapper" />
   )
   const ballonNode = ReactDOM.findDOMNode(ballon)
   
   hasWrapperClass(ballonNode, "foo-wrapper")
+  
+  hasWrapperClass(ballonNode, "id-wrapper")
 
   it("has impressions on ballon-header", () => {
     expect(ballonNode.querySelector(".balloon-header").textContent).toEqual("impressions")

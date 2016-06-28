@@ -7,10 +7,19 @@ class Component extends React.Component {
   }
   
   _addWrapperClass() {
-    const wrapper = ReactDOM.findDOMNode(this)
     const { wrapperClass } = this.props
     
-    wrapper.classList.add(wrapperClass)
+    this._getNode().classList.add(wrapperClass)
+  }
+  
+  _addWrapperId() {
+    const { wrapperId } = this.props
+        
+    this._getNode().id = wrapperId
+  }
+  
+  _getNode() {
+    return ReactDOM.findDOMNode(this)
   }
 }
 
