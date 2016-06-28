@@ -5,7 +5,7 @@ import DropdownItem from "../../Dropdown/Item"
 
 class User extends React.Component {
   static propTyes = {
-    avatarName: PropTypes.string.isRequired,
+    avatarName: PropTypes.string,
     avatarSrc: PropTypes.string.isRequired,
     userEmail: PropTypes.string.isRequired,
     userName: PropTypes.string,
@@ -18,7 +18,9 @@ class User extends React.Component {
     logoutLabel: PropTypes.string.isRequired,
     userCreditsCash: PropTypes.string,
     userCreditsCurrency: PropTypes.string,
-    userCreditsTitle: PropTypes.string
+    userCreditsTitle: PropTypes.string,
+    userImpersonateHref: PropTypes.string,
+    userImpersonateLabel: PropTypes.string
   }
 
   getUserAvatar() {
@@ -31,8 +33,18 @@ class User extends React.Component {
     )
   }
 
+  getUserImpersonate() {
+    const{ userImpersonateHref, userImpersonateLabel } = this.props
+
+    return (
+      <a href={ userImpersonateHref }>
+        { userImpersonateLabel }
+      </a>
+    )
+  }
+
   getUserInfo() {
-    const{ userName, userEmail, currentDropdownItemName } = this.props
+    const{ userName, userEmail, currentDropdownItemName, userImpersonateLabel } = this.props
 
     return(
       <div>
@@ -42,7 +54,8 @@ class User extends React.Component {
         <span className="user-type">
           { userEmail }
         </span>
-        { currentDropdownItemName !== undefined ? this.getDropdown() : null}
+        { currentDropdownItemName !== undefined ? this.getDropdown() : null }
+        { userImpersonateLabel !== undefined ? this.getUserImpersonate() : null }
         { this.getUserLogin() }
       </div>
     )

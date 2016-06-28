@@ -3,7 +3,7 @@ import React, { PropTypes } from "react"
 class Logo extends React.Component {
   static propTypes = {
     href: PropTypes.string.isRequired,
-    imageName: PropTypes.string.isRequired,
+    imageName: PropTypes.string,
     src: PropTypes.string.isRequired
   }
 
