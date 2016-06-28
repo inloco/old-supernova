@@ -1,4 +1,3 @@
-import ChartArea from "./components/Chart/Area"
 import Dropdown from "./components/Dropdown/Main"
 import DropdownItem from "./components/Dropdown/Item"
 import DropdownGroup from "./components/Dropdown/Group"
@@ -22,7 +21,6 @@ import Ballon from "./components/Ballon"
 import Info from "./components/Info"
 
 export {
-  ChartArea,
   Dropdown,
   DropdownItem,
   DropdownGroup,
