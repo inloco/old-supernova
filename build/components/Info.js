@@ -18,57 +18,33 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Ballon = function (_React$Component) {
-  _inherits(Ballon, _React$Component);
+var Info = function (_React$Component) {
+  _inherits(Info, _React$Component);
 
-  function Ballon() {
-    _classCallCheck(this, Ballon);
+  function Info() {
+    _classCallCheck(this, Info);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Ballon).apply(this, arguments));
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Info).apply(this, arguments));
   }
 
-  _createClass(Ballon, [{
+  _createClass(Info, [{
     key: "render",
     value: function render() {
-      var _props = this.props;
-      var label = _props.label;
-      var value = _props.value;
-      var icon = _props.icon;
-      var color = _props.color;
-      var addon = _props.addon;
+      var text = this.props.text;
 
 
       return _react2.default.createElement(
-        "div",
-        { className: "balloon squared" },
-        _react2.default.createElement(
-          "div",
-          { className: "balloon-header " + color },
-          _react2.default.createElement("span", { className: "icon-24 " + icon }),
-          label
-        ),
-        _react2.default.createElement(
-          "div",
-          { className: "balloon-body" },
-          addon != null ? _react2.default.createElement(
-            "span",
-            { className: "balloon-body-currency" },
-            addon
-          ) : null,
-          value
-        )
+        "span",
+        { className: "helper-bottom-left", "data-original-title": text },
+        _react2.default.createElement("span", { className: "icon-16 icon-info" })
       );
     }
   }]);
 
-  return Ballon;
+  return Info;
 }(_react2.default.Component);
 
-Ballon.propTyes = {
-  label: _react.PropTypes.string.isRequired,
-  value: _react.PropTypes.string.isRequired,
-  icon: _react.PropTypes.string.isRequired,
-  color: _react.PropTypes.string.isRequired,
-  addon: _react.PropTypes.string
+Info.propTyes = {
+  text: _react.PropTypes.string.isRequired
 };
-exports.default = Ballon;
+exports.default = Info;
