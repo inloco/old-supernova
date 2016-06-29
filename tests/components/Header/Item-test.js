@@ -7,10 +7,6 @@ describe("Header Item", () => {
   const node = factory.getNode()
   const children = node.querySelectorAll("a")
 
-  it("has 3 children", () => {
-    expect(children.length).toEqual(3)
-  })
-
   it("has href", () => {
     expect(children[1].getAttribute("href")).toEqual("#B")
   })

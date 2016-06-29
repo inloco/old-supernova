@@ -5,15 +5,12 @@ import SidebarFactory from "../../../factories/components/sidebar-factory"
 describe("Sidebar User", () => {
   const factory = new SidebarFactory
   const node = factory.getNode()
+  const dropdownNode = node.querySelector(".dropdown > ul > li > a")
+  const impersonateNode = node.querySelector(".user-info > div > a")
 
   it("has avatar", () => {
     expect(node.querySelectorAll("img")[1]
                .getAttribute("src")).toEqual("http://localhost:4000/assets/v2/1_0x/inloco-avatar.jpg")
-  })
-
-  it("has avatar name", () => {
-    expect(node.querySelectorAll("img")[1]
-               .getAttribute("data-image")).toEqual("inloco-avatar.jpg")
   })
 
   it("has user name", () => {
@@ -39,7 +36,6 @@ describe("Sidebar User", () => {
   })
 
   it("has logout", () => {
-
     expect(node.querySelectorAll(".user-login > li")[1]
                .querySelector("a").textContent)
                .toEqual("Logout")
@@ -58,22 +54,22 @@ describe("Sidebar User", () => {
   })
 
   it("has second dropdown", () => {
-    expect(node.querySelector(".dropdown > ul > li > a").textContent)
+    expect(dropdownNode.textContent)
                .toEqual("Publisher")
   })
 
   it("has dropdown href", () => {
-    expect(node.querySelector(".dropdown > ul > li > a").getAttribute("href"))
+    expect(dropdownNode.getAttribute("href"))
                .toEqual("/en/publishers")
   })
 
   it("has impersonate label", () => {
-    expect(node.querySelector(".user-info > div > a").textContent)
+    expect(impersonateNode.textContent)
                .toEqual("Retorne para x@inlocomedia.com")
   })
 
   it("has impersonate href", () => {
-    expect(node.querySelector(".user-info > div > a").getAttribute("href"))
+    expect(impersonateNode.getAttribute("href"))
                .toEqual("/en/applications")
   })
 })

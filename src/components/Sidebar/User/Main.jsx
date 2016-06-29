@@ -5,7 +5,6 @@ import DropdownItem from "../../Dropdown/Item"
 
 class User extends React.Component {
   static propTyes = {
-    avatarName: PropTypes.string,
     avatarSrc: PropTypes.string.isRequired,
     userEmail: PropTypes.string.isRequired,
     userName: PropTypes.string,
@@ -16,19 +15,19 @@ class User extends React.Component {
     accountLabel: PropTypes.string.isRequired,
     logoutHref: PropTypes.string.isRequired,
     logoutLabel: PropTypes.string.isRequired,
-    userCreditsCash: PropTypes.string,
-    userCreditsCurrency: PropTypes.string,
-    userCreditsTitle: PropTypes.string,
+    creditsCash: PropTypes.string,
+    creditsCurrency: PropTypes.string,
+    creditsTitle: PropTypes.string,
     userImpersonateHref: PropTypes.string,
     userImpersonateLabel: PropTypes.string
   }
 
   getUserAvatar() {
-    const{ avatarName, avatarSrc } = this.props
+    const{ avatarSrc } = this.props
 
     return (
       <div className="user-avatar-mask">
-        <img data-image={ avatarName } className="avatar" src={ avatarSrc }/>
+        <img className="avatar" src={ avatarSrc }/>
       </div>
     )
   }
@@ -95,18 +94,18 @@ class User extends React.Component {
   }
 
   getUserCredits() {
-    const{ userCreditsCash, userCreditsCurrency, userCreditsTitle } = this.props
+    const{ creditsCash, creditsCurrency, creditsTitle } = this.props
 
     return (
-      <UserItem value={ userCreditsCash }
-                addon={ userCreditsCurrency }
-                label={ userCreditsTitle }
+      <UserItem value={ creditsCash }
+                addon={ creditsCurrency }
+                label={ creditsTitle }
                 icon="icon-nav-cash" />
     )
   }
 
   render() {
-    const{ userCreditsCash } = this.props
+    const{ creditsCash } = this.props
 
     return (
       <div className="user">
@@ -116,7 +115,7 @@ class User extends React.Component {
         <div className="user-info">
           { this.getUserInfo() }
         </div>
-        { userCreditsCash !== undefined ? this.getUserCredits() : null }
+        { creditsCash !== undefined ? this.getUserCredits() : null }
       </div>
     )
   }

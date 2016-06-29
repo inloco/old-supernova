@@ -3,11 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Info = exports.Ballon = exports.CellDataTitle = exports.CellData = exports.CellHead = exports.TableBody = exports.TableRow = exports.TableHead = exports.Table = exports.Sidebar = exports.SidebarUserItem = exports.SidebarUser = exports.SidebarLogo = exports.SidebarMenuItem = exports.SidebarMenu = exports.SidebarFooterLink = exports.SidebarFooter = exports.HeaderItem = exports.Header = exports.DropdownGroup = exports.DropdownItem = exports.Dropdown = exports.ChartArea = undefined;
-
-var _Area = require("./components/Chart/Area");
-
-var _Area2 = _interopRequireDefault(_Area);
+exports.Info = exports.Ballon = exports.CellDataTitle = exports.CellData = exports.CellHead = exports.TableBody = exports.TableRow = exports.TableHead = exports.Table = exports.Sidebar = exports.SidebarUserItem = exports.SidebarUser = exports.SidebarLogo = exports.SidebarMenuItem = exports.SidebarMenu = exports.SidebarFooterLink = exports.SidebarFooter = exports.HeaderItem = exports.Header = exports.DropdownGroup = exports.DropdownItem = exports.Dropdown = undefined;
 
 var _Main = require("./components/Dropdown/Main");
 
@@ -99,7 +95,6 @@ var _Info2 = _interopRequireDefault(_Info);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.ChartArea = _Area2.default;
 exports.Dropdown = _Main2.default;
 exports.DropdownItem = _Item2.default;
 exports.DropdownGroup = _Group2.default;
