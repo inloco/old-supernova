@@ -17,7 +17,6 @@ describe("Input", () => {
   const inputNode = ReactDOM.findDOMNode(input).querySelector("input")
 
   it("has id", () => {
-    console.log("zdfasghfgh:", inputNode.innerHTML)
     expect(inputNode.getAttribute("id").includes("publisher-id")).toBeTruthy
   })
 

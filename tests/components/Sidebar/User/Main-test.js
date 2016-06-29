@@ -29,7 +29,6 @@ describe("Sidebar User", () => {
   })
 
   it("has login href", () => {
-
     expect(node.querySelector(".user-login > li > a")
                .getAttribute("href"))
                .toEqual("/en/publishers/registrations")
