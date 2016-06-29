@@ -9,7 +9,8 @@
     "build": "babel ./src --out-dir ./build",
     "build:watch": "babel ./src --out-dir ./build --watch",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "autoprefixer": "^6.3.5",
