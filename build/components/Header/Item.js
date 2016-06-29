@@ -28,11 +28,17 @@ var Item = function (_React$Component) {
   }
 
   _createClass(Item, [{
+    key: "getArrow",
+    value: function getArrow() {
+      return _react2.default.createElement("span", { className: "icon icon-arrow-right" });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _props = this.props;
       var label = _props.label;
       var href = _props.href;
+      var noArrow = _props.noArrow;
 
 
       return _react2.default.createElement(
@@ -43,7 +49,7 @@ var Item = function (_React$Component) {
           { href: href },
           label
         ),
-        _react2.default.createElement("span", { className: "icon icon-arrow-right" })
+        noArrow ? null : this.getArrow()
       );
     }
   }]);
@@ -54,5 +60,8 @@ var Item = function (_React$Component) {
 Item.propTypes = {
   label: _react.PropTypes.string.isRequired,
   href: _react.PropTypes.string.isRequired
+};
+Item.defaultProps = {
+  noArrow: false
 };
 exports.default = Item;

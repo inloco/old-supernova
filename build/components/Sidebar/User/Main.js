@@ -42,15 +42,27 @@ var User = function (_React$Component) {
   _createClass(User, [{
     key: "getUserAvatar",
     value: function getUserAvatar() {
-      var _props = this.props;
-      var avatarName = _props.avatarName;
-      var avatarSrc = _props.avatarSrc;
+      var avatarSrc = this.props.avatarSrc;
 
 
       return _react2.default.createElement(
         "div",
         { className: "user-avatar-mask" },
-        _react2.default.createElement("img", { "data-image": avatarName, className: "avatar", src: avatarSrc })
+        _react2.default.createElement("img", { className: "avatar", src: avatarSrc })
+      );
+    }
+  }, {
+    key: "getUserImpersonate",
+    value: function getUserImpersonate() {
+      var _props = this.props;
+      var userImpersonateHref = _props.userImpersonateHref;
+      var userImpersonateLabel = _props.userImpersonateLabel;
+
+
+      return _react2.default.createElement(
+        "a",
+        { href: userImpersonateHref },
+        userImpersonateLabel
       );
     }
   }, {
@@ -60,6 +72,7 @@ var User = function (_React$Component) {
       var userName = _props2.userName;
       var userEmail = _props2.userEmail;
       var currentDropdownItemName = _props2.currentDropdownItemName;
+      var userImpersonateLabel = _props2.userImpersonateLabel;
 
 
       return _react2.default.createElement(
@@ -76,6 +89,7 @@ var User = function (_React$Component) {
           userEmail
         ),
         currentDropdownItemName !== undefined ? this.getDropdown() : null,
+        userImpersonateLabel !== undefined ? this.getUserImpersonate() : null,
         this.getUserLogin()
       );
     }
@@ -135,20 +149,20 @@ var User = function (_React$Component) {
     key: "getUserCredits",
     value: function getUserCredits() {
       var _props5 = this.props;
-      var userCreditsCash = _props5.userCreditsCash;
-      var userCreditsCurrency = _props5.userCreditsCurrency;
-      var userCreditsTitle = _props5.userCreditsTitle;
+      var creditsCash = _props5.creditsCash;
+      var creditsCurrency = _props5.creditsCurrency;
+      var creditsTitle = _props5.creditsTitle;
 
 
-      return _react2.default.createElement(_Item2.default, { value: userCreditsCash,
-        addon: userCreditsCurrency,
-        label: userCreditsTitle,
+      return _react2.default.createElement(_Item2.default, { value: creditsCash,
+        addon: creditsCurrency,
+        label: creditsTitle,
         icon: "icon-nav-cash" });
     }
   }, {
     key: "render",
     value: function render() {
-      var userCreditsCash = this.props.userCreditsCash;
+      var creditsCash = this.props.creditsCash;
 
 
       return _react2.default.createElement(
@@ -164,7 +178,7 @@ var User = function (_React$Component) {
           { className: "user-info" },
           this.getUserInfo()
         ),
-        userCreditsCash !== undefined ? this.getUserCredits() : null
+        creditsCash !== undefined ? this.getUserCredits() : null
       );
     }
   }]);
@@ -173,7 +187,6 @@ var User = function (_React$Component) {
 }(_react2.default.Component);
 
 User.propTyes = {
-  avatarName: _react.PropTypes.string.isRequired,
   avatarSrc: _react.PropTypes.string.isRequired,
   userEmail: _react.PropTypes.string.isRequired,
   userName: _react.PropTypes.string,
@@ -184,8 +197,10 @@ User.propTyes = {
   accountLabel: _react.PropTypes.string.isRequired,
   logoutHref: _react.PropTypes.string.isRequired,
   logoutLabel: _react.PropTypes.string.isRequired,
-  userCreditsCash: _react.PropTypes.string,
-  userCreditsCurrency: _react.PropTypes.string,
-  userCreditsTitle: _react.PropTypes.string
+  creditsCash: _react.PropTypes.string,
+  creditsCurrency: _react.PropTypes.string,
+  creditsTitle: _react.PropTypes.string,
+  userImpersonateHref: _react.PropTypes.string,
+  userImpersonateLabel: _react.PropTypes.string
 };
 exports.default = User;

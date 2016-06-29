@@ -39,11 +39,23 @@ var Component = function (_React$Component) {
   }, {
     key: "_addWrapperClass",
     value: function _addWrapperClass() {
-      var wrapper = _reactDom2.default.findDOMNode(this);
       var wrapperClass = this.props.wrapperClass;
 
 
-      wrapper.classList.add(wrapperClass);
+      this._getNode().classList.add(wrapperClass);
+    }
+  }, {
+    key: "_addWrapperId",
+    value: function _addWrapperId() {
+      var wrapperId = this.props.wrapperId;
+
+
+      this._getNode().id = wrapperId;
+    }
+  }, {
+    key: "_getNode",
+    value: function _getNode() {
+      return _reactDom2.default.findDOMNode(this);
     }
   }]);
 

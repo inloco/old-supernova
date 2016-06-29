@@ -15,8 +15,5 @@ describe("Sidebar Logo", () => {
 
     expect(node.querySelector("img")
                .getAttribute("src")).toEqual("http://localhost:4000/assets/v2/1_0x/brand-inlocomedia.png")
-
-    expect(node.querySelector("img")
-               .getAttribute("data-image")).toEqual("brand-inlocomedia.png")
   })
 })

@@ -26,10 +26,8 @@ class SidebarFactory extends Factory{
     return(
       <Sidebar>
         <SidebarLogo href="/en"
-              imageName="brand-inlocomedia.png"
-              src="http://localhost:4000/assets/v2/1_0x/brand-inlocomedia.png"/>
-        <SidebarUser avatarName="inloco-avatar.jpg"
-                     avatarSrc="http://localhost:4000/assets/v2/1_0x/inloco-avatar.jpg"
+                     src="http://localhost:4000/assets/v2/1_0x/brand-inlocomedia.png"/>
+        <SidebarUser avatarSrc="http://localhost:4000/assets/v2/1_0x/inloco-avatar.jpg"
                      userName="Publisher2"
                      userEmail="publisher@inlocomedia.com"
                      accountHref="/en/publishers/registrations"
@@ -39,9 +37,11 @@ class SidebarFactory extends Factory{
                      currentDropdownItemName="Advertiser"
                      dropdownItemHref="/en/publishers"
                      dropdownItemName="Publisher"
-                     userCreditsCash="0.00"
-                     userCreditsCurrency="R$"
-                     userCreditsTitle="Credits" />
+                     creditsCash="0.00"
+                     creditsCurrency="R$"
+                     creditsTitle="Credits"
+                     userImpersonateHref="/en/applications"
+                     userImpersonateLabel="Retorne para x@inlocomedia.com" />
         <SidebarMenu currentPath="#A">
           <SidebarMenuItem label="Apps" href="#A" icon="icon-nav-campaigns">
             <SidebarMenuItem label="New App" href="A1"/>

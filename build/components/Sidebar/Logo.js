@@ -32,7 +32,6 @@ var Logo = function (_React$Component) {
     value: function render() {
       var _props = this.props;
       var href = _props.href;
-      var imageName = _props.imageName;
       var src = _props.src;
 
 
@@ -42,7 +41,7 @@ var Logo = function (_React$Component) {
         _react2.default.createElement(
           "a",
           { href: href },
-          _react2.default.createElement("img", { "data-image": imageName, src: src })
+          _react2.default.createElement("img", { src: src })
         )
       );
     }
@@ -53,7 +52,6 @@ var Logo = function (_React$Component) {
 
 Logo.propTypes = {
   href: _react.PropTypes.string.isRequired,
-  imageName: _react.PropTypes.string.isRequired,
   src: _react.PropTypes.string.isRequired
 };
 exports.default = Logo;
