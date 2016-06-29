@@ -10,9 +10,9 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Component = require("./Component");
+var _reactDom = require("react-dom");
 
-var _Component2 = _interopRequireDefault(_Component);
+var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,57 +22,32 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Ballon = function (_BaseComponent) {
-  _inherits(Ballon, _BaseComponent);
+var Component = function (_React$Component) {
+  _inherits(Component, _React$Component);
 
-  function Ballon() {
-    _classCallCheck(this, Ballon);
+  function Component() {
+    _classCallCheck(this, Component);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Ballon).apply(this, arguments));
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Component).apply(this, arguments));
   }
 
-  _createClass(Ballon, [{
-    key: "render",
-    value: function render() {
-      var _props = this.props;
-      var label = _props.label;
-      var value = _props.value;
-      var icon = _props.icon;
-      var color = _props.color;
-      var addon = _props.addon;
+  _createClass(Component, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this._addWrapperClass();
+    }
+  }, {
+    key: "_addWrapperClass",
+    value: function _addWrapperClass() {
+      var wrapper = _reactDom2.default.findDOMNode(this);
+      var wrapperClass = this.props.wrapperClass;
 
 
-      return _react2.default.createElement(
-        "div",
-        { className: "balloon squared statistic-impressions" },
-        _react2.default.createElement(
-          "div",
-          { className: "balloon-header " + color },
-          _react2.default.createElement("span", { className: "icon-24 " + icon }),
-          label
-        ),
-        _react2.default.createElement(
-          "div",
-          { className: "balloon-body" },
-          addon != null ? _react2.default.createElement(
-            "span",
-            { className: "balloon-body-currency" },
-            addon
-          ) : null,
-          value
-        )
-      );
+      wrapper.classList.add(wrapperClass);
     }
   }]);
 
-  return Ballon;
-}(_Component2.default);
+  return Component;
+}(_react2.default.Component);
 
-Ballon.propTyes = {
-  label: _react.PropTypes.string.isRequired,
-  value: _react.PropTypes.string.isRequired,
-  icon: _react.PropTypes.string.isRequired,
-  color: _react.PropTypes.string.isRequired,
-  addon: _react.PropTypes.string
-};
-exports.default = Ballon;
+exports.default = Component;
