@@ -4,15 +4,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
-
-var _Component = require("./Component");
-
-var _Component2 = _interopRequireDefault(_Component);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,57 +20,53 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Ballon = function (_BaseComponent) {
-  _inherits(Ballon, _BaseComponent);
+var Input = function (_React$Component) {
+  _inherits(Input, _React$Component);
 
-  function Ballon() {
-    _classCallCheck(this, Ballon);
+  function Input() {
+    _classCallCheck(this, Input);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Ballon).apply(this, arguments));
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Input).apply(this, arguments));
   }
 
-  _createClass(Ballon, [{
+  _createClass(Input, [{
     key: "render",
     value: function render() {
       var _props = this.props;
-      var label = _props.label;
-      var value = _props.value;
-      var icon = _props.icon;
-      var color = _props.color;
-      var addon = _props.addon;
+      var id = _props.id;
+      var type = _props.type;
+      var placeholder = _props.placeholder;
+      var name = _props.name;
+      var isRequired = _props.isRequired;
 
+      var ops = {};
+
+      if (isRequired) {
+        ops.required = "true";
+      }
 
       return _react2.default.createElement(
         "div",
-        { className: "balloon squared" },
-        _react2.default.createElement(
-          "div",
-          { className: "balloon-header " + color },
-          _react2.default.createElement("span", { className: "icon-24 " + icon }),
-          label
-        ),
-        _react2.default.createElement(
-          "div",
-          { className: "balloon-body" },
-          addon != null ? _react2.default.createElement(
-            "span",
-            { className: "balloon-body-currency" },
-            addon
-          ) : null,
-          value
-        )
+        { className: "form-control-wrapper" },
+        _react2.default.createElement("input", _extends({ id: id,
+          className: "form-control",
+          type: type,
+          placeholder: placeholder,
+          name: name
+        }, ops)),
+        _react2.default.createElement("span", { className: "material-input" })
       );
     }
   }]);
 
-  return Ballon;
-}(_Component2.default);
+  return Input;
+}(_react2.default.Component);
 
-Ballon.propTyes = {
-  label: _react.PropTypes.string.isRequired,
-  value: _react.PropTypes.string.isRequired,
-  icon: _react.PropTypes.string.isRequired,
-  color: _react.PropTypes.string.isRequired,
-  addon: _react.PropTypes.string
+Input.propTyes = {
+  id: _react.PropTypes.string.isRequired,
+  type: _react.PropTypes.string.isRequired,
+  placeholder: _react.PropTypes.string.isRequired,
+  name: _react.PropTypes.string.isRequired,
+  isRequired: _react.PropTypes.bool.isRequired
 };
-exports.default = Ballon;
+exports.default = Input;
