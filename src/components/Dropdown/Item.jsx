@@ -3,15 +3,16 @@ import React, { PropTypes } from 'react'
 class Item extends React.Component {
   static propTypes = {
     label: PropTypes.string.isRequired,
-    href: PropTypes.string.isRequired
+    href: PropTypes.string.isRequired,
+    id: PropTypes.string
   }
-  
+
   render() {
-    const { label, href } = this.props
-    
+    const { label, href, id } = this.props
+
     return (
       <li role="presentation">
-        <a role="menuitem" tabindex="-1" href={ href }>
+        <a id={ id !== undefined ? id : null } role="menuitem" tabIndex="-1" href={ href }>
           { label }
         </a>
       </li>

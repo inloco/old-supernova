@@ -13,12 +13,13 @@ class DropdownFactory extends Factory{
   template() {
     return(
       <DropdownGroup>
-        <Dropdown label="Current month"
+        <Dropdown id="dropdown_id"
+                  label="Current month"
                   secondaryLabel="Period:"
                   side="right"
                   secondaryIcon="icon-time"
                   icon="icon-drop-down">
-          <DropdownItem label="Link A" href="#a" />
+          <DropdownItem id="dropdown_item_id" label="Link A" href="#a" />
           <DropdownItem label="Link B" href="#b" />
           <DropdownItem label="Link C" href="#c" />
         </Dropdown>

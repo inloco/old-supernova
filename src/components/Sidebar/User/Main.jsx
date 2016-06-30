@@ -9,8 +9,10 @@ class User extends React.Component {
     userEmail: PropTypes.string.isRequired,
     userName: PropTypes.string,
     currentDropdownItemName: PropTypes.string,
+    currentDropdownItemId: PropTypes.string,
     dropdownItemHref: PropTypes.string,
     dropdownItemName: PropTypes.string,
+    dropdownItemId: PropTypes.string,
     accountHref: PropTypes.string.isRequired,
     accountLabel: PropTypes.string.isRequired,
     logoutHref: PropTypes.string.isRequired,
@@ -61,13 +63,20 @@ class User extends React.Component {
   }
 
   getDropdown() {
-    const{ currentDropdownItemName, dropdownItemHref, dropdownItemName } = this.props
+    const{ currentDropdownItemName,
+           currentDropdownItemId,
+           dropdownItemHref,
+           dropdownItemName,
+           dropdownItemId } = this.props
 
     return (
       <Dropdown label={ currentDropdownItemName }
                 side="center"
-                icon="icon-drop-down">
-        <DropdownItem label={ dropdownItemName } href={ dropdownItemHref } />
+                icon="icon-drop-down"
+                id={ currentDropdownItemId }>
+        <DropdownItem id={ dropdownItemId }
+                      label={ dropdownItemName }
+                      href={ dropdownItemHref } />
       </Dropdown>
     )
   }

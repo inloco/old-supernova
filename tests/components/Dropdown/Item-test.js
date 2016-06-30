@@ -13,4 +13,8 @@ describe("Dropdown Item", () => {
   it("has a label", () => {
     expect(node.textContent).toEqual("Link A")
   })
+
+  it("has id", () => {
+    expect(node.getAttribute("id")).toEqual("dropdown_item_id")
+  })
 })
