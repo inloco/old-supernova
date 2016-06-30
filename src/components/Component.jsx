@@ -4,18 +4,23 @@ import ReactDOM from "react-dom"
 class Component extends React.Component {
   componentDidMount() {
     this._addWrapperClass()
+    this._addWrapperId()
   }
   
   _addWrapperClass() {
     const { wrapperClass } = this.props
     
-    this._getNode().classList.add(wrapperClass)
+    if(typeof wrapperClass !== "undefined") {
+      this._getNode().classList.add(wrapperClass)      
+    }
   }
   
   _addWrapperId() {
     const { wrapperId } = this.props
         
-    this._getNode().id = wrapperId
+    if(typeof wrapperId !== "undefined") {
+      this._getNode().id = wrapperId      
+    }
   }
   
   _getNode() {
