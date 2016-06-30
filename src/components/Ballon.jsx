@@ -1,7 +1,6 @@
 import React, { PropTypes } from "react"
-import BaseComponent from "./Component"
 
-class Ballon extends BaseComponent {
+class Ballon extends React.Component {
   static propTyes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
@@ -11,10 +10,10 @@ class Ballon extends BaseComponent {
   }
 
   render() {
-    const{ label, value, icon, color, addon } = this.props
+    const{ label, value, icon, color, addon, id } = this.props
 
      return (
-       <div className="balloon squared">
+       <div className="balloon squared" id={id}>
          <div className={ "balloon-header " + color }>
            <span className={ "icon-24 " + icon }></span>
            { label }
