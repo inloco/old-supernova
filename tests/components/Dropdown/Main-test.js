@@ -20,6 +20,10 @@ describe("Dropdown", () => {
     expect(node.querySelector("ul").children.length).toEqual(3)
   })
 
+  it("has id", () => {
+    expect(node.querySelector("a").getAttribute("id")).toEqual("dropdown_id")
+  })
+
   it("has label", () => {
     expect(node.querySelector("p").textContent).toEqual("Period:")
   })

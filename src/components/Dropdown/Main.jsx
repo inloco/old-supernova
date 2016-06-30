@@ -7,7 +7,8 @@ class Dropdown extends React.Component {
     label: PropTypes.string,
     secondaryLabel: PropTypes.string,
     secondaryIcon: PropTypes.string,
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    id: PropTypes.string
   }
 
   static defaultProps = {
@@ -40,13 +41,13 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { icon, side, children } = this.props
+    const { icon, side, children, id } = this.props
 
     return (
       <div className="dropdown">
         { this.getSecondaryLabel() }
         { this.getSecondaryIcon() }
-        <a className="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#">
+        <a id={ id !== undefined ? id : null } className="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#">
           { this.getLabel() }
           <span className={ 'icon-24 ' + icon }></span>
         </a>
