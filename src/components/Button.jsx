@@ -5,12 +5,12 @@ class Button extends React.Component {
     label: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     size: PropTypes.string.isRequired,
+    isDisabled: PropTypes.bool.isRequired,
     id: PropTypes.string,
     icon: PropTypes.string,
     href: PropTypes.string,
     style: PropTypes.string,
-    secondaryStyle: PropTypes.string,
-    isDisabled: PropTypes.bool
+    secondaryStyle: PropTypes.string
   }
 
   getButtonHref() {
