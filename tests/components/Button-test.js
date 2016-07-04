@@ -57,24 +57,24 @@ describe("Button", () => {
   it("is not disabled", () => {
     expect(btnNode.getAttribute("disabled")).toBeFalsy
   })
-})
 
-describe("Button", () => {
-  const button = TestUtils.renderIntoDocument(
-    <Button id="butotn-id"
-            type="default"
-            label="App"
-            size="xs"
-            icon="icon-add"
-            href="/en/publishers/applications/new"
-            style="btn-raised"
-            secondaryStyle="finish-button"
-            isDisabled={ true } />
-  )
+  describe("when is disabled", () => {
+    const button = TestUtils.renderIntoDocument(
+      <Button id="butotn-id"
+              type="default"
+              label="App"
+              size="xs"
+              icon="icon-add"
+              href="/en/publishers/applications/new"
+              style="btn-raised"
+              secondaryStyle="finish-button"
+              isDisabled={ true } />
+    )
 
-  const buttonNode = ReactDOM.findDOMNode(button).querySelector("button")
+    const buttonNode = ReactDOM.findDOMNode(button).querySelector("button")
 
-  it("is disabled", () => {
-    expect(buttonNode.getAttribute("disabled")).toBeTruthy
+    it("is disabled", () => {
+      expect(buttonNode.getAttribute("disabled")).toBeTruthy
+    })
   })
 })

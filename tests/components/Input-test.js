@@ -37,20 +37,20 @@ describe("Input", () => {
   it("is not required", () => {
     expect(inputNode.getAttribute("required")).toBeFalsy
   })
-})
 
-describe("not required", () => {
-  const input = TestUtils.renderIntoDocument(
-    <Input id="publisher-id"
-           type="text"
-           placeholder="Digite seu nome"
-           name="publisher[nome]"
-           isRequired={ true } />
-  )
+  describe("not required", () => {
+    const input = TestUtils.renderIntoDocument(
+      <Input id="publisher-id"
+             type="text"
+             placeholder="Digite seu nome"
+             name="publisher[nome]"
+             isRequired={ true } />
+    )
 
-  const inputNode = ReactDOM.findDOMNode(input).querySelector("input")
+    const inputNode = ReactDOM.findDOMNode(input).querySelector("input")
 
-  it("is required", () => {
-    expect(inputNode.getAttribute("required")).toBeTruthy
+    it("is required", () => {
+      expect(inputNode.getAttribute("required")).toBeTruthy
+    })
   })
 })

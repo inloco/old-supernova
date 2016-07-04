@@ -23,25 +23,22 @@ class Button extends React.Component {
     )
   }
 
-  getButton() {
-    const { id, type, label, icon, size, style, secondaryStyle, isDisabled } = this.props
-    let ops = {}
+  getClasses() {
+    const { type, size, style, secondaryStyle } = this.props
 
-    if(isDisabled) {
-      ops.Disabled = "true"
-    }
+    return(
+      "btn btn-" + type + " " + style + " btn-" + size + " withripple " + secondaryStyle
+    )
+  }
+
+  getButton() {
+    const { id, label, icon, isDisabled } = this.props
+    const ops = { disabled: isDisabled }
 
     return (
       <button id={ id !== undefined ? id : null }
               type="button"
-              className={ "btn btn-" +
-                      type +
-                      " " +
-                      style +
-                      " btn-" +
-                      size +
-                      " withripple " +
-                      secondaryStyle }
+              className={ this.getClasses() }
               { ...ops }>
         <span className={ "icon " + icon }></span>
         <span className="button-txt">
