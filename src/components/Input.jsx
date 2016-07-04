@@ -11,11 +11,7 @@ class Input extends React.Component {
 
   render() {
     const { id, type, placeholder, name, isRequired } = this.props
-    let ops = {}
-
-    if(isRequired) {
-      ops.required = "true"
-    }
+    const ops = { required: isRequired }
 
     return (
       <div className="form-control-wrapper">
