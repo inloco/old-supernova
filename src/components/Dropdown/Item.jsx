@@ -13,11 +13,11 @@ class Item extends React.Component {
     const { label, href, id, dataDropdownSelect, dataDropdownSelectText } = this.props
 
     return (
-      <li role="presentation"
+      <li id={ id !== undefined ? id : null }
+          role="presentation"
           data-dropdown-select={ dataDropdownSelect !== undefined ? dataDropdownSelect : null }
           data-dropdown-select-text={ dataDropdownSelectText !== undefined ? dataDropdownSelectText : null }>
-        <a id={ id !== undefined ? id : null }
-           role="menuitem"
+        <a role="menuitem"
            tabIndex="-1"
            href={ href !== undefined ? href : null }>
           { label }

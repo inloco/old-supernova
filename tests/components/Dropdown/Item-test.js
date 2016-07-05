@@ -16,7 +16,7 @@ describe("Dropdown Item", () => {
   })
 
   it("has id", () => {
-    expect(node.getAttribute("id")).toEqual("dropdown_item_id")
+    expect(specificNode.getAttribute("id")).toEqual("dropdown_item_id")
   })
 
   it("has data dropdown select", () => {
