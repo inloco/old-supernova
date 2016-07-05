@@ -21,7 +21,7 @@ describe("Dropdown", () => {
   })
 
   it("has id", () => {
-    expect(node.querySelector("a").getAttribute("id")).toEqual("dropdown_id")
+    expect(node.querySelector(".dropdown").getAttribute("id")).toEqual("dropdown_id")
   })
 
   it("has label", () => {
