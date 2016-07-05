@@ -9,7 +9,7 @@ import Dropdown from "../../../src/components/Dropdown/Main"
 import DropdownItem from "../../../src/components/Dropdown/Item"
 import DropdownGroup from "../../../src/components/Dropdown/Group"
 
-class DropdownFactory extends Factory{
+class DropdownFactory extends Factory {
   template() {
     return(
       <DropdownGroup>
@@ -19,7 +19,11 @@ class DropdownFactory extends Factory{
                   side="right"
                   secondaryIcon="icon-time"
                   icon="icon-drop-down">
-          <DropdownItem id="dropdown_item_id" label="Link A" href="#a" />
+          <DropdownItem id="dropdown_item_id"
+                        label="Link A"
+                        href="#a"
+                        dataDropdownSelect="Today"
+                        dataDropdownSelectText="Hoje" />
           <DropdownItem label="Link B" href="#b" />
           <DropdownItem label="Link C" href="#c" />
         </Dropdown>
