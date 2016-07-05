@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 class Item extends React.Component {
   static propTypes = {
     label: PropTypes.string.isRequired,
-    href: PropTypes.string.isRequired,
+    href: PropTypes.string,
     id: PropTypes.string
   }
 
@@ -12,7 +12,10 @@ class Item extends React.Component {
 
     return (
       <li role="presentation">
-        <a id={ id !== undefined ? id : null } role="menuitem" tabIndex="-1" href={ href }>
+        <a id={ id !== undefined ? id : null }
+           role="menuitem"
+           tabIndex="-1"
+           href={ href !== undefined ? href : null }>
           { label }
         </a>
       </li>
