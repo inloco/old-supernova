@@ -20,6 +20,8 @@ import CellData from "./components/Table/Cell/Data/Main"
 import CellDataTitle from "./components/Table/Cell/Data/Title"
 import Ballon from "./components/Ballon"
 import Info from "./components/Info"
+import Input from "./components/Input"
+import Button from "./components/Button"
 
 export {
   Dropdown,
@@ -43,6 +45,7 @@ export {
   CellData,
   CellDataTitle,
   Ballon,
-  Info
+  Info,
+  Input,
+  Button
 }
-
