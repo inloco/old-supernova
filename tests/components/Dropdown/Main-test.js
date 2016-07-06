@@ -37,4 +37,8 @@ describe("Dropdown", () => {
                .getAttribute("class")
                .includes("icon-time")).toBeTruthy()
   })
+
+  it("has input", () => {
+    expect(node.querySelector("input").tagName).toEqual("INPUT")
+  })
 })

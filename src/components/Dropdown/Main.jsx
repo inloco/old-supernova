@@ -11,9 +11,10 @@ class Dropdown extends React.Component {
     children: PropTypes.node.isRequired,
     id: PropTypes.string,
     idInput: PropTypes.string,
+    typeInput: PropTypes.string,
     nameInput: PropTypes.string,
     valueInput: PropTypes.string,
-    dataRemoteInput: PropTypes.string
+    dataRemoteInput: PropTypes.bool
   }
 
   static defaultProps = {
@@ -45,8 +46,24 @@ class Dropdown extends React.Component {
     )
   }
 
+  getInput() {
+    const { idInput,
+            typeInput,
+            nameInput,
+            valueInput,
+            dataRemoteInput } = this.props
+
+    return (
+      <Input id={ idInput }
+             type={ typeInput }
+             name={ nameInput }
+             value={ valueInput }
+             dataRemoteInput={ dataRemoteInput } />
+    )
+  }
+
   render() {
-    const { icon, side, children, id } = this.props
+    const { icon, side, children, id, valueInput } = this.props
 
     return (
       <div id={ id !== undefined ? id : null } className="dropdown">
@@ -59,6 +76,7 @@ class Dropdown extends React.Component {
         <ul className={ 'dropdown-menu dropdown-menu-' + side } role="menu" aria-labelledby="dropdownMenu1">
           { children }
         </ul>
+        { valueInput !== undefined ? this.getInput() : null }
       </div>
     )
   }

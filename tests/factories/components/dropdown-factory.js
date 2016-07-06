@@ -2,6 +2,7 @@ jest.unmock("./base-factory")
 jest.unmock("../../../src/components/Dropdown/Main")
 jest.unmock("../../../src/components/Dropdown/Item")
 jest.unmock("../../../src/components/Dropdown/Group")
+jest.unmock("../../../src/components/Input")
 
 import React from "react"
 import Factory from "./base-factory"
@@ -18,7 +19,12 @@ class DropdownFactory extends Factory {
                   secondaryLabel="Period:"
                   side="right"
                   secondaryIcon="icon-time"
-                  icon="icon-drop-down">
+                  icon="icon-drop-down"
+                  idInput="input-id"
+                  typeInput="input-type"
+                  nameInput="input-name"
+                  valueInput="input-value"
+                  dataRemoteInput={ true }>
           <DropdownItem id="dropdown_item_id"
                         label="Link A"
                         href="#a"
