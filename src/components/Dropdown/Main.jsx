@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes } from "react"
+import Input from "../Input"
 
 class Dropdown extends React.Component {
   static propTypes = {
@@ -8,7 +9,11 @@ class Dropdown extends React.Component {
     secondaryLabel: PropTypes.string,
     secondaryIcon: PropTypes.string,
     children: PropTypes.node.isRequired,
-    id: PropTypes.string
+    id: PropTypes.string,
+    idInput: PropTypes.string,
+    nameInput: PropTypes.string,
+    valueInput: PropTypes.string,
+    dataRemoteInput: PropTypes.string
   }
 
   static defaultProps = {
