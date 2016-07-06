@@ -36,18 +36,15 @@ class Input extends React.Component {
     const ops = { required: isRequired }
 
     return (
-      <div className="form-control-wrapper">
-        <input id={ id }
-               className="form-control"
-               type={ type }
-               placeholder={ placeholder }
-               name={ name }
-               data-remote-input={ dataRemoteInput !== undefined ? dataRemoteInput : null }
-               value="qualquercoisa"
-               onChange={ (e) => { this.handleChange(e) } }
-               { ...ops } />
-        <span className="material-input"></span>
-      </div>
+      <input id={ id }
+             className="form-control"
+             type={ type }
+             placeholder={ placeholder }
+             name={ name }
+             data-remote-input={ dataRemoteInput !== undefined ? dataRemoteInput : null }
+             value={ this.state.value }
+             onChange={ (e) => { this.handleChange(e) } }
+             { ...ops } />
     )
   }
 }
