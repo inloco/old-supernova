@@ -9,33 +9,30 @@ import Input from "../../src/components/Input"
 
 describe("Input", () => {
   const factory = new InputFactory
-  const node = factory.getNode().querySelector("input")
+  const node = factory.getNode()
 
   it("has id", () => {
-    expect(node.getAttribute("id").includes("publisher-id")).toBeTruthy
+    expect(node.getAttribute("id")).toEqual("publisher-id")
   })
 
   it("has type", () => {
-    expect(node.getAttribute("type").includes("text")).toBeTruthy
+    expect(node.getAttribute("type")).toEqual("text")
   })
 
   it("has placeholder", () => {
-    expect(node.getAttribute("placeholder")
-               .includes("Digite seu nome")).toBeTruthy
+    expect(node.getAttribute("placeholder")).toEqual("Digite seu nome")
   })
 
   it("has name", () => {
-    expect(node.getAttribute("name")
-               .includes("publisher[nome]")).toBeTruthy
+    expect(node.getAttribute("name")).toEqual("publisher[nome]")
   })
 
   it("has value", () => {
-    expect(node.gtextContent).toEqual("current_month")
+    expect(node.value).toEqual("current_month")
   })
 
   it("has data-remote-input", () => {
-    expect(node.getAttribute("data-remote-input")
-               .includes(true)).toBeTruthy
+    expect(node.getAttribute("data-remote-input")).toEqual("true")
   })
 
   it("is not required", () => {
@@ -51,7 +48,7 @@ describe("Input", () => {
              isRequired={ true } />
     )
 
-    const specificNode = ReactDOM.findDOMNode(input).querySelector("input")
+    const specificNode = ReactDOM.findDOMNode(input)
 
     it("is required", () => {
       expect(specificNode.getAttribute("required")).toBeTruthy
