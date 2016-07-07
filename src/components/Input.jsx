@@ -37,7 +37,7 @@ class Input extends React.Component {
 
     return (
       <input id={ id }
-             className={ type !== "hidden" ? form-control : "" }
+             className={ type !== "hidden" ? "form-control" : "" }
              type={ type }
              placeholder={ placeholder }
              name={ name }
