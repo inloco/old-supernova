@@ -21,7 +21,7 @@ describe("Dropdown", () => {
   })
 
   it("has id", () => {
-    expect(node.querySelector("a").getAttribute("id")).toEqual("dropdown_id")
+    expect(node.querySelector(".dropdown").getAttribute("id")).toEqual("dropdown_id")
   })
 
   it("has label", () => {
@@ -36,5 +36,9 @@ describe("Dropdown", () => {
     expect(node.querySelector("span")
                .getAttribute("class")
                .includes("icon-time")).toBeTruthy()
+  })
+
+  it("has input", () => {
+    expect(node.querySelector("input").tagName).toEqual("INPUT")
   })
 })
