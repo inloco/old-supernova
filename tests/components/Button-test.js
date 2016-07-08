@@ -8,7 +8,8 @@ import Button from "../../src/components/Button"
 describe("Button", () => {
   const button = TestUtils.renderIntoDocument(
     <Button id="butotn-id"
-            type="default"
+            btnType="primary"
+            type="button"
             label="App"
             size="xs"
             icon="icon-add"
@@ -17,41 +18,38 @@ describe("Button", () => {
             secondaryStyle="finish-button"
             isDisabled={ false } />
   )
-
   const buttonNode = ReactDOM.findDOMNode(button)
   const btnNode = buttonNode.querySelector("button")
 
   it("has href", () => {
-    expect(buttonNode.getAttribute("href")
-                     .includes("/en/publishers/applications/new")).toBeTruthy
+    expect(buttonNode.getAttribute("href")).toEqual("/en/publishers/applications/new")
+  })
+  it("has type", () => {
+    expect(btnNode.type).toEqual("button")
   })
 
   it("has id", () => {
-    expect(btnNode.getAttribute("id").includes("butotn-id")).toBeTruthy
+    expect(btnNode.getAttribute("id")).toEqual("butotn-id")
   })
 
   it("has label", () => {
-    expect(btnNode.querySelectorAll("span")[1].textContent).toEqual("App")
+    expect(btnNode.querySelector(".button-txt").textContent).toEqual("App")
   })
 
   it("has size", () => {
-    expect(btnNode.getAttribute("class")
-                     .includes("btn-xs")).toBeTruthy
+    expect(btnNode.getAttribute("class").includes("btn-xs")).toBeTruthy
   })
 
   it("has icon", () => {
-    expect(btnNode.getAttribute("class")
-                     .includes("icon-add")).toBeTruthy
+    expect(btnNode.getAttribute("class").includes("icon-add")).toBeTruthy
   })
 
   it("has style", () => {
-    expect(btnNode.getAttribute("class")
-                     .includes("btn-default")).toBeTruthy
+    expect(btnNode.getAttribute("class").includes("btn-primary")).toBeTruthy
   })
 
   it("has secondaryStyle", () => {
-    expect(btnNode.getAttribute("class")
-                     .includes("finish-button")).toBeTruthy
+    expect(btnNode.getAttribute("class").includes("finish-button")).toBeTruthy
   })
 
   it("is not disabled", () => {
@@ -61,7 +59,8 @@ describe("Button", () => {
   describe("when is disabled", () => {
     const button = TestUtils.renderIntoDocument(
       <Button id="butotn-id"
-              type="default"
+              btnType="default"
+              type="button"
               label="App"
               size="xs"
               icon="icon-add"
