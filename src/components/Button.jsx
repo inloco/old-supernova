@@ -3,6 +3,7 @@ import React, { PropTypes } from "react"
 class Button extends React.Component {
   static propTyes = {
     label: PropTypes.string.isRequired,
+    btnType: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     size: PropTypes.string.isRequired,
     isDisabled: PropTypes.bool.isRequired,
@@ -24,22 +25,22 @@ class Button extends React.Component {
   }
 
   getClasses() {
-    const { type, size, style, secondaryStyle } = this.props
+    const { btnType, size, style, secondaryStyle } = this.props
 
     return(
-      "btn btn-" + type + " " + style + " btn-" + size + " withripple " + secondaryStyle
+      "btn btn-" + btnType + " " + style + " btn-" + size + " withripple " + secondaryStyle
     )
   }
 
   getButton() {
-    const { id, label, icon, isDisabled } = this.props
-    const ops = { disabled: isDisabled }
+    const { id, label, type, icon, isDisabled } = this.props
+    const disabledOpt = { disabled: isDisabled }
 
     return (
       <button id={ id !== undefined ? id : null }
-              type="button"
+              type={ type }
               className={ this.getClasses() }
-              { ...ops }>
+              { ...disabledOpt }>
         <span className={ "icon " + icon }></span>
         <span className="button-txt">
           { label }
