@@ -7,6 +7,6 @@ describe("Info", () => {
   const node = factory.getNode()
   
   it("has the title", () => {   
-    expect(node.getAttribute("data-original-title")).toEqual("Texto de Ajuda")
+    expect(node.getAttribute("title")).toEqual("Texto de Ajuda")
   })
 })
