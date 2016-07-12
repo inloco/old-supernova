@@ -2,10 +2,10 @@ import React, { PropTypes } from "react"
 
 class TextArea extends React.Component {
   static propTyes = {
-      id: PropTypes.string,
-      name: PropTypes.string,
-      rows: PropTypes.string,
-      tabIndex: PropTypes.string
+    id: PropTypes.string,
+    name: PropTypes.string,
+    rows: PropTypes.string,
+    tabIndex: PropTypes.string
   }
 
   static defaultProps = {

@@ -23,6 +23,8 @@ import Info from "./components/Info"
 import Input from "./components/Input"
 import Button from "./components/Button"
 import TextArea from "./components/TextArea"
+import Label from "./components/Label"
+import Icon from "./components/Icon"
 
 export {
   Dropdown,
@@ -49,5 +51,7 @@ export {
   Info,
   Input,
   Button,
-  TextArea
+  TextArea,
+  Label,
+  Icon
 }
