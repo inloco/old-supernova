@@ -1,22 +1,27 @@
 import React, { PropTypes } from "react"
+import Icon from "./Icon"
 
 class Button extends React.Component {
   static propTyes = {
-    label: PropTypes.string.isRequired,
-    btnType: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    size: PropTypes.string.isRequired,
-    isDisabled: PropTypes.bool.isRequired,
+    isDisabled: PropTypes.bool,
+    btnType: PropTypes.string,
+    size: PropTypes.string,
+    label: PropTypes.string,
     id: PropTypes.string,
-    icon: PropTypes.string,
+    iconSize: PropTypes.string,
+    iconName: PropTypes.string,
     href: PropTypes.string,
     style: PropTypes.string,
-    secondaryStyle: PropTypes.string
+    secondaryStyle: PropTypes.string,
+    isModal: PropTypes.bool
   }
 
   static defaultProps = {
     style: "",
-    secondaryStyle: ""
+    secondaryStyle: "",
+    isDisabled: false,
+    isModal: false
   }
 
   getButtonHref() {
@@ -29,6 +34,12 @@ class Button extends React.Component {
     )
   }
 
+  getModalClass() {
+    return(
+      "close"
+    )
+  }
+
   getClasses() {
     const { btnType, size, style, secondaryStyle } = this.props
 
@@ -38,26 +49,33 @@ class Button extends React.Component {
   }
 
   getIcon() {
-    const { icon } = this.props
+    const { iconSize, iconName } = this.props
 
     return(
-      icon !== undefined ? <span className={ "icon " + icon }></span> : null
+      iconName !== undefined ? <Icon size={ iconSize } name={ iconName } /> : null
+    )
+  }
+
+  getLabel() {
+    const { label } = this.props
+
+    return(
+      label !== undefined ? <span className="button-txt">{ label }</span> : null
     )
   }
 
   getButton() {
-    const { id, label, type, isDisabled } = this.props
+    const { id, type, isDisabled, isModal } = this.props
     const disabledOpt = { disabled: isDisabled }
 
     return (
       <button id={ id !== undefined ? id : null }
               type={ type }
-              className={ this.getClasses() }
+              className={ isModal ? this.getModalClass() : this.getClasses() }
+              data-dismiss={ isModal ? "modal" : null }
               { ...disabledOpt }>
         { this.getIcon() }
-        <span className="button-txt">
-          { label }
-        </span>
+        { this.getLabel() }
         <div className="ripple-wrapper"></div>
       </button>
     )

@@ -15,45 +15,44 @@ describe("Button", () => {
             icon="icon-add"
             href="/en/publishers/applications/new"
             style="btn-raised"
-            secondaryStyle="finish-button"
-            isDisabled={ false } />
+            secondaryStyle="finish-button" />
   )
-  const buttonNode = ReactDOM.findDOMNode(button)
-  const btnNode = buttonNode.querySelector("button")
+  const node = ReactDOM.findDOMNode(button)
+  const buttonNode = node.querySelector("button")
 
   it("has href", () => {
-    expect(buttonNode.getAttribute("href")).toEqual("/en/publishers/applications/new")
+    expect(node.getAttribute("href")).toEqual("/en/publishers/applications/new")
   })
   it("has type", () => {
-    expect(btnNode.type).toEqual("button")
+    expect(buttonNode.type).toEqual("button")
   })
 
   it("has id", () => {
-    expect(btnNode.getAttribute("id")).toEqual("butotn-id")
+    expect(buttonNode.getAttribute("id")).toEqual("butotn-id")
   })
 
   it("has label", () => {
-    expect(btnNode.querySelector(".button-txt").textContent).toEqual("App")
+    expect(buttonNode.querySelector(".button-txt").textContent).toEqual("App")
   })
 
   it("has size", () => {
-    expect(btnNode.getAttribute("class").includes("btn-xs")).toBeTruthy
+    expect(buttonNode.getAttribute("class").includes("btn-xs")).toBeTruthy
   })
 
   it("has icon", () => {
-    expect(btnNode.getAttribute("class").includes("icon-add")).toBeTruthy
+    expect(buttonNode.getAttribute("class").includes("icon-add")).toBeTruthy
   })
 
   it("has style", () => {
-    expect(btnNode.getAttribute("class").includes("btn-primary")).toBeTruthy
+    expect(buttonNode.getAttribute("class").includes("btn-primary")).toBeTruthy
   })
 
   it("has secondaryStyle", () => {
-    expect(btnNode.getAttribute("class").includes("finish-button")).toBeTruthy
+    expect(buttonNode.getAttribute("class").includes("finish-button")).toBeTruthy
   })
 
   it("is not disabled", () => {
-    expect(btnNode.getAttribute("disabled")).toBeFalsy
+    expect(buttonNode.getAttribute("disabled")).toBeFalsy
   })
 
   describe("when is disabled", () => {
@@ -67,13 +66,22 @@ describe("Button", () => {
               href="/en/publishers/applications/new"
               style="btn-raised"
               secondaryStyle="finish-button"
-              isDisabled={ true } />
+              isDisabled={ true }
+              isModal={ true } />
     )
 
-    const buttonNode = ReactDOM.findDOMNode(button).querySelector("button")
+    const node = ReactDOM.findDOMNode(button).querySelector("button")
 
     it("is disabled", () => {
-      expect(buttonNode.getAttribute("disabled")).toBeTruthy
+      expect(node.getAttribute("disabled")).toBeTruthy
+    })
+
+    it("is modal button", () => {
+      expect(node.getAttribute("data-dismiss").includes("modal")).toBeTruthy
+    })
+
+    it("has only one class", () => {
+      expect(node.getAttribute("class").includes("close")).toBeTruthy
     })
   })
 })
