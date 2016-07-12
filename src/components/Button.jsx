@@ -14,6 +14,11 @@ class Button extends React.Component {
     secondaryStyle: PropTypes.string
   }
 
+  static defaultProps = {
+    style: "",
+    secondaryStyle: ""
+  }
+
   getButtonHref() {
     const { href } = this.props
 
@@ -32,8 +37,16 @@ class Button extends React.Component {
     )
   }
 
+  getIcon() {
+    const { icon } = this.props
+
+    return(
+      icon !== undefined ? <span className={ "icon " + icon }></span> : null
+    )
+  }
+
   getButton() {
-    const { id, label, type, icon, isDisabled } = this.props
+    const { id, label, type, isDisabled } = this.props
     const disabledOpt = { disabled: isDisabled }
 
     return (
@@ -41,7 +54,7 @@ class Button extends React.Component {
               type={ type }
               className={ this.getClasses() }
               { ...disabledOpt }>
-        <span className={ "icon " + icon }></span>
+        { this.getIcon() }
         <span className="button-txt">
           { label }
         </span>
