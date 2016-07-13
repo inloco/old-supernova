@@ -71,7 +71,7 @@ class Button extends React.Component {
     return (
       <button id={ id !== undefined ? id : null }
               type={ type }
-              className={ (isModal && btnType !== undefined) ?
+              className={ (isModal && btnType === undefined) ?
                             this.getModalClass() :
                             this.getClasses() }
               data-dismiss={ isModal ? "modal" : null }
