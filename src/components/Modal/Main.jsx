@@ -2,7 +2,7 @@ import React, { PropTypes } from "react"
 import ModalTrigger from "./Trigger"
 import Button from "../../Button"
 
-class Main extends React.Component {
+class Modal extends React.Component {
   static propTyes = {
     id: PropTypes.string.isRequired,
     style: PropTypes.string.isRequired,
@@ -65,4 +65,4 @@ class Main extends React.Component {
  }
 }
 
-export default Main
+export default Modal
