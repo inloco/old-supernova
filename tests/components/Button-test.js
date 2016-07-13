@@ -23,6 +23,7 @@ describe("Button", () => {
   it("has href", () => {
     expect(node.getAttribute("href")).toEqual("/en/publishers/applications/new")
   })
+
   it("has type", () => {
     expect(buttonNode.type).toEqual("button")
   })

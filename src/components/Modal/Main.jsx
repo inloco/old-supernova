@@ -7,7 +7,9 @@ class Main extends React.Component {
     id: PropTypes.string.isRequired,
     style: PropTypes.string.isRequired,
     size: PropTypes.string.isRequired,
-    title: PropTypes.string
+    title: PropTypes.string,
+    label: PropTypes.string,
+    children: PropTypes.node
   }
 
   static defaultProps = {
@@ -35,15 +37,17 @@ class Main extends React.Component {
 
     return(
       <div className="modal-footer">
-        <button type="button" className="btn btn-default validate-then-dismiss-modal" data-dismiss="modal">
-          <%= translate("dictionary.ok") %>
-        </button>
+        <Button type="button"
+                isModal={ true }
+                btnType="default"
+                style="validate-then-dismiss-modal"
+                label={ label }/>
       </div>
     )
   }
 
   render() {
-    const{ id, style, size } = this.props
+    const{ id, style, size, children } = this.props
 
      return (
        <div id={ id } className={ "modal fade " + style }>
@@ -51,29 +55,7 @@ class Main extends React.Component {
           <div className="modal-content">
             { this.getHeader() }
             <div className="modal-body">
-              <%= app_builder.fields_for :geofence_configuration, app_builder.object.geofence_configuration do |geofence_configuration_builder| %>
-                <div className="form-group">
-                  <%= geofence_configuration_builder.label :sleep_time,
-                                                           translate("web.applications.form.advanced.geofence_configuration.sleep_time") %>
-                  <%= tooltip_span(translate("web.applications.form.advanced.geofence_configuration.sleep_time_tooltip")) %>
-                  <div className="layout horizontal col-gutter-small">
-                    <div className="flex-5">
-                      <div className="form-control-wrapper">
-                        <%= geofence_configuration_builder.text_field :sleep_time,
-                                                                      id: "geofence_configuration_sleep_time",
-                                                                      className: "form-control empty",
-                                                                      number: true %>
-                        <span className="material-input"></span>
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <span className="type-body-2 disabled-txt">
-                        <%= translate("web.applications.form.advanced.geofence_configuration.sleep_time_unit") %>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
+              { children }
             </div>
             { this.getFooter() }
           </div>

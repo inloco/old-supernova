@@ -13,9 +13,9 @@ class Ballon extends React.Component {
     const{ label, value, icon, color, addon, id } = this.props
 
      return (
-       <div className="balloon squared" id={id}>
-         <div className={ "balloon-header " + color }>
-           <span className={ "icon-24 " + icon }></span>
+       <div className="balloon squared" id={ id }>
+         <div className={ `"balloon-header" ${color}` }>
+           <span className={ `"icon-24" ${icon}` }></span>
            { label }
          </div>
          <div className="balloon-body">

@@ -4,8 +4,8 @@ class TextArea extends React.Component {
   static propTyes = {
     id: PropTypes.string,
     name: PropTypes.string,
-    rows: PropTypes.string,
-    tabIndex: PropTypes.string
+    rows: PropTypes.number,
+    tabIndex: PropTypes.number
   }
 
   static defaultProps = {

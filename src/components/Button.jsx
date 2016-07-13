@@ -44,7 +44,7 @@ class Button extends React.Component {
     const { btnType, size, style, secondaryStyle } = this.props
 
     return(
-      "btn btn-" + btnType + " " + style + " btn-" + size + " withripple " + secondaryStyle
+      `"btn btn-"${btnType} ${style} " btn-"${size} "withripple" ${secondaryStyle}`
     )
   }
 
@@ -57,25 +57,27 @@ class Button extends React.Component {
   }
 
   getLabel() {
-    const { label } = this.props
+    const { label, isModal } = this.props
 
     return(
-      label !== undefined ? <span className="button-txt">{ label }</span> : null
+      isModal ? { label } : <span className="button-txt">{ label }</span>
     )
   }
 
   getButton() {
-    const { id, type, isDisabled, isModal } = this.props
+    const { id, btnType, type, isDisabled, isModal, label } = this.props
     const disabledOpt = { disabled: isDisabled }
 
     return (
       <button id={ id !== undefined ? id : null }
               type={ type }
-              className={ isModal ? this.getModalClass() : this.getClasses() }
+              className={ (isModal && btnType !== undefined) ?
+                            this.getModalClass() :
+                            this.getClasses() }
               data-dismiss={ isModal ? "modal" : null }
               { ...disabledOpt }>
         { this.getIcon() }
-        { this.getLabel() }
+        { label !== undefined ? this.getLabel() : null }
         <div className="ripple-wrapper"></div>
       </button>
     )
