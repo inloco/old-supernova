@@ -1,0 +1,48 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *    grid variables sass file
+ *  ----------- *** ------------
+ *
+ */
+
+
+@import "../../customizable";
+@import "../general/general_variables";
+
+
+// Grid Bleed Sizes
+$bleed-hm: $hs-40;
+$bleed-vm: $vs-40;
+$bleed-hm-sm: $hs-16;
+$bleed-vm-sm: $vs-24;
+
+// Grid Col Gutter Sizes
+$gutter-hm: $hs-16;
+$gutter-xs-hm: $hs-4;
+$gutter-sm-hm: $hs-8;
+$gutter-lg-hm: $hs-24;
+
+// Grid Row Gutter Sizes
+$gutter-vm: $vs-16;
+$gutter-xs-vm: $vs-4 / 2;
+$gutter-sm-vm: $vs-4;
+$gutter-lg-vm: $vs-16;
+$gutter-reverse-vm: $vs-4;
+$gutter-lg-screen-xsmall: $hs-8;
+
+// Box Col Padding
+$cell-padding-hm: $hs-16;
+$cell-padding-vm: $vs-8;
+
+// Box Col Padding Small
+$cell-padding-sm-hm: $hs-8;
+$cell-padding-sm-vm: $vs-4;
+
+// Box Cell Expo Flexitem base margin
+$cell-expo-flexitem-hs: $hs-4;

@@ -1,0 +1,78 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *       layout sass file
+ *  ----------- *** ------------
+ *
+ */
+
+
+@import "layout_variables";
+
+
+// Footer wrap
+
+.sn-layout__footer {
+  padding: ($default-layout-footer-padding * 1.5) ($default-layout-footer-padding * 2.5);
+  color: $default-layout-footer-color;
+  background-color: $default-layout-footer-background-color;
+  line-height: $default-layout-footer-heading-line-height;
+  @include footer-shadow();
+
+  &:after {
+    content: '';
+    display: block;
+  }
+
+  & .sn-logo {
+    line-height: $default-layout-footer-heading-line-height;
+  }
+
+  .sn-layout--fixed-drawer > & {
+    margin-left: $default-layout-drawer-width;
+  }
+
+
+  @media screen and (max-width: $default-layout-screen-size-threshold) {
+    padding: ($default-layout-footer-padding * 1.5) $default-layout-footer-padding;
+    .sn-layout--fixed-drawer > & {
+      margin-left: 0;
+    }
+  }
+
+  .sn-layout__footer--social-btn,
+  .sn-layout__footer__social-btn {
+    display: inline-block;
+    width: $default-layout-footer-button-size;
+    height: $default-layout-footer-button-size;
+    padding: 0;
+    margin: 0;
+    background-color: $default-layout-footer-button-fill-color;
+    border: none;
+  }
+
+  .sn-layout__footer--title {
+    font-size: $default-layout-footer-title;
+  }
+
+  .sn-layout__footer--list,
+  .sn-layout__footer__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    a {
+      text-decoration: none;
+      color: $default-layout-footer-link-color;
+      &:hover {
+        color: $default-layout-footer-link-hover-color;
+      }
+    }
+  }
+
+}
+// ./ Footer

@@ -25,6 +25,7 @@ import Button from "./components/Button"
 import TextArea from "./components/TextArea"
 import Label from "./components/Label"
 import Icon from "./components/Icon"
+import styles from "./../assets/css/supernova.scss"
 
 export {
   Dropdown,

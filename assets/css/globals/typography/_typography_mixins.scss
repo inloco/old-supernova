@@ -1,0 +1,203 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *  sass typographic mixins file
+ *  ----------- *** ------------
+ *
+ */
+
+
+
+// Text Reset
+
+@mixin reset-text() {
+  font-family: $default-font-family;
+  // We deliberately do NOT reset font-size.
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-break: auto;
+  line-height: $default-line-height;
+  text-align: left; // Fallback for where `start` is not supported
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  white-space: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+}
+
+
+// Typographic Mixins
+
+@mixin typo-display-4($colorContrast: false) {
+  font-size: $default-font-size * 7.6; // ~112px on 16px based;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-display-3($colorContrast: false) {
+  font-size: $default-font-size * 3.5; // ~56px on 16px based;
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-display-2($colorContrast: false) {
+  font-size: $default-font-size * 2.8125; // ~45px on 16px based;
+  font-weight: 400;
+  line-height: 1.2;
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-display-1($colorContrast: false) {
+  font-size: $default-font-size * 2.125; // ~34px on 16px based;
+  font-weight: 400;
+  line-height: 40px;
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-headline($colorContrast: false) {
+  font-size: $default-font-size * 1.5; // ~24px on 16px based;
+  font-weight: 400;
+  line-height: 32px;
+  -moz-osx-font-smoothing: grayscale;
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-title($colorContrast: false) {
+  font-size: $default-font-size * 1.25; // ~20px on 16px based;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-subhead($colorContrast: false) {
+  font-size: $default-font-size; // 16px default;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-subhead-2($colorContrast: false) {
+  font-size: $default-font-size; // 16px default;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.04em;
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-body-2($colorContrast: false) {
+  font-size: $default-font-size * 0.875; // ~14px on 16px based;
+  font-weight: bold;
+  line-height: 24px;
+  letter-spacing: 0;
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-body-1($colorContrast: false) {
+  font-size: $default-font-size * 0.875; // ~14px on 16px based;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-caption($colorContrast: false) {
+  font-size: $default-font-size * 0.75; // ~12px on 16px based;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-blockquote($colorContrast: false) {
+  position: relative;
+  font-size: $default-font-size * 1.5; // ~24px on 16px based;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.35;
+  letter-spacing: 0.08em;
+  &:before {
+    position: absolute;
+    left: -0.5em;
+    content: '"';
+  }
+  &:after {
+    content: '"';
+    margin-left: -0.05em;
+  }
+  @if $colorContrast {
+    opacity: 0.54;
+  }
+}
+
+@mixin typo-menu($colorContrast: false) {
+  font-size: $default-font-size * 0.875; // ~14px on 16px based;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-button($colorContrast: false) {
+  font-size: $default-font-size * 0.875; // ~14px on 16px based;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0;
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+//@mixin typo-icon() {
+//  font-family: 'Material Icons';
+//  font-weight: normal;
+//  font-style: normal;
+//  font-size: 24px;
+//  line-height: 1;
+//  letter-spacing: normal;
+//  text-transform: none;
+//  display: inline-block;
+//  word-wrap: normal;
+//  font-feature-settings: 'liga';
+//  -webkit-font-feature-settings: 'liga';
+//  -webkit-font-smoothing: antialiased;
+//}

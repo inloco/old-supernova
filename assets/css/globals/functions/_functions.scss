@@ -1,0 +1,43 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *         functions file
+ *  ----------- *** ------------
+ *
+ */
+
+
+
+
+// Transform EM to PX
+
+  @function em($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+      @return ($number/16) / ($number * 0 + 1)+0em;
+    }
+    @return $number;
+  }
+
+
+// Transform PX to EM
+
+  @function px($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+      @return ($number*16) / ($number * 0 + 1)+0px;
+    }
+    @return $number;
+  }
+
+
+// Strip the unit of a number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}

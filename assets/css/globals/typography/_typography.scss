@@ -1,0 +1,266 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *         test sass file
+ *  ----------- *** ------------
+ *
+ */
+
+
+// Imports
+
+@import "../functions/functions";     // Import Functions
+@import "typography_mixins";          // Import Typography Mixins
+@import "../../customizable";         // Import Customizable
+@import "typography_variables";       // Import Typography Variables
+@import "../general/general_variables";
+
+
+// Word Breaks for large texts
+
+.sn-typo--word-break {
+  word-break: break-all;
+}
+.sn-typo--screen-word-break {
+  @media (max-width: $screen-threshold) {
+    word-break: break-all;
+  }
+}
+.sn-typo--tablet-word-break {
+  @media (max-width: $tablet-threshold) {
+    word-break: break-all;
+  }
+}
+.sn-typo--mobile-word-break {
+  @media (max-width: $mobile-threshold) {
+    word-break: break-all;
+  }
+}
+
+
+// Header Elements
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  line-height: $default-line-height;
+}
+
+h1 {
+  font-size: $h1-font-size;
+  opacity: 1;
+  font-weight: 300;
+  line-height: $h1-line-height;
+  margin-top: $default-headings-top-margin;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  font-weight: 300;
+  line-height: $h2-line-height;
+  margin-top: $default-headings-top-margin;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  font-weight: 300;
+  line-height: $h3-line-height;
+  margin-top: $default-headings-top-margin;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+h4 {
+  font-size: $h4-font-size;
+  font-weight: 400;
+  opacity: 1;
+  line-height: $h4-line-height;
+  margin-top: $default-headings-top-margin;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+h5 {
+  font-size: $h5-font-size;
+  font-weight: 700;
+  line-height: $h5-line-height;
+  margin-top: $default-headings-top-margin;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+h6 {
+  font-size: $h6-font-size;
+  font-weight: 800;
+  line-height: $h6-line-height;
+  margin-top: $default-headings-top-margin;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+
+// Type Classes
+
+.sn-typo--display-4 {
+  @include typo-display-4;
+  margin-top: $default-headings-top-margin;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+.sn-typo--display-4-color-contrast {
+  @include typo-display-4($colorContrast: true);
+  margin-top: $default-headings-top-margin;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+.sn-typo--display-3 {
+  @include typo-display-3;
+  margin-top: $default-headings-top-margin;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+.sn-typo--display-3-color-contrast {
+  @include typo-display-3($colorContrast: true);
+  margin-top: $default-headings-top-margin;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+.sn-typo--display-2 {
+  @include typo-display-2;
+  margin-top: $default-headings-top-margin;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+.sn-typo--display-2-color-contrast {
+  @include typo-display-2($colorContrast: true);
+  margin-top: $default-headings-top-margin;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+.sn-typo--display-1 {
+  @include typo-display-1;
+  margin-top: $default-headings-top-margin;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+.sn-typo--display-1-color-contrast {
+  @include typo-display-1($colorContrast: true);
+  margin-top: $default-headings-top-margin;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+.sn-typo--headline {
+  @include typo-headline;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+.sn-typo--headline-color-contrast {
+  @include typo-headline($colorContrast: true);
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+.sn-typo--title {
+  @include typo-title;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+.sn-typo--title-color-contrast {
+  @include typo-title($colorContrast: true);
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+.sn-typo--subhead {
+  @include typo-subhead;
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+.sn-typo--subhead-2 {
+  @include typo-subhead($colorContrast: true);
+  margin-bottom: $default-headings-bottom-margin;
+}
+
+.sn-typo--body-1 {
+  @include typo-body-1;
+}
+
+.sn-typo--body-2 {
+  @include typo-body-2;
+}
+
+.sn-typo--caption {
+  @include typo-caption;
+}
+
+.sn-typo--blockquote {
+  @include typo-blockquote($colorContrast: false);
+}
+
+.sn-typo--button {
+  @include typo-button;
+}
+
+.sn-typo--menu {
+  @include typo-menu;
+}
+
+.sn-typo--text-left {
+  text-align: left;
+}
+
+.sn-typo--text-right {
+  text-align: right;
+}
+
+.sn-typo--text-center {
+  text-align: center;
+}
+
+.sn-typo--text-justify {
+  text-align: justify;
+}
+
+.sn-typo--text-nowrap {
+  white-space: nowrap;
+}
+
+.sn-typo--text-lowercase {
+  text-transform: lowercase;
+}
+
+.sn-typo--text-uppercase {
+  text-transform: uppercase;
+}
+
+.sn-typo--text-capitalize {
+  text-transform: capitalize;
+}
+
+.sn-typo--font-thin {
+  font-weight: 200 !important;
+}
+
+.sn-typo--font-light {
+  font-weight: 300 !important;
+}
+
+.sn-typo--font-regular {
+  font-weight: 400 !important;
+}
+
+.sn-typo--font-medium {
+  font-weight: 500 !important;
+}
+
+.sn-typo--font-bold {
+  font-weight: 700 !important;
+}
+
+.sn-typo--font-black {
+  font-weight: 900 !important;
+}

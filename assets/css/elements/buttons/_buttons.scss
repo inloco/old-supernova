@@ -1,0 +1,113 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *       inputs sass file
+ *  ----------- *** ------------
+ *
+ */
+
+
+@import "buttons_variables";
+@import "../../globals/mixins/mixins";
+
+
+
+// Buttons
+
+.sn-button {
+  position: relative;
+  display: inline-block;
+  background: 0 0;
+  border: none;
+  border-radius: $default-button-border-radius;
+  color: $default-button-color-text;
+  margin: 0;
+  height: $default-button-height;
+  min-width: $default-button-min-width;
+  padding: $default-button-padding;
+  font-size: $default-button-font-size;
+  line-height: $default-button-line-height;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  will-change: all;
+  transition: $default-button-transition;
+
+  &:hover, &:active {
+    @include button-hover-shadow();
+  }
+  &:active {
+    background-color: $default-button-active-color;
+  }
+
+  &.sn-button--raised {
+    background: $default-button-primary-color;
+    @include button-shadow();
+    &:hover, &:active {
+      @include button-hover-shadow();
+    }
+    &:hover {
+      background-color: $default-button-hover-color;
+    }
+    &:active {
+      background-color: $default-button-active-color;
+    }
+    &:disabled {
+      background-color: $default-button-primary-color-disabled !important;
+    }
+  }
+
+  &.sn-button--colored {
+    background-color: $button-primary-color-alt;
+    color: $button-primary-color-text;
+    @include button-shadow();
+    &:hover, &:active {
+      @include button-hover-shadow();
+    }
+    &:hover {
+      background-color: $button-hover-color-alt;
+    }
+    &:active {
+      background-color: $button-active-color-alt;
+    }
+    &:disabled {
+      background-color: $default-button-primary-color-disabled !important;
+    }
+  }
+
+  &.sn-button--accent {
+    background-color: $button-primary-accent-alt;
+    color: $button-primary-accent-text;
+    @include button-shadow();
+    &:hover, &:active {
+      @include button-hover-shadow();
+    }
+    &:hover {
+      background-color: $button-hover-accent-alt;
+    }
+    &:active {
+      background-color: $button-active-accent-alt;
+    }
+    &:disabled {
+      background-color: $default-button-primary-color-disabled !important;
+    }
+  }
+
+  &:disabled {
+    @include button-disabled-shadow();
+    color: $default-button-disabled-color-text !important;
+    cursor: auto;
+  }
+
+}
