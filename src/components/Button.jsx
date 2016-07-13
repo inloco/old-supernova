@@ -57,10 +57,10 @@ class Button extends React.Component {
   }
 
   getLabel() {
-    const { label, isModal } = this.props
+    const { label } = this.props
 
     return(
-      isModal ? { label } : <span className="button-txt">{ label }</span>
+      <span className="button-txt">{ label }</span>
     )
   }
 
