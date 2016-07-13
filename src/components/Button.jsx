@@ -44,7 +44,7 @@ class Button extends React.Component {
     const { btnType, size, style, secondaryStyle } = this.props
 
     return(
-      `"btn btn-"${btnType} ${style} " btn-"${size} "withripple" ${secondaryStyle}`
+      `btn btn-${btnType} ${style} btn-${size} withripple ${secondaryStyle}`
     )
   }
 

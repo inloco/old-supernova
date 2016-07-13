@@ -10,7 +10,7 @@ class Icon extends React.Component {
     const{ size, name } = this.props
 
     return (
-      size !== undefined ? `"icon-"${size} ${name}` : `"icon" ${name}`
+      size !== undefined ? `icon-${size} ${name}` : `icon ${name}`
     )
   }
 
