@@ -1,0 +1,139 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *       customizable file
+ *  ----------- *** ------------
+ *
+ */
+
+
+
+// =============================
+//     CUSTOMIZABLE SETTINGS
+// =============================
+/*
+ * Set TRUE and configure these sections below.
+ *
+ */
+
+
+
+/*
+ *  ----------------------------
+ *          TYPOGRAPHY
+ *  ----------------------------
+ */
+    $customizable-typography: false; // true or false
+//
+//  Set TRUE for customize all settings below.
+//  -----------------------------------------
+
+    // Basic Typographic Settings
+
+    $customizable-font-family                : "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+    $customizable-font-monospace             : Menlo, Monaco, Consolas, "Courier New", monospace !default;
+    $customizable-font-size                  : 16px !default; // Use only px, em or % units - Preferably 16px.
+    $customizable-line-height                : 1.25 !default; // Just number. Do not use unit.
+    $customizable-headings-line-height       : 1.2 !default; // Just number. Do not use unit.
+    $customizable-font-weight                : 400 !default; // Just number. Do not use unit.
+
+    // Heading Scale Factor
+
+    $customizable-main-heading-size          : 4; // h1 size. Is {number} times about font-size;
+    $customizable-scale-factor               : $augmented-fourth !default; // 1.41421 - Scale to calculate the proportions of the remaining headings tags. See scale factor table below or insert a number.
+    $customizable-scale-range                : null;
+    $customizable-scale-fluid                : true; // Set true or false
+
+    // Horizontal and Vertical movements (Baseline grid for Margins, paddings, etc)
+    // ! Defines all margins, paddings and sizes calculations. Default is based on 4dp baseline grid
+
+    $customizable-horizontal-movement-divider : 4;      // font-size / 4 = ~4px (default)
+    $customizable-vertical-movement-divider   : 5;      // line-height / 5 = ~4px (default)
+
+
+
+
+/*
+ *  ----------------------------
+ *            COLORS
+ *  ----------------------------
+ */
+    $customizable-colors: true; // true or false
+//
+//  Set TRUE for customize all settings below.
+//  -----------------------------------------
+
+    $customizable-brand-color           : #283593;  // Choose a color;
+    //$customizable-brand-color           : #37474F;  // Choose a color;
+    $default-brand-accent-color         : #8BC34A;  // Color for links and float buttons;
+    $customizable-header-color          : brand;    // Choose theme or brand;
+    $customizable-theme                 : light;    // Choose light or dark;
+
+    $customizable-success-color         : #00C853;
+    $customizable-info-color            : #AA00FF;
+    $customizable-warning-color         : #FFAB00;
+    $customizable-danger-color          : #D50000;
+
+
+
+
+/*
+ *  ----------------------------
+ *          BREAKPOINTS
+ *  ----------------------------
+ */
+    $activate-standard-breakpoints      : true;  // 360, 480, 560, 640, 768, 992, 1024 and 1280 breakpoints; // true or false
+    $activate-material-breakpoints      : true;   // 480, 600, 840, 960, 1280, 1440, and 1600 breakpoints; // true or false
+//
+//  Activate breakpoints for a best responsive performance.
+//  ------------------------------------------------------
+
+
+
+
+/*
+ *  ----------------------------
+ *          IMAGES PATH
+ *  ----------------------------
+ */
+    $customizable-images-path: false; // true or false
+//
+//  Set TRUE for customize all settings below.
+//  -----------------------------------------
+
+    $customizable-images-dir            : "/assets/";
+    $customizable-sm-dir                : "1_0x/";
+    $customizable-md-dir                : "1_5x/";
+    $customizable-hd-dir                : "2_0x/";
+    $customizable-xh-dir                : "3_0x/";
+    $customizable-xx-dir                : "4_0x/";
+
+
+
+
+/*
+ *  ----------------------------
+ *         SHADOWS OPACITY
+ *  ----------------------------
+ */
+    $customizable-shadows: false; // true or false
+//
+//  Set TRUE for customize all settings below.
+//  -----------------------------------------
+
+    // Elements shadows
+    $customizable-penumbra-opacity              : 0.14;
+    $customizable-umbra-opacity                 : 0.2;
+    $customizable-shadow-ambient-opacity        : 0.12;
+
+    // Elements focus shadows
+    $customizable-focus-umbra-opacity           : .18;
+    $customizable-focus-ambient-shadow-opacity  : .36;
+
+
+

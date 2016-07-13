@@ -1,0 +1,164 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *       layout sass file
+ *  ----------- *** ------------
+ *
+ */
+
+
+@import "layout_variables";
+
+
+// Header
+
+.sn-layout__header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  flex-shrink: 0;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  min-height: $default-layout-desktop-header-height;
+  max-height: 1000px;
+  z-index: 3;
+
+  background-color: $default-layout-header-bg-color;
+  color: $default-layout-header-text-color;
+
+  @include shadow-2dp();
+  @include material-animation-default();
+  transition-property: max-height, box-shadow;
+
+
+  .sn-layout--fixed-header > & {
+    display: flex;
+  }
+
+  .sn-layout--fixed-drawer > & {
+    padding-left: $default-layout-drawer-width;
+    @media screen and (max-width: $default-layout-screen-size-threshold) {
+      padding: 0;
+    }
+  }
+
+  .sn-layout--fixed-drawer .sn-layout__content > & {
+    padding-left: 0;
+    @media screen and (max-width: $default-layout-screen-size-threshold) {
+      padding: 0;
+    }
+  }
+
+  @media screen and (max-width: $default-layout-screen-size-threshold) {
+    min-height: $default-layout-mobile-header-height;
+  }
+
+  .sn-layout--fixed-drawer {
+    margin-left: $default-layout-drawer-width;
+    width: calc(100% - #{$default-layout-drawer-width});
+  }
+
+  @media screen and (min-width: $default-layout-screen-size-threshold + 1px) {
+    .sn-layout--fixed-drawer > & {
+      .sn-layout__header-row {
+        padding-left: $default-layout-header-row-screen-padding;
+      }
+    }
+  }
+
+  & > * {
+    flex-shrink: 0;
+  }
+
+}
+// ./ Header
+
+
+
+// Header Row
+
+.sn-layout__header-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  align-self: stretch;
+  align-items: center;
+  height: $default-layout-header-desktop-row-height;
+  margin: 0;
+  padding: 0 $default-layout-header-desktop-indent 0 $default-layout-header-desktop-baseline;
+
+  .sn-layout--no-drawer-button & {
+    padding-left: $default-layout-header-desktop-indent;
+  }
+
+  .sn-layout--fixed-drawer .sn-layout__content & {
+    padding: 0 $default-layout-header-desktop-indent 0 $default-layout-header-desktop-indent;
+    @media screen and (max-width: $default-layout-screen-size-threshold) {
+      padding: 0 $default-layout-header-mobile-indent 0 $default-layout-header-mobile-baseline;
+    }
+  }
+
+  @media screen and (min-width: $default-layout-screen-size-threshold + 1px) {
+    .sn-layout--no-desktop-drawer-button & {
+      padding-left: $default-layout-header-desktop-indent;
+    }
+  }
+
+  @media screen and (max-width: $default-layout-screen-size-threshold) {
+    height: $default-layout-header-mobile-row-height;
+    padding: 0 $default-layout-header-mobile-indent 0 $default-layout-header-mobile-baseline;
+
+    .sn-layout--no-drawer-button & {
+      padding-left: $default-layout-header-mobile-indent;
+    }
+  }
+
+  & > * {
+    flex-shrink: 0;
+  }
+
+  .sn-layout__header--scroll & {
+    width: 100%;
+  }
+
+  & .sn-navigation {
+    margin: 0;
+    padding: 0;
+    height: $default-layout-header-desktop-row-height;
+    flex-direction: row;
+    align-items: center;
+
+    @media screen and (max-width: $default-layout-screen-size-threshold) {
+      height: $default-layout-header-mobile-row-height;
+    }
+  }
+
+  & .sn-navigation__link {
+    display: block;
+    color: $default-layout-header-text-color;
+    line-height: $default-layout-header-desktop-row-height;
+    padding: 0 24px;
+
+    @media screen and (max-width: $default-layout-screen-size-threshold) {
+      line-height: $default-layout-header-mobile-row-height;
+      padding: 0 $default-layout-header-mobile-indent;
+    }
+  }
+
+}
+// ./ Header Row
+
+
+

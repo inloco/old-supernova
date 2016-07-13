@@ -1,0 +1,404 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *       inputs sass file
+ *  ----------- *** ------------
+ *
+ */
+
+
+@import "inputs_variables";
+
+
+
+.sn-form-container {
+  position: relative;
+  background: $default-form-group-container-background;
+  width: auto;
+  padding: $default-form-group-container-paddings;
+  border-radius: $default-border-radius;
+  @include shadow-2dp();
+}
+
+// The Styles for the form
+fieldset {
+  margin: 0 0 24px * 2;
+  padding: 0;
+  border: none;
+}
+
+
+// Form Group
+
+.sn-form-group {
+  // scss-lint:disable QualifyingElement, NestingDepth
+  position: relative;
+  margin: $default-form-group-margin;
+  .sn-form-group__label {
+    display: block;
+    font-size: $default-form-label-font-size;
+    color: $default-form-label-color;
+    padding: $default-form-label-padding;
+    top: -$default-form-label-padding;
+    left: 0;
+  }
+}
+
+
+
+// SELECT
+
+.sn-select {
+  position: relative;
+  select {
+    width: 100%;
+    font-size: $default-select-font-size;
+    height: $default-select-height;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    line-height: $default-select-line-height;
+    box-shadow: none;
+  }
+}
+
+
+// INPUT & TEXTAREA
+
+.sn-input {
+  position: relative;
+  input,
+  textarea {
+    display: block;
+    background: none;
+    padding: $default-input-padding;
+    font-size: $default-input-font-size;
+    border-width: 0;
+    border-color: transparent;
+    line-height: $default-input-line-height;
+    width: 100%;
+    color: transparent;
+    transition: all $default-form-animation-transition ease;
+    box-shadow: none;
+  }
+  input {
+    height: $default-input-height;
+  }
+  input[type="file"] {
+    line-height: $default-input-line-height;
+
+    ~ .sn-field__bar {
+      display: none;
+    }
+  }
+}
+
+.sn-input,
+.sn-select {
+  margin: $default-input-select-margin;
+  select,
+  input:focus,
+  input:valid,
+  input.form-file,
+  input.has-value,
+  textarea:focus,
+  textarea:valid,
+  textarea.form-file,
+  textarea.has-value {
+    color: $default-form-input-color;
+    ~ .sn-field__label {
+      font-size: $default-form-label-font-size-floating-focus;
+      color: $default-form-label-color;
+      top: $default-form-label-font-size-floating-position-top;
+      left: 0;
+    }
+  }
+
+  select,
+  input,
+  textarea {
+    &:focus {
+      outline: none;
+      ~ .sn-field__label {
+        color: $default-form-label-color-focus;
+      }
+      ~ .sn-field__bar {
+        &::before {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+
+// RADIO
+
+.sn-radio {
+  margin: $default-radio-checkbox-margin;
+
+  .sn-input__icon {
+    position: absolute;
+    top: $default-input-icon-position-top;
+    left: $default-input-icon-position-left;
+    cursor: pointer;
+    display: block;
+    font-size: $default-input-icon-font-size;
+    user-select: none;
+    color: $default-form-input-icon-border-color;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: $default-input-icon-border-top-position;
+      left: 0;
+      margin: $default-input-icon-margin;
+      width: $default-input-icon-size;
+      height: $default-input-icon-size;
+      transition: transform $default-form-animation-transition ease;
+      border-radius: 50%;
+      border: $default-input-icon-border-size solid currentColor;
+    }
+
+    &::after {
+      transform: scale(0);
+      background-color: $default-form-input-icon-color-focus;
+      border-color: $default-form-input-icon-color-focus;
+    }
+  }
+
+  // scss-lint:disable QualifyingElement, NestingDepth
+  input:checked {
+    ~ .sn-input__icon {
+      &::after {
+        transform: scale(0.5);
+      }
+      &::before {
+        color: $default-form-input-icon-color-focus;
+      }
+    }
+  }
+}
+
+// CHECKBOX
+
+.sn-checkbox {
+  // scss-lint:disable QualifyingElement
+  margin: $default-radio-checkbox-margin;
+
+  .sn-input__icon {
+    position: absolute;
+    top: $default-input-icon-border-top-position;
+    left: 0;
+    width: $default-input-icon-size;
+    height: $default-input-icon-size;
+    color: $default-form-input-icon-border-color;
+    border: $default-input-icon-border-size solid $default-form-input-icon-border-color;
+    border-radius: $default-border-radius;
+    transition: border-color $default-form-animation-transition ease;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: $default-checkbox-icon-sign-size;
+      height: 0;
+      background-color: $default-form-input-icon-color-focus;
+      border-radius: $default-checkbox-icon-sign-border-radius;
+      transition: opacity $default-form-animation-transition ease,height 0s linear $default-form-animation-transition;
+      transform-origin: left top;
+      opacity: 0;
+    }
+
+    &::before {
+      background-color: $default-form-input-icon-done-sign-color;
+      border: 0;
+      top: $default-checkbox-icon-sign-before-top;
+      left: $default-checkbox-icon-sign-before-left;
+      transform: rotate(-135deg);
+    }
+
+    &::after {
+      background-color: $default-form-input-icon-done-sign-color;
+      top: $default-checkbox-icon-sign-after-top;
+      left: $default-checkbox-icon-sign-after-left;
+      transform: rotate(-45deg);
+    }
+  }
+
+  input:checked {
+    ~ .sn-input__icon {
+      background-color: $default-form-input-icon-color-focus;
+      border-color: $default-form-input-icon-color-focus;
+
+      &::after,
+      &::before {
+        opacity: 1;
+        transition: height $default-form-animation-transition ease;
+      }
+
+      &::after {
+        height: $default-checkbox-icon-sign-after-size;
+      }
+
+      &::before {
+        height: $default-checkbox-icon-sign-before-size;
+        transition-delay: .05s;
+      }
+    }
+  }
+}
+
+.sn-checkbox,
+.sn-radio {
+  label {
+    position: relative;
+    padding: $default-radio-checkbox-label-padding;
+    text-align: left;
+    cursor: pointer;
+    color: $default-form-input-color;
+  }
+  input {
+    position: absolute;
+    left: 0;
+    width: auto;
+    opacity: 0.00000001;
+  }
+}
+
+.sn-radio + .sn-radio,
+.sn-checkbox + .sn-checkbox {
+  margin: $default-radio-checkbox-siblings-margin;
+}
+
+
+// FIELD LABEL
+
+.sn-field__label {
+  position: absolute;
+  top: $default-form-label-position-top;
+  pointer-events: none;
+  padding-left: $default-form-label-padding-left;
+  color: $default-form-label-color-floating;
+  font-size: $default-form-label-font-size-floating;
+  font-weight: normal;
+  transition: all $default-form-animation-transition ease;
+
+  &.sn-field__label--fixed {
+    display: block;
+    top: $default-form-label-fixed-position-top;
+    left: 0;
+    font-size: $default-form-label-font-size;
+    color: $default-form-label-color;
+    padding: 0 inherit;
+  }
+}
+
+
+// FIELD BAR
+
+.sn-field__bar {
+  position: relative;
+  border-bottom: (16px / 16) solid $default-form-bar-color;
+  display: block;
+
+  &::before {
+    content: '';
+    height: (16px / 8);
+    width: 0;
+    left: 50%;
+    bottom: (16px / -16);
+    position: absolute;
+    background: $default-form-bar-color-focus;
+    transition: left $default-form-animation-transition ease, width $default-form-animation-transition ease;
+    z-index: 2;
+  }
+}
+
+
+
+
+
+// ERROR MESSAGES
+
+
+.sn-form-group__message {
+  display: none;
+  padding: $default-form-group-message-padding;
+  font-size: $default-form-group-message-font-size;
+  line-height: $default-form-group-line-height;
+}
+
+.sn-form-group__message + .sn-form-group__message {
+  padding-top: 0 !important;
+}
+
+.sn-form-group.has-error,
+.sn-input.has-error,
+.sn-select.has-error {
+  .sn-form-group__message {
+    display: block;
+    color: $default-form-group-color-message-error;
+  }
+  .sn-field__label,
+  .sn-form-group__label {
+    color: $default-form-group-color-message-error;
+  }
+  .sn-field__bar{
+    &::before {
+      background: $default-form-group-color-message-error;
+      left: 0;
+      width: 100%;
+    }
+  }
+}
+
+.sn-form-group.has-warning,
+.sn-input.has-warning,
+.sn-select.has-warning {
+  .sn-form-group__message {
+    display: block;
+    color: $default-form-group-color-message-warning;
+  }
+  .sn-field__label,
+  .sn-form-group__label {
+    color: $default-form-group-color-message-warning;
+  }
+  .sn-field__bar{
+    &::before {
+      background: $default-form-group-color-message-warning;
+      left: 0;
+      width: 100%;
+    }
+  }
+}
+
+.sn-form-group.has-info,
+.sn-input.has-info,
+.sn-select.has-info {
+  .sn-form-group__message {
+    display: block;
+    color: $default-form-group-color-message-info;
+  }
+  .sn-field__label,
+  .sn-form-group__label {
+    color: $default-form-group-color-message-info;
+  }
+  .sn-field__bar{
+    &::before {
+      background: $default-form-group-color-message-info;
+      left: 0;
+      width: 100%;
+    }
+  }
+}
+

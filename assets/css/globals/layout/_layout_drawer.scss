@@ -1,0 +1,200 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *       layout sass file
+ *  ----------- *** ------------
+ *
+ */
+
+
+@import "layout_variables";
+
+
+// Drawer
+
+.sn-layout__drawer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: $default-layout-drawer-width;
+  height: 100%;
+  max-height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: $default-layout-drawer-zindex;
+
+  box-sizing: border-box;
+  border-right: 1px solid $default-layout-drawer-border-color;
+  @include shadow-2dp();
+
+  background: $default-layout-drawer-bg-color;
+  color: $default-layout-text-color;
+
+  // Transform offscreen.
+  transform: translateX($default-layout-drawer-transform);
+  transform-style: preserve-3d;
+  will-change: transform;
+  @include material-animation-default();
+  transition-property: transform;
+
+  overflow: visible;
+  overflow-y: auto;
+
+  @media screen and (min-width: $default-layout-screen-size-threshold + 1px) {
+    .sn-layout--fixed-drawer > & {
+      transform: translateX(0);
+    }
+  }
+
+  &.is-visible {
+    transform: translateX(0);
+    & ~ .sn-layout__content.sn-layout__content {
+      overflow: hidden;
+    }
+  }
+
+  & > * {
+    flex-shrink: 0;
+  }
+
+  & > .sn-layout__title,
+  & > .sn-layout-title {
+    line-height: $default-layout-desktop-header-height;
+    padding-left: $default-layout-drawer-desktop-padding;
+
+    @media screen and (max-width: $default-layout-screen-size-threshold) {
+      line-height: $default-layout-mobile-header-height;
+      padding-left: $default-layout-drawer-mobile-padding;
+    }
+  }
+
+  & .sn-navigation {
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: $default-layout-drawer-navigation-padding-top;
+
+    & .sn-navigation__link {
+      display: block;
+      flex-shrink: 0;
+      padding: $default-layout-drawer-navigation-padding-top $default-layout-drawer-desktop-padding;
+      margin: 0;
+      color: $default-layout-drawer-navigation-color;
+      text-decoration: none;
+
+      @media screen and (max-width: $default-layout-screen-size-threshold) {
+        padding: $default-layout-drawer-navigation-padding-top $default-layout-drawer-mobile-padding;
+      }
+
+      &:hover {
+        background-color: $default-layout-drawer-navigation-link-active-background;
+      }
+    }
+
+    & .sn-navigation__link--current {
+      background-color: $default-layout-drawer-navigation-link-active-background;
+      color: $default-layout-drawer-navigation-link-active-color;
+    }
+  }
+
+}
+// ./ Drawer
+
+
+
+// Drawer Button
+
+.sn-layout__drawer-button {
+  display: block;
+  position: absolute;
+  height: $default-layout-drawer-button-desktop-size;
+  width: $default-layout-drawer-button-desktop-size;
+  border: 0;
+  outline: none;
+  z-index: $z-layout-obfuscator;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  font-size: $default-layout-drawer-button-font-size;
+  line-height: $default-layout-drawer-button-line-height;
+  font-family: Helvetica, Arial, sans-serif;
+  margin: $default-layout-drawer-button-margins;
+  top: 0;
+  left: 0;
+  color: $default-layout-header-text-color;
+
+  .sn-layout__header & {
+    position: absolute;
+    color: $default-layout-header-text-color;
+    background-color: inherit;
+    @media screen and (max-width: $default-layout-screen-size-threshold) {
+      margin: $default-layout-drawer-button-screen-threshold-margin;
+    }
+  }
+
+  @media screen and (max-width: $default-layout-screen-size-threshold) {
+    margin: $default-layout-drawer-button-screen-threshold-margin;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  @media screen and (min-width: $default-layout-screen-size-threshold + 1px) {
+    .sn-layout--fixed-drawer .sn-layout__header & {
+      display: none;
+    }
+
+    .sn-layout--no-desktop-drawer-button & {
+      display: none;
+    }
+  }
+
+}
+// ./ Drawer Button
+
+
+
+// Obfuscator
+
+.sn-layout__obfuscator {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: $z-layout-obfuscator;
+  visibility: hidden;
+  transition-property: background-color;
+  @include material-animation-default();
+
+  &.is-visible {
+    background-color: $default-obfuscator-background-color;
+    visibility: visible;
+
+    .sn-layout--fixed-drawer > & {
+      @media screen and (min-width: $default-layout-screen-size-threshold) {
+        visibility: hidden;
+      }
+    }
+  }
+
+  @supports (pointer-events: auto) {
+    background-color: $default-obfuscator-background-color;
+    opacity: 0;
+    transition-property: opacity;
+    visibility: visible;
+    pointer-events: none;
+    &.is-visible {
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
+}

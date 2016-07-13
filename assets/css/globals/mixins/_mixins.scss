@@ -1,0 +1,440 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *        sass mixin file
+ *  ----------- *** ------------
+ *
+ */
+
+@import "../general/general_variables";
+@import "../../customizable";
+
+
+
+// Clearfix mixin
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+// Breakpoints mixins for responsive performance
+
+@if $activate-standard-breakpoints == false {
+  $mobile-small      : 0;
+  $tablet-xxsmall    : 0;
+  $tablet-small      : 0;
+  $tablet-xmedium    : 0;
+  $screen-xsmall     : 0;
+  $screen-small      : 0;
+}
+
+@if $activate-material-breakpoints == false {
+  $tablet-xsmall     : 0;
+  $tablet-medium     : 0;
+  $tablet-large      : 0;
+  $screen-medium     : 0;
+  $screen-large      : 0;
+}
+
+@if $activate-standard-breakpoints == false and $activate-material-breakpoints == false {
+  $mobile-large      : 0;
+  $screen-xmedium    : 0;
+}
+
+@mixin breakpoint($point) {
+
+  // If STANDARD Breakpoints is true
+
+  @if $activate-standard-breakpoints == true {
+    @if $point == $mobile-small {  // 360px
+      @media (max-width: $mobile-small) {
+        @content;
+      }
+    }
+    @if $point == $tablet-xxsmall { // 560px
+      @media (max-width: $tablet-xxsmall) {
+        @content;
+      }
+    }
+    @if $point == $tablet-small { // 640px
+      @media (max-width: $tablet-small) {
+        @content;
+      }
+    }
+    @if $point == $tablet-xmedium { // 768px
+      @media (max-width: $tablet-xmedium) {
+        @content;
+      }
+    }
+    @if $point == $screen-xsmall { // 992px
+      @media (max-width: $screen-xsmall) {
+        @content;
+      }
+    }
+    @if $point == $screen-small { // 1024px
+      @media (max-width: $screen-small) {
+        @content;
+      }
+    }
+  }
+
+  // If GOOGLE Breakpoints is true
+
+  @if $activate-material-breakpoints == true {
+    @if $point == $tablet-xsmall { // 600px
+      @media (max-width: $tablet-xsmall) {
+        @content;
+      }
+    }
+    @if $point == $tablet-medium { // 840px
+      @media (max-width: $tablet-medium) {
+        @content;
+      }
+    }
+    @if $point == $tablet-large { // 960px
+      @media (max-width: $tablet-large) {
+        @content;
+      }
+    }
+    @if $point == $screen-medium { // 1440px
+      @media (max-width: $screen-medium) {
+        @content;
+      }
+    }
+    @if $point == $screen-large { // 1600px
+      @media (max-width: $screen-large) {
+        @content;
+      }
+    }
+  }
+
+  // If STANDARD or GOOGLE Breakpoints is true
+
+  @if $activate-standard-breakpoints == true or $activate-material-breakpoints == true {
+    @if $point == $mobile-large { // 480px
+      @media (max-width: $mobile-large) {
+        @content;
+      }
+    }
+    @if $point == $screen-xmedium { // 1280px
+      @media (max-width: $screen-xmedium) {
+        @content;
+      }
+    }
+  }
+
+}
+
+
+
+// Flexbox mixin
+
+@mixin flexbox() {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  //width: 100%;
+  -ms-text-overflow: "...";
+  text-overflow: "...";
+  min-height: none;
+}
+
+// Flex Item mixin
+
+@mixin flex($proportion) {
+  -webkit-box-flex: $proportion;    /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: $proportion;       /* OLD - Firefox 19- (buggy but mostly works) */
+  -ms-flex: $proportion;            /* TWEENER - IE 10 */
+  -webkit-flex: $proportion;        /* NEW - Chrome */
+  flex: $proportion;                /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+@mixin flexitem($grow, $shrink, $size) {
+  -webkit-box-flex: $grow $shrink $size;    /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: $grow $shrink $size;       /* OLD - Firefox 19- (buggy but mostly works) */
+  -ms-flex: $grow $shrink $size;            /* TWEENER - IE 10 */
+  -webkit-flex: $grow $shrink $size;        /* NEW - Chrome */
+  flex: $grow $shrink $size;                /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+// Flex Item order mixin
+
+@mixin flexorder($order) {
+  -webkit-box-order: $order;
+  -moz-box-order: $order;
+  -ms-order: $order;
+  -webkit-order: $order;
+  order: $order;
+}
+
+
+@mixin responsive-cell($responsive-breakpoint, $margin, $margin-xs, $margin-sm, $margin-lg) {
+  .sn-grid.sn-grid--responsive-#{$responsive-breakpoint} {
+    display: inline-block;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter > *:first-child {
+    margin: $margin 0 0 0;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-xs > *:first-child {
+    margin: $margin 0 0 0;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-sm > *:first-child {
+    margin: $margin 0 0 0;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-lg > *:first-child {
+    margin: $margin 0 0 0;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter:last-child,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter > *,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter > *:last-child {
+    margin: $margin 0;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-xs:last-child,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-xs > *, ,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-xs > *:last-child {
+    margin: $margin-xs 0;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-sm:last-child,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-sm > *, ,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-sm > *:last-child {
+    margin: $margin-sm 0;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-lg:last-child,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-lg > *, ,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-lg > *:last-child {
+    margin: $margin-lg 0;
+  }
+}
+
+// Images mixin for responsive performance
+
+@mixin background-image($file, $type, $width, $height) {
+
+  $default-images-dir     : "/assets/";
+  $default-sm-dir         : "supernova/1_0x/";
+  $default-md-dir         : "supernova/1_5x/";
+  $default-hd-dir         : "supernova/2_0x/";
+  $default-xh-dir         : "supernova/3_0x/";
+  $default-xx-dir         : "supernova/4_0x/";
+
+  @if $customizable-images-path == true {
+    $default-images-dir     : $customizable-images-dir;
+    $default-sm-dir         : $customizable-sm-dir;
+    $default-md-dir         : $customizable-md-dir;
+    $default-hd-dir         : $customizable-hd-dir;
+    $default-xh-dir         : $customizable-xh-dir;
+    $default-xx-dir         : $customizable-xx-dir;
+  }
+
+  $image-dir-sm: #{$default-images-dir}#{$default-sm-dir}; // "/assets/1_0x/";
+  $image-dir-md: #{$default-images-dir}#{$default-md-dir}; // "/assets/1_5x/";
+  $image-dir-hd: #{$default-images-dir}#{$default-hd-dir}; // "/assets/2_0x/";
+  $image-dir-xh: #{$default-images-dir}#{$default-xh-dir}; // "/assets/3_0x/";
+  $image-dir-xx: #{$default-images-dir}#{$default-xx-dir}; // "/assets/3_0x/";
+
+  // for sm-display
+  background-image: url($image-dir-sm + $file + '.' + $type);
+  -webkit-background-size: $width $height;
+  -moz-background-size: $width $height;
+  -o-background-size: $width $height;
+  background-size: $width $height;
+
+
+  // for md-display
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and ( min--moz-device-pixel-ratio: 1.5),
+  only screen and ( min-device-pixel-ratio: 1.5) {
+    & {
+      background-image: url($image-dir-md + $file + '.' + $type);
+      -webkit-background-size: $width $height;
+      -moz-background-size: $width $height;
+      -o-background-size: $width $height;
+      background-size: $width $height;
+    }
+  }
+
+  // for hd-display
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and ( min--moz-device-pixel-ratio: 2),
+  only screen and ( min-device-pixel-ratio: 2) {
+    & {
+      background-image: url($image-dir-hd + $file + '.' + $type);
+      -webkit-background-size: $width $height;
+      -moz-background-size: $width $height;
+      -o-background-size: $width $height;
+      background-size: $width $height;
+    }
+  }
+
+  // for xh-display
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 3),
+  only screen and ( min--moz-device-pixel-ratio: 3),
+  only screen and ( min-device-pixel-ratio: 3) {
+    & {
+      background-image: url($image-dir-xh + $file + '.' + $type);
+      -webkit-background-size: $width $height;
+      -moz-background-size: $width $height;
+      -o-background-size: $width $height;
+      background-size: $width $height;
+    }
+  }
+
+  // for xx-display
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 4),
+  only screen and ( min--moz-device-pixel-ratio: 4),
+  only screen and ( min-device-pixel-ratio: 4) {
+    & {
+      background-image: url($image-dir-xx + $file + '.' + $type);
+      -webkit-background-size: $width $height;
+      -moz-background-size: $width $height;
+      -o-background-size: $width $height;
+      background-size: $width $height;
+    }
+  }
+
+}
+
+
+
+
+// COLOR and BACKGROUND OPACITY
+
+@mixin color-opacity($color-opacity, $opacity-value) {
+  color: rgba($color-opacity, $opacity-value);
+}
+@mixin background-color-opacity($background-color-opacity, $background-opacity-value) {
+  background-color: rgba($background-color-opacity, $background-opacity-value);
+
+}
+
+
+// SHADOWS
+
+$shadow-key-penumbra-opacity: 0.14 !default;
+$shadow-key-umbra-opacity: 0.2 !default;
+$shadow-ambient-shadow-opacity: 0.12 !default;
+$shadow-focus-umbra-shadow-opacity: .18 !default;
+$shadow-focus-ambient-shadow-opacity: .36 !default;
+
+@if $customizable-shadows == true {
+  $shadow-key-penumbra-opacity          : $customizable-penumbra-opacity !default;
+  $shadow-key-umbra-opacity             : $customizable-umbra-opacity !default;
+  $shadow-ambient-shadow-opacity        : $customizable-shadow-ambient-opacity !default;
+  $shadow-focus-umbra-shadow-opacity    : $customizable-focus-umbra-opacity !default;
+  $shadow-focus-ambient-shadow-opacity  : $customizable-focus-ambient-shadow-opacity !default;
+}
+
+
+@mixin button-shadow() {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+              0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+@mixin button-hover-shadow() {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 1px 18px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+@mixin button-disabled-shadow() {
+  box-shadow: none !important;
+}
+@mixin drawer-shadow() {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+              0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+@mixin bars-shadow() {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+              0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+@mixin footer-shadow() {
+  box-shadow: 3px 0 4px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              3px 0 3px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+              1px 0 8px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+@mixin focus-shadow() {
+  box-shadow: 0 0 8px rgba(0,0,0, $shadow-focus-umbra-shadow-opacity),
+              0 8px 16px rgba(0,0,0, $shadow-focus-ambient-shadow-opacity);
+}
+
+@mixin shadow-2dp() {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+              0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+@mixin shadow-3dp() {
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 3px 3px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+              0 1px 8px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+@mixin shadow-4dp() {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 1px 10px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 2px 4px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+@mixin shadow-6dp() {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 1px 18px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+@mixin shadow-8dp() {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 3px 14px 2px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 5px 5px -3px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+@mixin shadow-16dp() {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0  6px 30px 5px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0  8px 10px -5px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+@mixin shadow-24dp() {
+  box-shadow: 0  9px 46px  8px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 11px 15px -7px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 24px 38px  3px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+
+
+
+// ANIMATION
+
+$animation-curve-fast-out-slow-in       : cubic-bezier(0.4, 0, 0.2, 1) !default;
+$animation-curve-linear-out-slow-in     : cubic-bezier(0, 0, 0.2, 1) !default;
+$animation-curve-fast-out-linear-in     : cubic-bezier(0.4, 0, 1, 1) !default;
+$animation-curve-default                : $animation-curve-fast-out-slow-in !default;
+
+@mixin material-animation-fast-out-slow-in($duration:0.2s) {
+  transition-duration                   : $duration;
+  transition-timing-function            : $animation-curve-fast-out-slow-in;
+}
+@mixin material-animation-linear-out-slow-in($duration:0.2s) {
+  transition-duration                   : $duration;
+  transition-timing-function            : $animation-curve-linear-out-slow-in;
+}
+@mixin material-animation-fast-out-linear-in($duration:0.2s) {
+  transition-duration                   : $duration;
+  transition-timing-function            : $animation-curve-fast-out-linear-in;
+}
+@mixin material-animation-default($duration:0.2s) {
+  transition-duration                   : $duration;
+  transition-timing-function            : $animation-curve-default;
+}
