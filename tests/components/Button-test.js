@@ -7,14 +7,16 @@ import Button from "../../src/components/Button"
 
 describe("Button", () => {
   const button = TestUtils.renderIntoDocument(
-    <Button label="Login" type="colored" />
+    <Button label="Login" style="colored" type="submit"/>
   )
   const buttonNode = ReactDOM.findDOMNode(button)
 
-  console.log(buttonNode.outerHTML)
+  it("has style", () => {
+    expect(buttonNode.classList.contains("sn-button--colored")).toBeTruthy()
+  })
 
   it("has type", () => {
-    expect(buttonNode.classList.contains("sn-button--colored")).toBeTruthy()
+    expect(buttonNode.type).toEqual("submit")
   })
 
   it("has label", () => {

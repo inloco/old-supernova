@@ -5,35 +5,39 @@ class Button extends React.Component {
     label:    PropTypes.string.isRequired,
     disabled: PropTypes.bool,
     raised:   PropTypes.bool,
-    type:     PropTypes.string
+    type:     PropTypes.string,
+    style:    PropTypes.string
   }
 
   static defaultProps = {
     disabled: false,
-    raised:   true
+    raised:   true,
+    type:     null,
+    style:    null
   }
 
   getRaisedClass() {
     return this.props.raised ? `sn-button--raised` : null
   }
 
-  getTypeClass() {
-    const { type } = this.props
+  getStyleClass() {
+    const { style } = this.props
 
-    return type !== undefined ? `sn-button--${ type }` : null
+    return style !== undefined ? `sn-button--${ style }` : null
   }
 
   getClassName() {
-    return `sn-button ${ this.getRaisedClass() } ${ this.getTypeClass() }`
+    return `sn-button ${ this.getRaisedClass() } ${ this.getStyleClass() }`
   }
 
   render() {
-    const { label, disabled } = this.props
+    const { label, disabled, type } = this.props
 
     return(
       <button
         className={ this.getClassName() }
-        disabled={ disabled }>
+        disabled={ disabled }
+        type={ type }>
         { label }
       </button>
     )
