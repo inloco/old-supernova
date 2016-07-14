@@ -7,73 +7,37 @@ import Button from "../../src/components/Button"
 
 describe("Button", () => {
   const button = TestUtils.renderIntoDocument(
-    <Button id="butotn-id"
-            btnType="primary"
-            type="button"
-            label="App"
-            size="xs"
-            icon="icon-add"
-            href="/en/publishers/applications/new"
-            style="btn-raised"
-            secondaryStyle="finish-button"
-            isDisabled={ false } />
+    <Button label="Login" type="colored" />
   )
   const buttonNode = ReactDOM.findDOMNode(button)
-  const btnNode = buttonNode.querySelector("button")
 
-  it("has href", () => {
-    expect(buttonNode.getAttribute("href")).toEqual("/en/publishers/applications/new")
-  })
+  console.log(buttonNode.outerHTML)
+
   it("has type", () => {
-    expect(btnNode.type).toEqual("button")
-  })
-
-  it("has id", () => {
-    expect(btnNode.getAttribute("id")).toEqual("butotn-id")
+    expect(buttonNode.classList.contains("sn-button--colored")).toBeTruthy()
   })
 
   it("has label", () => {
-    expect(btnNode.querySelector(".button-txt").textContent).toEqual("App")
+    expect(buttonNode.textContent).toEqual("Login")
   })
 
-  it("has size", () => {
-    expect(btnNode.getAttribute("class").includes("btn-xs")).toBeTruthy
-  })
-
-  it("has icon", () => {
-    expect(btnNode.getAttribute("class").includes("icon-add")).toBeTruthy
-  })
-
-  it("has style", () => {
-    expect(btnNode.getAttribute("class").includes("btn-primary")).toBeTruthy
-  })
-
-  it("has secondaryStyle", () => {
-    expect(btnNode.getAttribute("class").includes("finish-button")).toBeTruthy
+  it("is raised", () => {
+    expect(buttonNode.classList.contains('sn-button--raised')).toBeTruthy()
   })
 
   it("is not disabled", () => {
-    expect(btnNode.getAttribute("disabled")).toBeFalsy
+    expect(buttonNode.disabled).toBeFalsy
   })
 
   describe("when is disabled", () => {
     const button = TestUtils.renderIntoDocument(
-      <Button id="butotn-id"
-              btnType="default"
-              type="button"
-              label="App"
-              size="xs"
-              icon="icon-add"
-              href="/en/publishers/applications/new"
-              style="btn-raised"
-              secondaryStyle="finish-button"
-              isDisabled={ true } />
+      <Button label="Login" disabled={ true } />
     )
 
-    const buttonNode = ReactDOM.findDOMNode(button).querySelector("button")
+    const buttonNode = ReactDOM.findDOMNode(button)
 
     it("is disabled", () => {
-      expect(buttonNode.getAttribute("disabled")).toBeTruthy
+      expect(buttonNode.disabled).toBeTruthy
     })
   })
 })
