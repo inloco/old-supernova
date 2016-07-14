@@ -22,7 +22,7 @@ class TextArea extends React.Component {
     return (
       <textarea id={ this.hadleUndefined(id) }
                 name={ this.hadleUndefined(name) }
-                className="form-control empty"
+                className="form-control"
                 rows={ this.hadleUndefined(rows) }
                 tabIndex={ tabIndex } />
     )
