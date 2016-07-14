@@ -1,50 +1,35 @@
 import React, { PropTypes } from "react"
 
 class Input extends React.Component {
-  constructor(props) {
-    super()
-    this.state = { value: props.value }
-  }
-
   static propTyes = {
-    id: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    placeholder: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    isRequired: PropTypes.bool.isRequired,
-    value: PropTypes.string,
-    dataRemoteInput: PropTypes.bool
+    label:        PropTypes.string.isRequired,
+    required:     PropTypes.bool,
+    autoFocus:    PropTypes.bool,
+    id:           PropTypes.string,
+    name:         PropTypes.string,
+    defaultValue: PropTypes.string,
+    type:         PropTypes.string
   }
 
   static defaultProps = {
-    value: ""
-  }
-
-  handleChange(event) {
-    this.setState({
-      value: event.target.value
-    })
+    required:     false,
+    id:           null,
+    name:         null,
+    defaultValue: undefined,
+    type:         "text"
   }
 
   render() {
-    const { id,
-            type,
-            placeholder,
-            name,
-            dataRemoteInput,
-            isRequired } = this.props
-    const ops = { required: isRequired }
+    const { id, required, label, defaultValue, type, name, autoFocus } = this.props
 
-    return (
-      <input id={ id }
-             className={ type !== "hidden" ? "form-control" : "" }
-             type={ type }
-             placeholder={ placeholder }
-             name={ name }
-             data-remote-input={ dataRemoteInput !== undefined ? dataRemoteInput : null }
-             value={ this.state.value }
-             onChange={ (e) => { this.handleChange(e) } }
-             { ...ops } />
+    return(
+      <div className="sn-input">
+        <input {...{ id, required, defaultValue, type, name, autoFocus }}/>
+        <label htmlFor={ id } className="sn-field__label">
+          { label }
+        </label>
+        <i className="sn-field__bar"></i>
+      </div>
     )
   }
 }

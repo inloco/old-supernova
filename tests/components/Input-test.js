@@ -9,49 +9,33 @@ import Input from "../../src/components/Input"
 
 describe("Input", () => {
   const factory = new InputFactory
-  const node = factory.getNode()
-
-  it("has id", () => {
-    expect(node.getAttribute("id")).toEqual("publisher-id")
-  })
+  const node = factory.getNode().querySelector("input")
 
   it("has type", () => {
-    expect(node.getAttribute("type")).toEqual("text")
-  })
-
-  it("has placeholder", () => {
-    expect(node.getAttribute("placeholder")).toEqual("Digite seu nome")
+    expect(node.type).toEqual("email")
   })
 
   it("has name", () => {
-    expect(node.getAttribute("name")).toEqual("publisher[nome]")
+    expect(node.name).toEqual("email")
   })
 
   it("has value", () => {
-    expect(node.value).toEqual("current_month")
+    expect(node.value).toEqual("foo@foo.com")
   })
 
-  it("has data-remote-input", () => {
-    expect(node.getAttribute("data-remote-input")).toEqual("true")
-  })
-
-  it("is not required", () => {
-    expect(node.getAttribute("required")).toBeFalsy
+  it("is required", () => {
+    expect(node.required).toBeTruthy
   })
 
   describe("not required", () => {
     const input = TestUtils.renderIntoDocument(
-      <Input id="publisher-id"
-             type="text"
-             placeholder="Digite seu nome"
-             name="publisher[nome]"
-             isRequired={ true } />
+      <Input label="E-mail" />
     )
 
     const specificNode = ReactDOM.findDOMNode(input)
 
-    it("is required", () => {
-      expect(specificNode.getAttribute("required")).toBeTruthy
+    it("is not required", () => {
+      expect(specificNode.required).toBeTruthy
     })
   })
 })
