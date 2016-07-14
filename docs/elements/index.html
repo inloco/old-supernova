@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./../../build/main.css" />
+</head>
+<body>
+  <div class="sn-layout sn-js-layout sn-layout--fixed-drawer" id="content" data-src="forms.html">
+
+    <!-- Drawer -->
+    <div class="sn-layout__drawer" id="sidebar"></div>
+    <div class="sn-layout__obfuscator"></div>
+  </div>
+  <!-- ./sn-layout -->
+
+
+  <script src="./../../build/index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+  <script>
+    var content = $('#content')
+
+    $('#sidebar').load("_elements_menu.html", function() {
+      $('#sidebar a.js-current-nav').on('click', function(e) {
+        e.preventDefault()
+
+        $.get($(this).attr('href'), function(data) {
+          $('.doc-replace').remove()
+          content.append($(data).addClass('doc-replace'))
+        })
+      })
+    })
+
+    $.get(content.attr('data-src'), function(data) {
+      content.append($(data).addClass('doc-replace'))
+    })
+  </script>
+
+</body>
+</html>
