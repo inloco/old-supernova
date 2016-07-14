@@ -25,6 +25,10 @@ import Button from "./components/Button"
 import TextArea from "./components/TextArea"
 import Label from "./components/Label"
 import Icon from "./components/Icon"
+import Modal from "./components/Modal/Main"
+import ModalOpenTrigger from "./components/Modal/OpenTrigger"
+import ModalCloseTrigger from "./components/Modal/CloseTrigger"
+
 
 export {
   Dropdown,
@@ -53,5 +57,8 @@ export {
   Button,
   TextArea,
   Label,
-  Icon
+  Icon,
+  Modal,
+  ModalOpenTrigger,
+  ModalCloseTrigger
 }

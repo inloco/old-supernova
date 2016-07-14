@@ -13,7 +13,7 @@ class HeaderFactory extends Factory{
       <Header>
         <Item label="Apps" href="#A"/>
         <Item label="Music" href="#B"/>
-        <Item label="Edit" href="#B" noArrow="true"/>
+        <Item label="Edit" href="#B" noArrow={ true }/>
       </Header>
     )
   }

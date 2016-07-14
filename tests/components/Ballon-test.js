@@ -13,7 +13,7 @@ describe("Ballon", () => {
             color="balloon-impressions" />
   )
   const ballonNode = ReactDOM.findDOMNode(ballon)
-  
+
   it("has impressions on ballon-header", () => {
     expect(ballonNode.querySelector(".balloon-header").textContent).toEqual("impressions")
   })
