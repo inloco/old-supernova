@@ -14,8 +14,8 @@
     "build:watch": "webpack --watch",
     "test": "jest",
     "test:watch": "jest --watch",
-    "start:server": "http-server",
-    "start:dev": "npm run build:watch | npm run start:server",
+    "start-doc": "http-server -p8081",
+    "start-dev": "npm run start-doc | npm run build:watch",
     "postinstall": "npm run build"
   },
   "dependencies": {

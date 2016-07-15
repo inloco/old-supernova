@@ -2,72 +2,44 @@ import React, { PropTypes } from "react"
 
 class Button extends React.Component {
   static propTyes = {
-    label: PropTypes.string.isRequired,
-    btnType: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    size: PropTypes.string.isRequired,
-    isDisabled: PropTypes.bool.isRequired,
-    id: PropTypes.string,
-    icon: PropTypes.string,
-    href: PropTypes.string,
-    style: PropTypes.string,
-    secondaryStyle: PropTypes.string
+    label:    PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+    raised:   PropTypes.bool,
+    type:     PropTypes.string,
+    style:    PropTypes.string
   }
 
   static defaultProps = {
-    style: "",
-    secondaryStyle: ""
+    disabled: false,
+    raised:   true,
+    type:     null,
+    style:    null
   }
 
-  getButtonHref() {
-    const { href } = this.props
-
-    return (
-      <a href={ href }>
-        { this.getButton() }
-      </a>
-    )
+  getRaisedClass() {
+    return this.props.raised ? `sn-button--raised` : null
   }
 
-  getClasses() {
-    const { btnType, size, style, secondaryStyle } = this.props
+  getStyleClass() {
+    const { style } = this.props
 
-    return(
-      "btn btn-" + btnType + " " + style + " btn-" + size + " withripple " + secondaryStyle
-    )
+    return style !== undefined ? `sn-button--${ style }` : null
   }
 
-  getIcon() {
-    const { icon } = this.props
-
-    return(
-      icon !== undefined ? <span className={ "icon " + icon }></span> : null
-    )
-  }
-
-  getButton() {
-    const { id, label, type, isDisabled } = this.props
-    const disabledOpt = { disabled: isDisabled }
-
-    return (
-      <button id={ id !== undefined ? id : null }
-              type={ type }
-              className={ this.getClasses() }
-              { ...disabledOpt }>
-        { this.getIcon() }
-        <span className="button-txt">
-          { label }
-        </span>
-        <div className="ripple-wrapper"></div>
-      </button>
-    )
+  getClassName() {
+    return `sn-button ${ this.getRaisedClass() } ${ this.getStyleClass() }`
   }
 
   render() {
-    const { href } = this.props
+    const { label, disabled, type } = this.props
 
-    return (
-      href !== undefined ? this.getButtonHref() : this.getButton()
+    return(
+      <button
+        className={ this.getClassName() }
+        disabled={ disabled }
+        type={ type }>
+        { label }
+      </button>
     )
   }
 }
