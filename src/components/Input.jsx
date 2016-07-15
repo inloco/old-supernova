@@ -7,13 +7,14 @@ class Input extends React.Component {
   }
 
   static propTyes = {
-    id: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    placeholder: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
     isRequired: PropTypes.bool.isRequired,
+    id: PropTypes.string,
+    placeholder: PropTypes.string,
+    name: PropTypes.string,
     value: PropTypes.string,
-    dataRemoteInput: PropTypes.bool
+    dataRemoteInput: PropTypes.bool,
+    className: PropTypes.string
   }
 
   static defaultProps = {
@@ -26,6 +27,14 @@ class Input extends React.Component {
     })
   }
 
+  getClasses() {
+    const { className } = this.props
+
+    return(
+      className !== undefined ? className  : "form-control"
+    )
+  }
+
   render() {
     const { id,
             type,
@@ -36,11 +45,11 @@ class Input extends React.Component {
     const ops = { required: isRequired }
 
     return (
-      <input id={ id }
-             className={ type !== "hidden" ? "form-control" : "" }
+      <input id={ id !== undefined ? id : null }
+             className={ type !== "hidden" ? this.getClasses() : "" }
              type={ type }
-             placeholder={ placeholder }
-             name={ name }
+             placeholder={ placeholder !== undefined ? placeholder : null }
+             name={ name !== undefined ? name : null }
              data-remote-input={ dataRemoteInput !== undefined ? dataRemoteInput : null }
              value={ this.state.value }
              onChange={ (e) => { this.handleChange(e) } }

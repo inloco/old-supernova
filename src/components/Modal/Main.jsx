@@ -15,12 +15,14 @@ class Modal extends React.Component {
     title: PropTypes.string,
     label: PropTypes.string,
     children: PropTypes.node,
-    isOpen: PropTypes.bool
+    isOpen: PropTypes.bool,
+    idSecondaryRadio: PropTypes.string
   }
 
   static defaultProps = {
     className: "",
-    isOpen: false
+    isOpen: false,
+    hasRadioButton: false
   }
 
   componentDidMount() {
@@ -102,8 +104,8 @@ class Modal extends React.Component {
         </div>
         { this.state.isOpen ? <div className="modal-backdrop fade in"></div> : null }
       </div>
-     )
- }
+    )
+  }
 }
 
 export default Modal

@@ -28,6 +28,8 @@ import Icon from "./components/Icon"
 import Modal from "./components/Modal/Main"
 import ModalOpenTrigger from "./components/Modal/OpenTrigger"
 import ModalCloseTrigger from "./components/Modal/CloseTrigger"
+import RadioButton from "./components/RadioButton/Main"
+import LabelRadioButton from "./components/RadioButton/Label"
 
 
 export {
@@ -60,5 +62,7 @@ export {
   Icon,
   Modal,
   ModalOpenTrigger,
-  ModalCloseTrigger
+  ModalCloseTrigger,
+  RadioButton,
+  LabelRadioButton
 }
