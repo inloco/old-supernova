@@ -15,14 +15,12 @@ class Modal extends React.Component {
     title: PropTypes.string,
     label: PropTypes.string,
     children: PropTypes.node,
-    isOpen: PropTypes.bool,
-    idSecondaryRadio: PropTypes.string
+    isOpen: PropTypes.bool
   }
 
   static defaultProps = {
     className: "",
-    isOpen: false,
-    hasRadioButton: false
+    isOpen: false
   }
 
   componentDidMount() {
