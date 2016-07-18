@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "autoprefixer": "^6.3.5",
-    "babel": "^6.5.2",
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.4",
     "babel-loader": "^6.2.4",
@@ -35,6 +34,7 @@
     "webpack": "^1.12.14"
   },
   "devDependencies": {
+    "babel-cli": "^6.10.1",
     "babel-jest": "^9.0.0",
     "jest-cli": "*",
     "react-addons-test-utils": "~15.1.0"
