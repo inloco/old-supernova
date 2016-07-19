@@ -10,12 +10,11 @@
     "url": "git+ssh://git@bitbucket.org/ubeedev/supernova.git"
   },
   "scripts": {
-    "build": "rm -rf build && webpack",
-    "build:watch": "rm -rf build && webpack --watch",
+    "build": "rm -rf build && webpack -p",
     "test": "jest",
     "test:watch": "jest --watch",
     "start-dev:doc": "cd docs && node index.js",
-    "start-dev": "npm run build:watch | npm run start-dev:doc",
+    "start-dev": "rm -rf build && webpack --config webpack.dev.config.js | npm run start-dev:doc",
     "postinstall": "npm run build"
   },
   "dependencies": {

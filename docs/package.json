@@ -11,6 +11,8 @@
   "devDependencies": {
     "ejs": "^2.4.2",
     "ejs-locals": "^1.0.2",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
   }
 }
