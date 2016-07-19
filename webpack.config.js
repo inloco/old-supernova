@@ -26,7 +26,13 @@ module.exports = {
   output: {
     path: __dirname + '/build',
     publicPath: '/',
-    filename: 'index.js'
+    filename: 'index.js',
+    library: 'Supernova',
+    libraryTarget: 'umd'
+  },
+  externals: {
+    'react': 'react',
+    'react-dom': 'react-dom'
   },
   plugins: [
     new ExtractTextPlugin("[name].css")

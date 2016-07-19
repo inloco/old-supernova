@@ -8,13 +8,14 @@ import Input from "../../../src/components/Input"
 class InputFactory extends Factory{
   template() {
     return(
-      <Input id="publisher-id"
-             type="text"
-             placeholder="Digite seu nome"
-             name="publisher[nome]"
-             dataRemoteInput={ true }
-             value="current_month"
-             isRequired={ false } />
+      <Input
+        label="E-mail"
+        type="email"
+        required={ true }
+        name="email"
+        autoFocus={ true }
+        defaultValue="foo@foo.com"
+      />
     )
   }
 }
