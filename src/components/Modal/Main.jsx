@@ -102,8 +102,8 @@ class Modal extends React.Component {
         </div>
         { this.state.isOpen ? <div className="modal-backdrop fade in"></div> : null }
       </div>
-     )
- }
+    )
+  }
 }
 
 export default Modal
