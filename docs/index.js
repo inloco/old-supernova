@@ -3,6 +3,7 @@ var app = express();
 var engine = require('ejs-locals');
 
 app.use(express.static('./../build'));
+app.use(express.static('./node_modules'));
 
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
