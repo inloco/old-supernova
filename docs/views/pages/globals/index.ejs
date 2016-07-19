@@ -1,0 +1,99 @@
+<% layout('./../../layout') -%>
+
+<% include _globals_menu %>
+
+<header class="sn-layout__header">
+  <div aria-expanded="false" role="button" tabindex="0" class="sn-layout__drawer-button">
+    <i class="material-icons"></i>
+  </div>
+  <div class="sn-layout__header-row">
+    <!-- Title -->
+    <span class="sn-layout-title">Globals</span>
+  </div>
+</header>
+
+<!-- Content -->
+<main class="sn-layout__content">
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed">
+    <div class="sn-cell--1">
+      <h1>Heading h1</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ex id impedit, mollitia praesentium quae suscipit totam! A accusantium debitis eius eligendi, esse officia quis sint soluta sunt ullam voluptatibus.</p>
+      <h2>Heading h2</h2>
+      <h3>Heading h3</h3>
+      <h4>Heading h4</h4>
+      <h5>Heading h5</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ex id impedit, mollitia praesentium quae suscipit totam! A accusantium debitis eius eligendi, esse officia quis sint soluta sunt ullam voluptatibus.</p>
+
+      <br>
+              <p><strong>FINALIZAR:</strong></p>
+              <ul>
+                <li>Calculo das margens horizontais está considerando o tamanho da fonte usada na tag específica, entao fontes maiores terao margens maiores. Refazer este cálculo para considerar como base um tamanho único para calculo das margens em todo o documento. Exemplo: se aumentar o $default-font-size para 1.4em, o titulo do drawer fica com margen-left maior que os links, embora o padding seja o mesmo valor (em EM) para ambos.</li>
+                <li>Default-Font-Size quebrando tudo quando coloca unidade em % (configurações de margens e heights e widths de todos os itens do Layout baseados na variavel $default-font-size)</li>
+                <li>Documentação/Presentation</li>
+              </ul>
+
+      <br>
+      <div class="sn-typo--display-4 sn-typo--mobile-word-break">Display 4</div>
+      <div class="sn-typo--display-3">Display 3</div>
+      <div class="sn-typo--display-2">Display 2</div>
+      <div class="sn-typo--display-1">Display 1</div>
+    </div>
+  </div>
+
+    <div class="sn-grid sn-grid--responsive sn-grid--cell-gutter sn-grid--justify-around sn-grid--bleed-all sn-grid--cell-wrap sn-presentation__grid">
+      <div class="sn-cell--1">
+        <div class="sn-presentation__cell">
+          1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </div>
+      </div>
+      <div class="sn-cell--1">
+        <div class="sn-presentation__cell">
+          2 - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </div>
+      </div>
+      <div class="sn-cell--1">
+        <div class="sn-presentation__cell">
+          3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </div>
+      </div>
+      <div class="sn-cell--1">
+        <div class="sn-presentation__cell">
+          4 - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </div>
+      </div>
+    </div>
+
+</main>
+
+
+<!-- Footer -->
+<footer class="sn-layout__footer">
+  <div class="sn-grid sn-grid--responsive-tablet-xxsm sn-grid--cell-gutter">
+    <div class="sn-cell--2">
+      <div class="sn-layout__footer--title">
+        <i class="sn-icon sn-icon__inlocomedia--brand"></i>
+      </div>
+    </div>
+    <div class="sn-cell--2">
+      <ul class="sn-layout__footer__list">
+        <li><a href="#">Produtos</a></li>
+        <li><a href="#">Sobre a Empresa</a></li>
+        <li><a href="#">Mapa do site</a></li>
+      </ul>
+    </div>
+    <div class="sn-cell--3">
+      <p>© 2016 In Loco Media</p>
+      <p>Rua Augusta, 3000 - São Paulo</p>
+      <p>Tel: (11) 99331-7837</p>
+      <p>Tel: (11) 97677 5634</p>
+
+    </div>
+    <div class="sn-cell--2">
+      <div class="sn-layout__footer__social-btn"></div>
+      <div class="sn-layout__footer__social-btn"></div>
+      <div class="sn-layout__footer__social-btn"></div>
+      <div class="sn-layout__footer__social-btn"></div>
+    </div>
+  </div>
+</footer>
