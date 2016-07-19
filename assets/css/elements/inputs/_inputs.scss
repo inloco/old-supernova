@@ -16,7 +16,7 @@
 
 
 
-.sn-form-container {
+.sn-form__container {
   position: relative;
   background: $default-form-group-container-background;
   width: auto;
@@ -25,12 +25,6 @@
   @include shadow-2dp();
 }
 
-// The Styles for the form
-fieldset {
-  margin: 0 0 24px * 2;
-  padding: 0;
-  border: none;
-}
 
 
 // Form Group
@@ -243,7 +237,7 @@ fieldset {
       &::after,
       &::before {
         opacity: 1;
-        transition: height $default-form-animation-transition ease;
+        transition: height $default-form-animation-transition-checkbox-icon ease;
       }
 
       &::after {
@@ -308,19 +302,19 @@ fieldset {
 
 .sn-field__bar {
   position: relative;
-  border-bottom: (16px / 16) solid $default-form-bar-color;
+  border-bottom: $default-input-field-bar-border-bottom-size solid $default-form-bar-color;
   display: block;
 
   &::before {
     content: '';
-    height: (16px / 8);
+    position: absolute;
+    bottom: $default-input-field-bar-position-bottom;
+    height: $default-input-field-bar-height;
     width: 0;
     left: 50%;
-    bottom: (16px / -16);
-    position: absolute;
     background: $default-form-bar-color-focus;
     transition: left $default-form-animation-transition ease, width $default-form-animation-transition ease;
-    z-index: 2;
+    //z-index: 2;
   }
 }
 

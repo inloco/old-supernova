@@ -66,11 +66,11 @@
 
   & > .sn-layout__title,
   & > .sn-layout-title {
-    line-height: $default-layout-desktop-header-height;
+    line-height: $default-layout-header-desktop-height;
     padding-left: $default-layout-drawer-desktop-padding;
 
     @media screen and (max-width: $default-layout-screen-size-threshold) {
-      line-height: $default-layout-mobile-header-height;
+      line-height: $default-layout-header-mobile-height;
       padding-left: $default-layout-drawer-mobile-padding;
     }
   }
@@ -130,7 +130,7 @@
   margin: $default-layout-drawer-button-margins;
   top: 0;
   left: 0;
-  color: $default-layout-header-text-color;
+  color: $default-layout-drawer-button-color;
 
   .sn-layout__header & {
     position: absolute;

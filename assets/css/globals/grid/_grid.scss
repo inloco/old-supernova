@@ -424,15 +424,15 @@
 .sn-cell--80perc              { @include flexitem(0,0,80%); }
 .sn-cell--90perc              { @include flexitem(0,0,90%); }
 
-.sn-cell--1expo               { @include flexitem(0,0,$cell-expo-flexitem-hs*12); }
-.sn-cell--2expo               { @include flexitem(0,0,$cell-expo-flexitem-hs*24); }
-.sn-cell--3expo               { @include flexitem(0,0,$cell-expo-flexitem-hs*36); }
-.sn-cell--4expo               { @include flexitem(0,0,$cell-expo-flexitem-hs*48); }
-.sn-cell--5expo               { @include flexitem(0,0,$cell-expo-flexitem-hs*60); }
-.sn-cell--6expo               { @include flexitem(0,0,$cell-expo-flexitem-hs*72); }
-.sn-cell--7expo               { @include flexitem(0,0,$cell-expo-flexitem-hs*84); }
-.sn-cell--8expo               { @include flexitem(0,0,$cell-expo-flexitem-hs*96); }
-.sn-cell--9expo               { @include flexitem(0,0,$cell-expo-flexitem-hs*108); }
+.sn-cell--1expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*12); }
+.sn-cell--2expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*24); }
+.sn-cell--3expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*36); }
+.sn-cell--4expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*48); }
+.sn-cell--5expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*60); }
+.sn-cell--6expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*72); }
+.sn-cell--7expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*84); }
+.sn-cell--8expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*96); }
+.sn-cell--9expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*108); }
 
 .sn-cell--order-1             { @include flexorder(1); }
 .sn-cell--order-2             { @include flexorder(2); }

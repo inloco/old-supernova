@@ -9,11 +9,20 @@
  *   colors variables sass file
  *  ----------- *** ------------
  *
+ *  Variables for all Globals, Elements and Components colors.
+ *
  */
 
 @import "pallete/material-pallete";
 @import "../../customizable";
 
+
+
+
+// ====== GLOBALS
+
+
+// GENERALS
 
 // Black & White
 $color-black: rgb(0,0,0);
@@ -34,10 +43,10 @@ $default-primary-color              : $default-brand-color !default;
 $default-accent-color               : $default-brand-accent-color !default;
 
 // System alert colors
-$default-success-color              : $palette-green-A700 !default;
+$default-success-color              : desaturate($palette-green-A700, 20%) !default;
 $default-warning-color              : $palette-amber-A700 !default;
-$default-danger-color               : $palette-red-A700 !default;
-$default-info-color                 : $palette-purple-A700 !default;
+$default-danger-color               : tint($palette-red-A700, 25%) !default;
+$default-info-color                 : desaturate($palette-purple-A700, 30%) !default;
 
 // Text colors
 $default-text-color-primary         : rgba($color-black, 0.87) !default;
@@ -50,44 +59,18 @@ $default-text-link-color            : $default-brand-accent-color !default;
 // Dividers
 $default-dividers-color             : rgba($color-black, 0.12) !default;
 
-// Default Button colors
-$default-button-primary-color       : rgba($palette-grey-500, 0.20) !default;
-$default-button-secondary-color     : $color-black !default;
-$default-button-hover-color         : $default-button-primary-color !default;
-$default-button-active-color        : rgba($palette-grey-500, 0.40) !default;
-$default-button-focus-color         : rgba($color-black, 0.12) !default;
-$default-button-color-text          : $color-black !default;
 
-// Colored Button colors
-$button-primary-color-alt           : $default-primary-color !default;
-$button-secondary-color-alt         : $color-dark-contrast !default;
-$button-hover-color-alt             : $button-primary-color-alt !default;
-$button-active-color-alt            : darken($default-primary-color, 6%) !default;
-$button-focus-color-alt             : darken($default-primary-color, 6%) !default;
-$button-primary-color-text          : $color-white !default;
+// LAYOUT
 
-// Accent Button colors
-$button-primary-accent-alt          : $default-accent-color !default;
-$button-secondary-accent-alt        : $color-dark-contrast !default;
-$button-hover-accent-alt            : $button-primary-accent-alt !default;
-$button-active-accent-alt           : darken($button-primary-accent-alt, 6%) !default;
-$button-focus-accent-alt            : darken($button-primary-accent-alt, 6%) !default;
-$button-primary-accent-text         : $color-white !default;
-
-// Disabled Button colors
-$default-button-primary-color-disabled    : rgba($color-black, 0.12) !default;
-$default-button-secondary-color-disabled  : rgba($color-black, 0.26) !default;
-$default-button-disabled-color-text       : $default-button-secondary-color-disabled;
-
-
-// Header
+// -- Layout Header & Subheader
 $default-layout-header-bg-color                           : rgb(56,64,71) !default;
 $default-layout-header-text-color                         : $color-dark-contrast !default;
 $default-layout-header-nav-hover-color                    : rgba($palette-grey-700, 0.6) !default;
 $default-layout-header-tab-text-color                     : rgba($color-dark-contrast, 0.6) !default;
 $default-layout-header-tab-highlight                      : $default-accent-color !default;
+$default-layout-subheader-background-color                : $palette-grey-200;
 
-// Drawer
+// -- Drawer
 $default-layout-nav-color                                 : $palette-grey-300 !default;
 $default-layout-drawer-bg-color                           : $palette-grey-50 !default;
 $default-layout-drawer-border-color                       : $palette-grey-300 !default;
@@ -95,11 +78,12 @@ $default-layout-text-color                                : $palette-grey-800 !d
 $default-layout-drawer-navigation-color                   : $palette-grey-600 !default;
 $default-layout-drawer-navigation-link-active-color       : $palette-grey-300 !default;
 $default-layout-drawer-navigation-link-active-background  : darken($default-layout-drawer-navigation-link-active-color, 1%) !default;
+$default-layout-drawer-button-color                       : $default-layout-header-text-color;
 
-// Obfuscator
+// -- Obfuscator (for drawer)
 $default-obfuscator-background-color                      : rgba($color-black, 0.5);
 
-// Footer
+// -- Footer
 $default-layout-footer-background-color                   : lighten($default-layout-header-bg-color, 60%) !default;
 $default-layout-footer-color                              : $palette-grey-800 !default;
 $default-layout-footer-heading-color                      : $palette-grey-900 !default;
@@ -108,6 +92,91 @@ $default-layout-footer-underline-color                    : $default-layout-foot
 $default-layout-footer-link-color                         : $default-text-link-color !default;
 $default-layout-footer-link-hover-color                   : $default-text-link-color !default;
 
+
+
+
+// ====== ELEMENTS
+
+
+// Buttons
+
+// -- Default buttons
+$default-button-primary-color       : rgba($palette-grey-500, 0.20) !default;
+$default-button-secondary-color     : $color-black !default;
+$default-button-hover-color         : $default-button-primary-color !default;
+$default-button-active-color        : rgba($palette-grey-500, 0.40) !default;
+$default-button-focus-color         : rgba($color-black, 0.12) !default;
+$default-button-color-text          : $color-black !default;
+
+// -- Colored buttons
+$button-primary-color-alt           : $default-primary-color !default;
+$button-secondary-color-alt         : $color-dark-contrast !default;
+$button-hover-color-alt             : $button-primary-color-alt !default;
+$button-active-color-alt            : darken($default-primary-color, 6%) !default;
+$button-focus-color-alt             : darken($default-primary-color, 6%) !default;
+$button-primary-color-text          : $color-white !default;
+
+// -- Accent buttons
+$button-primary-accent-alt          : $default-accent-color !default;
+$button-secondary-accent-alt        : $color-dark-contrast !default;
+$button-hover-accent-alt            : $button-primary-accent-alt !default;
+$button-active-accent-alt           : darken($button-primary-accent-alt, 6%) !default;
+$button-focus-accent-alt            : darken($button-primary-accent-alt, 6%) !default;
+$button-primary-accent-text         : $color-white !default;
+
+// -- Disabled buttons
+$default-button-primary-color-disabled    : rgba($color-black, 0.12) !default;
+$default-button-secondary-color-disabled  : rgba($color-black, 0.26) !default;
+$default-button-disabled-color-text       : $default-button-secondary-color-disabled;
+
+
+// Inputs
+$default-form-group-container-background                  : $color-white;
+$default-form-input-color                                 : $color-black;
+$default-form-label-color                                 : darken($palette-grey-500, 8%);
+$default-form-label-color-floating                        : $palette-grey-400;
+$default-form-label-color-focus                           : $default-accent-color;
+$default-form-bar-color                                   : $palette-grey-400;
+$default-form-bar-color-focus                             : $default-accent-color;
+$default-form-input-icon-border-color                     : $palette-grey-400;
+$default-form-input-icon-color-focus                      : $default-accent-color;
+$default-form-input-icon-done-sign-color                  : $color-white;
+$default-form-input-icon-color-error                      : $default-danger-color;
+$default-form-group-color-message-error                   : $default-danger-color;
+$default-form-group-color-message-warning                 : $default-warning-color;
+$default-form-group-color-message-info                    : $default-info-color;
+
+
+
+
+// ====== COMPONENTS
+
+
+// Cards
+$default-card-list-background-strip                  : $palette-grey-200;
+$default-card-icon-button-hover                      : $default-text-link-color;
+
+
+// Steps
+$default-steps-background                            : $palette-grey-300 !default;
+$default-steps-waiting-color                         : $palette-grey-400 !default;
+$default-steps-waiting-background                    : $palette-grey-200 !default;
+$default-steps-active-color                          : $palette-grey-600 !default;
+$default-steps-active-brackground                    : $color-white !default;
+$default-steps-done-color                            : $palette-light-green-600 !default;
+$default-steps-done-background                       : $palette-light-green-50 !default;
+$default-steps-icon-color                            : $color-white !default;
+$default-steps-icon-waiting-background               : $default-steps-waiting-color;
+$default-steps-icon-active-background                : $default-steps-active-color;
+$default-steps-icon-done-background                  : $default-steps-done-color;
+
+
+
+
+
+
+
+// ====== COLOR CUSTOMIZABLE
 
 
 @if $customizable-colors == true {
@@ -119,6 +188,9 @@ $default-layout-footer-link-hover-color                   : $default-text-link-c
   $default-info-color               : $customizable-info-color !important;
   $default-warning-color            : $customizable-warning-color !important;
   $default-danger-color             : $customizable-danger-color !important;
+
+
+  // ====== DARK THEME
 
   @if $customizable-theme == dark { // Default value is light
 

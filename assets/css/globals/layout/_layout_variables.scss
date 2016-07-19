@@ -18,33 +18,44 @@
 @import "../colors/colors_variables";
 @import "../../customizable";
 
-//
-$default-layout-drawer-narrow                         : $hs-4 * 60 !default; // ~240px
-//$default-layout-drawer-wide                           : 456px !default;
-$default-layout-drawer-width                          : $default-layout-drawer-narrow !default;
-$default-layout-drawer-button-mobile-size             : $hs-32 !default; // ~32px
-$default-layout-drawer-button-desktop-size            : $hs-48 !default; // ~48px
-$default-layout-drawer-button-margins                 : $vs-10 $hs-12 !default; // ~10px 12px
-$default-layout-drawer-transform                      : -$default-layout-drawer-width;
-$default-layout-drawer-button-font-size               : inherit;
-$default-layout-drawer-button-line-height             : $default-layout-drawer-button-desktop-size / $default-line-height * 1.625;
-$default-layout-drawer-button-screen-threshold-margin : $vs-4 $hs-4; // ~4px
-$default-layout-drawer-navigation-padding-top         : $vs-16; // ~16px
-$default-layout-drawer-desktop-padding                : $hs-16 !default; // ~16px
-$default-layout-drawer-mobile-padding                 : $hs-32 !default; // ~32px
 
-//
 $default-layout-screen-size-threshold                 : $screen-threshold !default; // ~1024px
 
-$default-layout-header-mobile-row-height              : $hs-56 !default; // ~56px
-$default-layout-mobile-header-height                  : $default-layout-header-mobile-row-height;
-$default-layout-header-desktop-row-height             : $hs-64 !default; // ~64px
-$default-layout-desktop-header-height                 : $default-layout-header-desktop-row-height;
-$default-layout-header-row-screen-padding             : $hs-40 !default; // ~40px//
-$default-layout-header-desktop-baseline               : $hs-40 * 2 !default; // ~80px
-$default-layout-header-mobile-baseline                : $hs-64 !default; // ~64px - original is 72px
-$default-layout-header-mobile-indent                  : $hs-16 !default; // ~16px
-$default-layout-header-desktop-indent                 : $hs-32 !default; // ~32px - original is 40px
+// Header & Subheader
+$default-layout-header-mobile-row-height              : $hm * 14 !default; // ~56px
+$default-layout-header-mobile-height                  : $default-layout-header-mobile-row-height;
+$default-layout-header-desktop-row-height             : $hm * 16 !default; // ~64px
+$default-layout-header-desktop-height                 : $default-layout-header-desktop-row-height;
+$default-layout-header-row-screen-padding             : $hm * 10 !default; // ~40px//
+$default-layout-header-desktop-baseline               : $hm * 20 !default; // ~80px
+$default-layout-header-mobile-baseline                : $hm * 16 !default; // ~64px - original is 72px
+$default-layout-header-mobile-indent                  : $hm * 4 !default; // ~16px
+$default-layout-header-desktop-indent                 : $hm * 8 !default; // ~32px - original is 40px
+$default-layout-subheader-min-height                  : $vm * 14 !default; // ~56px
+
+
+// Drawer
+$default-layout-drawer-narrow                         : $hm * 60 !default; // ~240px
+//$default-layout-drawer-wide                           : 456px !default;
+$default-layout-drawer-width                          : $default-layout-drawer-narrow !default;
+$default-layout-drawer-button-mobile-size             : $hm * 8 !default; // ~32px
+$default-layout-drawer-button-desktop-size            : $hm * 12 !default; // ~48px
+$default-layout-drawer-button-margins                 : ($vm * 2.5) ($hm * 3) !default; // ~10px 12px
+$default-layout-drawer-transform                      : -$default-layout-drawer-width;
+$default-layout-drawer-button-font-size               : inherit;
+$default-layout-drawer-button-line-height             : $default-layout-drawer-button-desktop-size / $dlh * 1.625;
+$default-layout-drawer-button-screen-threshold-margin : $vm $hm !default; // ~4px
+$default-layout-drawer-navigation-padding-top         : $vm * 4 !default; // ~16px
+$default-layout-drawer-desktop-padding                : $hm * 4 !default; // ~16px
+$default-layout-drawer-mobile-padding                 : $hm * 8 !default; // ~32px
+
+
+// Footer
+$default-layout-footer-title                          : $hs-20; // ~20px
+$default-layout-footer-padding                        : $hs-16 !default; // ~16px
+$default-layout-footer-heading-font-size              : $dfs * 1.7142857143 !default; // ~24px
+$default-layout-footer-heading-line-height            : $default-line-height !default;
+$default-layout-footer-button-size                    : $hs-36 !default; // ~36px
 
 
 // Z-index
@@ -52,10 +63,3 @@ $default-layout-header-zindex                         : $z-layout-header;
 $default-layout-obfuscator-zindex                     : $z-layout-obfuscator;
 $default-layout-drawer-zindex                         : $z-layout-drawer;
 $default-layout-content-zindex                        : $z-layout-content;
-
-// Footer
-$default-layout-footer-title                          : $hs-20; // ~20px
-$default-layout-footer-padding                        : $hs-16 !default; // ~16px
-$default-layout-footer-heading-font-size              : $hs-24 !default; // ~24px
-$default-layout-footer-heading-line-height            : $default-line-height !default;
-$default-layout-footer-button-size                    : $hs-36 !default; // ~36px

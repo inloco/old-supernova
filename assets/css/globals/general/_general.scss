@@ -58,7 +58,7 @@ hr {
   color: $default-dividers-color;
   background-color: $default-dividers-color;
   border: 0;
-  height: 1px;
+  height: ($vm / 4);
 }
 
 

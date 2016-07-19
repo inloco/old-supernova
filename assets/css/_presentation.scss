@@ -13,26 +13,26 @@
 
 
 
-.sn-presentation__drawer {
-  //background-color: $palette-indigo-900 !important;
-  //background-image: url("http://1-background.com/images/stars-1/beautiful-blue-stars-fill.jpg");
-  //background-repeat: repeat-y;
-  a {
-    color: #FFF !important;
-    text-decoration: none;
-    cursor: pointer;
-    &:hover {
-      background-color: darken($palette-indigo-900, 5%) !important;
-    }
-  }
-  .sn-presentation__logo {
-    margin: 32px 0 0 0;
-    padding: 4px 40px;
-    font-size: $default-font-size * 1.5;
-    //color: lighten($palette-indigo-900, 50%);
-    text-transform: uppercase;
-  }
-}
+//.sn-presentation__drawer {
+//  //background-color: $palette-indigo-900 !important;
+//  //background-image: url("http://1-background.com/images/stars-1/beautiful-blue-stars-fill.jpg");
+//  //background-repeat: repeat-y;
+//  a {
+//    color: #FFF !important;
+//    text-decoration: none;
+//    cursor: pointer;
+//    &:hover {
+//      background-color: darken($palette-indigo-900, 5%) !important;
+//    }
+//  }
+//  .sn-presentation__logo {
+//    margin: 32px 0 0 0;
+//    padding: 4px 40px;
+//    font-size: $default-font-size * 1.5;
+//    //color: lighten($palette-indigo-900, 50%);
+//    text-transform: uppercase;
+//  }
+//}
 
 
 $font-size-number: $dfs;

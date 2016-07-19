@@ -15,26 +15,38 @@
 @import "layout_variables";
 
 
+
 // Header
 
 .sn-layout__header {
+  background-color: $default-layout-header-bg-color;
+  color: $default-layout-header-text-color;
+  min-height: $default-layout-header-desktop-height;
+}
+
+
+// Subheader
+
+.sn-layout__subheader {
+  background-color: $default-layout-subheader-background-color;
+  min-height: $default-layout-subheader-min-height;
+}
+
+// Header & Subheader
+
+.sn-layout__header,
+.sn-layout__subheader {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
   box-sizing: border-box;
   flex-shrink: 0;
-
   width: 100%;
   margin: 0;
   padding: 0;
   border: none;
-  min-height: $default-layout-desktop-header-height;
-  max-height: 1000px;
-  z-index: 3;
-
-  background-color: $default-layout-header-bg-color;
-  color: $default-layout-header-text-color;
+  z-index: $default-layout-header-zindex;
 
   @include shadow-2dp();
   @include material-animation-default();
@@ -60,7 +72,7 @@
   }
 
   @media screen and (max-width: $default-layout-screen-size-threshold) {
-    min-height: $default-layout-mobile-header-height;
+    min-height: $default-layout-header-mobile-height;
   }
 
   .sn-layout--fixed-drawer {
@@ -82,7 +94,6 @@
 
 }
 // ./ Header
-
 
 
 // Header Row

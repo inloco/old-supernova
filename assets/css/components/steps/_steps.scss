@@ -1,0 +1,305 @@
+/*
+ *
+ *  IN LOCO
+ *  www.snocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *     steps component file
+ *  ----------- *** ------------
+ *
+ */
+
+@import "steps_variables";
+
+
+// Steps
+
+.sn-steps {
+  @include flexbox();
+  width: 100%;
+  height: $default-steps-height;
+  margin:0;
+  padding:0;
+  font-weight: bold;
+  clear:both;
+  background-color: $default-steps-background;
+
+  &.sn-steps--raised {
+    -webkit-box-shadow: $default-steps-raised-box-shadow;
+    box-shadow: $default-steps-raised-box-shadow;
+  }
+
+  .sn-steps__item {
+    position:relative;
+    float: left;
+    margin-right: $default-steps-item-margin-right;
+    padding: $default-steps-item-padding;
+    font-size: $default-steps-item-font-size;
+    text-transform: uppercase;
+    line-height: $default-steps-item-line-height;
+    color: $default-steps-waiting-color;
+    background-color: $default-steps-waiting-background;
+    text-decoration:none;
+
+    .material-icons {
+      position: absolute;
+      top: 21px;
+      left: 16px;
+    }
+
+    &:first-child {
+      &:before {
+        display: none;
+        border-top: 0;
+        border-bottom: 0;
+        border-left: 0;
+      }
+    }
+
+    &:last-child {
+      @include flex(1);
+      margin-right: 0px !important;
+      &:after {
+        display: none;
+        border-top: 0;
+        border-bottom: 0;
+        border-left: 0;
+      }
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0px;
+      width:0px;
+      height:0px;
+      border-top: $default-steps-item-arrow-border-size solid $default-steps-waiting-background;
+      border-bottom: $default-steps-item-arrow-border-size solid $default-steps-waiting-background;
+      border-left: $default-steps-item-arrow-border-size solid transparent;
+      left: $default-steps-item-arrow-position;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0px;
+      width: 0px;
+      height: 0px;
+      border-top: $default-steps-item-arrow-border-size solid transparent;
+      border-bottom: $default-steps-item-arrow-border-size solid transparent;
+      border-left: $default-steps-item-arrow-border-size solid $default-steps-waiting-background;
+      right: $default-steps-item-arrow-position;
+    }
+
+
+    // .sn-steps__item .is-active
+
+    &.is-active {
+      color: $default-steps-active-color;
+      background-color: $default-steps-active-brackground;
+      &:before {
+        border-top: $default-steps-item-arrow-border-size solid $default-steps-active-brackground;
+        border-bottom: $default-steps-item-arrow-border-size solid $default-steps-active-brackground;
+        border-left: $default-steps-item-arrow-border-size solid transparent;
+      }
+      &:after {
+        border-top: $default-steps-item-arrow-border-size solid transparent;
+        border-bottom: $default-steps-item-arrow-border-size solid transparent;
+        border-left: $default-steps-item-arrow-border-size solid $default-steps-active-brackground;
+      }
+      &:last-child {
+        margin-right: 1px;
+      }
+      .sn-steps__number-icon {
+        background-color: $default-steps-icon-active-background;
+      }
+    }
+
+    // .sn-steps__item .is-done
+
+    &.is-done {
+      color: $default-steps-done-color;
+      background-color: $default-steps-done-background;
+      &:before {
+        border-top: $default-steps-item-arrow-border-size solid $default-steps-done-background;
+        border-bottom: $default-steps-item-arrow-border-size solid $default-steps-done-background;
+        border-left: $default-steps-item-arrow-border-size solid transparent;
+      }
+      &:after {
+        border-top: $default-steps-item-arrow-border-size solid transparent;
+        border-bottom: $default-steps-item-arrow-border-size solid transparent;
+        border-left: $default-steps-item-arrow-border-size solid $default-steps-done-background;
+      }
+      .sn-steps__number-icon {
+        background-color: $default-steps-icon-done-background;
+      }
+    }
+
+    .sn-steps__number-icon {
+      position: absolute;
+      top: $default-steps-item-number-icon-position-top;
+      left: $default-steps-item-number-icon-position-left;
+      padding: $default-steps-item-number-icon-padding;
+      font-weight: 300;
+      font-style: normal;
+      border-radius: 50%;
+      color: $default-steps-icon-color;
+      background-color: $default-steps-icon-waiting-background;
+    }
+
+  }
+  // ./sn-steps__item
+
+
+
+
+
+  &.sn-steps--sm {
+    height: 56px;
+    .sn-steps__item {
+      padding: 22px 2px 0px 38px;
+      margin-right: 28px;
+      float: left;
+      font-size: 0.8em;
+      .sn-steps__number-icon {
+        top: 20px;
+        left: 12px;
+        padding: 0.2em 6px 0.1em 6px;
+      }
+      &.is-done {
+        i.material-icons {
+          top: 17px;
+          left: 12px;
+        }
+      }
+      .icon-24 {
+        left: 8px;
+      }
+      &:first-child {
+        //padding: 22px 10px 0px 60px;
+        .icon-24 {
+          left: 16px;
+        }
+      }
+    }
+    .sn-steps__item,
+    &.is-done,
+    &.is-active {
+      &:before {
+        border-top-width: 28px;
+        border-bottom-width: 28px;
+        border-left-width: 28px;
+        left: -28px;
+      }
+      &:after {
+        border-top-width: 28px;
+        border-bottom-width: 28px;
+        border-left-width: 28px;
+        right: -26px;
+      }
+    }
+
+  }
+  //./sn-steps sm
+
+
+
+  // MEDIA
+  @media only screen
+  and (min-width : 0)
+  and (max-width : 1024px) {
+
+    //top: 56px;
+    top: 0;
+    display: flex;
+    background-color: $default-steps-background;
+    width: 100%;
+    float: none;
+    .sn-steps__item {
+      visibility: hidden;
+      display: none;
+
+      &:first-child {
+        &:before {
+          display: block;
+          border-top: 32px solid $default-steps-waiting-background;
+          border-bottom: 32px solid $default-steps-waiting-background;
+          border-left: 32px solid transparent;
+        }
+      }
+
+      &.is-active {
+        display: inline-block;
+        visibility: visible;
+        width: 100%;
+        padding-left: 64px;
+        flex: 1;
+        order: 1;
+        &:before {
+          left: auto;
+          right: -35px;
+          flex: 1;
+          order: 3;
+          border-top: 32px solid $default-steps-waiting-background;
+          border-bottom: 32px solid $default-steps-waiting-background;
+          border-left: 32px solid transparent;
+        }
+        &:after {
+          flex: 1;
+          order: 2;
+        }
+        .sn-steps__number-icon {
+          left: 18px;
+        }
+      }
+
+    }
+
+    // MEDIA SM
+    &.sm {
+      .sn-steps__item {
+        padding: 22px 2px 0px 48px;
+        margin-right: 32px;
+        .sn-steps__number-icon {
+          left: 18px;
+        }
+        &.is-done, &.is-active {
+          padding-left: 64px;
+          &:before {
+            border-top-width: 28px;
+            border-bottom-width: 28px;
+            border-left-width: 28px;
+            left: auto;
+            right: -31px;
+          }
+          &:after {
+            border-top-width: 28px;
+            border-bottom-width: 28px;
+            border-left-width: 28px;
+            right: -28px;
+          }
+        }
+      }
+    }
+  }
+
+  // MEDIA ONLY MOBILE
+  @media only screen
+  and (min-device-width: 0)
+  and (max-device-width: 736px) {
+    &.sm {
+      .sn-steps {
+       .sn-steps__item {
+          font-size: 12px;
+          margin-right: 32px;
+        }
+      }
+    }
+  }
+
+
+
+}
+// ./sn-steps

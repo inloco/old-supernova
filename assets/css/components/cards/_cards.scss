@@ -1,0 +1,224 @@
+/*
+ *
+ *  IN LOCO
+ *  www.snocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *     steps component file
+ *  ----------- *** ------------
+ *
+ */
+
+@import "cards_variables";
+
+
+// Cards
+
+.sn-card {
+  position: relative;
+  @include flexbox();
+  background: $default-card-background;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  border-radius: $default-border-radius;
+  @include shadow-2dp();
+
+
+  // Card Bleeds, Margins, Paddings and Gutters
+
+  &.sn-card--bleed {
+    margin: $default-card-bleed;
+  }
+  &.sn-card--padding {
+    padding: $default-card-padding;
+  }
+  &.sn-card--col-gutter {
+    .sn-card__col,
+    .sn-card__col--group {
+      padding: 0 $default-card-col-gutter;
+      &:first-child {
+        padding-left:0;
+      }
+      &:last-child {
+        padding-right:0;
+      }
+    }
+  }
+
+  &.sn-card--row-gutter {
+    .sn-card__row,
+    .sn-card__row--group {
+      padding: $default-card-col-gutter 0;
+      &:first-child {
+        padding-top:0;
+      }
+      &:last-child {
+        padding-bottom:0;
+      }
+    }
+  }
+
+  .sn-card__row,
+  .sn-card__row--group {
+    &.sn-card__row--padding {
+      padding: $default-card-row-padding !important;
+      width: auto;
+    }
+  }
+
+  .sn-card__col,
+  .sn-card__col--group {
+    &.sn-card__col--padding {
+      padding: $default-card-col-padding !important;
+    }
+  }
+
+
+  // Card Row
+
+  .sn-card__row {
+    display: block;
+    width:100%;
+    &.sn-card__row--title {
+      font-weight: bold;
+    }
+  }
+
+
+  // Card Col
+
+  .sn-card__col {
+    @include flex(1);
+    &.sn-card__col--1    { @include flex(1); }
+    &.sn-card__col--2    { @include flex(2); }
+    &.sn-card__col--3    { @include flex(3); }
+    &.sn-card__col--4    { @include flex(4); }
+    &.sn-card__col--5    { @include flex(5); }
+    &.sn-card__col--6    { @include flex(6); }
+    &.sn-card__col--7    { @include flex(7); }
+    &.sn-card__col--8    { @include flex(8); }
+    &.sn-card__col--9    { @include flex(9); }
+    &.sn-card__col--10   { @include flex(10); }
+    &.sn-card__col--11   { @include flex(11); }
+    &.sn-card__col--12   { @include flex(12); }
+    &.sn-card__col--auto { @include flexitem(0,0,auto); }
+  }
+
+  &.sn-card__col--padding {
+    padding: $default-card-col-padding;
+  }
+
+  .sn-card__col--group {
+    @include flexbox();
+  }
+  .sn-card__row--group {
+    display: block;
+    width: 100%;
+  }
+
+  button {
+    cursor: pointer;
+    outline: none;
+  }
+
+}
+// ./sn-cards
+
+
+
+// Card List (ul)
+
+.sn-card__list {
+  margin: 0;
+  padding: 0;
+
+  li:first-child {
+    .sn-card {
+      border-top-left-radius: $default-border-radius;
+      border-top-right-radius: $default-border-radius;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  li:last-child {
+    .sn-card {
+      border-bottom: 0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: $default-border-radius;
+      border-bottom-right-radius: $default-border-radius;
+    }
+  }
+
+  .sn-card {
+    border-radius: 0;
+    border-bottom: $default-card-list-card-border solid $palette-blue-grey-100;
+  }
+
+
+  li {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    > a {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      color: inherit;
+      background-color: yellow;
+    }
+
+    .sn-card--link {
+      color: inherit;
+    }
+  }
+  &.sn-card__list--strip {
+    .sn-card:hover {
+      background-color: $default-card-list-background-strip;
+    }
+  }
+}
+// ./card-list
+
+
+
+// Align classes (for all)
+
+.sn-card--center {
+  @include flexbox();
+  .sn-card__icon-button {
+    @include flex(1);
+    -webkit-align-self: center;
+    align-self: center;
+  }
+}
+
+
+
+// Card Icon Button
+
+.sn-card__icon-button {
+  position: relative;
+  display: block;
+  width: $default-card-icon-button-size;
+  height: $default-card-icon-button-size;
+  padding: $default-card-icon-button-padding;
+  i {
+    display: block;
+    font-size: $default-icon-font-size !important;
+    height: $default-card-icon-button-icon-size;
+    width: $default-card-icon-button-icon-size;
+    padding: $default-card-icon-button-icon-padding;
+    text-align: center;
+  }
+  &:hover {
+    i {
+      color: $default-card-icon-button-hover;
+    }
+  }
+}

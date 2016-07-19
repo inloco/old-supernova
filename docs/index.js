@@ -16,6 +16,10 @@ app.get('/globals', function (req, res) {
   res.render('pages/globals/index');
 });
 
+app.get('/components', function (req, res) {
+  res.render('pages/components/index');
+});
+
 app.get('/:folder/:page', function (req, res) {
   res.render('pages/' + req.params.folder + '/' + req.params.page);
 });

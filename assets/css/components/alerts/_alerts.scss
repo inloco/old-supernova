@@ -1,0 +1,107 @@
+/*
+ *
+ *  IN LOCO
+ *  www.snocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *     alerts component file
+ *  ----------- *** ------------
+ *
+ */
+
+@import "alerts_variables";
+
+
+// Alerts
+
+
+@keyframes alertShow {
+  from   { top: 0;  opacity: 0; }
+  to     { top: $default-alert-position-top;  opacity: 1; }
+}
+
+
+
+.sn-alert {
+  position: absolute;
+  top: $default-alert-position-top;
+  left: 0;
+  right: 0;
+  max-width: $default-alert-max-width;
+  padding: $default-alert-padding;
+  background-color: $default-alert-background-color-warning;
+  margin: 0 auto;
+  border: 0;
+  opacity: 0;
+  @include shadow-16dp();
+  z-index: $z-alerts;
+
+
+  &.sn-alert--active {
+    animation: alertShow .5s 1s 1;
+    animation-fill-mode: forwards;
+  }
+
+  @include material-animation-default();
+
+
+
+  @media only screen
+  and (min-width : 0)
+  and (max-width : 1024px) {
+    top: $default-alert-position-top;
+    max-width: none;
+    margin: 0 $default-alert-margin-mobile;
+  }
+
+
+  .sn-alert--message {
+    margin-right: $default-alert-message-margin;
+  }
+
+  .sn-alert--close {
+    position: absolute;
+    right: $default-alert-message-position-right;
+    top: 0;
+    bottom: 0;
+    width: $default-alert-message-size;
+    height: $default-alert-message-size;
+    padding: 0;
+    margin: auto auto;
+    color: $default-alert-color;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    &:hover {
+      cursor: pointer;
+    }
+    i {
+      font-size: $default-alert-close-font-size;
+    }
+  }
+
+  &.sn-alert--success     {
+    background-color: $default-alert-background-color-success;
+    color:$default-alert-color;
+  }
+
+  &.sn-alert--info     {
+    background-color: $default-alert-background-color-info;
+    color:$default-alert-color;
+  }
+
+  &.sn-alert--warning     {
+    background-color: $default-alert-background-color-warning;
+    color:$default-alert-color;
+  }
+
+  &.sn-alert--danger     {
+    background-color: $default-alert-background-color-danger;
+    color:$default-alert-color;
+  }
+
+
+
+}
