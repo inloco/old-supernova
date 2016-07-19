@@ -1,0 +1,160 @@
+<% layout('./../../layout') -%>
+
+<% include _globals_menu %>
+
+<!-- Header -->
+<header class="sn-layout__header">
+  <div aria-expanded="false" role="button" tabindex="0" class="sn-layout__drawer-button">
+    <i class="material-icons"></i>
+  </div>
+  <div class="sn-layout__header-row">
+    <!-- Title -->
+    <span class="sn-layout-title">Customizable File</span>
+  </div>
+</header>
+
+<!-- Content -->
+<main class="sn-layout__content">
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed-top sn-grid--bleed">
+    <div class="sn-cell--1">
+      <span class="sn-typo--display-1">Customizable Sass</span>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed-all">
+    <div class="sn-cell--1">
+      <p>Configure <strong>_customizable.sass</strong> file and compile <strong>supernova.sass</strong> file.</p>
+    </div>
+  </div>
+
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed-all">
+    <div class="sn-cell--1">
+      <p class="sn-typo--headline">Typography</p>
+      <p>Set <strong>$customizable-typography: true</strong> and configure all settings below:</p>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed">
+    <div class="sn-cell--1">
+      <ul class="sn-presentation-list sn-presentantion-list--main">
+        <li>FONT SETTINGS</li>
+        <li>$customizable-font-family</li>
+        <li>$customizable-font-monospace</li>
+        <li>$customizable-font-size</li>
+        <li>$customizable-line-height</li>
+        <li>$customizable-headings-line-height</li>
+        <li>$customizable-font-weight</li>
+        <li>HEADING</li>
+        <li>$customizable-main-heading-size</li>
+        <li>$customizable-scale-factor</li>
+        <li>HORIZONTAL / VERTICAL MOVEMENTS</li>
+        <li>$customizable-horizontal-movement-divider</li>
+        <li>$customizable-vertical-movement-divider</li>
+      </ul>
+    </div>
+    <div class="sn-cell--1">
+      <ul class="sn-presentation-list">
+        <li>--</li>
+        <li>Choose a font-family. Default is <strong>Roboto</strong>.</li>
+        <li>Choose a monospaced font. Default is <strong>Menlo</strong>.</li>
+        <li>Configure font-size. Use only <strong>px</strong>, <strong>em</strong> or <strong>%</strong> units - Default is 16px.</li>
+        <li>Configure document line height. Use only numbers.</li>
+        <li>Configure headings line height. Use only numbers.</li>
+        <li>Configure default font-weight. <strong>400</strong> (regular) is default.</li>
+        <li>--</li>
+        <li>Set the size scale of biggest header. Default is <strong>4</strong>.</li>
+        <li>Scale factor for headings. Default is 1.41421 ($augmented-fourth).</li>
+        <li>--</li>
+        <li>Set horizontal movement divider (font-size / ?). Default is <strong>4</strong>.</li>
+        <li>Set vertical movement divider (line-height / ?). Default is <strong>4</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-top">
+    <div class="sn-cell--1">
+      <span class="sn-typo--headline">Colors</span>
+    </div>
+  </div>
+
+
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-top">
+    <div class="sn-cell--1">
+      <span class="sn-typo--headline">Breakpoints</span>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-top">
+    <div class="sn-cell--1">
+      <span class="sn-typo--headline">Images Path</span>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-top">
+    <div class="sn-cell--1">
+      <span class="sn-typo--headline">Shadows Opacity</span>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed">
+    <div class="sn-cell--1">
+      <pre class="sn-presentation-pre-panel">
+&lt;!--grid container--&gt;
+&lt;div class=&quot;sn-grid sn-grid--horizontal sn-grid--bleed-all sn-grid--cell-gutter&quot;&gt;
+&lt;!--grid cells--&gt;
+&lt;div class=&quot;sn-cell--1&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;sn-cell--2&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;sn-cell--4&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;sn-cell--3&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+      </pre>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-top">
+    <div class="sn-cell--1">
+      <span class="sn-typo--display-1">---</span>
+    </div>
+  </div>
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-top">
+    <div class="sn-cell--1">
+      <span class="sn-typo--headline">---</span>
+    </div>
+  </div>
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed">
+    <div class="sn-cell--1">
+      <ul class="sn-presentation-list sn-presentantion-list--main">
+        <li>sn-grid</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-top">
+    <div class="sn-cell--1">
+      <span class="sn-typo--headline">Horizontal | Vertical | Responsive</span>
+    </div>
+  </div>
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed">
+    <div class="sn-cell--1">
+      <ul class="sn-presentation-list sn-presentantion-list--main">
+        <li>sn-grid--horizontal</li>
+        <li>sn-grid--horizontal-reverse</li>
+      </ul>
+    </div>
+    <div class="sn-cell--1">
+      <ul class="sn-presentation-list">
+        <li>Grid horizontal</li>
+        <li>Reverse horizontal</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+</main>
