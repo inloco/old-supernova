@@ -32,3 +32,7 @@ app.get('/:folder/:page', function (req, res) {
 app.listen(8282, function () {
   console.log('Access the doc in http://localhost:8282!');
 });
+
+livereload = require('livereload');
+server = livereload.createServer({exts: ['css', 'js', 'ejs']});
+server.watch(['./../build', './views']);
