@@ -223,3 +223,14 @@ pre {
   padding: 24px;
   color: white;
 }
+
+.sn-presentation-layout__content {
+  min-height: calc(100vh - 64px);
+}
+
+.sn-presentation-table {
+  th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+}
