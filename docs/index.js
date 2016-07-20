@@ -4,6 +4,7 @@ var engine = require('ejs-locals');
 
 app.use(express.static('./../build'));
 app.use(express.static('./node_modules'));
+app.use(express.static('./scripts'));
 
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
@@ -18,6 +19,10 @@ app.get('/globals', function (req, res) {
 
 app.get('/components', function (req, res) {
   res.render('pages/components/index');
+});
+
+app.get('/react', function (req, res) {
+  res.render('pages/react/index');
 });
 
 app.get('/:folder/:page', function (req, res) {

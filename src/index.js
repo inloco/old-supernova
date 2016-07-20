@@ -11,6 +11,8 @@ import SidebarLogo from "./components/Sidebar/Logo"
 import SidebarUser from "./components/Sidebar/User/Main"
 import SidebarUserItem from "./components/Sidebar/User/Item"
 import Sidebar from "./components/Sidebar/Main"
+import Steps from "./components/Steps/Main"
+import StepsItem from "./components/Steps/Item"
 import Table from "./components/Table/Main"
 import TableHead from "./components/Table/Head"
 import TableRow from "./components/Table/Row"
@@ -42,6 +44,8 @@ export {
   SidebarUser,
   SidebarUserItem,
   Sidebar,
+  Steps,
+  StepsItem,
   Table,
   TableHead,
   TableRow,
