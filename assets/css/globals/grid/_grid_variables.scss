@@ -17,32 +17,32 @@
 
 
 // Grid Bleed Sizes
-$bleed-hm: $hs-40;
-$bleed-vm: $vs-40;
-$bleed-hm-sm: $hs-16;
-$bleed-vm-sm: $vs-24;
+$bleed-hm                           : $hm * 10; // ~40px
+$bleed-vm                           : $vm * 10; // ~40px
+$bleed-hm-sm                        : $hm * 4;  // ~16px
+$bleed-vm-sm                        : $vm * 6;  // ~24px
 
 // Grid Col Gutter Sizes
-$gutter-hm: $hs-16;
-$gutter-xs-hm: $hs-4;
-$gutter-sm-hm: $hs-8;
-$gutter-lg-hm: $hs-24;
+$gutter-hm                          : $hm * 4;  // ~16px
+$gutter-xs-hm                       : $hm;      // ~4px
+$gutter-sm-hm                       : $hm * 2;  // ~8px
+$gutter-lg-hm                       : $hm * 6;  // ~24px
 
 // Grid Row Gutter Sizes
-$gutter-vm: $vs-16;
-$gutter-xs-vm: $vs-4 / 2;
-$gutter-sm-vm: $vs-4;
-$gutter-lg-vm: $vs-16;
-$gutter-reverse-vm: $vs-4;
-$gutter-lg-screen-xsmall: $hs-8;
+$gutter-vm                          : $vm * 4;   // ~16px
+$gutter-xs-vm                       : $vm / 2;   // ~2px
+$gutter-sm-vm                       : $vm;       // ~4px
+$gutter-lg-vm                       : $vm * 4;   // ~16px
+$gutter-reverse-vm                  : $vm;       // ~4px
+$gutter-lg-screen-xsmall            : $hm * 2;   // ~8px
 
 // Box Col Padding
-$cell-padding-hm: $hs-16;
-$cell-padding-vm: $vs-8;
+$cell-padding-hm                    : $hm * 4;   // ~16px
+$cell-padding-vm                    : $vm * 2;   // ~8px
 
 // Box Col Padding Small
-$cell-padding-sm-hm: $hs-8;
-$cell-padding-sm-vm: $vs-4;
+$cell-padding-sm-hm                 : $hm * 2;   // ~8px
+$cell-padding-sm-vm                 : $vm;       // ~4px
 
 // Box Cell Expo Flexitem base margin
-$cell-expo-flexitem-hs: $hs-4;
+$cell-expo-flexitem-hm              : $hm;       // ~4px

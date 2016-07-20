@@ -5,24 +5,27 @@
  *
  *  Copyright 2016 - All Rights Reserved.
  *
- *  -------- SUPERNOVA ---------
- *      sass compilable file
- *  ----------- *** ------------
+ *  -------- SUPERNOVA --------
+ *     sass compilable file
+ *  ----------- *** -----------
  *  /globals
  *  /elements
  *  /components
- *  -------- *** ---------
+ *  ----------- *** -----------
  *
  *  *** DO NOT MODIFY THIS FILE ***
  *
  */
 
-
 @import "globals/globals";
 @import "elements/elements";
+@import "components/components";
 
-/* Remove this file after */
+
+// REMOVE THIS FILE
 @import "presentation";
+
+
 
 
 

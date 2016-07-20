@@ -1,0 +1,34 @@
+/*
+ *
+ *  IN LOCO
+ *  www.snocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *     cards variables file
+ *  ----------- *** ------------
+ *
+ */
+
+@import "../../globals/colors/colors_variables";
+
+// Cards variables
+
+$default-card-background                              : $color-white;
+$default-card-bleed                                   : $hm * 4;
+$default-card-padding                                 : $hm * 4;
+$default-card-col-gutter                              : $hm;
+$default-card-row-gutter                              : $hm;
+
+$default-card-col-padding                             : $hm * 4;
+$default-card-row-padding                             : $hm * 4;
+
+$default-card-list-card-border                        : $vm / 4;
+
+$default-icon-font-size                               : floor($dfs * 1.4285714286); // ~20px
+$default-card-icon-button-icon-size                   : $default-icon-font-size;
+$default-card-icon-button-icon-padding                : ($default-card-icon-button-icon-size * 0.2);
+$default-card-icon-button-padding                     : $default-card-icon-button-icon-padding;
+$default-card-icon-button-size                        : $default-card-icon-button-icon-size * 1.4;
+

@@ -19,7 +19,7 @@
 // Defines baseline grid based on vertical and horizontal movements
 
 
-// use for calculate margins, sizes and paddings
+// use for calculate sizes, margins and paddings
 $vm       : $default-vertical-movement;   // ~4px
 $hm       : $default-horizontal-movement; // ~4px
 
@@ -96,6 +96,7 @@ $z-layout-obfuscator      : 1000; // background-overlay
 $z-layout-drawer          : 1100; // menu
 $z-modal-background       : 1200;
 $z-modal-container        : 1300;
+$z-alerts                 : 1400;
 $z-fit                    : 9999;
 
 

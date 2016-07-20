@@ -26,6 +26,7 @@ import TextArea from "./components/TextArea"
 import Label from "./components/Label"
 import Icon from "./components/Icon"
 import styles from "./../assets/css/supernova.scss"
+import iconStyles from "./../node_modules/material-design-icons/iconfont/material-icons.css"
 
 export {
   Dropdown,
