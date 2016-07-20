@@ -15,12 +15,12 @@ class Input extends React.Component {
     value: PropTypes.string,
     dataRemoteInput: PropTypes.bool,
     className: PropTypes.string,
-    isChecked: PropTypes.bool
+    checked: PropTypes.bool
   }
 
   static defaultProps = {
     value: "",
-    isChecked: false
+    checked: false
   }
 
   handleChange(event) {
@@ -44,9 +44,9 @@ class Input extends React.Component {
             name,
             dataRemoteInput,
             isRequired,
-            isChecked } = this.props
+            checked } = this.props
     const requiredOps = { required: isRequired }
-    const checkedOps = { checked: isChecked }
+    const checkedOps = { checked: checked }
 
     return (
       <input id={ id !== undefined ? id : null }

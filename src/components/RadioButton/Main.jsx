@@ -6,15 +6,15 @@ class RadioButton extends React.Component {
     id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    isChecked: PropTypes.bool
+    checked: PropTypes.bool
   }
 
   render() {
-    const{ id, label, name, isChecked } = this.props
+    const{ id, label, name, checked } = this.props
 
     return (
       <div id={ id } className="radio radio-primary">
-        <LabelRadioButton label={ label } name={ name } isChecked={ isChecked }/>
+        <LabelRadioButton label={ label } name={ name } checked={ checked }/>
       </div>
     )
   }
