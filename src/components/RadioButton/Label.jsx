@@ -4,18 +4,20 @@ import Input from "./../Input"
 class LabelRadioButton extends React.Component {
   static propTyes = {
     label: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    isChecked: PropTypes.bool
   }
 
   render() {
-    const{ label, name } = this.props
+    const{ label, name, isChecked } = this.props
 
     return (
       <label>
         <Input type="radio"
                isRequired={ false }
                className={ "bs-material" }
-               name={ name } />
+               name={ name }
+               isChecked={ isChecked } />
         <span className="circle"></span>
         <span className="check"></span>
         { label }

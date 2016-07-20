@@ -14,11 +14,13 @@ class Input extends React.Component {
     name: PropTypes.string,
     value: PropTypes.string,
     dataRemoteInput: PropTypes.bool,
-    className: PropTypes.string
+    className: PropTypes.string,
+    isChecked: PropTypes.bool
   }
 
   static defaultProps = {
-    value: ""
+    value: "",
+    isChecked: false
   }
 
   handleChange(event) {
@@ -41,8 +43,10 @@ class Input extends React.Component {
             placeholder,
             name,
             dataRemoteInput,
-            isRequired } = this.props
-    const ops = { required: isRequired }
+            isRequired,
+            isChecked } = this.props
+    const requiredOps = { required: isRequired }
+    const checkedOps = { checked: isChecked }
 
     return (
       <input id={ id !== undefined ? id : null }
@@ -53,7 +57,8 @@ class Input extends React.Component {
              data-remote-input={ dataRemoteInput !== undefined ? dataRemoteInput : null }
              value={ this.state.value }
              onChange={ (e) => { this.handleChange(e) } }
-             { ...ops } />
+             { ...requiredOps }
+             { ...checkedOps } />
     )
   }
 }
