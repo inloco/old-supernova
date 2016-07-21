@@ -26,31 +26,33 @@
     <div class="sn-cell--1">
       <p class="sn-typo--headline">Basic Layout (fixed Header, Footer and Drawer)</p>
       <pre class="sn-presentation-pre-panel">
-&lt;div class=&quot;sn-layout sn-js-layout sn-layout--fixed-drawer&quot;&gt;
+&lt;div class=&quot;sn-layout__container&quot;&gt;
+  &lt;div class=&quot;sn-layout sn-js-layout sn-layout--fixed-drawer&quot;&gt;
 
-&lt;!-- Drawer (FIXED) --&gt;
-&lt;div class=&quot;sn-layout__drawer&quot;&gt; ... &lt;/div&gt;
+    &lt;!-- Drawer (FIXED) --&gt;
+    &lt;div class=&quot;sn-layout__drawer&quot;&gt; ... &lt;/div&gt;
 
-&lt;!-- Obfuscator --&gt;
-&lt;div class=&quot;sn-layout__obfuscator&quot;&gt;&lt;/div&gt;
+    &lt;!-- Obfuscator --&gt;
+    &lt;div class=&quot;sn-layout__obfuscator&quot;&gt;&lt;/div&gt;
 
-&lt;!-- Header (FIXED) --&gt;
-&lt;header class=&quot;sn-layout__header&quot;&gt;
-  &lt;div aria-expanded=&quot;false&quot; role=&quot;button&quot; tabindex=&quot;0&quot; class=&quot;sn-layout__drawer-button&quot;&gt;
-    &lt;i class=&quot;material-icons&quot;&gt;&lt;/i&gt;
+    &lt;!-- Header (FIXED) --&gt;
+    &lt;header class=&quot;sn-layout__header&quot;&gt;
+      &lt;div aria-expanded=&quot;false&quot; role=&quot;button&quot; tabindex=&quot;0&quot; class=&quot;sn-layout__drawer-button&quot;&gt;
+        &lt;i class=&quot;material-icons&quot;&gt;&lt;/i&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sn-layout__header-row&quot;&gt;
+        &lt;!-- Title --&gt;
+        &lt;span class=&quot;sn-layout-title&quot;&gt;Title&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;!-- Content --&gt;
+    &lt;main class=&quot;sn-layout__content&quot;&gt; ... &lt;/main&gt;
+
+    &lt;!-- Footer (FIXED) --&gt;
+    &lt;footer class=&quot;sn-layout__footer&quot;&gt; ... &lt;/footer&gt;
+
   &lt;/div&gt;
-  &lt;div class=&quot;sn-layout__header-row&quot;&gt;
-    &lt;!-- Title --&gt;
-    &lt;span class=&quot;sn-layout-title&quot;&gt;Title&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/header&gt;
-
-&lt;!-- Content --&gt;
-&lt;main class=&quot;sn-layout__content&quot;&gt; ... &lt;/main&gt;
-
-&lt;!-- Footer (FIXED) --&gt;
-&lt;footer class=&quot;sn-layout__footer&quot;&gt; ... &lt;/footer&gt;
-
 &lt;/div&gt;
       </pre>
     </div>
@@ -60,31 +62,33 @@
     <div class="sn-cell--1">
       <p class="sn-typo--headline">Layout with hidden Drawer</p>
       <pre class="sn-presentation-pre-panel">
-&lt;div class=&quot;sn-layout sn-js-layout&quot;&gt;
+&lt;div class=&quot;sn-layout__container&quot;&gt;
+  &lt;div class=&quot;sn-layout sn-js-layout&quot;&gt;
 
-&lt;!-- Drawer (HIDDEN) --&gt;
-&lt;div class=&quot;sn-layout__drawer&quot;&gt; ... &lt;/div&gt;
+    &lt;!-- Drawer (HIDDEN) --&gt;
+    &lt;div class=&quot;sn-layout__drawer&quot;&gt; ... &lt;/div&gt;
 
-&lt;!-- Obfuscator --&gt;
-&lt;div class=&quot;sn-layout__obfuscator&quot;&gt;&lt;/div&gt;
+    &lt;!-- Obfuscator --&gt;
+    &lt;div class=&quot;sn-layout__obfuscator&quot;&gt;&lt;/div&gt;
 
-&lt;!-- Header (FIXED) --&gt;
-&lt;header class=&quot;sn-layout__header&quot;&gt;
-  &lt;div aria-expanded=&quot;false&quot; role=&quot;button&quot; tabindex=&quot;0&quot; class=&quot;sn-layout__drawer-button&quot;&gt;
-    &lt;i class=&quot;material-icons&quot;&gt;&lt;/i&gt;
+    &lt;!-- Header (FIXED) --&gt;
+    &lt;header class=&quot;sn-layout__header&quot;&gt;
+      &lt;div aria-expanded=&quot;false&quot; role=&quot;button&quot; tabindex=&quot;0&quot; class=&quot;sn-layout__drawer-button&quot;&gt;
+        &lt;i class=&quot;material-icons&quot;&gt;&lt;/i&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sn-layout__header-row&quot;&gt;
+        &lt;!-- Title --&gt;
+        &lt;span class=&quot;sn-layout-title&quot;&gt;Title&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;!-- Content --&gt;
+    &lt;main class=&quot;sn-layout__content&quot;&gt; ... &lt;/main&gt;
+
+    &lt;!-- Footer (FIXED) --&gt;
+    &lt;footer class=&quot;sn-layout__footer&quot;&gt; ... &lt;/footer&gt;
+
   &lt;/div&gt;
-  &lt;div class=&quot;sn-layout__header-row&quot;&gt;
-    &lt;!-- Title --&gt;
-    &lt;span class=&quot;sn-layout-title&quot;&gt;Title&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/header&gt;
-
-&lt;!-- Content --&gt;
-&lt;main class=&quot;sn-layout__content&quot;&gt; ... &lt;/main&gt;
-
-&lt;!-- Footer (FIXED) --&gt;
-&lt;footer class=&quot;sn-layout__footer&quot;&gt; ... &lt;/footer&gt;
-
 &lt;/div&gt;
       </pre>
     </div>
@@ -94,34 +98,71 @@
     <div class="sn-cell--1">
       <p class="sn-typo--headline">Layout with hidden Header & Footer (inside Main container)</p>
       <pre class="sn-presentation-pre-panel">
-&lt;div class=&quot;sn-layout sn-js-layout sn-layout--fixed-drawer&quot;&gt;
+&lt;div class=&quot;sn-layout__container&quot;&gt;
+  &lt;div class=&quot;sn-layout sn-js-layout sn-layout--fixed-drawer&quot;&gt;
 
-&lt;!-- Drawer (FIXED) --&gt;
-&lt;div class=&quot;sn-layout__drawer&quot;&gt; ... &lt;/div&gt;
+    &lt;!-- Drawer (FIXED) --&gt;
+    &lt;div class=&quot;sn-layout__drawer&quot;&gt; ... &lt;/div&gt;
 
-&lt;!-- Ofuscator --&gt;
-&lt;div class=&quot;sn-layout__obfuscator&quot;&gt;&lt;/div&gt;
+    &lt;!-- Ofuscator --&gt;
+    &lt;div class=&quot;sn-layout__obfuscator&quot;&gt;&lt;/div&gt;
+
+    &lt;!-- Content --&gt;
+    &lt;main class=&quot;sn-layout__content&quot;&gt;
+
+      &lt;!-- Header (HIDDEN) --&gt;
+      &lt;header class=&quot;sn-layout__header&quot;&gt;
+        &lt;div aria-expanded=&quot;false&quot; role=&quot;button&quot; tabindex=&quot;0&quot; class=&quot;sn-layout__drawer-button&quot;&gt;
+          &lt;i class=&quot;material-icons&quot;&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;sn-layout__header-row&quot;&gt;
+          &lt;!-- Title --&gt;
+          &lt;span class=&quot;sn-layout-title&quot;&gt;Title&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/header&gt;
+
+      &lt;!-- Footer (HIDDEN) --&gt;
+      &lt;footer class=&quot;sn-layout__footer&quot;&gt; ... &lt;/footer&gt;
+
+    &lt;/main&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+      </pre>
+    </div>
+  </div>
 
 
-&lt;!-- Content --&gt;
-&lt;main class=&quot;sn-layout__content&quot;&gt;
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed-all">
+    <div class="sn-cell--1">
+      <p class="sn-typo--headline">Layout with Header & Subheader</p>
+      <pre class="sn-presentation-pre-panel">
+&lt;div class=&quot;sn-layout__container&quot;&gt;
+  &lt;div class=&quot;sn-layout sn-js-layout sn-layout--fixed-drawer&quot;&gt;
 
-  &lt;!-- Header (HIDDEN) --&gt;
-  &lt;header class=&quot;sn-layout__header&quot;&gt;
-    &lt;div aria-expanded=&quot;false&quot; role=&quot;button&quot; tabindex=&quot;0&quot; class=&quot;sn-layout__drawer-button&quot;&gt;
-      &lt;i class=&quot;material-icons&quot;&gt;&lt;/i&gt;
+    &lt;!-- Drawer (FIXED) --&gt;
+    &lt;div class=&quot;sn-layout__drawer&quot;&gt; ... &lt;/div&gt;
+
+    &lt;!-- Obfuscator --&gt;
+    &lt;div class=&quot;sn-layout__obfuscator&quot;&gt;&lt;/div&gt;
+
+    &lt;!-- Header (FIXED) --&gt;
+    &lt;header class=&quot;sn-layout__header&quot;&gt;
+      ...
+    &lt;/header&gt;
+
+    &lt;!-- Subheader (FIXED) --&gt;
+    &lt;div class=&quot;sn-layout__subheader&quot;&gt;
+      ...
     &lt;/div&gt;
-    &lt;div class=&quot;sn-layout__header-row&quot;&gt;
-      &lt;!-- Title --&gt;
-      &lt;span class=&quot;sn-layout-title&quot;&gt;Title&lt;/span&gt;
-    &lt;/div&gt;
-  &lt;/header&gt;
 
-  &lt;!-- Footer (HIDDEN) --&gt;
-  &lt;footer class=&quot;sn-layout__footer&quot;&gt; ... &lt;/footer&gt;
+    &lt;!-- Content --&gt;
+    &lt;main class=&quot;sn-layout__content&quot;&gt; ... &lt;/main&gt;
 
-&lt;/main&gt;
+    &lt;!-- Footer (FIXED) --&gt;
+    &lt;footer class=&quot;sn-layout__footer&quot;&gt; ... &lt;/footer&gt;
 
+  &lt;/div&gt;
 &lt;/div&gt;
       </pre>
     </div>
@@ -132,8 +173,10 @@
     <div class="sn-cell--1">
       <p class="sn-typo--headline">Layout with fixed Drawer</p>
       <pre class="sn-presentation-pre-panel">
-&lt;div class=&quot;sn-layout sn-js-layout sn-layout--fixed-drawer&quot;&gt;
-...
+&lt;div class=&quot;sn-layout__container&quot;&gt;
+  &lt;div class=&quot;sn-layout sn-js-layout sn-layout--fixed-drawer&quot;&gt;
+  ...
+  &lt;/div&gt;
 &lt;/div&gt;
       </pre>
     </div>

@@ -23,7 +23,6 @@
 }
 
 
-
 .sn-alert {
   position: absolute;
   top: $default-alert-position-top;
@@ -38,14 +37,12 @@
   @include shadow-16dp();
   z-index: $z-alerts;
 
-
   &.sn-alert--active {
     animation: alertShow .5s 1s 1;
     animation-fill-mode: forwards;
   }
 
   @include material-animation-default();
-
 
 
   @media only screen
@@ -56,29 +53,45 @@
     margin: 0 $default-alert-margin-mobile;
   }
 
-
-  .sn-alert--message {
-    margin-right: $default-alert-message-margin;
+  .sn-alert--icon {
+    left: $default-alert-message-position;
+    i {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto auto;
+      width: 100%;
+      text-align: center;
+    }
   }
 
-  .sn-alert--close {
+  .sn-alert--message {
+    margin: 0 $default-alert-message-margin;
+  }
+
+  .sn-alert--close,
+  .sn-alert--icon {
     position: absolute;
-    right: $default-alert-message-position-right;
+    display: inline-block;
     top: 0;
     bottom: 0;
     width: $default-alert-message-size;
-    height: $default-alert-message-size;
     padding: 0;
     margin: auto auto;
+    height: 100%;
     color: $default-alert-color;
     background-color: transparent;
     border: 0;
     outline: 0;
-    &:hover {
-      cursor: pointer;
-    }
     i {
       font-size: $default-alert-close-font-size;
+    }
+  }
+
+  .sn-alert--close {
+    right: $default-alert-message-position;
+    &:hover {
+      cursor: pointer;
     }
   }
 
