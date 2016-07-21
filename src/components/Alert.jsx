@@ -44,10 +44,49 @@ class Alert extends React.Component {
     }
   }
 
+  getHeight() {
+    ReactDOM.findDOMNode(this).clientHeight
+  }
+
   handleCloseClick(e) {
     e.preventDefault()
+    this.close()
+  }
 
+  handleCloseAfter() {
+    const { closeAfter } = this.props
+
+    if(closeAfter !== undefined) {
+      setTimeout(() => {
+        this.close()
+      }, closeAfter)
+    }
+  }
+
+  hideOnTop() {
+    const node  = ReactDOM.findDOMNode(this)
+
+    node.style.top = `-${node.clientHeight}px`
+  }
+
+  fixTopPosition() {
+    if(!this.state.active) {
+      this.hideOnTop()
+    }
+  }
+
+  close() {
     this.setState({ active: false })
+  }
+
+  componentDidMount() {
+    this.fixTopPosition()
+    this.handleCloseAfter()
+  }
+
+  componentDidUpdate() {
+    this.fixTopPosition()
+    this.handleCloseAfter()
   }
 
   render() {
