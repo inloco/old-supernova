@@ -36,15 +36,12 @@
   @include shadow-16dp();
   z-index: $z-alerts;
 
-
   &.sn-alert--active {
     animation: alertShow .5s 1s 1;
     animation-fill-mode: forwards;
   }
 
   @include material-animation-default();
-
-
 
   @media only screen
   and (min-width : 0)
@@ -53,7 +50,6 @@
     max-width: none;
     margin: 0 $default-alert-margin-mobile;
   }
-
 
   .sn-alert--message {
     margin-right: $default-alert-message-margin;
@@ -99,7 +95,4 @@
     background-color: $default-alert-background-color-danger;
     color:$default-alert-color;
   }
-
-
-
 }
