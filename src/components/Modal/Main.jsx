@@ -15,7 +15,8 @@ class Modal extends React.Component {
     title: PropTypes.string,
     label: PropTypes.string,
     children: PropTypes.node,
-    isOpen: PropTypes.bool
+    isOpen: PropTypes.bool,
+    btnId: PropTypes.string
   }
 
   static defaultProps = {
@@ -57,7 +58,7 @@ class Modal extends React.Component {
   }
 
   getFooter() {
-    const{ id, title, label } = this.props
+    const{ id, title, label, btnId } = this.props
 
     return(
       <div className="modal-footer">
@@ -67,7 +68,8 @@ class Modal extends React.Component {
                   btnType="primary"
                   size="sm"
                   style="validate-then-dismiss-modal"
-                  label={ label }/>
+                  label={ label }
+                  id={ btnId !== undefined ? btnId : null} />
         </ModalCloseTrigger>
       </div>
     )
