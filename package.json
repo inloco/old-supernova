@@ -11,10 +11,10 @@
   },
   "scripts": {
     "build": "rm -rf build && webpack -p",
+    "build-dev": "rm -rf build && webpack --config webpack.dev.config.js --watch",
     "test": "jest",
     "test:watch": "jest --watch",
     "start-dev:doc": "cd docs && node index.js",
-    "start-dev": "rm -rf build && webpack --config webpack.dev.config.js --watch | npm run start-dev:doc",
     "postinstall": "npm run build"
   },
   "dependencies": {
