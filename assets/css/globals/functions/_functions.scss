@@ -41,3 +41,8 @@
   }
   @return $number;
 }
+
+// Tint color function
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
