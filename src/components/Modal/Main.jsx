@@ -27,10 +27,12 @@ class Modal extends React.Component {
   componentDidMount() {
    this.refs.wrapper.addEventListener("modal:openTrigger:click", () => {
      this.setState({ isOpen: true })
+     document.querySelector("body").classList.add("modal-open")
    })
 
    this.refs.wrapper.addEventListener("modal:closeTrigger:click", () => {
      this.setState({ isOpen: false })
+     document.querySelector("body").classList.remove("modal-open")
    })
   }
 
