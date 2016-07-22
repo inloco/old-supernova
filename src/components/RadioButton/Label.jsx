@@ -5,12 +5,11 @@ class LabelRadioButton extends React.Component {
   static propTyes = {
     label: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    isChecked: PropTypes.bool,
     inputValue: PropTypes.string
   }
 
   render() {
-    const{ label, name, isChecked, inputValue } = this.props
+    const{ label, name, inputValue } = this.props
 
     return (
       <label>
@@ -18,7 +17,6 @@ class LabelRadioButton extends React.Component {
                isRequired={ false }
                className={ "bs-material" }
                name={ name }
-               isChecked={ isChecked }
                value={ inputValue } />
         <span className="circle"></span>
         <span className="check"></span>
