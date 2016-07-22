@@ -8,13 +8,12 @@ npm install && cd docs && npm install & cd ..
 ```
 ## Running the project
 ```sh
-webpack --config webpack.dev.config.js --watch & npm run start-dev:doc & wait
+webpack --config webpack.dev.config.js --watch
 ```
-## Create an alias
-If you are using Mac or Linux you can create an alias for complex commands.
+And, in another tab you run
 ```sh
-alias start-supernova='npm run build-dev & npm run start-dev:doc & wait'
+npm run start-dev:doc
 ```
-Now, just run **start-supernova**.
+Now just access [http://localhost:8282](http://localhost:8282)
 ## Learn more seeing the Docs
 [See the docs!](https://inlocomedia.atlassian.net/wiki/display/FRONT/Supernova)
