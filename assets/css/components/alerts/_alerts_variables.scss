@@ -12,6 +12,8 @@
  */
 
 
+@import "../../globals/colors/colors_variables";
+
 
 // Alerts variables
 
@@ -24,9 +26,3 @@ $default-alert-message-size: ($hm * 12);
 $default-alert-message-position: $hm;
 $default-alert-close-font-size: $dfs * 1.7142857143;
 
-// Colors
-$default-alert-color: $color-white;
-$default-alert-background-color-success: $default-success-color;
-$default-alert-background-color-info: $default-info-color;
-$default-alert-background-color-warning: $default-warning-color;
-$default-alert-background-color-danger: $default-danger-color;
