@@ -17,11 +17,6 @@
 // Alerts
 
 
-@keyframes alertShow {
-  from   { top: 0;  opacity: 0; }
-  to     { top: $default-alert-position-top;  opacity: 1; }
-}
-
 .sn-alert {
   position: absolute;
   top: $default-alert-position-top;
@@ -35,13 +30,12 @@
   opacity: 0;
   @include shadow-16dp();
   z-index: $z-alerts;
+  transition: all 0.5s;
 
   &.sn-alert--active {
-    animation: alertShow .5s 1s 1;
-    animation-fill-mode: forwards;
+    top: $default-alert-position-top !important;
+    opacity: 1;
   }
-
-  @include material-animation-default();
 
   @media only screen
   and (min-width : 0)

@@ -56,10 +56,8 @@ class Alert extends React.Component {
   handleCloseAfter() {
     const { closeAfter } = this.props
 
-    if(closeAfter !== undefined) {
-      setTimeout(() => {
-        this.close()
-      }, closeAfter)
+    if(closeAfter !== undefined && this.state.active) {
+      setTimeout(() => { this.close() }, closeAfter)
     }
   }
 
@@ -69,23 +67,19 @@ class Alert extends React.Component {
     node.style.top = `-${node.clientHeight}px`
   }
 
-  fixTopPosition() {
-    if(!this.state.active) {
-      this.hideOnTop()
-    }
-  }
-
   close() {
     this.setState({ active: false })
   }
 
   componentDidMount() {
-    this.fixTopPosition()
-    this.handleCloseAfter()
+    this.hideOnTop()
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ active: nextProps.active })
   }
 
   componentDidUpdate() {
-    this.fixTopPosition()
     this.handleCloseAfter()
   }
 
