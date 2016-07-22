@@ -1,0 +1,33 @@
+/*
+ *
+ *  IN LOCO
+ *  www.snocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *     modal variables file
+ *  ----------- *** ------------
+ *
+ */
+
+@import "../../globals/colors/colors_variables";
+
+
+// Modal variables
+$default-modal-border-radius: $default-border-radius;
+$default-modal-header-padding: ($vm * 3) ($hm * 4);
+$default-modal-header-button-position-right: $vm;
+$default-modal-body-padding: $vm * 4;
+$default-modal-footer-padding: $vm * 2;
+
+$default-modal-zindex: $z-modal-container;
+$default-modal-obfuscator: $z-modal-obfuscator;
+
+$default-modal-bleed-xs: ($vm * 4) ($hm / 2);
+
+
+// Colors
+$default-modal-header-button-color: $default-button-secondary-color;
+$default-modal-border-color: $default-dividers-color;
+

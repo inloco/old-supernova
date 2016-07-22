@@ -40,6 +40,24 @@
 <!-- Content -->
 <main class="sn-layout__content">
 
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed-top sn-grid--bleed">
+    <div class="sn-cell--1">
+      <span class="sn-typo--display-1">Cards</span>
+    </div>
+  </div>
+
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed-top sn-grid--bleed">
+    <div class="sn-cell--1">
+      <button class="sn-button sn-button--colored sn-button--raised" type="button modal-activate" data-toggle="modal" data-target="#modal" data-backdrop="static">Open Modal</button>
+    </div>
+  </div>
+
+
+
+
+
   <div class="sn-grid sn-grid--horizontal sn-grid--bleed-top sn-grid--bleed">
     <div class="sn-cell--1">
       <span class="sn-typo--display-1">Cards</span>
@@ -366,3 +384,33 @@
 
 
 </main>
+
+
+<!-- MODAL EXAMPLE -->
+<div id="modal" class="modal fade in">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="sn-button close" data-dismiss="modal" aria-label="Close" data-upgraded=",MaterialButton">
+          <i class="material-icons" aria-hidden="true"></i>
+        </button>
+        <span class="modal-title">Perfil de Usuário</span>
+      </div>
+      <div class="modal-body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda atque eum expedita ipsa maxime nihil odio officia officiis placeat qui quibusdam reiciendis rem rerum sed suscipit, tempora ullam velit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consequuntur iure iusto nihil quas quia quis soluta tempore voluptas? Accusamus blanditiis dolorem eligendi eum minima, minus pariatur. Aliquid, quaerat, voluptates? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto cumque dolorem molestiae omnis, quam veritatis! Debitis, placeat, qui. Amet esse impedit itaque iusto libero natus nesciunt officia perspiciatis quis sunt!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="sn-button" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="sn-button sn-button--colored">Salvar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ./modal example -->
+
+
+
+
+
