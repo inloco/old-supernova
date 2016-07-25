@@ -31,7 +31,7 @@ class Input extends React.Component {
     const { className } = this.props
 
     return(
-      className !== undefined ? className  : "form-control"
+      className !== undefined ? className  : "form-control bs-material"
     )
   }
 
