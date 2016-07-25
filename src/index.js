@@ -1,3 +1,4 @@
+import Alert from "./components/Alert"
 import Dropdown from "./components/Dropdown/Main"
 import DropdownItem from "./components/Dropdown/Item"
 import DropdownGroup from "./components/Dropdown/Group"
@@ -31,6 +32,7 @@ import styles from "./../assets/css/supernova.scss"
 import iconStyles from "./../node_modules/material-design-icons/iconfont/material-icons.css"
 
 export {
+  Alert,
   Dropdown,
   DropdownItem,
   DropdownGroup,

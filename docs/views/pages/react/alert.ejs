@@ -1,0 +1,107 @@
+<% layout('./../../layout') -%>
+
+<% include _react_menu %>
+
+<header class="sn-layout__header">
+  <div aria-expanded="false" role="button" tabindex="0" class="sn-layout__drawer-button">
+    <i class="material-icons"></i>
+  </div>
+  <div class="sn-layout__header-row">
+    <span class="sn-layout-title">Alerts</span>
+  </div>
+</header>
+
+<main class="sn-layout__content sn-presentation-layout__content">
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-all">
+    <div class="sn-cell--1">
+      <h3>Example</h3>
+      <p>To see the example again please reload the page.</p>
+      <br>
+      <div id="alert-component--success"></div>
+      <div id="alert-component--danger"></div>
+      <div id="alert-component--warning"></div>
+      <div id="alert-component--info"></div>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-bottom">
+    <div class="sn-cell--1">
+      <pre class="sn-presentation-pre-panel">
+&#x3C;Alert closeAfter={2000}
+       active={true}
+       message=&#x22;Usu&#xE1;rio cadastrado com sucesso!&#x22;
+       icon=&#x22;&#x26;#xE876;&#x22; /&#x3E;
+      </pre>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-bottom">
+    <div class="sn-cell--1">
+      <h4>Types</h4>
+      <p>Type can be: <b>success, warning, danger</b> or <b>info</b>.</p>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-bottom">
+    <div class="sn-cell--1">
+      <h4>Icons</h4>
+      <p>Icons can be <a target="_blank" href="https://design.google.com/icons">found here</a>.</p>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-bottom">
+    <div class="sn-cell--1">
+      <h4>Alert</h4>
+      <table class="sn-presentation-table">
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>closeAfter</td>
+            <td>number</td>
+            <td>null</td>
+            <td>Waiting time to close</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>active</td>
+            <td>bool</td>
+            <td>false</td>
+            <td>True to show the alert. False to hidden.</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>message</td>
+            <td>string</td>
+            <td>null</td>
+            <td>Message that will be show.</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>type</td>
+            <td>string</td>
+            <td>success</td>
+            <td>Background color.</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>icon</td>
+            <td>string</td>
+            <td>null</td>
+            <td>Icon that will be show.</td>
+            <td>No</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<% script('/alerts.js', 'text/babel') -%>
