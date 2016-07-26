@@ -2,7 +2,7 @@ import React, { PropTypes } from "react"
 
 class Main extends React.Component {
   static propTyes = {
-    currentTab:  PropTypes.number,
+    initialTab:  PropTypes.number,
     children:    PropTypes.node.isRequired
   }
 
@@ -13,7 +13,7 @@ class Main extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { currentTab: props.currentTab }
+    this.state = { currentTab: props.initialTab }
   }
 
   setActiveProp(tab, value) {
