@@ -1,5 +1,5 @@
 export const isShowingContent = (node, expectedContent) => {
-  const content = node.querySelector(".sn-tabs-content").textContent
+  const content = node.querySelector(".sn-tabs__content").textContent
 
   expect(content).toEqual(expectedContent)
 }

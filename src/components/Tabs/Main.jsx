@@ -53,7 +53,7 @@ class Main extends React.Component {
         <div className="sn-tabs">
           <ul>{tabs}</ul>
         </div>
-        <div className="sn-tabs-content">
+        <div className="sn-tabs__content">
           {this.renderActiveTabContent(tabs)}
         </div>
       </div>
