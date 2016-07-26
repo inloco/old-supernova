@@ -18,6 +18,8 @@ import Table from "./components/Table/Main"
 import TableHead from "./components/Table/Head"
 import TableRow from "./components/Table/Row"
 import TableBody from "./components/Table/Body"
+import Tabs from "./components/Tabs/Main"
+import Tab from "./components/Tabs/Tab"
 import CellHead from "./components/Table/Cell/Head"
 import CellData from "./components/Table/Cell/Data/Main"
 import CellDataTitle from "./components/Table/Cell/Data/Title"
@@ -52,6 +54,8 @@ export {
   TableHead,
   TableRow,
   TableBody,
+  Tabs,
+  Tab,
   CellHead,
   CellData,
   CellDataTitle,
