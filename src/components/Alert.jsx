@@ -88,7 +88,7 @@ class Alert extends React.Component {
     return (
       <div className={this.getClassName()} role="alert">
         {this.getIcon()}
-        <button type="button" className="sn-alert--close" ref="btnClose" onClick={this.handleCloseClick.bind(this)}>
+        <button type="button" className="sn-alert--close" onClick={this.handleCloseClick.bind(this)}>
           <i className="material-icons">&#xE14C;</i>
         </button>
         <div className="sn-alert--message">{this.props.message}</div>
