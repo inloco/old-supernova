@@ -26,7 +26,7 @@ describe("Alert", () => {
   })
 
   it("will be close after click in close button", () => {
-    const btnClose = ReactDOM.findDOMNode(component.refs.btnClose)
+    const btnClose = node.querySelector("button")
 
     TestUtils.Simulate.click(btnClose)
 
