@@ -50,9 +50,11 @@
   }
   //&.in .modal-dialog { @include translate3d(0, 0, 0) }
 }
+
 .modal-open .modal {
   overflow-x: hidden;
   overflow-y: auto;
+  display: block;
 }
 
 // Shell div to position the modal with bottom padding

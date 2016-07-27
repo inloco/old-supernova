@@ -4,6 +4,10 @@ import DropdownItem from "./components/Dropdown/Item"
 import DropdownGroup from "./components/Dropdown/Group"
 import Header from "./components/Header/Main"
 import HeaderItem from "./components/Header/Item"
+import Modal from "./components/Modal/Main"
+import ModalBody from "./components/Modal/Body"
+import ModalFooter from "./components/Modal/Footer"
+import ModalHeader from "./components/Modal/Header"
 import SidebarFooter from "./components/Sidebar/Footer/Main"
 import SidebarFooterLink from "./components/Sidebar/Footer/Link"
 import SidebarMenu from "./components/Sidebar/Menu/Main"
@@ -40,6 +44,10 @@ export {
   DropdownGroup,
   Header,
   HeaderItem,
+  Modal,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
   SidebarFooter,
   SidebarFooterLink,
   SidebarMenu,
