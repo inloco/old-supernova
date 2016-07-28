@@ -2,6 +2,7 @@ var Modal = Supernova.Modal;
 var ModalBody = Supernova.ModalBody;
 var ModalFooter = Supernova.ModalFooter;
 var ModalHeader = Supernova.ModalHeader;
+var Button = Supernova.Button;
 
 var ModalExample = React.createClass({
   getInitialState: function() {
@@ -30,7 +31,7 @@ var ModalExample = React.createClass({
           </ModalFooter>
         </Modal>
 
-        <button onClick={this.open}>Abrir modal</button>
+        <Button onClick={this.open} label="Abrir modal" />
       </div>
     )
   }
