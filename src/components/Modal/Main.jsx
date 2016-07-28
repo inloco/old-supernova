@@ -19,6 +19,21 @@ class Main extends React.Component {
     this.setState({ open: false })
   }
 
+  getSizeClassName() {
+    switch(this.props.size) {
+      case "small":
+        return "modal-sm"
+      case "large":
+        return "modal-lg"
+      default:
+        return ""
+    }
+  }
+
+  getClassName() {
+    return `modal-dialog ${this.getSizeClassName()}`
+  }
+
   handleDialogClick(event) {
     event.stopPropagation()
   }
@@ -45,7 +60,7 @@ class Main extends React.Component {
         {this.state.open ? this.renderBackdrop() : null}
 
         <div className="modal" onClick={this.close.bind(this)}>
-          <div className="modal-dialog modal-lg" onClick={this.handleDialogClick}>
+          <div className={this.getClassName()} onClick={this.handleDialogClick}>
             <div className="modal-content">{this.props.children}</div>
           </div>
         </div>

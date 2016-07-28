@@ -15,6 +15,12 @@ describe("Modal", () => {
     node = factory.getNode()
   })
 
+  it("has modal dialog with large size class", () => {
+    const modalDialogNode = node.querySelector(".modal-dialog")
+
+    expect(modalDialogNode.classList.contains("modal-lg")).toBeTruthy()
+  })
+
   describe("when it is close", () => {
     it("has not modal-open class in body", () => {
       const bodyNode = document.querySelector("body")

@@ -16,7 +16,7 @@ var ModalExample = React.createClass({
   render: function() {
     return(
       <div>
-        <Modal open={this.state.open} onClose={this.close}>
+        <Modal open={this.state.open} onClose={this.close} size="large">
           <ModalHeader>
             <span className="modal-title">Título do Modal</span>
           </ModalHeader>

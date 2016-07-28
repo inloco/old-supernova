@@ -14,7 +14,7 @@ import ModalFooter from "../../../src/components/Modal/Footer"
 class ModalFactory extends Factory{
   template() {
     return(
-      <Modal open={false}>
+      <Modal open={false} size="large">
         <ModalHeader>
           <span className="modal-title">Título do Modal</span>
         </ModalHeader>
