@@ -6,8 +6,10 @@ import TestUtils from "react-addons-test-utils"
 import Button from "../../src/components/Button"
 
 describe("Button", () => {
+  const fooFunc = jest.fn()
+
   const button = TestUtils.renderIntoDocument(
-    <Button label="Login" style="colored" type="submit"/>
+    <Button label="Login" style="colored" type="submit" onClick={fooFunc}/>
   )
   const buttonNode = ReactDOM.findDOMNode(button)
 
@@ -29,6 +31,12 @@ describe("Button", () => {
 
   it("is not disabled", () => {
     expect(buttonNode.disabled).toBeFalsy
+  })
+
+  it("executes onClick props when it is click", () => {
+    TestUtils.Simulate.click(buttonNode)
+
+    expect(fooFunc.mock.calls.length).toBeGreaterThan(0)
   })
 
   describe("when is disabled", () => {

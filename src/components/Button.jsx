@@ -6,7 +6,8 @@ class Button extends React.Component {
     disabled: PropTypes.bool,
     raised:   PropTypes.bool,
     type:     PropTypes.string,
-    style:    PropTypes.string
+    style:    PropTypes.string,
+    onClick:  PropTypes.func
   }
 
   static defaultProps = {
@@ -16,18 +17,18 @@ class Button extends React.Component {
     style:    null
   }
 
-  getRaisedClass() {
+  getRaisedClassName() {
     return this.props.raised ? `sn-button--raised` : null
   }
 
-  getStyleClass() {
+  getStyleClassName() {
     const { style } = this.props
 
     return style !== undefined ? `sn-button--${ style }` : null
   }
 
   getClassName() {
-    return `sn-button ${ this.getRaisedClass() } ${ this.getStyleClass() }`
+    return `sn-button ${ this.getRaisedClassName() } ${ this.getStyleClassName() }`
   }
 
   render() {
@@ -35,9 +36,10 @@ class Button extends React.Component {
 
     return(
       <button
-        className={ this.getClassName() }
-        disabled={ disabled }
-        type={ type }>
+        className={this.getClassName()}
+        disabled={disabled}
+        type={type}
+        onClick={this.props.onClick}>
         { label }
       </button>
     )

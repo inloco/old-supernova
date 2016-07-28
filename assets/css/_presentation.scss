@@ -234,3 +234,11 @@ pre {
     border: 1px solid #ccc;
   }
 }
+
+.sn-presentation-header {
+  z-index: -2;
+}
+
+.sn-presentation-drawer {
+  z-index: -1;
+}
