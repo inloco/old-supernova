@@ -30,7 +30,8 @@ import ModalOpenTrigger from "./components/Modal/OpenTrigger"
 import ModalCloseTrigger from "./components/Modal/CloseTrigger"
 import RadioButton from "./components/RadioButton/Main"
 import LabelRadioButton from "./components/RadioButton/Label"
-
+import Paginate from "./components/Paginate/Main"
+import PaginateItem from "./components/Paginate/Item"
 
 export {
   Dropdown,
@@ -64,5 +65,7 @@ export {
   ModalOpenTrigger,
   ModalCloseTrigger,
   RadioButton,
-  LabelRadioButton
+  LabelRadioButton,
+  Paginate,
+  PaginateItem
 }
