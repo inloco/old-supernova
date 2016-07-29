@@ -24,6 +24,7 @@ import TableRow from "./components/Table/Row"
 import TableBody from "./components/Table/Body"
 import Tabs from "./components/Tabs/Main"
 import Tab from "./components/Tabs/Tab"
+import Tooltip from "./components/Tooltip"
 import CellHead from "./components/Table/Cell/Head"
 import CellData from "./components/Table/Cell/Data/Main"
 import CellDataTitle from "./components/Table/Cell/Data/Title"
@@ -64,6 +65,7 @@ export {
   TableBody,
   Tabs,
   Tab,
+  Tooltip,
   CellHead,
   CellData,
   CellDataTitle,
