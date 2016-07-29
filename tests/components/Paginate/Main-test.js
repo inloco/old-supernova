@@ -7,7 +7,6 @@ describe("Paginate", () => {
   const node = factory.getNode()
 
   it("has 2 children", () => {
-    console.log(node.outerHTML)
     expect(node.querySelectorAll("li").length).toEqual(2)
   })
 })

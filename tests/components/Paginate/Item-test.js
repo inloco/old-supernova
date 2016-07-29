@@ -8,8 +8,6 @@ describe("Paginate", () => {
   const nodeSpan = node.querySelector("span")
 
   it("has href", () => {
-    console.log(node.outerHTML)
-
     expect(node.getAttribute("href")).toEqual("publisher/index")
   })
 
