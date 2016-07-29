@@ -4,7 +4,7 @@ class Item extends React.Component {
   static propTypes = {
     href: PropTypes.string,
     label: PropTypes.string,
-    icon: PropTypes.string,
+    icon: PropTypes.string.isRequired,
     active: PropTypes.bool
   }
 
@@ -22,7 +22,7 @@ class Item extends React.Component {
     return (
       <li>
         <a href={ href !== undefined ? href : null }>
-          <span className=`icon-24 ${icon} ${this.getActiveClassName()}`>
+          <span className={ `icon-24 ${icon} ${this.getActiveClassName()}` }>
             { label !== undefined ? label : null }
           </span>
         </a>

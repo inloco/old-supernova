@@ -11,7 +11,7 @@ class Paginate extends React.Component {
     return (
       <tfoot>
         <tr role="row">
-          <td className="footer-nav-col" colspan="10" data-column="0">
+          <td className="footer-nav-col" colSpan="10">
             <ul className="pagination table-footer-icons">
               { children }
             </ul>
