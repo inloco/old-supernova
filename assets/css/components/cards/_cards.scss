@@ -191,11 +191,9 @@
 
 .sn-card--center {
   @include flexbox();
-  .sn-card__icon-button {
-    @include flex(1);
-    -webkit-align-self: center;
-    align-self: center;
-  }
+  @include flex(1);
+  -webkit-align-self: center;
+  align-self: center;
 }
 
 
