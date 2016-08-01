@@ -13,8 +13,8 @@
     "postinstall": "npm run build"
   },
   "dependencies": {
-    "react": "^0.14.8 || ^15.0.0",
-    "react-dom": "^0.14.8 || ^15.0.0",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
     "react-google-charts": "^1.0.0"
   },
   "devDependencies": {

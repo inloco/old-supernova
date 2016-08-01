@@ -3,58 +3,63 @@ import React, { PropTypes } from "react"
 class Input extends React.Component {
   constructor(props) {
     super()
+
     this.state = { value: props.value }
   }
 
   static propTyes = {
-    type: PropTypes.string.isRequired,
-    isRequired: PropTypes.bool.isRequired,
-    id: PropTypes.string,
-    placeholder: PropTypes.string,
-    name: PropTypes.string,
-    value: PropTypes.string,
+    type:            PropTypes.string.isRequired,
+    isRequired:      PropTypes.bool.isRequired,
+    id:              PropTypes.string,
+    placeholder:     PropTypes.string,
+    name:            PropTypes.string,
+    value:           PropTypes.string,
     dataRemoteInput: PropTypes.bool,
-    className: PropTypes.string
+    className:       PropTypes.string,
+    defaultChecked:  PropTypes.bool
   }
 
   static defaultProps = {
-    value: ""
+    value: "",
+    defaultChecked: false
   }
 
   handleChange(event) {
-    this.setState({
-      value: event.target.value
-    })
+    this.setState({ value: event.target.value })
   }
 
-  getClasses() {
-    const { className } = this.props
+  getClassName() {
+    return this.props.className || "form-control bs-material"
+  }
 
-    return(
-      className !== undefined ? className  : "form-control bs-material"
-    )
+  getProps() {
+    const {
+      id,
+      type,
+      placeholder,
+      name,
+      value,
+      dataRemoteInput,
+      defaultChecked,
+      isRequired
+    } = this.props
+
+    return {
+      id,
+      type,
+      placeholder,
+      name,
+      defaultChecked,
+      value,
+      "data-remote-input": dataRemoteInput,
+      className:           this.getClassName(),
+      required:            isRequired,
+      onChange:            this.handleChange.bind(this)
+    }
   }
 
   render() {
-    const { id,
-            type,
-            placeholder,
-            name,
-            dataRemoteInput,
-            isRequired } = this.props
-    const ops = { required: isRequired }
-
-    return (
-      <input id={ id !== undefined ? id : null }
-             className={ type !== "hidden" ? this.getClasses() : "" }
-             type={ type }
-             placeholder={ placeholder !== undefined ? placeholder : null }
-             name={ name !== undefined ? name : null }
-             data-remote-input={ dataRemoteInput !== undefined ? dataRemoteInput : null }
-             value={ this.state.value }
-             onChange={ (e) => { this.handleChange(e) } }
-             { ...ops } />
-    )
+    return <input {...this.getProps()}/>
   }
 }
 

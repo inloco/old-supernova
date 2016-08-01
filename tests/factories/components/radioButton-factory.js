@@ -11,7 +11,7 @@ import LabelRadioButton from "../../../src/components/RadioButton/Label"
 class RadioButtonFactory extends Factory {
   template() {
     return(
-      <RadioButton id="id" label="label" name="name" />
+      <RadioButton id="id" label="label" name="name" defaultChecked={true} />
     )
   }
 }
