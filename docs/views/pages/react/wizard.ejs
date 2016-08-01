@@ -1,0 +1,132 @@
+<% layout('./../../layout') -%>
+
+<% include _react_menu %>
+
+<header class="sn-layout__header sn-presentation-header">
+  <div aria-expanded="false" role="button" tabindex="0" class="sn-layout__drawer-button">
+    <i class="material-icons"></i>
+  </div>
+  <div class="sn-layout__header-row">
+    <span class="sn-layout-title">Wizard</span>
+  </div>
+</header>
+
+<main class="sn-layout__content sn-presentation-layout__content">
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-all">
+    <div class="sn-cell--1">
+      <h3>Example</h3>
+      <div id="wizard-component"></div>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-bottom">
+    <div class="sn-cell--1">
+      <pre class="sn-presentation-pre-panel">
+&lt;Wizard ref=&quot;wizard&quot;&gt;
+  &lt;Step&gt;
+    &lt;h1&gt;1 - Foo&lt;/h1&gt;
+  &lt;/Step&gt;
+
+  &lt;Step&gt;
+    &lt;h1&gt;2 - Bar&lt;/h1&gt;
+  &lt;/Step&gt;
+
+  &lt;Step&gt;
+    &lt;h1&gt;3 - Some&lt;/h1&gt;
+  &lt;/Step&gt;
+&lt;/Wizard&gt;
+
+&lt;Button id=&quot;previous-button&quot; onClick={() =&gt; {this.refs.wizard.previous()}} label=&quot;Previous&quot;/&gt;
+&lt;Button id=&quot;next-button&quot; onClick={() =&gt; {this.refs.wizard.next()}} label=&quot;Next&quot;/&gt;
+      </pre>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-bottom">
+    <div class="sn-cell--1">
+      <h4>Wizard</h4>
+      <table class="sn-presentation-table">
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>step</td>
+            <td>number</td>
+            <td>0</td>
+            <td>Started step</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>children</td>
+            <td>node (Step)</td>
+            <td>null</td>
+            <td>Wrapped content</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br/>
+
+      <table class="sn-presentation-table">
+        <thead>
+          <tr>
+            <th>Function</th>
+            <th>Params</th>
+            <th>Return</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>next()</td>
+            <td>null</td>
+            <td>void</td>
+            <td>Go to the next wizard step</td>
+          </tr>
+          <tr>
+            <td>previous()</td>
+            <td>null</td>
+            <td>void</td>
+            <td>Go to the previous wizard step</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-bottom">
+    <div class="sn-cell--1">
+      <h4>Step</h4>
+      <table class="sn-presentation-table">
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>children</td>
+            <td>node</td>
+            <td>null</td>
+            <td>Step content</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<% script('/wizard.js', 'text/babel') -%>
