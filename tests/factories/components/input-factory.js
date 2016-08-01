@@ -13,8 +13,7 @@ class InputFactory extends Factory{
              placeholder="Digite seu nome"
              name="publisher[nome]"
              dataRemoteInput={ true }
-             value="current_month"
-             isRequired={ false } />
+             value="current_month" />
     )
   }
 }

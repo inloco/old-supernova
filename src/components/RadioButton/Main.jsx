@@ -3,20 +3,27 @@ import LabelRadioButton from "./Label"
 
 class RadioButton extends React.Component {
   static propTyes = {
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    inputValue: PropTypes.string
+    id:             PropTypes.string.isRequired,
+    label:          PropTypes.string.isRequired,
+    name:           PropTypes.string.isRequired,
+    value:          PropTypes.string,
+    defaultChecked: PropTypes.bool
+  }
+
+  static defaultProps = {
+    defaultChecked: false
+  }
+
+  getLabelProps() {
+    const{ label, name, value, defaultChecked } = this.props
+
+    return { label, name, value, defaultChecked }
   }
 
   render() {
-    const{ id, label, name, inputValue } = this.props
-
     return (
-      <div id={ id } className="radio radio-primary">
-        <LabelRadioButton label={ label }
-                          name={ name }
-                          inputValue={ inputValue } />
+      <div id={this.props.id} className="radio radio-primary">
+        <LabelRadioButton {...this.getLabelProps()} />
       </div>
     )
   }

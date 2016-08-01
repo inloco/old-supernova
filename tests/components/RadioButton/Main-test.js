@@ -13,4 +13,10 @@ describe("RadioButton", () => {
   it("has radio class", () => {
     expect(node.getAttribute("class").includes("radio")).toBeTruthy
   })
+
+  it("is checked", () => {
+    const inputNode = node.querySelector("input")
+
+    expect(inputNode.checked).toBeTruthy()
+  })
 })
