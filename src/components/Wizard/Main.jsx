@@ -37,12 +37,11 @@ class Wizzard extends React.Component {
   }
 
   render() {
-    const { children } = this.props
     const { step } = this.state
 
     return (
       <div>
-        {children[step]}
+        {this.props.children[step]}
       </div>
     )
   }
