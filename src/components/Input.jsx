@@ -9,7 +9,7 @@ class Input extends React.Component {
 
   static propTyes = {
     type:            PropTypes.string.isRequired,
-    isRequired:      PropTypes.bool.isRequired,
+    required:        PropTypes.bool,
     id:              PropTypes.string,
     placeholder:     PropTypes.string,
     name:            PropTypes.string,
@@ -20,8 +20,9 @@ class Input extends React.Component {
   }
 
   static defaultProps = {
-    value: "",
-    defaultChecked: false
+    value:          "",
+    defaultChecked: false,
+    required:       false
   }
 
   handleChange(event) {
@@ -41,7 +42,7 @@ class Input extends React.Component {
       value,
       dataRemoteInput,
       defaultChecked,
-      isRequired
+      required
     } = this.props
 
     return {
@@ -51,9 +52,9 @@ class Input extends React.Component {
       name,
       defaultChecked,
       value,
+      required,
       "data-remote-input": dataRemoteInput,
       className:           this.getClassName(),
-      required:            isRequired,
       onChange:            this.handleChange.bind(this)
     }
   }
