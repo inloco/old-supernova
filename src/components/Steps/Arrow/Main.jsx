@@ -1,12 +1,14 @@
 import React, { PropTypes } from "react"
+import BaseSteps from "./../Main"
 
-class Steps extends React.Component {
-  static propTyes = {
-    children: PropTypes.node.isRequired,
-    raised:   PropTypes.bool
+class Steps extends BaseSteps {
+  static propTypes = {
+    ...BaseSteps.propTypes,
+    raised: PropTypes.bool
   }
 
   static defaultProps = {
+    ...BaseSteps.defaultProps,
     raised: false
   }
 
@@ -21,7 +23,7 @@ class Steps extends React.Component {
   render() {
     return (
       <div className={this.getClassName()}>
-        {this.props.children}
+        {this.renderSteps()}
       </div>
     )
   }

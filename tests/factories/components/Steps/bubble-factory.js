@@ -1,3 +1,5 @@
+jest.unmock("../../../../src/components/Steps/Main")
+jest.unmock("../../../../src/components/Steps/Step")
 jest.unmock("../../../../src/components/Steps/Bubble/Main")
 jest.unmock("../../../../src/components/Steps/Bubble/Step")
 jest.unmock("./../base-factory")
@@ -10,7 +12,7 @@ import Step from "../../../../src/components/Steps/Bubble/Step"
 class StepsFactory extends Factory{
   template() {
     return(
-      <Steps defaultStep={2}>
+      <Steps activeStep={2}>
         <Step label="Item Completo" />
         <Step label="Item Completo" />
         <Step label="Item Ativo" />

@@ -1,20 +1,22 @@
+jest.unmock("../../../../src/components/Steps/Main")
+jest.unmock("../../../../src/components/Steps/Step")
 jest.unmock("../../../../src/components/Steps/Arrow/Main")
-jest.unmock("../../../../src/components/Steps/Arrow/Item")
+jest.unmock("../../../../src/components/Steps/Arrow/Step")
 jest.unmock("./../base-factory")
 
 import React from "react"
 import Factory from "./../base-factory"
 import Steps from "../../../../src/components/Steps/Arrow/Main"
-import StepsItem from "../../../../src/components/Steps/Arrow/Item"
+import Step from "../../../../src/components/Steps/Arrow/Step"
 
 class StepsFactory extends Factory{
   template() {
     return(
-      <Steps>
-        <StepsItem label="Informações Gerais" index={1} done={true}/>
-        <StepsItem label="Endereço" index={2} active={true}/>
-        <StepsItem label="Confirmação" index={3} />
-        <StepsItem label="Pagamento" index={4} />
+      <Steps activeStep={1}>
+        <Step label="Informações Gerais"/>
+        <Step label="Endereço" />
+        <Step label="Confirmação" />
+        <Step label="Pagamento" />
       </Steps>
     )
   }

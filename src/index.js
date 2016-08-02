@@ -1,4 +1,6 @@
 import Alert from "./components/Alert"
+import ArrowSteps from "./components/Steps/Arrow/Main"
+import ArrowStep from "./components/Steps/Arrow/Step"
 import BubbleSteps from "./components/Steps/Bubble/Main"
 import BubbleStep from "./components/Steps/Bubble/Step"
 import Card from "./components/Card/Main"
@@ -24,8 +26,6 @@ import SidebarLogo from "./components/Sidebar/Logo"
 import SidebarUser from "./components/Sidebar/User/Main"
 import SidebarUserItem from "./components/Sidebar/User/Item"
 import Sidebar from "./components/Sidebar/Main"
-import Steps from "./components/Steps/Arrow/Main"
-import StepsItem from "./components/Steps/Arrow/Item"
 import Table from "./components/Table/Main"
 import TableHead from "./components/Table/Head"
 import TableRow from "./components/Table/Row"
@@ -50,6 +50,8 @@ import iconStyles from "./../node_modules/material-design-icons/iconfont/materia
 
 export {
   Alert,
+  ArrowSteps,
+  ArrowStep,
   BubbleSteps,
   BubbleStep,
   Card,
@@ -75,8 +77,6 @@ export {
   SidebarUser,
   SidebarUserItem,
   Sidebar,
-  Steps,
-  StepsItem,
   Table,
   TableHead,
   TableRow,
