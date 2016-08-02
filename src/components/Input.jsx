@@ -39,7 +39,6 @@ class Input extends React.Component {
       type,
       placeholder,
       name,
-      value,
       dataRemoteInput,
       defaultChecked,
       required
@@ -51,8 +50,8 @@ class Input extends React.Component {
       placeholder,
       name,
       defaultChecked,
-      value,
       required,
+      value:               this.state.value,
       "data-remote-input": dataRemoteInput,
       className:           this.getClassName(),
       onChange:            this.handleChange.bind(this)

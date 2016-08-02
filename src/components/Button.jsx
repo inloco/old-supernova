@@ -14,7 +14,8 @@ class Button extends React.Component {
     href: PropTypes.string,
     style: PropTypes.string,
     secondaryStyle: PropTypes.string,
-    isModal: PropTypes.bool
+    isModal: PropTypes.bool,
+    onClick:  PropTypes.func
   }
 
   static defaultProps = {
@@ -75,7 +76,8 @@ class Button extends React.Component {
                             this.getModalClass() :
                             this.getClasses() }
               data-dismiss={ isModal ? "modal" : null }
-              { ...disabledOpt }>
+              { ...disabledOpt }
+              onClick={this.props.onClick}>
         { this.getIcon() }
         { label !== undefined ? this.getLabel() : null }
         <div className="ripple-wrapper"></div>
