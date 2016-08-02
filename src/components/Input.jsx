@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 
 class Input extends React.Component {
-  static propTyes = {
+  static propTypes = {
     label:        PropTypes.string.isRequired,
     required:     PropTypes.bool,
     autoFocus:    PropTypes.bool,

@@ -8,7 +8,7 @@ class Menu extends React.Component {
     this.state = { currentPath: props.currentPath }
   }
 
-  static propTyes = {
+  static propTypes = {
     children: PropTypes.node.isRequired,
     currentPath: PropTypes.string
   }

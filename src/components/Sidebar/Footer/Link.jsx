@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 
 class Link extends React.Component {  
-  static propTyes = {
+  static propTypes = {
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired
   }

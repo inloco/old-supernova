@@ -2,7 +2,7 @@ import React, { PropTypes } from "react"
 import ReactDOM from "react-dom"
 
 class Alert extends React.Component {
-  static propTyes = {
+  static propTypes = {
     message:    PropTypes.string.isRequired,
     type:       PropTypes.string,
     active:     PropTypes.bool,

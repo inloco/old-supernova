@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 
 class TextArea extends React.Component {
-  static propTyes = {
+  static propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
     rows: PropTypes.string,

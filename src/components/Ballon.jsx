@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 
 class Ballon extends React.Component {
-  static propTyes = {
+  static propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,

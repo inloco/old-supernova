@@ -1,8 +1,8 @@
 import React, { PropTypes } from "react"
 
 class Header extends React.Component {
-  static propTyes = {
-    childer: PropTypes.node.isRequired
+  static propTypes = {
+    children: PropTypes.node.isRequired
   }
 
   render() {

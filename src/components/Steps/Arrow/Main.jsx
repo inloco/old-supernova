@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 
 class Steps extends React.Component {
-  static propTyes = {
+  static propTypes = {
     children:   PropTypes.node.isRequired,
     raised:     PropTypes.bool,
     activeStep: PropTypes.bool

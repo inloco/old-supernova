@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 
 class Footer extends React.Component {  
-  static propTyes = {
+  static propTypes = {
     children: PropTypes.node,
     company: PropTypes.string.isRequired
   }

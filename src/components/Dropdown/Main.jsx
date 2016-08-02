@@ -58,7 +58,8 @@ class Dropdown extends React.Component {
              type={ typeInput }
              name={ nameInput }
              value={ valueInput }
-             dataRemoteInput={ dataRemoteInput } />
+             dataRemoteInput={ dataRemoteInput }
+             label=""/>
     )
   }
 

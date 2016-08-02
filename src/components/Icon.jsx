@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 
 class Icon extends React.Component {
-  static propTyes = {
+  static propTypes = {
     name: PropTypes.string.isRequired,
     size: PropTypes.string
   }

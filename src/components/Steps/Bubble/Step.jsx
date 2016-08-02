@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 
 class Step extends React.Component {
-  static propTyes = {
+  static propTypes = {
     label:  PropTypes.string.isRequired,
     status: PropTypes.string
   }
