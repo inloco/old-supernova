@@ -1,20 +1,14 @@
 import React, { PropTypes } from "react"
+import BaseStep from "./../Step"
 
-class Step extends React.Component {
+class Step extends BaseStep {
   static propTypes = {
-    label:  PropTypes.string.isRequired,
-    index:  PropTypes.number.isRequired,
-    status: PropTypes.string
+    ...BaseStep.propTypes,
+    index:  PropTypes.number
   }
 
   static defaultProps = {
     active: false
-  }
-
-  getStatusClassName() {
-    const { status } = this.props
-
-    return status ? `is-${status}` : ""
   }
 
   getClassName() {
