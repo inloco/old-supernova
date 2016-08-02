@@ -1,8 +1,8 @@
-jest.unmock("../../factories/components/steps-factory")
+jest.unmock("../../../factories/components/steps/arrow-factory")
 
-import StepsFactory from "../../factories/components/steps-factory"
+import StepsFactory from "../../../factories/components/steps/arrow-factory"
 
-describe("StepItem", () => {
+describe("Steps Arrow Item", () => {
   const factory = new StepsFactory
   const node = factory.getNode().querySelector("div")
   const activeNode = factory.getNode().querySelectorAll("div")[1]
