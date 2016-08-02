@@ -1,4 +1,5 @@
 jest.unmock("../../../../src/components/Steps/Main")
+jest.unmock("../../../../src/components/Steps/Step")
 jest.unmock("../../../../src/components/Steps/Bubble/Main")
 jest.unmock("../../../../src/components/Steps/Bubble/Step")
 jest.unmock("./../base-factory")
