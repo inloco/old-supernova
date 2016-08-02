@@ -1,0 +1,102 @@
+<% layout('./../../layout') -%>
+
+<% include _react_menu %>
+
+<header class="sn-layout__header">
+  <div aria-expanded="false" role="button" tabindex="0" class="sn-layout__drawer-button">
+    <i class="material-icons"></i>
+  </div>
+  <div class="sn-layout__header-row">
+    <span class="sn-layout-title">Steps Bubble</span>
+  </div>
+</header>
+
+<main class="sn-layout__content sn-presentation-layout__content">
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-top">
+    <div class="sn-cell--1">
+      <h3>Example</h3>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed-all">
+    <div class="sn-cell--1">
+      <div id="bubble-steps-component"></div>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-bottom">
+    <div class="sn-cell--1">
+      <pre class="sn-presentation-pre-panel">
+&lt;Steps defaultStep={2}&gt;
+  &lt;Step label=&quot;Item Completo&quot; /&gt;
+  &lt;Step label=&quot;Item Completo&quot; /&gt;
+  &lt;Step label=&quot;Item Ativo&quot; /&gt;
+  &lt;Step label=&quot;Item a Fazer&quot; /&gt;
+&lt;/Steps&gt;
+      </pre>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-bottom">
+    <div class="sn-cell--1">
+      <h4>Steps</h4>
+      <table class="sn-presentation-table">
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>children</td>
+            <td>node</td>
+            <td>null</td>
+            <td>Bubble steps</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>defaultStep</td>
+            <td>number</td>
+            <td>0</td>
+            <td>The active step</td>
+            <td>No</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed">
+    <div class="sn-cell--1">
+      <h4>Step</h4>
+      <table class="sn-presentation-table">
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>label</td>
+            <td>string</td>
+            <td>null</td>
+            <td>Step label</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed-bottom"></div>
+</main>
+
+<% script('/bubble-steps.js', 'text/babel') -%>
