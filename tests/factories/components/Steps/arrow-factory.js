@@ -1,11 +1,11 @@
-jest.unmock("../../../src/components/Steps/Main")
-jest.unmock("../../../src/components/Steps/Item")
-jest.unmock("./base-factory")
+jest.unmock("../../../../src/components/Steps/Arrow/Main")
+jest.unmock("../../../../src/components/Steps/Arrow/Item")
+jest.unmock("./../base-factory")
 
 import React from "react"
-import Factory from "./base-factory"
-import Steps from "../../../src/components/Steps/Main"
-import StepsItem from "../../../src/components/Steps/Item"
+import Factory from "./../base-factory"
+import Steps from "../../../../src/components/Steps/Arrow/Main"
+import StepsItem from "../../../../src/components/Steps/Arrow/Item"
 
 class StepsFactory extends Factory{
   template() {
