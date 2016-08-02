@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 
 class Sidebar extends React.Component {
-  static propTyes = {
+  static propTypes = {
     children: PropTypes.node.isRequired
   }
 

@@ -4,7 +4,7 @@ import Dropdown from "../../Dropdown/Main"
 import DropdownItem from "../../Dropdown/Item"
 
 class User extends React.Component {
-  static propTyes = {
+  static propTypes = {
     avatarSrc: PropTypes.string.isRequired,
     userEmail: PropTypes.string.isRequired,
     userName: PropTypes.string,

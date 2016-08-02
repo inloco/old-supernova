@@ -2,7 +2,7 @@ import React, { PropTypes } from "react"
 import { bindItems } from "../../../helpers/sidebar"
 
 class Item extends React.Component {
-  static propTyes = {
+  static propTypes = {
     label: PropTypes.string.isRequired,
     href: PropTypes.string.isRequired,
     icon: PropTypes.string,

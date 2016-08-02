@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 
 class Button extends React.Component {
-  static propTyes = {
+  static propTypes = {
     label:    PropTypes.string.isRequired,
     disabled: PropTypes.bool,
     raised:   PropTypes.bool,

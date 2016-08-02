@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 
 class Info extends React.Component {
-  static propTyes = {
+  static propTypes = {
     text: PropTypes.string.isRequired
   }
 

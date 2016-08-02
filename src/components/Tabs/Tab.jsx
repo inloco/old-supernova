@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 
 class Tab extends React.Component {
-  static propTyes = {
+  static propTypes = {
     label:       PropTypes.string.isRequired,
     active:      PropTypes.bool,
     handleClick: PropTypes.func

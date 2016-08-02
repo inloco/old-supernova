@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 
 class Item extends React.Component {
-  static propTyes = {
+  static propTypes = {
     label: PropTypes.string,
     addon: PropTypes.string,
     value: PropTypes.string,

@@ -1,6 +1,7 @@
 import React, { PropTypes } from "react"
 import BaseSteps from "./../Main"
 
+
 class Steps extends BaseSteps {
   static propTypes = {
     ...BaseSteps.propTypes,

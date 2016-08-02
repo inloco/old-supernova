@@ -4,7 +4,7 @@ import BaseStep from "./../Step"
 class Step extends BaseStep {
   static propTypes = {
     ...BaseStep.propTypes,
-    index:  PropTypes.number,
+    index:  PropTypes.number
   }
 
   static defaultProps = {

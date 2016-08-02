@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react"
 
 class Main extends React.Component {
-  static propTyes = {
+  static propTypes = {
     initialTab:  PropTypes.number,
     children:    PropTypes.node.isRequired
   }
