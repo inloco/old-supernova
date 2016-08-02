@@ -3,19 +3,19 @@ import React, { PropTypes } from "react"
 class Steps extends React.Component {
   static propTyes = {
     children:    PropTypes.node.isRequired,
-    defaultStep: PropTypes.number
+    activeStep: PropTypes.number
   }
 
   static defaultProps = {
-    defaultStep: 0
+    activeStep: 0
   }
 
   getStatusByIndex(index) {
-    const { defaultStep } = this.props
+    const { activeStep } = this.props
 
-    if(index < defaultStep) {
+    if(index < activeStep) {
       return "done"
-    } else if (index === defaultStep) {
+    } else if (index === activeStep) {
       return "active"
     }
   }

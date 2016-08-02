@@ -4,7 +4,7 @@ var Step = Supernova.BubbleStep;
 var StepExample = React.createClass({
   render: function() {
     return(
-      <Steps defaultStep={2}>
+      <Steps activeStep={2}>
         <Step label="Item Completo" />
         <Step label="Item Completo" />
         <Step label="Item Ativo" />
