@@ -27,11 +27,11 @@
   <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-bottom">
     <div class="sn-cell--1">
       <pre class="sn-presentation-pre-panel">
-&lt;Steps&gt;
-  &lt;StepsItem label=&quot;Informa&ccedil;&otilde;es Gerais&quot; index={1} done={true}/&gt;
-  &lt;StepsItem label=&quot;Endere&ccedil;o&quot; index={2} active={true}/&gt;
-  &lt;StepsItem label=&quot;Confirma&ccedil;&atilde;o&quot; index={3} /&gt;
-  &lt;StepsItem label=&quot;Pagamento&quot; index={4} /&gt;
+&lt;Steps activeStep={1} raised={true}&gt;
+  &lt;Step label=&quot;Informa&ccedil;&otilde;es Gerais&quot;/&gt;
+  &lt;Step label=&quot;Endere&ccedil;o&quot;/&gt;
+  &lt;Step label=&quot;Confirma&ccedil;&atilde;o&quot;/&gt;
+  &lt;Step label=&quot;Pagamento&quot;/&gt;
 &lt;/Steps&gt;
       </pre>
     </div>
@@ -52,10 +52,24 @@
         </thead>
         <tbody>
           <tr>
+            <td>activeStep</td>
+            <td>number</td>
+            <td>0</td>
+            <td>Active step</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>raised</td>
+            <td>bool</td>
+            <td>false</td>
+            <td>Add raised style</td>
+            <td>No</td>
+          </tr>
+          <tr>
             <td>children</td>
             <td>node</td>
             <td>null</td>
-            <td>Node with StepItems</td>
+            <td>Arrow steps</td>
             <td>Yes</td>
           </tr>
         </tbody>
@@ -65,7 +79,7 @@
 
   <div class="sn-grid sn-grid--horizontal sn-grid--bleed">
     <div class="sn-cell--1">
-      <h4>StepsItem</h4>
+      <h4>Step</h4>
       <table class="sn-presentation-table">
         <thead>
           <tr>
@@ -83,27 +97,6 @@
             <td>null</td>
             <td>Step label</td>
             <td>Yes</td>
-          </tr>
-          <tr>
-            <td>index</td>
-            <td>number</td>
-            <td>null</td>
-            <td>The key of item</td>
-            <td>Yes</td>
-          </tr>
-          <tr>
-            <td>done</td>
-            <td>bool</td>
-            <td>false</td>
-            <td>The item is done?</td>
-            <td>No</td>
-          </tr>
-          <tr>
-            <td>active</td>
-            <td>bool</td>
-            <td>false</td>
-            <td>The item is active(current)?</td>
-            <td>No</td>
           </tr>
         </tbody>
       </table>

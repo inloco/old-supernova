@@ -1,14 +1,14 @@
-var Steps = Supernova.Steps;
-var StepsItem = Supernova.StepsItem;
+var Steps = Supernova.ArrowSteps;
+var Step = Supernova.ArrowStep;
 
 var StepExample = React.createClass({
   render: function() {
     return(
-      <Steps raised={true}>
-        <StepsItem label="Informações Gerais" index={1} done={true}/>
-        <StepsItem label="Endereço" index={2} active={true}/>
-        <StepsItem label="Confirmação" index={3} />
-        <StepsItem label="Pagamento" index={4} />
+      <Steps raised={true} activeStep={1}>
+        <Step label="Informações Gerais" />
+        <Step label="Endereço" />
+        <Step label="Confirmação" />
+        <Step label="Pagamento" />
       </Steps>
     )
   }
