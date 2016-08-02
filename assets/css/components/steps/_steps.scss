@@ -206,6 +206,99 @@
 
 
 
+  // BUBBLE STEPS
+
+  &.sn-steps__bubble {
+    background-color: transparent;
+    .container {
+      @include flexbox();
+      width: auto;
+      margin: 0 auto;
+    }
+    .sn-steps__bubble-list {
+      @include flexbox();
+      width: auto;
+      margin: 0 auto;
+      padding: 0;
+      counter-reset: step;
+
+      li {
+        @include flex(1);
+        list-style-type: none;
+        min-width: 84px;
+        float: left;
+        font-size: 11px;
+        line-height: 14px;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        color: $default-steps-waiting-color;
+
+        &:before {
+          width: 24px;
+          height: 24px;
+          content: counter(step);
+          counter-increment: step;
+          line-height: 25px;
+          border: 2px solid $default-steps-waiting-color;
+          display: block;
+          text-align: center;
+          margin: 0 auto 10px auto;
+          border-radius: 50%;
+          background-color: white;
+        }
+
+        &:after {
+          width: 100%;
+          height: 2px;
+          content: '';
+          position: absolute;
+          background-color: $default-steps-waiting-color;
+          top: 14px;
+          left: -50%;
+          z-index: -1;
+        }
+
+        &:first-child:after {
+          content: none;
+        }
+
+        &.is-done {
+          color: $default-steps-done-color;
+          &:before {
+            border-color: $default-steps-done-color;
+            background-color: #FFF;
+          }
+        }
+
+        &.is-done + li:after {
+          background-color: $default-steps-done-color;
+        }
+
+        &.is-active {
+          color: $default-steps-active-color;
+          &:before {
+            border-color: $default-steps-active-color;
+            background-color: #FFF;
+          }
+        }
+
+        &.is-active + li:after {
+          background-color: $default-steps-active-color;
+        }
+
+      }
+
+    }
+    //./sn-steps__bubble-list
+  }
+  //./sn-steps__bubble
+
+
+
+
+
+
   // MEDIA
   @media only screen
   and (min-width : 0)
@@ -303,3 +396,7 @@
 
 }
 // ./sn-steps
+
+
+
+
