@@ -1,0 +1,36 @@
+/*
+ *
+ *  IN LOCO
+ *  www.snocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *     wells component file
+ *  ----------- *** ------------
+ *
+ */
+
+@import "wells_variables";
+
+
+// Wells
+
+.sn-well {
+  position: relative;
+  width: auto;
+  margin: 0;
+  padding: $default-well-padding;
+  border-radius: $default-border-radius;
+  background: $default-well-background;
+  @include shadow-2dp();
+
+
+  // Wells Bleeds
+
+  &.sn-well--bleed {
+    margin: $default-well-bleed;
+  }
+
+}
+// ./ sn-wells
