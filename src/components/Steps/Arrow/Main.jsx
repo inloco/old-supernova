@@ -1,35 +1,15 @@
 import React, { PropTypes } from "react"
+import BaseSteps from "./../Main"
 
-class Steps extends React.Component {
-  static propTyes = {
-    children:   PropTypes.node.isRequired,
-    raised:     PropTypes.bool,
-    activeStep: PropTypes.bool
+class Steps extends BaseSteps {
+  static propTypes = {
+    ...BaseSteps.propTypes,
+    raised: PropTypes.bool
   }
 
   static defaultProps = {
-    raised: false,
-    activeStep: 0
-  }
-
-  getStatusByIndex(index) {
-    const { activeStep } = this.props
-
-    if(index < activeStep) {
-      return "done"
-    } else if (index === activeStep) {
-      return "active"
-    }
-  }
-
-  renderSteps() {
-    return this.props.children.map((step, index) => {
-      return React.cloneElement(step, {
-        index,
-        status: this.getStatusByIndex(index),
-        key:    index
-      })
-    })
+    ...BaseSteps.defaultProps,
+    raised: false
   }
 
   getRaisedClassName() {
