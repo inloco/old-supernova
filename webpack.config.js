@@ -32,7 +32,8 @@ module.exports = {
   },
   externals: {
     'react': 'react',
-    'react-dom': 'react-dom'
+    'react-dom': 'react-dom',
+    'material-design-icons': 'material-design-icons'
   },
   plugins: [
     new ExtractTextPlugin("[name].css")
