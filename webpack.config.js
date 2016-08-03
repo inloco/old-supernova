@@ -16,7 +16,7 @@ module.exports = {
       },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        loader: 'url-loader?limit=10000'
+        loader: 'url-loader?limit=10000&name=fonts/[hash].[ext]'
       }
     ]
   },
@@ -32,7 +32,8 @@ module.exports = {
   },
   externals: {
     'react': 'react',
-    'react-dom': 'react-dom'
+    'react-dom': 'react-dom',
+    'material-design-icons': 'material-design-icons'
   },
   plugins: [
     new ExtractTextPlugin("[name].css")
