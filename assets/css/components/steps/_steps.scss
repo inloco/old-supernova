@@ -210,6 +210,9 @@
 
   &.sn-steps__bubble {
     background-color: transparent;
+    position: relative;
+    z-index: 1;
+
     .container {
       @include flexbox();
       width: auto;
