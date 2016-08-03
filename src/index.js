@@ -43,6 +43,7 @@ import Button from "./components/Button"
 import TextArea from "./components/TextArea"
 import Label from "./components/Label"
 import Icon from "./components/Icon"
+import Well from "./components/Well"
 import Wizard from "./components/Wizard/Main"
 import WizardStep from "./components/Wizard/Step"
 import styles from "./../assets/css/supernova.scss"
@@ -94,6 +95,7 @@ export {
   TextArea,
   Label,
   Icon,
+  Well,
   Wizard,
   WizardStep
 }
