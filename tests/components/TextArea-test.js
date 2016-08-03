@@ -9,7 +9,7 @@ import TextArea from "../../src/components/TextArea"
 
 describe("TextArea", () => {
   const factory = new TextAreaFactory
-  const node = factory.getNode()
+  const node = factory.getNode().querySelector("textarea")
 
   it("has id", () => {
     expect(node.getAttribute("id")).toEqual("targeting_geo_locations")

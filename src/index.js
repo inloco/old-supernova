@@ -10,8 +10,7 @@ import CardList from "./components/Card/List"
 import Dropdown from "./components/Dropdown/Main"
 import DropdownItem from "./components/Dropdown/Item"
 import DropdownGroup from "./components/Dropdown/Group"
-import Header from "./components/Header/Main"
-import HeaderItem from "./components/Header/Item"
+import Header from "./components/Header"
 import Modal from "./components/Modal/Main"
 import ModalBody from "./components/Modal/Body"
 import ModalFooter from "./components/Modal/Footer"
@@ -63,7 +62,6 @@ export {
   DropdownItem,
   DropdownGroup,
   Header,
-  HeaderItem,
   Modal,
   ModalBody,
   ModalFooter,
