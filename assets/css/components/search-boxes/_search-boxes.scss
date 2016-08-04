@@ -155,10 +155,9 @@
   .sn-search-box__input {
     position: relative;
     display: block;
-    width: calc(100% - 12px);
+    width: calc(100% - 48px);
     height: 48px;
-    padding: 0;
-    padding-left: 12px;
+    padding: 0 36px 0 12px;
     border: 0;
     font-size: 14px;
     line-height: 20px;
@@ -168,6 +167,26 @@
     &.is-selected {
       color: black;
       font-weight: bold;
+    }
+  }
+
+  .sn-search-box__input--icon {
+    display: block;
+    position: relative;
+    width: 100%;
+    background-color: yellow;
+    &:before {
+      position: absolute;
+      top: -32px;
+      right: 8px;
+      bottom: 0;
+      text-align: center;
+      width: 22px;
+      height: 22px;
+      font-size: 20px;
+      font-family: 'Material Icons';
+      content: "\e8b6";
+      color: $default-search-box-item-button-color;
     }
   }
 
