@@ -7,6 +7,8 @@ import Card from "./components/Card/Main"
 import CardCol from "./components/Card/Col"
 import CardRow from "./components/Card/Row"
 import CardList from "./components/Card/List"
+import CardRowGroup from "./components/Card/RowGroup"
+import CardColGroup from "./components/Card/ColGroup"
 import Checkbox from "./components/Form/Checkbox"
 import Dropdown from "./components/Dropdown/Main"
 import DropdownItem from "./components/Dropdown/Item"
@@ -60,6 +62,8 @@ export {
   Card,
   CardCol,
   CardRow,
+  CardRowGroup,
+  CardColGroup,
   CardList,
   Checkbox,
   Dropdown,
