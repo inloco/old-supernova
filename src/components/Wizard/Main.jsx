@@ -2,46 +2,62 @@ import React, { PropTypes } from "react"
 
 class Wizzard extends React.Component {
   static propTypes = {
-    children: PropTypes.node.isRequired,
-    step:     PropTypes.number
+    children:   PropTypes.node.isRequired,
+    activeStep: PropTypes.number,
+    onChange:   PropTypes.func
   }
 
   static defaultProps = {
-    step: 0
+    activeStep: 0
   }
 
   constructor(props) {
     super(props)
 
-    this.state = { step: props.step }
+    this.state = { activeStep: props.activeStep }
   }
 
   canMoveFoward() {
-    return this.state.step < this.props.children.length - 1
+    return this.state.activeStep < this.props.children.length - 1
   }
 
   canMoveBackward() {
-    return this.state.step > 0
+    return this.state.activeStep > 0
   }
 
   next() {
     if(this.canMoveFoward()) {
-      this.setState({ step: this.state.step + 1 })
+      this.move(1)
     }
   }
 
   previous() {
     if(this.canMoveBackward()) {
-      this.setState({ step: this.state.step - 1 })
+      this.move(-1)
+    }
+  }
+
+  move(direction) {
+    const newStep = this.state.activeStep + direction
+
+    this.setState({ activeStep: newStep })
+    this.handleOnChange(newStep)
+  }
+
+  handleOnChange(newStep) {
+    const { onChange } = this.props
+
+    if(onChange) {
+      onChange(newStep)
     }
   }
 
   render() {
-    const { step } = this.state
+    const { activeStep } = this.state
 
     return (
       <div>
-        {this.props.children[step]}
+        {this.props.children[activeStep]}
       </div>
     )
   }

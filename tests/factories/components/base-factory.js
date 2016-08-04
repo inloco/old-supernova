@@ -2,17 +2,17 @@ import ReactDOM from "react-dom"
 import TestUtils from "react-addons-test-utils"
 
 class Factory {
-  getNode() {
-    return ReactDOM.findDOMNode(this.render())
+  getNode(props) {
+    return ReactDOM.findDOMNode(this.render(props))
   }
-  
-  render() {
+
+  render(props) {
     return TestUtils.renderIntoDocument(
-     this.template()
+     this.template(props)
     )
   }
-  
-  template() { }
+
+  template(props) { }
 }
 
 export default Factory

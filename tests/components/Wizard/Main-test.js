@@ -7,11 +7,14 @@ import WizardFactory from "../../factories/components/wizard-factory"
 import { wizardHasContent } from "../../utils/wizard"
 
 describe("Wizard", () => {
-  let factory, wizardNode
+
+
+  let factory, wizardNode, onChangeMock
 
   beforeEach(() => {
-    factory = new WizardFactory
-    wizardNode = factory.getNode()
+    onChangeMock = jest.fn()
+    factory      = new WizardFactory
+    wizardNode   = factory.getNode({ onChange: onChangeMock })
   })
 
   it("shows only 1 step by time", () => {
@@ -46,6 +49,10 @@ describe("Wizard", () => {
 
       expect(stepNode.textContent).toEqual("Some")
     })
+
+    it("calls onChange function", () => {
+      expect(onChangeMock.mock.calls.length).toEqual(1)
+    })
   })
 
   describe("when click in the previous button", () => {
@@ -69,6 +76,10 @@ describe("Wizard", () => {
       const stepNode = wizardNode.querySelector(".sn-wizard-step")
 
       expect(stepNode.textContent).toEqual("Foo")
+    })
+
+    it("calls onChange function", () => {
+      expect(onChangeMock.mock.calls.length).toEqual(1)
     })
   })
 })
