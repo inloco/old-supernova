@@ -8,10 +8,18 @@ import Wizard from "../../../src/components/Wizard/Main"
 import Step from "../../../src/components/Wizard/Step"
 
 class WizardDemo extends React.Component {
+  handleOnChange() {
+    const { factoryProps } = this.props
+
+    if(factoryProps) {
+      return factoryProps.onChange
+    }
+  }
+
   render() {
     return(
       <div>
-        <Wizard step={1} ref="wizard">
+        <Wizard activeStep={1} ref="wizard" onChange={this.handleOnChange()}>
           <Step>Foo</Step>
           <Step>Baar</Step>
           <Step>Some</Step>
@@ -25,8 +33,8 @@ class WizardDemo extends React.Component {
 }
 
 class WizardFactory extends Factory{
-  template() {
-    return <WizardDemo />
+  template(props) {
+    return <WizardDemo factoryProps={props}/>
   }
 }
 
