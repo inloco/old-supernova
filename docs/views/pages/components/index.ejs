@@ -51,9 +51,7 @@
 
   <div class="sn-grid sn-grid--horizontal sn-grid--bleed-top sn-grid--bleed sn-grid--cell-gutter">
     <div class="sn-cell--1">
-
       <div class="sn-search-box">
-
         <ul class="sn-search-box__selected">
           <li>
             <span class="sn-search-box__item-title"><strong>Shopping Recife</strong></span>
@@ -61,9 +59,8 @@
             <button type="button" class="sn-search-box__item-button"></button>
           </li>
         </ul>
-
         <input type="text" class="sn-search-box__input" placeholder="Busque um estabelecimento..." autocomplete="off">
-
+        <span class="sn-search-box__input--icon"></span>
         <ul class="sn-search-box__results">
           <li>
             <span class="sn-search-box__item-title"><strong>Shopping RioMar</strong></span>
@@ -76,14 +73,16 @@
             <button type="button" class="sn-search-box__item-button"></button>
           </li>
         </ul>
-
       </div>
-
     </div>
     <div class="sn-cell--1">
-      <button class="sn-button sn-button--accent sn-button--raised">
-        Adicionar novo
-      </button>
+      <div class="sn-search-box">
+        <input type="text" class="sn-search-box__input is-selected" placeholder="Busque um estabelecimento..." autocomplete="off">
+        <span class="sn-search-box__input--icon"></span>
+        <span class="sn-search-box__message sn-search-box__message--info">
+          Agência não encontrada. Será cadastrada uma nova agência.
+        </span>
+      </div>
     </div>
   </div>
 
