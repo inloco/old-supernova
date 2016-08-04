@@ -1,0 +1,114 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *    dropdown component file
+ *  ----------- *** ------------
+ *
+ */
+
+@import "dropdown_variables";
+
+
+// Dropdown
+
+
+.sn-dropdown {
+  position: relative;
+
+  &.sn-dropdown--box {
+    .sn-dropdown__button {
+      border: 1px solid $default-dropdown-border-color;
+      border-radius: $default-dropdown-border-radius;
+      padding: $default-dropdown-box-padding;
+      &:after {
+        background-color: $default-dropdown-box-icon-background-color;
+      }
+    }
+  }
+
+  .sn-dropdown__button {
+    position: relative;
+    display: inline-block;
+    background: 0 0;
+    border: 0;
+    border-bottom: 1px solid $default-dropdown-border-color;
+    color: $default-dropdown-color-text;
+    margin: 0;
+    height: $default-dropdown-height;
+    min-width: $default-dropdown-min-width;
+    width: 100%;
+    padding: $default-dropdown-padding;
+    font-size: $default-dropdown-font-size;
+    line-height: $default-dropdown-line-height;
+    letter-spacing: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: left;
+    vertical-align: middle;
+    will-change: all;
+    transition: $default-dropdown-transition;
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: $default-dropdown-icon-margin;
+      font-family: 'Material Icons';
+      content: "\e5c5";
+      color: $default-dropdown-icon-color;
+      padding: 8px 4px;
+      font-size: 24px;
+      line-height: 20px;
+    }
+
+  }
+
+  .sn-dropdown__results {
+    position: absolute;
+    width: 100%;
+    border-top: 1px solid $default-dropdown-line-divider;
+    cursor: pointer;
+    background-color: $default-dropdown-background-color;
+    min-height: 38px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    @include shadow-2dp();
+    li {
+      @include flexbox();
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      position: relative;
+      min-height: 16px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      padding-left: 12px;
+      font-size: 14px;
+      color: $default-dropdown-results-color;
+      text-overflow: ellipsis;
+      border-top: 1px solid $default-dropdown-line-divider;
+      * {
+        -webkit-align-self: center;
+        align-self: center;
+      }
+      &:hover {
+        background-color: $default-search-box-item-hover-background-color;
+      }
+    }
+    li:first-child {
+      border: 0;
+    }
+  }
+
+
+}

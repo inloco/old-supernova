@@ -194,8 +194,9 @@
     position: absolute;
     display: block;
     width: 100%;
-    margin: 4px 0 0 4px;
+    margin: 8px 0 0 4px;
     font-size: 12px;
+    line-height: 1.4;
     &.sn-search-box__message--success {
       color: $default-search-box-message-color-success;
     }
