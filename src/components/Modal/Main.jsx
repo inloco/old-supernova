@@ -43,7 +43,7 @@ class Main extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if(!this.state.open && prevProps.open) {
+    if(!this.state.open && prevProps.open && this.props.onClose) {
       this.props.onClose()
     }
   }
