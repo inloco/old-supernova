@@ -2,13 +2,14 @@ import React, { PropTypes } from "react"
 
 class Button extends React.Component {
   static propTypes = {
-    label:    PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
-    raised:   PropTypes.bool,
-    type:     PropTypes.string,
-    style:    PropTypes.string,
-    onClick:  PropTypes.func,
-    tabIndex: PropTypes.number
+    label:     PropTypes.string,
+    disabled:  PropTypes.bool,
+    raised:    PropTypes.bool,
+    type:      PropTypes.string,
+    style:     PropTypes.string,
+    onClick:   PropTypes.func,
+    tabIndex:  PropTypes.number,
+    className: PropTypes.string
   }
 
   static defaultProps = {
@@ -26,11 +27,11 @@ class Button extends React.Component {
   getStyleClassName() {
     const { style } = this.props
 
-    return style !== undefined ? `sn-button--${ style }` : null
+    return style ? `sn-button--${style}` : null
   }
 
   getClassName() {
-    return `sn-button ${ this.getRaisedClassName() } ${ this.getStyleClassName() }`
+    return `sn-button ${this.getRaisedClassName()} ${this.getStyleClassName()} ${this.props.className}`
   }
 
   getProps() {
@@ -46,11 +47,11 @@ class Button extends React.Component {
   }
 
   render() {
-    const { label, disabled, type } = this.props
+    const { label, children } = this.props
 
     return(
       <button {...this.getProps()}>
-        { this.props.label }
+        { label || children }
       </button>
     )
   }
