@@ -27,15 +27,15 @@ class Wizzard extends React.Component {
 
   next() {
     if(this.canMoveFoward()) {
-      this.handleOnChange()
       this.setState({ activeStep: this.state.activeStep + 1 })
+      this.handleOnChange()
     }
   }
 
   previous() {
     if(this.canMoveBackward()) {
-      this.handleOnChange()
       this.setState({ activeStep: this.state.activeStep - 1 })
+      this.handleOnChange()
     }
   }
 
