@@ -1,7 +1,7 @@
 /*
  *
  *  IN LOCO
- *  www.snocomedia.com
+ *  www.inlocomedia.com
  *
  *  Copyright 2016 - All Rights Reserved.
  *
@@ -35,27 +35,23 @@
 
   .sn-pills__label {
     display: inline-block;
-    //max-width: 100%;
+    float: left;
     width: auto;
     height: 32px;
     padding: 0;
-    margin: 0 -2px;
+    margin: 0;
 
     .sn-pills__label--content {
-      //height: 32px;
+      display: inline-block;
       border: 1px solid $palette-blue-grey-200;
       width: auto;
-      display: block;
+      margin: 0;
       padding: 6px 12px 6px 12px;
-      //border-left: 1px solid #f9f9f9;
-      cursor: pointer;
       color: $default-text-color-primary;
+      cursor: pointer;
     }
     input[type=radio] {
       display: none;
-      &:checked {
-        background-color: red;
-      }
     }
   }
 
@@ -67,6 +63,7 @@
   .sn-pills__label:first-child {
     margin-left: 0;
     .sn-pills__label--content {
+      border-right: 0;
       -webkit-border-top-left-radius: 4px;
       border-top-left-radius: 4px;
       -webkit-border-bottom-left-radius: 4px;
@@ -76,6 +73,7 @@
 
   .sn-pills__label:last-child {
     .sn-pills__label--content {
+      border-left: 0;
       -webkit-border-top-right-radius: 4px;
       border-top-right-radius: 4px;
       -webkit-border-bottom-right-radius: 4px;
