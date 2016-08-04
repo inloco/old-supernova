@@ -43,7 +43,7 @@ class Wizzard extends React.Component {
     const { onChange } = this.props
 
     if(onChange) {
-      onChange()
+      onChange(this.state.activeStep)
     }
   }
 
