@@ -7,14 +7,16 @@ class Button extends React.Component {
     raised:   PropTypes.bool,
     type:     PropTypes.string,
     style:    PropTypes.string,
-    onClick:  PropTypes.func
+    onClick:  PropTypes.func,
+    tabIndex: PropTypes.number
   }
 
   static defaultProps = {
     disabled: false,
     raised:   true,
     type:     null,
-    style:    null
+    style:    null,
+    tabIndex: 0
   }
 
   getRaisedClassName() {
@@ -31,16 +33,24 @@ class Button extends React.Component {
     return `sn-button ${ this.getRaisedClassName() } ${ this.getStyleClassName() }`
   }
 
+  getProps() {
+    const { disabled, type, tabIndex, onClick } = this.props
+
+    return {
+      disabled,
+      type,
+      tabIndex,
+      onClick,
+      className: this.getClassName()
+    }
+  }
+
   render() {
     const { label, disabled, type } = this.props
 
     return(
-      <button
-        className={this.getClassName()}
-        disabled={disabled}
-        type={type}
-        onClick={this.props.onClick}>
-        { label }
+      <button {...this.getProps()}>
+        { this.props.label }
       </button>
     )
   }

@@ -2,15 +2,15 @@ import React, { PropTypes } from "react"
 
 class Label extends React.Component {
   static propTypes = {
-    htmlFor: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired
+    htmlFor: PropTypes.string,
+    value:   PropTypes.string.isRequired
   }
 
   render() {
     const{ htmlFor, value } = this.props
 
     return (
-      <label className="control-label" htmlFor={ htmlFor }>
+      <label className="sn-field__label" htmlFor={htmlFor}>
         { value }
       </label>
     )

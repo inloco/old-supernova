@@ -1,17 +1,18 @@
 import React, { PropTypes } from "react"
+import Label from "./Label"
 
 class TextArea extends React.Component {
   static propTypes = {
     id:              PropTypes.string,
     name:            PropTypes.string,
-    rows:            PropTypes.string,
-    tabIndex:        PropTypes.string,
+    rows:            PropTypes.number,
+    tabIndex:        PropTypes.number,
     required:        PropTypes.bool,
     label:           PropTypes.string
   }
 
   static defaultProps = {
-    tabIndex:        "-1",
+    tabIndex:        0,
     defaultRequired: false
   }
 
@@ -33,11 +34,7 @@ class TextArea extends React.Component {
     return (
       <div className="sn-input">
         <textarea {...this.getTextAreaProps()}></textarea>
-
-        <label htmlFor={id} className="sn-field__label">
-          {label}
-        </label>
-
+        <Label value={label} htmlFor={id} />
         <i className="sn-field__bar"></i>
 
         <span className="sn-form-group__message">
