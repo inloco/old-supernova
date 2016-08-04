@@ -7,9 +7,13 @@ import Card from "./components/Card/Main"
 import CardCol from "./components/Card/Col"
 import CardRow from "./components/Card/Row"
 import CardList from "./components/Card/List"
+import CardRowGroup from "./components/Card/RowGroup"
+import CardColGroup from "./components/Card/ColGroup"
+import Checkbox from "./components/Form/Checkbox"
 import Dropdown from "./components/Dropdown/Main"
 import DropdownItem from "./components/Dropdown/Item"
 import DropdownGroup from "./components/Dropdown/Group"
+import FormGroup from "./components/Form/Group"
 import Header from "./components/Header"
 import Modal from "./components/Modal/Main"
 import ModalBody from "./components/Modal/Body"
@@ -17,6 +21,7 @@ import ModalFooter from "./components/Modal/Footer"
 import ModalHeader from "./components/Modal/Header"
 import Pills from "./components/Pills/Main"
 import Pill from "./components/Pills/Pill"
+import Select from "./components/Form/Select"
 import SidebarFooter from "./components/Sidebar/Footer/Main"
 import SidebarFooterLink from "./components/Sidebar/Footer/Link"
 import SidebarMenu from "./components/Sidebar/Menu/Main"
@@ -57,10 +62,14 @@ export {
   Card,
   CardCol,
   CardRow,
+  CardRowGroup,
+  CardColGroup,
   CardList,
+  Checkbox,
   Dropdown,
   DropdownItem,
   DropdownGroup,
+  FormGroup,
   Header,
   Modal,
   ModalBody,
@@ -68,6 +77,7 @@ export {
   ModalHeader,
   Pills,
   Pill,
+  Select,
   SidebarFooter,
   SidebarFooterLink,
   SidebarMenu,
