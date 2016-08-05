@@ -12,8 +12,6 @@ describe("Icon", () => {
   const node = factory.getNode()
 
   it("has icon className", () => {
-    console.log("node", node.classList)
-
     expect(node.classList.contains("material-icons")).toBeTruthy()
   })
 
