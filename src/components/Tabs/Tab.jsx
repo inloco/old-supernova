@@ -2,26 +2,21 @@ import React, { PropTypes } from "react"
 
 class Tab extends React.Component {
   static propTypes = {
-    label:       PropTypes.string.isRequired,
-    active:      PropTypes.bool,
-    handleClick: PropTypes.func
+    label:  PropTypes.string.isRequired,
+    active: PropTypes.bool
   }
 
-  getActiveClassName() {
-    return this.props.active ? "is-active" : ""
-  }
-
-  getClassName() {
-    return `sn-tabs--item ${this.getActiveClassName()}`
+  static defaultProps = {
+    active: false
   }
 
   render() {
-    const { handleClick, label } = this.props
+    const style = { display: this.props.active ? "block" : "none" }
 
     return (
-      <li className={this.getActiveClassName()}>
-        <a href="#" onClick={handleClick}>{label}</a>
-      </li>
+      <div style={style}>
+        {this.props.children}
+      </div>
     )
   }
 }

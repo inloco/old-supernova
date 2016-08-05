@@ -2,8 +2,8 @@ import React, { PropTypes } from "react"
 
 class Main extends React.Component {
   static propTypes = {
-    activeTab:  PropTypes.number,
-    children:    PropTypes.node.isRequired
+    activeTab: PropTypes.number,
+    children:  PropTypes.node.isRequired
   }
 
   static defaultProps = {
@@ -13,48 +13,57 @@ class Main extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { currentTab: props.activeTab }
+    this.state = { activeTab: props.activeTab }
   }
 
-  setActiveProp(tab, value) {
-    return { ...tab.props, active: value }
+  componentWillReceiveProps(nextProps) {
+    this.setState({ activeTab: nextProps.activeTab })
   }
 
-  setHandleClickProp(tab, index) {
-    return { ...tab.props, handleClick: () => {
-      this.setState({ currentTab: index })
-    }}
+  handleTabClick(index) {
+    this.setState({ activeTab: index })
   }
 
-  loadTabs() {
-    return this.props.children.map((tab, index) => {
-      const props = {
-        ...this.setActiveProp(tab, this.state.currentTab === index),
-        ...this.setHandleClickProp(tab, index)
-      }
-
-      return { ...tab, props }
+  getTabsLabel() {
+    return this.props.children.map(tab => {
+      return tab.props.label
     })
   }
 
-  renderActiveTabContent(tabs) {
-    return tabs.map((tab, i) => {
-      if(tab.props.active) {
-        return <div key={i}>{tab.props.children}</div>
-      }
+  getTabItemClassName(index) {
+    return this.state.activeTab === index ? "is-active" : ""
+  }
+
+  renderTabsItems() {
+    return this.getTabsLabel().map((label, index) => {
+      return (
+        <li className={this.getTabItemClassName(index)} key={index}>
+          <a href="#" onClick={this.handleTabClick.bind(this, index)}>
+            {label}
+          </a>
+        </li>
+      )
+    })
+  }
+
+  renderTabsContent() {
+    return this.props.children.map((tab, index) => {
+      return React.cloneElement(tab, {
+        active: this.state.activeTab === index,
+        key:    index
+      })
     })
   }
 
   render() {
-    const tabs = this.loadTabs()
-
     return (
       <div>
         <div className="sn-tabs">
-          <ul>{tabs}</ul>
+          <ul>{this.renderTabsItems()}</ul>
         </div>
+
         <div className="sn-tabs__content">
-          {this.renderActiveTabContent(tabs)}
+          {this.renderTabsContent()}
         </div>
       </div>
     )
