@@ -4,7 +4,7 @@ var Tab = Supernova.Tab;
 var TabsExample = React.createClass({
   render: function() {
     return(
-      <Tabs initialTab={1}>
+      <Tabs activeTab={1}>
         <Tab label="Opção A">
           <div className="sn-grid--bleed-top">Conteúdo de A</div>
         </Tab>
