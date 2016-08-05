@@ -34,5 +34,9 @@
     padding: $default-board-bleed-sm;
   }
 
+  &.sn-board--bleed-top {
+    padding-top: $default-board-bleed;
+  }
+
 }
 // ./ sn-board
