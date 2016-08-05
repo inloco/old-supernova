@@ -9,15 +9,15 @@ class Button extends React.Component {
     style:     PropTypes.string,
     onClick:   PropTypes.func,
     tabIndex:  PropTypes.number,
-    className: PropTypes.string
+    className: PropTypes.string,
+    name:      PropTypes.string
   }
 
   static defaultProps = {
     disabled: false,
     raised:   true,
-    type:     null,
-    style:    null,
-    tabIndex: 0
+    type:     "button",
+    style:    null
   }
 
   getRaisedClassName() {
@@ -35,13 +35,14 @@ class Button extends React.Component {
   }
 
   getProps() {
-    const { disabled, type, tabIndex, onClick } = this.props
+    const { disabled, type, tabIndex, onClick, name } = this.props
 
     return {
       disabled,
       type,
       tabIndex,
       onClick,
+      name,
       className: this.getClassName()
     }
   }
