@@ -2,19 +2,22 @@ import React, { PropTypes } from "react"
 
 class Button extends React.Component {
   static propTypes = {
-    label:    PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
-    raised:   PropTypes.bool,
-    type:     PropTypes.string,
-    style:    PropTypes.string,
-    onClick:  PropTypes.func
+    label:     PropTypes.string,
+    disabled:  PropTypes.bool,
+    raised:    PropTypes.bool,
+    type:      PropTypes.string,
+    style:     PropTypes.string,
+    onClick:   PropTypes.func,
+    tabIndex:  PropTypes.number,
+    className: PropTypes.string
   }
 
   static defaultProps = {
     disabled: false,
     raised:   true,
     type:     null,
-    style:    null
+    style:    null,
+    tabIndex: 0
   }
 
   getRaisedClassName() {
@@ -24,23 +27,31 @@ class Button extends React.Component {
   getStyleClassName() {
     const { style } = this.props
 
-    return style !== undefined ? `sn-button--${ style }` : null
+    return style ? `sn-button--${style}` : null
   }
 
   getClassName() {
-    return `sn-button ${ this.getRaisedClassName() } ${ this.getStyleClassName() }`
+    return `sn-button ${this.getRaisedClassName()} ${this.getStyleClassName()} ${this.props.className}`
+  }
+
+  getProps() {
+    const { disabled, type, tabIndex, onClick } = this.props
+
+    return {
+      disabled,
+      type,
+      tabIndex,
+      onClick,
+      className: this.getClassName()
+    }
   }
 
   render() {
-    const { label, disabled, type } = this.props
+    const { label, children } = this.props
 
     return(
-      <button
-        className={this.getClassName()}
-        disabled={disabled}
-        type={type}
-        onClick={this.props.onClick}>
-        { label }
+      <button {...this.getProps()}>
+        { label || children }
       </button>
     )
   }
