@@ -21,7 +21,13 @@ class Main extends React.Component {
   }
 
   handleTabClick(index) {
+    const { onChange } = this.props
+
     this.setState({ activeTab: index })
+
+    if(onChange) {
+      onChange(index)
+    }
   }
 
   getTabsLabel() {
