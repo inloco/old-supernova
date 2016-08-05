@@ -11,11 +11,13 @@ describe("Icon", () => {
   const factory = new IconFactory
   const node = factory.getNode()
 
-  it("has size", () => {
-    expect(node.getAttribute("class").includes("icon-24")).toBeTruthy
+  it("has icon className", () => {
+    console.log("node", node.classList)
+
+    expect(node.classList.contains("material-icons")).toBeTruthy()
   })
 
-  it("has name", () => {
-    expect(node.getAttribute("class").includes("icon-number-2")).toBeTruthy
+  it("has content", () => {
+    expect(node.textContent).not.toBeNull()
   })
 })

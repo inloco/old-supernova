@@ -8,7 +8,7 @@ import Icon from "../../../src/components/Icon"
 class IconFactory extends Factory {
   template() {
     return(
-      <Icon size="24" name="icon-number-2" />
+      <Icon content="" />
     )
   }
 }
