@@ -16,6 +16,10 @@ class Main extends React.Component {
     this.state = { activeTab: props.activeTab }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ activeTab: nextProps.activeTab })
+  }
+
   handleTabClick(index) {
     this.setState({ activeTab: index })
   }
