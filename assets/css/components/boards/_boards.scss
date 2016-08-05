@@ -1,0 +1,38 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *     boards component file
+ *  ----------- *** ------------
+ *
+ */
+
+@import "boards_variables";
+
+
+// Boards
+
+.sn-board {
+  position: relative;
+  width: auto;
+  margin: 0;
+  background: $default-board-background;
+  @include shadow-2dp();
+
+
+  // Board Bleeds
+
+  &.sn-board--bleed {
+    padding: $default-board-bleed;
+  }
+
+  &.sn-board--bleed-sm {
+    padding: $default-board-bleed-sm;
+  }
+
+}
+// ./ sn-board
