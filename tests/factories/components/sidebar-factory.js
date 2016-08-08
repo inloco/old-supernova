@@ -7,7 +7,6 @@ jest.unmock("../../../src/components/Sidebar/Menu/Item")
 jest.unmock("../../../src/components/Sidebar/Footer/Main")
 jest.unmock("../../../src/components/Sidebar/Footer/Link")
 jest.unmock("../../../src/components/Dropdown/Main")
-jest.unmock("../../../src/components/Dropdown/Item")
 jest.unmock("../../../src/helpers/sidebar")
 jest.unmock("./base-factory")
 

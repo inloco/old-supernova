@@ -48,18 +48,21 @@ describe("Sidebar User", () => {
   })
 
   it("has current dropdown", () => {
-    expect(node.querySelector(".dropdown > a > span").textContent)
-               .toEqual(" Advertiser ")
+    const dropdown = node.querySelector(".sn-dropdown")
+
+    expect(dropdown).not.toBeNull()
   })
 
-  it("has second dropdown", () => {
-    expect(dropdownNode.textContent)
-               .toEqual("Publisher")
+  it("has dropdown item with 'Publisher' content", () => {
+    const item = node.querySelector(".sn-dropdown a")
+
+    expect(item.textContent).toEqual("Publisher")
   })
 
-  it("has dropdown href", () => {
-    expect(dropdownNode.getAttribute("href"))
-               .toEqual("/en/publishers")
+  it("has dropdown item with href", () => {
+    const item = node.querySelector(".sn-dropdown a")
+
+    expect(item.href).toEqual("/en/publishers")
   })
 
   it("has impersonate label", () => {
