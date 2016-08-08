@@ -13,6 +13,16 @@ class Dropdown extends React.Component {
     this.setState({ open: !this.state.open })
   }
 
+  getLayoutClassName() {
+    const { layout } = this.props
+
+    return layout ? `sn-dropdown--${layout}` : ""
+  }
+
+  getClassName() {
+    return `sn-dropdown ${this.getLayoutClassName()}`
+  }
+
   renderChildren() {
     const { children } = this.props
 
@@ -39,7 +49,7 @@ class Dropdown extends React.Component {
     }
 
     return (
-      <div className="sn-dropdown">
+      <div className={this.getClassName()}>
         <button
           className="sn-dropdown__button"
           onClick={this.handleOnClick}

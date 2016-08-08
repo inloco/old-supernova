@@ -29,6 +29,10 @@ describe("Dropdown", () => {
     expect(list.style.display).toEqual("none")
   })
 
+  it("has box layout", () => {
+    expect(node.classList.contains("sn-dropdown--box")).toBeTruthy()
+  })
+
   describe("when clicks in dropdown button", () => {
     const button = node.querySelector(".sn-dropdown__button")
     const list =   node.querySelector(".sn-dropdown__results")

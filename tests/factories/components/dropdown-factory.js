@@ -8,7 +8,7 @@ import Dropdown from "../../../src/components/Dropdown/Main"
 class DropdownFactory extends Factory {
   template() {
     return(
-      <Dropdown label="Dropdown">
+      <Dropdown label="Dropdown" layout="box">
         <a href="#">Dropdown result 1</a>
         <a href="#">Dropdown result 2</a>
         <a href="#">Dropdown result 3</a>
