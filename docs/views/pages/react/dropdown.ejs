@@ -1,0 +1,68 @@
+<% layout('./../../layout') -%>
+
+<% include _react_menu %>
+
+<header class="sn-layout__header sn-presentation-header">
+  <div aria-expanded="false" role="button" tabindex="0" class="sn-layout__drawer-button">
+    <i class="material-icons"></i>
+  </div>
+  <div class="sn-layout__header-row">
+    <span class="sn-layout-title">Dropdown</span>
+  </div>
+</header>
+
+<main class="sn-layout__content sn-presentation-layout__content">
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-all">
+    <div class="sn-cell--1">
+      <h3>Example</h3>
+      <div id="dropdown-component"></div>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-bottom">
+    <div class="sn-cell--1">
+      <pre class="sn-presentation-pre-panel">
+&lt;Dropdown label=&quot;Dropdown&quot;&gt;
+  &lt;a href=&quot;&quot;&gt;Item #A&lt;/a&gt;
+  &lt;a href=&quot;&quot;&gt;Item #B&lt;/a&gt;
+  &lt;a href=&quot;&quot;&gt;Item #C&lt;/a&gt;
+&lt;/Dropdown&gt;
+      </pre>
+    </div>
+  </div>
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-bottom">
+    <div class="sn-cell--1">
+      <h4>Dropdown</h4>
+      <table class="sn-presentation-table">
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>label</td>
+            <td>string</td>
+            <td>null</td>
+            <td>Displayed label</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>children</td>
+            <td>node</td>
+            <td>null</td>
+            <td>Dropdown items</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<% script('/dropdown.js', 'text/babel') -%>
