@@ -1,7 +1,6 @@
 import React, { PropTypes } from "react"
 import UserItem from "./Item"
 import Dropdown from "../../Dropdown/Main"
-import DropdownItem from "../../Dropdown/Item"
 
 class User extends React.Component {
   static propTypes = {
@@ -74,9 +73,10 @@ class User extends React.Component {
                 side="center"
                 icon="icon-drop-down"
                 id={ currentDropdownItemId }>
-        <DropdownItem id={ dropdownItemId }
-                      label={ dropdownItemName }
-                      href={ dropdownItemHref } />
+
+        <a href={dropdownItemHref} id={dropdownItemId}>
+          {dropdownItemName}
+        </a>
       </Dropdown>
     )
   }

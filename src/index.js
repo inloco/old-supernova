@@ -11,8 +11,6 @@ import CardRowGroup from "./components/Card/RowGroup"
 import CardColGroup from "./components/Card/ColGroup"
 import Checkbox from "./components/Form/Checkbox"
 import Dropdown from "./components/Dropdown/Main"
-import DropdownItem from "./components/Dropdown/Item"
-import DropdownGroup from "./components/Dropdown/Group"
 import FormGroup from "./components/Form/Group"
 import Header from "./components/Header"
 import Modal from "./components/Modal/Main"
@@ -67,8 +65,6 @@ export {
   CardList,
   Checkbox,
   Dropdown,
-  DropdownItem,
-  DropdownGroup,
   FormGroup,
   Header,
   Modal,
