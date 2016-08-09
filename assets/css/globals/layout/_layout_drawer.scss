@@ -48,7 +48,7 @@
   overflow-y: auto;
 
   @media screen and (min-width: $default-layout-screen-size-threshold + 1px) {
-    .sn-layout--fixed-drawer > & {
+    .sn-layout--fixed-drawer & {
       transform: translateX(0);
     }
   }
@@ -60,12 +60,12 @@
     }
   }
 
-  & > * {
+  & * {
     flex-shrink: 0;
   }
 
-  & > .sn-layout__title,
-  & > .sn-layout-title {
+  & .sn-layout__title,
+  & .sn-layout-title {
     line-height: $default-layout-header-desktop-height;
     padding-left: $default-layout-drawer-desktop-padding;
 
@@ -179,7 +179,7 @@
     background-color: $default-obfuscator-background-color;
     visibility: visible;
 
-    .sn-layout--fixed-drawer > & {
+    .sn-layout--fixed-drawer & {
       @media screen and (min-width: $default-layout-screen-size-threshold) {
         visibility: hidden;
       }

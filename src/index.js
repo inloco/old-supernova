@@ -10,6 +10,9 @@ import CardList from "./components/Card/List"
 import CardRowGroup from "./components/Card/RowGroup"
 import CardColGroup from "./components/Card/ColGroup"
 import Checkbox from "./components/Form/Checkbox"
+import Drawer from "./components/Drawer/Main"
+import DrawerNav from "./components/Drawer/Nav"
+import DrawerTitle from "./components/Drawer/Title"
 import Dropdown from "./components/Dropdown/Main"
 import DropdownItem from "./components/Dropdown/Item"
 import DropdownGroup from "./components/Dropdown/Group"
@@ -66,6 +69,9 @@ export {
   CardColGroup,
   CardList,
   Checkbox,
+  Drawer,
+  DrawerNav,
+  DrawerTitle,
   Dropdown,
   DropdownItem,
   DropdownGroup,
