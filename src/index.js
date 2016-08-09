@@ -19,6 +19,7 @@ import ModalFooter from "./components/Modal/Footer"
 import ModalHeader from "./components/Modal/Header"
 import Pills from "./components/Pills/Main"
 import Pill from "./components/Pills/Pill"
+import SearchBox from "./components/SearchBox"
 import Select from "./components/Form/Select"
 import SidebarFooter from "./components/Sidebar/Footer/Main"
 import SidebarFooterLink from "./components/Sidebar/Footer/Link"
@@ -73,6 +74,7 @@ export {
   ModalHeader,
   Pills,
   Pill,
+  SearchBox,
   Select,
   SidebarFooter,
   SidebarFooterLink,
