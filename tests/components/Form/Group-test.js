@@ -24,4 +24,12 @@ describe("Form Group", () => {
 
     expect(checkboxes.length).toEqual(2)
   })
+
+  it("has 2 inputs with the foo name", () => {
+    const inputs = node.querySelectorAll(".sn-checkbox input")
+
+    for(let i in inputs) {
+      expect(inputs[i].name).toEqual("foo")
+    }
+  })
 })

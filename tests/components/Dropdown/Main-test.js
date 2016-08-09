@@ -1,44 +1,54 @@
 jest.unmock("../../factories/components/dropdown-factory")
 
+import TestUtils from "react-addons-test-utils"
 import DropdownFactory from "../../factories/components/dropdown-factory"
 
 describe("Dropdown", () => {
   const factory = new DropdownFactory
   const node = factory.getNode()
 
-  it("has a dropdown class", () => {
-    expect(node.querySelectorAll("div")[4]
-               .getAttribute("class")
-               .includes("dropdown")).toBeTruthy()
+  it("has the dropdown class", () => {
+    expect(node.classList.contains("sn-dropdown")).toBeTruthy()
   })
 
-  it("has a dropdown right size class", () => {
-    expect(node.querySelectorAll(".dropdown-menu-right").length).toEqual(2)
+  it("has a button label equal 'dropdown'", () => {
+    const button = node.querySelector(".sn-dropdown__button")
+
+    expect(button.textContent).toEqual("Dropdown")
   })
 
-  it("shows 3 links", () => {
-    expect(node.querySelector("ul").children.length).toEqual(3)
+  it("has a list with 3 items", () => {
+    const items = node.querySelectorAll(".sn-dropdown__results li")
+
+    expect(items.length).toEqual(3)
   })
 
-  it("has id", () => {
-    expect(node.querySelector(".dropdown").getAttribute("id")).toEqual("dropdown_id")
+  it("has a not visible list", () => {
+    const list = node.querySelector(".sn-dropdown__results")
+
+    expect(list.style.display).toEqual("none")
   })
 
-  it("has label", () => {
-    expect(node.querySelector("p").textContent).toEqual("Period:")
+  it("has box layout", () => {
+    expect(node.classList.contains("sn-dropdown--box")).toBeTruthy()
   })
 
-  it("has secondary label", () => {
-    expect(node.querySelectorAll("span")[1].textContent).toEqual(" Current month ")
-  })
+  describe("when clicks in dropdown button", () => {
+    const button = node.querySelector(".sn-dropdown__button")
+    const list =   node.querySelector(".sn-dropdown__results")
 
-  it("has secondary icon", () => {
-    expect(node.querySelector("span")
-               .getAttribute("class")
-               .includes("icon-time")).toBeTruthy()
-  })
+    it("shows the list", () => {
+      TestUtils.Simulate.click(button)
 
-  it("has input", () => {
-    expect(node.querySelector("input").tagName).toEqual("INPUT")
+      expect(list.style.display).toEqual("block")
+    })
+
+    describe("when clicks again in the button", () => {
+      it("hiddens the list", () => {
+        TestUtils.Simulate.click(button)
+
+        expect(list.style.display).toEqual("none")
+      })
+    })
   })
 })

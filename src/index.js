@@ -14,8 +14,6 @@ import Drawer from "./components/Drawer/Main"
 import DrawerNav from "./components/Drawer/Nav"
 import DrawerTitle from "./components/Drawer/Title"
 import Dropdown from "./components/Dropdown/Main"
-import DropdownItem from "./components/Dropdown/Item"
-import DropdownGroup from "./components/Dropdown/Group"
 import FormGroup from "./components/Form/Group"
 import Header from "./components/Header"
 import Modal from "./components/Modal/Main"
@@ -24,6 +22,7 @@ import ModalFooter from "./components/Modal/Footer"
 import ModalHeader from "./components/Modal/Header"
 import Pills from "./components/Pills/Main"
 import Pill from "./components/Pills/Pill"
+import SearchBox from "./components/SearchBox"
 import Select from "./components/Form/Select"
 import SidebarFooter from "./components/Sidebar/Footer/Main"
 import SidebarFooterLink from "./components/Sidebar/Footer/Link"
@@ -73,8 +72,6 @@ export {
   DrawerNav,
   DrawerTitle,
   Dropdown,
-  DropdownItem,
-  DropdownGroup,
   FormGroup,
   Header,
   Modal,
@@ -83,6 +80,7 @@ export {
   ModalHeader,
   Pills,
   Pill,
+  SearchBox,
   Select,
   SidebarFooter,
   SidebarFooterLink,
