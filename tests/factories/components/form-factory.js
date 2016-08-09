@@ -11,7 +11,7 @@ class FormFactory extends Factory{
   template() {
     return(
       <div>
-        <Group label="Form Group Label" id="form-group-factory">
+        <Group label="Form Group Label" id="form-group-factory" name="foo">
           <Checkbox label="Texto do Checkbox" id="checkbox-factory"/>
           <Checkbox label="Texto do Checkbox"/>
         </Group>
