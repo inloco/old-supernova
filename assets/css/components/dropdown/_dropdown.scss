@@ -19,6 +19,7 @@
 
 .sn-dropdown {
   position: relative;
+  z-index: 1;
 
   &.sn-dropdown--box {
     .sn-dropdown__button {
