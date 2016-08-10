@@ -22,6 +22,25 @@ class Input extends React.Component {
     tabIndex:     0
   }
 
+  constructor(props) {
+    super(props)
+
+    this.state = { hasValue: false }
+  }
+
+  handleBlur(event) {
+    const input    = event.target
+    const hasValue = input.value !== ""
+
+    if(hasValue !== this.state.hasValue) {
+      this.setState({ hasValue })
+    }
+  }
+
+  getInputClassName() {
+    return this.state.hasValue ? "has-value" : ""
+  }
+
   getInputProps() {
     const {
       id,
@@ -42,25 +61,25 @@ class Input extends React.Component {
       type,
       name,
       autoFocus,
-      tabIndex
+      tabIndex,
+      onBlur:    this.handleBlur.bind(this),
+      className: this.getInputClassName()
     }
   }
 
   renderLabel() {
     const { id, label } = this.props
 
-    return (
-      <Label value={label} htmlFor={id} />
-    )
+    if(label) {
+      return <Label value={label} htmlFor={id} />
+    }
   }
 
   render() {
     return(
       <div className="sn-input">
         <input {...this.getInputProps()}/>
-
-        {this.props.label ? this.renderLabel() : ""}
-
+        {this.renderLabel()}
         <i className="sn-field__bar"></i>
       </div>
     )

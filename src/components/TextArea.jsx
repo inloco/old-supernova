@@ -16,6 +16,25 @@ class TextArea extends React.Component {
     defaultRequired: false
   }
 
+  constructor(props) {
+    super(props)
+
+    this.state = { hasValue: false }
+  }
+
+  handleBlur(event) {
+    const textArea    = event.target
+    const hasValue = textArea.value !== ""
+
+    if(hasValue !== this.state.hasValue) {
+      this.setState({ hasValue })
+    }
+  }
+
+  getTextAreaClassName() {
+    return this.state.hasValue ? "has-value" : ""
+  }
+
   getTextAreaProps() {
     const { id, name, required, tabIndex, rows } = this.props
 
@@ -24,7 +43,9 @@ class TextArea extends React.Component {
       name,
       required,
       tabIndex,
-      rows
+      rows,
+      onBlur:    this.handleBlur.bind(this),
+      className: this.getTextAreaClassName()
     }
   }
 
