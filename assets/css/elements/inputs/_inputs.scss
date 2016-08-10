@@ -98,11 +98,9 @@
   margin: $default-input-select-margin;
   select,
   input:focus,
-  input:valid,
   input.form-file,
   input.has-value,
   textarea:focus,
-  textarea:valid,
   textarea.form-file,
   textarea.has-value {
     color: $default-form-input-color;
