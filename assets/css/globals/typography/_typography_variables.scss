@@ -68,7 +68,7 @@ $default-vertical-movement-divider   : 5;
 $default-horizontal-movement-divider : 3.5;
 
 $default-horizontal-movement         : floor($default-font-size / $default-horizontal-movement-divider);    // ~4px
-$default-vertical-movement           : floor($default-line-height / $default-vertical-movement-divider);    // ~4px
+$default-vertical-movement           : floor($default-line-height / $default-vertical-movement-divider);      // ~4px
 
 
 
@@ -78,6 +78,7 @@ $default-vertical-movement           : floor($default-line-height / $default-ver
 .material-icons {
   font-size: $default-font-size * 1.625 !important; // ~24px
 }
+
 
 // Customize on _customizable.scss file
 
