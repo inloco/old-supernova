@@ -6,7 +6,7 @@
  *  Copyright 2016 - All Rights Reserved.
  *
  *  -------- SUPERNOVA ---------
- *       inputs sass file
+ *       buttons sass file
  *  ----------- *** ------------
  *
  */
@@ -43,6 +43,49 @@
   vertical-align: middle;
   will-change: all;
   transition: $default-button-transition;
+
+
+  // Button sizes
+
+
+  &.sn-button--xs {
+    height: $default-button-xs-height;
+    min-width: $default-button-xs-min-width;
+    padding: $default-button-xs-padding;
+    font-size: $default-button-xs-font-size;
+    line-height: $default-button-xs-line-height;
+    i {
+      font-size: $default-button-xs-icon-font-size;
+      margin-right: $default-button-xs-icon-margin;
+    }
+  }
+
+  &.sn-button--sm {
+    height: $default-button-sm-height;
+    min-width: $default-button-sm-min-width;
+    padding: $default-button-sm-padding;
+    font-size: $default-button-sm-font-size;
+    line-height: $default-button-sm-line-height;
+    i {
+      font-size: $default-button-sm-icon-font-size;
+      margin-right: $default-button-sm-icon-margin;
+    }
+  }
+
+  &.sn-button--lg {
+    height: $default-button-lg-height;
+    min-width: $default-button-lg-min-width;
+    padding: $default-button-lg-padding;
+    font-size: $default-button-lg-font-size;
+    line-height: $default-button-lg-line-height;
+    i {
+      font-size: $default-button-lg-icon-font-size;
+      margin-right: $default-button-lg-icon-margin;
+    }
+  }
+
+
+
 
   &:hover, &:active {
     @include button-hover-shadow();
@@ -112,6 +155,24 @@
 
   i {
     vertical-align: middle;
+    margin-right: $default-button-icon-margin;
   }
 
+
 }
+
+
+// Button Group
+
+.sn-button__group {
+  .sn-button {
+    margin: $default-button-group-margin-value;
+  }
+  .sn-button:first-child {
+    margin-left: 0;
+  }
+  .sn-button:last-child {
+    margin-right: 0;
+  }
+}
+
