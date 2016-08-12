@@ -15,7 +15,7 @@ class Button extends React.Component {
 
   static defaultProps = {
     disabled: false,
-    raised:   true,
+    raised:   false,
     type:     "button",
     style:    null
   }

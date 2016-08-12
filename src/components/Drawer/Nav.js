@@ -4,7 +4,7 @@ class Nav extends React.Component {
   renderChildren() {
     return this.props.children.map((child, index) => {
       return React.cloneElement(child, {
-        className: "sn-navigation__link",
+        className: "sn-layout__drawer-navigation__link",
         key: index
       })
     })
@@ -12,7 +12,7 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <nav className="sn-navigation">
+      <nav className="sn-layout__drawer-navigation">
         {this.renderChildren()}
       </nav>
     )

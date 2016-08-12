@@ -81,6 +81,9 @@
     transition: all $default-form-animation-transition ease;
     box-shadow: none;
   }
+  textarea {
+    padding-top: $default-textarea-padding-top;
+  }
   input {
     height: $default-input-height;
   }

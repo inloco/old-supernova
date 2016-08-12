@@ -52,8 +52,8 @@ import Icon from "./components/Icon"
 import Well from "./components/Well"
 import Wizard from "./components/Wizard/Main"
 import WizardStep from "./components/Wizard/Step"
-import styles from "./../assets/css/supernova.scss"
 import iconStyles from "./../node_modules/material-design-icons/iconfont/material-icons.css"
+import styles from "./../assets/css/supernova.scss"
 
 export {
   Alert,

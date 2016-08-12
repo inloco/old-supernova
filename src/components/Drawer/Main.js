@@ -8,7 +8,7 @@ class Main extends React.Component {
           {this.props.children}
         </div>
 
-        <div className="sn-layout__ofuscator"></div>
+        <div className="sn-layout__obfuscator"></div>
       </div>
     )
   }
