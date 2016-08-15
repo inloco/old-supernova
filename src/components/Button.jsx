@@ -10,7 +10,8 @@ class Button extends React.Component {
     onClick:   PropTypes.func,
     tabIndex:  PropTypes.number,
     className: PropTypes.string,
-    name:      PropTypes.string
+    name:      PropTypes.string,
+    size:      PropTypes.string
   }
 
   static defaultProps = {
@@ -30,8 +31,19 @@ class Button extends React.Component {
     return style ? `sn-button--${style}` : null
   }
 
+  getSizeClassName() {
+    const { size } = this.props
+
+    return size ? `sn-button--${size}` : ""
+  }
+
   getClassName() {
-    return `sn-button ${this.getRaisedClassName()} ${this.getStyleClassName()} ${this.props.className}`
+    return `
+      sn-button
+      ${this.getRaisedClassName()}
+      ${this.getStyleClassName()}
+      ${this.props.className}
+      ${this.getSizeClassName()}`
   }
 
   getProps() {
