@@ -11,7 +11,6 @@
  *
  */
 
-
 @import "layout_variables";
 
 
@@ -24,12 +23,10 @@
   width: $default-layout-drawer-width;
   height: 100%;
   max-height: 100%;
-
   position: absolute;
   top: 0;
   left: 0;
   z-index: $default-layout-drawer-zindex;
-
   box-sizing: border-box;
   border-right: 1px solid $default-layout-drawer-border-color;
   @include shadow-2dp();
@@ -43,7 +40,6 @@
   will-change: transform;
   @include material-animation-default();
   transition-property: transform;
-
   overflow: visible;
   overflow-y: auto;
 
@@ -52,60 +48,233 @@
       transform: translateX(0);
     }
   }
-
   &.is-visible {
     transform: translateX(0);
     & ~ .sn-layout__content.sn-layout__content {
       overflow: hidden;
     }
   }
-
-  & * {
+  &* {
     flex-shrink: 0;
   }
 
-  & .sn-layout__title,
-  & .sn-layout-title {
-    line-height: $default-layout-header-desktop-height;
-    padding-left: $default-layout-drawer-desktop-padding;
 
+  // Drawer Title
+  .sn-layout__drawer-title {
+    position: relative;
+    height: $default-layout-drawer-title-height;
+    padding: $default-layout-drawer-title-padding-vertical $default-layout-drawer-desktop-padding;
+    font-size: $default-layout-drawer-title-font-size;
+    border-bottom: 1px solid $default-dividers-color;
     @media screen and (max-width: $default-layout-screen-size-threshold) {
-      line-height: $default-layout-header-mobile-height;
+      //line-height: $default-layout-header-mobile-height;
       padding-left: $default-layout-drawer-mobile-padding;
+    }
+
+    img, .sn-layout__drawer-title__image {
+      position: absolute;
+      top: 16px;
+      max-width: 152px;
+      max-height: 40px;
+      border: 0;
     }
   }
 
-  & .sn-navigation {
+  // Drawer User
+  .sn-layout__drawer-user {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: 16px 0 12px 0;
+    margin-bottom: 4px;
+    border-bottom: 1px solid $default-dividers-color;
+    //-webkit-box-shadow: $shadow-user-menu;
+    //box-shadow: $shadow-user-menu;
+    z-index: 1;
+    &:after {
+      clear: both;
+    }
+
+    .sn-layout__drawer-user__avatar {
+      position: relative;
+      float: left;
+      width: 50px;
+      height: 50px;
+      margin: 0 4px 4px 12px;
+      padding: 0;
+      border:0;
+      background-color: transparent;
+      .sn-layout__drawer-user__avatar-mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom:0;
+        margin: auto;
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        border: 0 !important;
+        border-color: transparent;
+        background-color: transparent; border-radius: 50%;
+        overflow: hidden;
+        &:hover {
+          background-color: #FFF;
+          cursor: pointer;
+          opacity: 1;
+          border: 1px solid grey;
+          &:before {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            content: "\e3C9";
+            display: inline-block;
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: normal;
+            line-height: 1;
+            outline: none;
+            color: #000;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            width: 24px;
+            height: 24px;
+            padding: 4px;
+            font-size: 24px;
+          }
+        }
+
+        .sn-layout__drawer-user__avatar-image {
+          image-rendering: auto;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          padding: 0;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          outline:none;
+          border:0;
+          border-color: transparent;
+          background-color: transparent;
+          &:hover {
+            opacity: 0.2;
+          }
+        }
+      }
+    }
+    .sn-layout__drawer-user__info {
+      float: left;
+      width: 148px;
+      padding: 8px 0 4px 4px;
+      .sn-layout__drawer-user__info-name {
+        display: inline-block;
+        width: 140px;
+        font-size: 16px;
+        padding-left: 4px;
+        word-break: break-all;
+      }
+      .sn-layout__drawer-user__info-contact {
+        display: inline-block;
+        width: 140px;
+        font-size: 12px;
+        color: $default-text-color-secondary;
+        padding-left: 4px;
+        word-break: break-all;
+      }
+      .sn-layout__drawer-user__info-actions {
+        width: 100%;
+        list-style: none;
+        min-height: 16px;
+        font-size: 13px;
+        clear: both;
+        color: black;
+        padding: 0;
+        margin: 4px 0;
+        li {
+          position: relative;
+          display: inline;
+          margin-right: 16px;
+          a {
+            display: inline-block;
+            position: relative;
+            height: 20px;
+            padding-left: 20px;
+            color: grey;
+            &:hover, &:active {
+              color: black;
+              text-decoration: none;
+            }
+            &:focus {
+              color: black;
+              text-decoration: none;
+            }
+            i {
+              position: absolute;
+              top: 1px;
+              left: 0;
+              font-size: 16px;
+            }
+          }
+          &.active {
+            a {
+            color: black;
+            }
+          }
+        }
+        p {
+          font-size: 16px;
+        }
+      }
+
+      &:after {
+        clear: both;
+      }
+    }
+  }
+
+
+  // Drawer Navigation
+
+  .sn-layout__drawer-navigation {
     flex-direction: column;
     align-items: stretch;
     padding-top: $default-layout-drawer-navigation-padding-top;
-
-    & .sn-navigation__link {
+    .sn-layout__drawer-navigation__link {
+      position: relative;
       display: block;
       flex-shrink: 0;
-      padding: $default-layout-drawer-navigation-padding-top $default-layout-drawer-desktop-padding;
+      padding: $default-layout-drawer-desktop-padding;
       margin: 0;
       color: $default-layout-drawer-navigation-color;
       text-decoration: none;
-
+      clear: both;
       @media screen and (max-width: $default-layout-screen-size-threshold) {
-        padding: $default-layout-drawer-navigation-padding-top $default-layout-drawer-mobile-padding;
+        padding: $default-layout-drawer-navigation-padding-top
+        $default-layout-drawer-mobile-padding;
       }
-
       &:hover {
         background-color: $default-layout-drawer-navigation-link-active-background;
       }
+      i {
+        float: left;
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        vertical-align: middle;
+        margin-right: 16px;
+      }
     }
-
-    & .sn-navigation__link--current {
+    &.sn-layout__drawer-navigation__link--current {
       background-color: $default-layout-drawer-navigation-link-active-background;
       color: $default-layout-drawer-navigation-link-active-color;
     }
   }
-
 }
 // ./ Drawer
-
 
 
 // Drawer Button
@@ -118,44 +287,36 @@
   border: 0;
   outline: none;
   z-index: $z-layout-obfuscator;
-
   flex-shrink: 0;
-
   overflow: hidden;
   text-align: center;
   cursor: pointer;
   font-size: $default-layout-drawer-button-font-size;
   line-height: $default-layout-drawer-button-line-height;
+
   font-family: Helvetica, Arial, sans-serif;
   margin: $default-layout-drawer-button-margins;
   top: 0;
   left: 0;
   color: $default-layout-drawer-button-color;
-
   .sn-layout__header & {
     position: absolute;
     color: $default-layout-header-text-color;
     background-color: inherit;
     @media screen and (max-width: $default-layout-screen-size-threshold) {
-      margin: $default-layout-drawer-button-screen-threshold-margin;
-    }
+      margin: $default-layout-drawer-button-screen-threshold-margin; }
   }
-
   @media screen and (max-width: $default-layout-screen-size-threshold) {
     margin: $default-layout-drawer-button-screen-threshold-margin;
     color: rgba(0, 0, 0, 0.5);
   }
-
   @media screen and (min-width: $default-layout-screen-size-threshold + 1px) {
     .sn-layout--fixed-drawer .sn-layout__header & {
       display: none;
     }
-
     .sn-layout--no-desktop-drawer-button & {
       display: none;
-    }
-  }
-
+    } }
 }
 // ./ Drawer Button
 
@@ -171,21 +332,18 @@
   height: 100%;
   width: 100%;
   z-index: $z-layout-obfuscator;
+
   visibility: hidden;
   transition-property: background-color;
   @include material-animation-default();
-
   &.is-visible {
     background-color: $default-obfuscator-background-color;
     visibility: visible;
-
     .sn-layout--fixed-drawer & {
       @media screen and (min-width: $default-layout-screen-size-threshold) {
         visibility: hidden;
-      }
-    }
+      } }
   }
-
   @supports (pointer-events: auto) {
     background-color: $default-obfuscator-background-color;
     opacity: 0;
@@ -194,7 +352,6 @@
     pointer-events: none;
     &.is-visible {
       pointer-events: auto;
-      opacity: 1;
-    }
+      opacity: 1; }
   }
 }

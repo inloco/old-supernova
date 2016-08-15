@@ -38,6 +38,9 @@ $default-layout-subheader-min-height                  : $vm * 14 !default; // ~5
 $default-layout-drawer-narrow                         : $hm * 60 !default; // ~240px
 //$default-layout-drawer-wide                           : 456px !default;
 $default-layout-drawer-width                          : $default-layout-drawer-narrow !default;
+$default-layout-drawer-title-font-size                : $dfs * 1.2857142857 !default;
+$default-layout-drawer-title-padding-vertical         : $vm * 6 !default;
+$default-layout-drawer-title-height                   : $default-layout-header-desktop-height - ($default-layout-drawer-title-padding-vertical * 2);
 $default-layout-drawer-button-mobile-size             : $hm * 8 !default; // ~32px
 $default-layout-drawer-button-desktop-size            : $hm * 12 !default; // ~48px
 $default-layout-drawer-button-margins                 : ($vm * 2.5) ($hm * 3) !default; // ~10px 12px
@@ -45,9 +48,10 @@ $default-layout-drawer-transform                      : -$default-layout-drawer-
 $default-layout-drawer-button-font-size               : inherit;
 $default-layout-drawer-button-line-height             : $default-layout-drawer-button-desktop-size / $dlh * 1.625;
 $default-layout-drawer-button-screen-threshold-margin : $vm $hm !default; // ~4px
-$default-layout-drawer-navigation-padding-top         : $vm * 4 !default; // ~16px
+$default-layout-drawer-navigation-padding-top         : $vm * 3 !default; // ~4px
 $default-layout-drawer-desktop-padding                : $hm * 4 !default; // ~16px
 $default-layout-drawer-mobile-padding                 : $hm * 8 !default; // ~32px
+
 
 
 // Footer
