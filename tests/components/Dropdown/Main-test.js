@@ -17,6 +17,12 @@ describe("Dropdown", () => {
     expect(button.textContent).toEqual("Dropdown")
   })
 
+  it("has a button with 'button' type", () => {
+    const button = node.querySelector(".sn-dropdown__button")
+
+    expect(button.type).toEqual("button")
+  })
+
   it("has a list with 3 items", () => {
     const items = node.querySelectorAll(".sn-dropdown__results li")
 

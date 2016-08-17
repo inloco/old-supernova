@@ -53,6 +53,7 @@ class Dropdown extends React.Component {
         <button
           className="sn-dropdown__button"
           onClick={this.handleOnClick}
+          type="button"
         >
           {this.props.label}
         </button>
