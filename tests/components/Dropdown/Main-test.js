@@ -56,5 +56,17 @@ describe("Dropdown", () => {
         expect(list.style.display).toEqual("none")
       })
     })
+
+    describe("when clicks in an item of list", () => {
+      it("changes label", () => {
+        const item = list.querySelector("li")
+        const label = node.querySelector("button")
+
+        TestUtils.Simulate.click(button)
+        TestUtils.Simulate.click(item)
+
+        expect(label.textContent).toEqual("Dropdown result 1")
+      })
+    })
   })
 })
