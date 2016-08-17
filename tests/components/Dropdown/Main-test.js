@@ -17,6 +17,12 @@ describe("Dropdown", () => {
     expect(button.textContent).toEqual("Dropdown")
   })
 
+  it("has a button with 'button' type", () => {
+    const button = node.querySelector(".sn-dropdown__button")
+
+    expect(button.type).toEqual("button")
+  })
+
   it("has a list with 3 items", () => {
     const items = node.querySelectorAll(".sn-dropdown__results li")
 
@@ -48,6 +54,18 @@ describe("Dropdown", () => {
         TestUtils.Simulate.click(button)
 
         expect(list.style.display).toEqual("none")
+      })
+    })
+
+    describe("when clicks in an item of list", () => {
+      it("changes label", () => {
+        const item = list.querySelector("li")
+        const label = node.querySelector("button")
+
+        TestUtils.Simulate.click(button)
+        TestUtils.Simulate.click(item)
+
+        expect(label.textContent).toEqual("Dropdown result 1")
       })
     })
   })

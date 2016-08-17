@@ -4,13 +4,29 @@ class Dropdown extends React.Component {
   constructor(props) {
     super(props)
 
-    this.handleOnClick = this.handleOnClick.bind(this)
+    this.handleClick = this.handleClick.bind(this)
 
-    this.state = { open: false }
+    this.state = {
+      open: false,
+      label: props.label
+    }
   }
 
-  handleOnClick() {
+  changeLabelTo(newLabel) {
+    this.setState({
+      label: newLabel
+    })
+  }
+
+  toggleList() {
     this.setState({ open: !this.state.open })
+  }
+
+  handleClick(event) {
+    const newLabel = event.target.textContent
+
+    this.toggleList()
+    this.changeLabelTo(newLabel)
   }
 
   getLayoutClassName() {
@@ -37,7 +53,7 @@ class Dropdown extends React.Component {
 
   renderItem(child, index) {
     return(
-      <li key={index} onClick={this.handleOnClick}>
+      <li key={index} onClick={this.handleClick}>
         {child}
       </li>
     )
@@ -52,9 +68,10 @@ class Dropdown extends React.Component {
       <div className={this.getClassName()}>
         <button
           className="sn-dropdown__button"
-          onClick={this.handleOnClick}
+          onClick={this.handleClick}
+          type="button"
         >
-          {this.props.label}
+          {this.state.label}
         </button>
 
         <ul className="sn-dropdown__results" style={listStyle}>
