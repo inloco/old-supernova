@@ -19,7 +19,6 @@
 
 .sn-dropdown {
   position: relative;
-  z-index: 1;
 
   &.sn-dropdown--box {
     .sn-dropdown__button {
@@ -76,13 +75,16 @@
   .sn-dropdown__results {
     position: absolute;
     width: 100%;
+    min-height: 38px;
+    max-height: 232px;
+    overflow-x: auto;
     border-top: 1px solid $default-dropdown-line-divider;
     cursor: pointer;
     background-color: $default-dropdown-background-color;
-    min-height: 38px;
     list-style: none;
     padding: 0;
     margin: 0;
+    z-index: 1;
     @include shadow-2dp();
     li {
       @include flexbox();
