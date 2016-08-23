@@ -25,7 +25,9 @@ class Input extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { hasValue: false }
+    this.state = {
+      hasValue: this.props.defaultValue !== undefined
+    }
   }
 
   handleBlur(event) {
