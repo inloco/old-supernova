@@ -94,6 +94,29 @@
       display: none;
     }
   }
+
+  .sn-field__addon {
+    display: none;
+    position: absolute;
+    top: 7px;
+    color: $default-form-input-addon-color;
+  }
+
+  &.sn-input__addon,
+  &.sn-input__addon--left {
+    padding-left: 24px;
+    .sn-field__addon {
+      display: inline-block;
+      left: 0;
+    }
+  }
+  &.sn-input__addon--right {
+    padding-right: 24px;
+    .sn-field__addon {
+      display: inline-block;
+      right: 0;
+    }
+  }
 }
 
 .sn-input,
@@ -318,7 +341,6 @@
     //z-index: 2;
   }
 }
-
 
 
 
