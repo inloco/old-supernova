@@ -8,7 +8,8 @@ class TextArea extends React.Component {
     rows:            PropTypes.number,
     tabIndex:        PropTypes.number,
     required:        PropTypes.bool,
-    label:           PropTypes.string
+    label:           PropTypes.string,
+    defaultValue:    PropTypes.string
   }
 
   static defaultProps = {
@@ -19,7 +20,9 @@ class TextArea extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { hasValue: false }
+    this.state = {
+      hasValue: this.props.defaultValue !== undefined
+    }
   }
 
   handleBlur(event) {
@@ -36,7 +39,7 @@ class TextArea extends React.Component {
   }
 
   getTextAreaProps() {
-    const { id, name, required, tabIndex, rows } = this.props
+    const { id, name, required, tabIndex, rows, defaultValue } = this.props
 
     return {
       id,
@@ -44,6 +47,7 @@ class TextArea extends React.Component {
       required,
       tabIndex,
       rows,
+      defaultValue,
       onBlur:    this.handleBlur.bind(this),
       className: this.getTextAreaClassName()
     }
@@ -54,7 +58,7 @@ class TextArea extends React.Component {
 
     return (
       <div className="sn-input">
-        <textarea {...this.getTextAreaProps()}></textarea>
+        <textarea {...this.getTextAreaProps()}/>
         <Label value={label} htmlFor={id} />
         <i className="sn-field__bar"></i>
 
