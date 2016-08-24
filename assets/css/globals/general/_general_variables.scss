@@ -103,20 +103,22 @@ $z-fit                    : 9999;
 
 // Breakpoints
 
-$mobile-small        : 360px;  // stand.
-$mobile-large        : 480px;  // material & stand.
-$tablet-xxsmall      : 560px;  // stand.
-$tablet-xsmall       : 600px;  // material
-$tablet-small        : 640px;  // stand.
-$tablet-xmedium      : 768px;  // stand.
-$tablet-medium       : 840px;  // material
-$tablet-large        : 960px;  // material
-$screen-xsmall       : 992px;  // stand.
-$screen-small        : 1024px; // stand.
-$screen-xmedium      : 1280px; // material & stand.
-$screen-medium       : 1440px; // material
-$screen-large        : 1600px; // material
+$mobile-screen            : 320px;  // mobile minimal size
 
-$mobile-threshold    : 480px;  // mobile-threshold
-$tablet-threshold    : 768px;  // tablet-threshold
-$screen-threshold    : 1024px; // screen-threshold
+$mobile-small             : 360px;  // stand.
+$mobile-large             : 480px;  // material & stand.
+$tablet-xxsmall           : 560px;  // stand.
+$tablet-xsmall            : 600px;  // material
+$tablet-small             : 640px;  // stand.
+$tablet-xmedium           : 768px;  // stand.
+$tablet-medium            : 840px;  // material
+$tablet-large             : 960px;  // material
+$screen-xsmall            : 992px;  // stand.
+$screen-small             : 1024px; // stand.
+$screen-xmedium           : 1280px; // material & stand.
+$screen-medium            : 1440px; // material
+$screen-large             : 1600px; // material
+
+$mobile-threshold         : 480px;  // mobile-threshold
+$tablet-threshold         : 768px;  // tablet-threshold
+$screen-threshold         : 1024px; // screen-threshold

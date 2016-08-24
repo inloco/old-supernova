@@ -8,30 +8,41 @@ class Main extends React.Component {
   }
 
   open() {
-    document.querySelector("body").classList.add("modal-open")
+    document.querySelector("body").classList.add("sn-modal--open")
 
     this.setState({ open: true })
   }
 
   close() {
-    document.querySelector("body").classList.remove("modal-open")
+    document.querySelector("body").classList.remove("sn-modal--open")
 
     this.setState({ open: false })
+  }
+
+  getTypeClassName() {
+    switch(this.props.modalType) {
+      case "dialog":
+        return "sn-modal--dialog"
+      default:
+        return ""
+    }
   }
 
   getSizeClassName() {
     switch(this.props.size) {
       case "small":
-        return "modal-sm"
+        return "sn-modal--sm"
       case "large":
-        return "modal-lg"
+        return "sn-modal--lg"
+      case "extra-large":
+        return "sn-modal--xl"
       default:
         return ""
     }
   }
 
   getClassName() {
-    return `modal-dialog ${this.getSizeClassName()}`
+    return `sn-modal ${this.getTypeClassName()} ${this.getSizeClassName()}`
   }
 
   handleDialogClick(event) {
@@ -50,7 +61,7 @@ class Main extends React.Component {
 
   renderBackdrop() {
     return (
-      <div className="modal-backdrop in"></div>
+      <div className="sn-modal__backdrop is-visible"></div>
     )
   }
 
@@ -59,9 +70,9 @@ class Main extends React.Component {
       <div>
         {this.state.open ? this.renderBackdrop() : null}
 
-        <div className="modal" onClick={this.close.bind(this)}>
+        <div className="sn-modal" onClick={this.close.bind(this)}>
           <div className={this.getClassName()} onClick={this.handleDialogClick}>
-            <div className="modal-content">{this.props.children}</div>
+            <div className="sn-modal__content">{this.props.children}</div>
           </div>
         </div>
       </div>
