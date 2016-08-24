@@ -21,7 +21,7 @@ $default-form-group-margin: $vm*4 0;
 // Form & Field labels
 $default-form-label-font-size: $dfs * .9;
 $default-form-label-padding: $vm 0 ($vm*2) 0;
-$default-form-label-position-top: $vm;
+$default-form-label-position-top: $vm * 1.75;
 $default-form-label-fixed-position-top: -($vm*4);
 $default-form-label-padding-left: $hm/4;
 $default-form-label-font-size-floating: $dfs;
