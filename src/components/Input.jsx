@@ -8,7 +8,6 @@ class Input extends React.Component {
     autoFocus:    PropTypes.bool,
     id:           PropTypes.string,
     name:         PropTypes.string,
-    defaultValue: PropTypes.string,
     type:         PropTypes.string,
     tabIndex:     PropTypes.number
   }
@@ -26,7 +25,8 @@ class Input extends React.Component {
     super(props)
 
     this.state = {
-      hasValue: this.props.defaultValue !== undefined
+      hasValue: this.props.defaultValue !== undefined,
+      value: this.props.defaultValue
     }
   }
 
@@ -43,6 +43,17 @@ class Input extends React.Component {
     return this.state.hasValue ? "has-value" : ""
   }
 
+  handleChange(event) {
+    this.setState({
+      value: event.target.value
+    },
+    () => {
+      if(this.props.onChange) {
+        this.props.onChange(event)
+      }
+    })
+  }
+
   getInputProps() {
     const {
       id,
@@ -52,7 +63,8 @@ class Input extends React.Component {
       type,
       name,
       autoFocus,
-      tabIndex
+      tabIndex,
+      onChange
     } = this.props
 
     return {
@@ -64,6 +76,7 @@ class Input extends React.Component {
       name,
       autoFocus,
       tabIndex,
+      onChange:  this.handleChange.bind(this),
       onBlur:    this.handleBlur.bind(this),
       className: this.getInputClassName()
     }
