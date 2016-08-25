@@ -133,3 +133,21 @@ $h5-font-weight: $default-font-weight;
 $h6-font-size: ms($h6-size);
 $h6-line-height: $default-headings-line-height;
 $h6-font-weight: $default-font-weight;
+
+
+// Text variables
+
+$default-text-typo-display-4        : $default-font-size * 8;       // ~112px on 14px based;
+$default-text-typo-display-3        : $default-font-size * 4;       // ~56px on 14px based;
+$default-text-typo-display-2        : $default-font-size * 3.214;   // ~45px on 14px based;
+$default-text-typo-display-1        : $default-font-size * 2.428;   // ~34px on 14px based;
+$default-text-typo-headline         : $default-font-size * 1.714;   // ~24px on 14px based;
+$default-text-typo-title            : $default-font-size * 1.428;   // ~20px on 14px based;
+$default-text-typo-subhead          : $default-font-size * 1.142;   // ~16px on 14px based;
+$default-text-typo-body             : $default-font-size;           // ~14px default;
+$default-text-typo-caption          : $default-font-size * 0.857;   // ~12px on 14px based;
+$default-text-typo-blockquote       : $default-font-size * 1.714;   // ~24px on 14px based;
+$default-text-typo-menu             : $default-font-size;           // ~14px default;
+$default-text-typo-button           : $default-font-size;           // ~14px default;
+$default-text-typo-label            : $default-font-size * 0.857;   // ~12px on 14px based;
+$default-text-typo-table            : $default-font-size * 0.928;   // ~12px on 14px based;

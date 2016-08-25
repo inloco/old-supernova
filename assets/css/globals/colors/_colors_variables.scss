@@ -55,6 +55,7 @@ $default-text-color-disabled        : rgba($color-black, 0.38) !default;
 $default-text-color-contrast        : $color-black !default;
 $default-body-text-color            : $default-text-color-primary !default;
 $default-text-link-color            : $default-brand-accent-color !default;
+$default-label-color                : darken($palette-grey-500, 8%);
 
 // Dividers
 $default-dividers-color             : rgba($color-black, 0.12) !default;
@@ -129,11 +130,10 @@ $default-button-primary-color-disabled    : rgba($color-black, 0.12) !default;
 $default-button-secondary-color-disabled  : rgba($color-black, 0.26) !default;
 $default-button-disabled-color-text       : $default-button-secondary-color-disabled;
 
-
 // Inputs
 $default-form-group-container-background                  : $color-white;
 $default-form-input-color                                 : $color-black;
-$default-form-label-color                                 : darken($palette-grey-500, 8%);
+$default-form-label-color                                 : $default-label-color;
 $default-form-label-color-floating                        : $palette-grey-400;
 $default-form-label-color-focus                           : $default-accent-color;
 $default-form-bar-color                                   : $palette-grey-400;
@@ -145,6 +145,14 @@ $default-form-input-icon-color-error                      : $default-danger-colo
 $default-form-group-color-message-error                   : $default-danger-color;
 $default-form-group-color-message-warning                 : $default-warning-color;
 $default-form-group-color-message-info                    : $default-info-color;
+
+
+// Tables
+
+$default-table-color                       : rgba($color-black, 0.54) !default;
+$default-table-title-color                 : rgba($color-black, 0.87) !default;
+$default-table-stripped-hover-background   : darken($palette-grey-200, 2%);
+$default-table-border-color                : $palette-grey-300;
 
 
 

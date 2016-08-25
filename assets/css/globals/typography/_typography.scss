@@ -19,6 +19,7 @@
 @import "../../customizable";         // Import Customizable
 @import "typography_variables";       // Import Typography Variables
 @import "../general/general_variables";
+@import "../colors/colors_variables";
 
 
 // Word Breaks for large texts
@@ -208,6 +209,16 @@ h6 {
 .sn-typo--menu {
   @include typo-menu;
 }
+
+.sn-typo--label {
+  @include typo-label;
+  color: $default-label-color;
+}
+
+
+
+
+// TEXT UTILITIES
 
 .sn-typo--text-left {
   text-align: left;
