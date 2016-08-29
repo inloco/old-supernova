@@ -17,7 +17,8 @@ class Input extends React.Component {
     dataRemoteInput: PropTypes.bool,
     className:       PropTypes.string,
     defaultChecked:  PropTypes.bool,
-    onClick:  PropTypes.func
+    onClick:         PropTypes.func,
+    onKeyPress:      PropTypes.func
   }
 
   static defaultProps = {
@@ -60,7 +61,9 @@ class Input extends React.Component {
   }
 
   render() {
-    return <input {...this.getProps()} onClick={this.props.onClick}/>
+    return <input {...this.getProps()}
+                  onClick={this.props.onClick}
+                  onKeyPress={this.props.onKeyPress} />
   }
 }
 
