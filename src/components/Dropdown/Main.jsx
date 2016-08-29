@@ -12,6 +12,10 @@ class Dropdown extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ label: nextProps.label })
+  }
+
   changeLabelTo(newLabel) {
     this.setState({
       label: newLabel
