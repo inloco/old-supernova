@@ -16,7 +16,6 @@ class Input extends React.Component {
     required:     false,
     id:           null,
     name:         null,
-    defaultValue: undefined,
     type:         "text",
     tabIndex:     0
   }
@@ -25,8 +24,8 @@ class Input extends React.Component {
     super(props)
 
     this.state = {
-      hasValue: this.props.defaultValue !== undefined,
-      value: this.props.defaultValue
+      hasValue: props.defaultValue !== "" && props.defaultValue !== undefined,
+      value: props.defaultValue
     }
   }
 
@@ -92,10 +91,11 @@ class Input extends React.Component {
 
   render() {
     return(
-      <div className="sn-input">
+      <div className={`sn-input ${this.props.error ? 'has-error' : ''}`}>
         <input {...this.getInputProps()}/>
         {this.renderLabel()}
         <i className="sn-field__bar"></i>
+        <span className="sn-form-group__message">{this.props.error}</span>
       </div>
     )
   }

@@ -21,7 +21,7 @@ class TextArea extends React.Component {
     super(props)
 
     this.state = {
-      hasValue: this.props.defaultValue !== undefined
+      hasValue: props.defaultValue !== "" && props.defaultValue !== undefined
     }
   }
 
@@ -57,13 +57,13 @@ class TextArea extends React.Component {
     const { id, label } = this.props
 
     return (
-      <div className="sn-input">
+      <div className={`sn-input ${this.props.error ? 'has-error' : ''}`}>
         <textarea {...this.getTextAreaProps()}/>
         <Label value={label} htmlFor={id} />
         <i className="sn-field__bar"></i>
 
         <span className="sn-form-group__message">
-          Error message
+          {this.props.error}
         </span>
       </div>
     )
