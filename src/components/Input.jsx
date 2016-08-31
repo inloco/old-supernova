@@ -8,7 +8,6 @@ class Input extends React.Component {
     autoFocus:    PropTypes.bool,
     id:           PropTypes.string,
     name:         PropTypes.string,
-    defaultValue: PropTypes.string,
     type:         PropTypes.string,
     tabIndex:     PropTypes.number
   }
@@ -17,7 +16,6 @@ class Input extends React.Component {
     required:     false,
     id:           null,
     name:         null,
-    defaultValue: undefined,
     type:         "text",
     tabIndex:     0
   }
@@ -25,7 +23,10 @@ class Input extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { hasValue: false }
+    this.state = {
+      hasValue: props.defaultValue !== "" && props.defaultValue !== undefined,
+      value: props.defaultValue
+    }
   }
 
   handleBlur(event) {
@@ -41,6 +42,17 @@ class Input extends React.Component {
     return this.state.hasValue ? "has-value" : ""
   }
 
+  handleChange(event) {
+    this.setState({
+      value: event.target.value
+    },
+    () => {
+      if(this.props.onChange) {
+        this.props.onChange(event)
+      }
+    })
+  }
+
   getInputProps() {
     const {
       id,
@@ -50,7 +62,8 @@ class Input extends React.Component {
       type,
       name,
       autoFocus,
-      tabIndex
+      tabIndex,
+      onChange
     } = this.props
 
     return {
@@ -62,6 +75,7 @@ class Input extends React.Component {
       name,
       autoFocus,
       tabIndex,
+      onChange:  this.handleChange.bind(this),
       onBlur:    this.handleBlur.bind(this),
       className: this.getInputClassName()
     }
@@ -77,10 +91,11 @@ class Input extends React.Component {
 
   render() {
     return(
-      <div className="sn-input">
+      <div className={`sn-input ${this.props.error ? 'has-error' : ''}`}>
         <input {...this.getInputProps()}/>
         {this.renderLabel()}
         <i className="sn-field__bar"></i>
+        <span className="sn-form-group__message">{this.props.error}</span>
       </div>
     )
   }
