@@ -134,6 +134,21 @@ hr {
     display: none !important;
   }
 }
+@media (max-width: $mobile-threshold) {
+  .is-hidden--mobile-threshold {
+    display: none !important;
+  }
+}
+@media (max-width: $tablet-threshold) {
+  .is-hidden--tablet-threshold {
+    display: none !important;
+  }
+}
+@media (max-width: $screen-threshold) {
+  .is-hidden--screen-threshold {
+    display: none !important;
+  }
+}
 
 
 
