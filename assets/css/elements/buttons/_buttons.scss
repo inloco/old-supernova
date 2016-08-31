@@ -57,6 +57,7 @@
     i {
       font-size: $default-button-xs-icon-font-size;
       margin-right: $default-button-xs-icon-margin;
+      margin-left: $default-button-xs-icon-margin;
     }
   }
 
@@ -69,6 +70,7 @@
     i {
       font-size: $default-button-sm-icon-font-size;
       margin-right: $default-button-sm-icon-margin;
+      margin-left: $default-button-sm-icon-margin;
     }
   }
 
@@ -81,6 +83,7 @@
     i {
       font-size: $default-button-lg-icon-font-size;
       margin-right: $default-button-lg-icon-margin;
+      margin-left: $default-button-lg-icon-margin;
     }
   }
 
@@ -156,6 +159,7 @@
   i {
     vertical-align: middle;
     margin-right: $default-button-icon-margin;
+    margin-left: $default-button-icon-margin;
   }
 
 
