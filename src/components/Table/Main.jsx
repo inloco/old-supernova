@@ -1,15 +1,15 @@
 import React, { PropTypes } from "react"
 
-class Table extends React.Component {  
+class Table extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired
   }
-  
+
   render() {
     const { children } = this.props
-    
+
     return (
-      <table className="table table-hover table-striped table-bordered table-grey js-table-material js-tablesorter-campaigns tablesorter">
+      <table className="sn-table sn-table--stripped sn-table--bordered sn-table--flat sn-table--only-content">
         { children }
       </table>
     )

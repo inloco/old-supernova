@@ -3,15 +3,12 @@ import { getColumnClassByType } from "../../../../helpers/table"
 
 class Data extends React.Component {
   static propTypes = {
-    children: PropTypes.node.isRequired,
-    type: PropTypes.string
+    children: PropTypes.node.isRequired
   }
-  
+
   render() {
-    const { children, type } = this.props
-    
     return (
-      <td className={ getColumnClassByType(type) }>{ children }</td>
+      <td>{ this.props.children }</td>
     )
   }
 }
