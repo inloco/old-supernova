@@ -27,6 +27,18 @@
   @include shadow-2dp();
 
 
+  // Bordered
+  &.sn-card--bordered {
+    border: 1px solid $default-card-border-color;
+  }
+
+  // Without shadow
+  &.sn-card--flat {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+
+
   // Card Bleeds, Margins, Paddings and Gutters
 
   &.sn-card--bleed {
@@ -156,7 +168,7 @@
 
   .sn-card {
     border-radius: 0;
-    border-bottom: $default-card-list-card-border solid $palette-blue-grey-100;
+    border-bottom: $default-card-list-card-border solid $default-card-border-color;
   }
 
 

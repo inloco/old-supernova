@@ -128,21 +128,34 @@
   right: 0;
   bottom: 0;
   left: 0;
+  display: none;
+  visible: hidden;
   opacity: 0;
   z-index: $default-modal-obfuscator;
   background-color: #000;
   &.is-visible { opacity: .3; }
 }
 
-.sn-modal--open {
-  overflow: hidden;
-}
-
-.sn-modal--open .sn-modal {
+.sn-modal.sn-modal--open {
   display: block;
   overflow-x: hidden;
   overflow-y: auto;
+  ~.sn-modal__backdrop {
+    display: block;
+    visibility: visible;
+    opacity: .3;
+  }
 }
+
+//.sn-modal--open {
+//  overflow: hidden;
+//}
+//
+//.sn-modal--open .sn-modal {
+//  display: block;
+//  overflow-x: hidden;
+//  overflow-y: auto;
+//}
 
 // MEDIA QUERIES
 

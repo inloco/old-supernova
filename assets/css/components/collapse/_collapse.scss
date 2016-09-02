@@ -1,0 +1,93 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *    collapse component file
+ *  ----------- *** ------------
+ *
+ */
+
+@import "collapse_variables";
+
+
+// Collapse
+
+.sn-collapse {
+  width: 100%;
+  min-height: 24px;
+  cursor: pointer;
+
+  .sn-collapse__bar {
+    display: none;
+    padding: 8px;
+
+    .sn-collapse__title {
+      @include flexitem(1,1,auto);
+      font-size: 14px;
+      color: grey;
+      padding-right: 16px;
+    }
+    .sn-collapse__icon {
+      @include flexitem(0,1,auto);
+    }
+  }
+
+  .sn-collapse__content {
+    display: block;
+    width: 100%;
+  }
+
+
+  // Mixin a Placeholder for collapse
+  @mixin collapse {
+    .sn-collapse__bar {
+      @include flexbox();
+    }
+    .sn-collapse__content {
+      display: none;
+    }
+  }
+
+  %collapse {
+    @include collapse;
+  }
+  .collapse {
+    @extend %collapse;
+  }
+
+
+  // Media Queries
+
+  &.sn-collapse--sm {
+    @media (max-width: $mobile-threshold) {
+      @include collapse;
+    }
+  }
+
+  &.sn-collapse--md {
+    @media (max-width: $tablet-threshold) {
+      @include collapse;
+    }
+  }
+
+  &.sn-collapse--lg {
+    @media (max-width: $screen-threshold) {
+      @include collapse;
+    }
+  }
+
+
+  // Open Collapse Content
+
+  &.sn-collapse--open {
+    .sn-collapse__content {
+      display: block;
+    }
+  }
+
+
+}
