@@ -182,6 +182,8 @@
 }
 
 
+// Mixin responsive cell
+
 @mixin responsive-cell($responsive-breakpoint, $margin, $margin-xs, $margin-sm, $margin-lg) {
   .sn-grid.sn-grid--responsive-#{$responsive-breakpoint} {
     display: inline-block;
@@ -219,6 +221,8 @@
     margin: $margin-lg 0;
   }
 }
+
+
 
 // Images mixin for responsive performance
 

@@ -104,7 +104,10 @@
 .sn-grid--responsive-screen-sm,
 .sn-grid--responsive-screen-xmd,
 .sn-grid--responsive-screen-md,
-.sn-grid--responsive-screen-lg {
+.sn-grid--responsive-screen-lg,
+.sn-grid--responsive-mobile-threshold,
+.sn-grid--responsive-tablet-threshold,
+.sn-grid--responsive-screen-threshold {
   -ms-flex-direction: row;
   -webkit-flex-direction: row;
   flex-direction: row;
@@ -517,22 +520,22 @@
 
 @if $activate-standard-breakpoints == true {
 
-  @include breakpoint($mobile-small) {
+  @media (max-width: $mobile-small) {
     @include responsive-cell(mobile-sm, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
   }
-  @include breakpoint($tablet-xxsmall) {
+  @media (max-width: $tablet-xxsmall) {
     @include responsive-cell(tablet-xxsm, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
   }
-  @include breakpoint($tablet-small) {
+  @media (max-width: $tablet-small) {
     @include responsive-cell(tablet-sm, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
   }
-  @include breakpoint($tablet-xmedium) {
+  @media (max-width: $tablet-xmedium) {
     @include responsive-cell(tablet-xmd, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
   }
-  @include breakpoint($screen-xsmall) {
+  @media (max-width: $screen-xsmall) {
     @include responsive-cell(screen-xsm, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
   }
-  @include breakpoint($screen-small) {
+  @media (max-width: $screen-small) {
     @include responsive-cell(screen-sm, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
   }
 }
@@ -540,19 +543,20 @@
 // Material Breakpoints
 
 @if $activate-material-breakpoints == true {
-  @include breakpoint($tablet-xsmall) {
+
+  @media (max-width: $tablet-xsmall) {
     @include responsive-cell(tablet-xsm, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
   }
-  @include breakpoint($tablet-medium) {
+  @media (max-width: $tablet-medium) {
     @include responsive-cell(tablet-md, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
   }
-  @include breakpoint($tablet-large) {
+  @media (max-width: $tablet-large) {
     @include responsive-cell(tablet-lg, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
   }
-  @include breakpoint($screen-medium) {
+  @media (max-width: $screen-medium) {
     @include responsive-cell(screen-md, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
   }
-  @include breakpoint($screen-large) {
+  @media (max-width: $screen-large) {
     @include responsive-cell(screen-lg, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
   }
 }
@@ -560,10 +564,23 @@
 // Both Material and Standard Breakpoints
 
 @if $activate-standard-breakpoints == true or $activate-material-breakpoints == true {
-  @include breakpoint($mobile-large) {
+  @media (max-width: $mobile-large) {
     @include responsive-cell(mobile-lg, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
   }
-  @include breakpoint($screen-xmedium) {
+  @media (max-width: $screen-xmedium) {
     @include responsive-cell(screen-xmd, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
   }
+}
+
+
+// Threshold Breakpoints
+
+@media (max-width: $mobile-threshold) {
+  @include responsive-cell(mobile-threshold, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
+}
+@media (max-width: $tablet-threshold) {
+  @include responsive-cell(tablet-threshold, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
+}
+@media (max-width: $screen-threshold) {
+  @include responsive-cell(screen-threshold, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
 }
