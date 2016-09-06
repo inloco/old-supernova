@@ -62,7 +62,25 @@
   margin-bottom: $bleed-vm;
 }
 
-@media screen and (max-width: $screen-small) {
+// bleed small
+.sn-grid--bleed-sm {
+  margin: 0 $bleed-hm-sm;
+}
+.sn-grid--bleed-vertical-sm {
+  margin: $bleed-vm-sm 0;
+}
+.sn-grid--bleed-all-sm {
+  margin: $bleed-vm-sm $bleed-hm-sm;
+}
+.sn-grid--bleed-top-sm {
+  margin-top: $bleed-vm-sm;
+}
+.sn-grid--bleed-bottom-sm {
+  margin-bottom: $bleed-vm-sm;
+}
+
+
+@media screen and (max-width: $screen-threshold) {
   .sn-grid--bleed {
     margin: 0 $bleed-hm-sm;
   }
