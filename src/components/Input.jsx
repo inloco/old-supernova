@@ -43,6 +43,8 @@ class Input extends React.Component {
   }
 
   handleChange(event) {
+    event.persist()
+
     this.setState({
       value: event.target.value
     },
