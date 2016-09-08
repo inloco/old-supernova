@@ -1,6 +1,8 @@
 import React, { PropTypes } from "react"
 import ModalCloseTrigger from "./CloseTrigger"
 import Button from "./../Button"
+import Dropdown from "./../Dropdown/Main"
+import DropdownItem from "./../Dropdown/Item"
 
 class Modal extends React.Component {
   constructor(props) {
@@ -17,7 +19,10 @@ class Modal extends React.Component {
     cancelLabel: PropTypes.string,
     children: PropTypes.node,
     isOpen: PropTypes.bool,
-    btnId: PropTypes.string
+    btnId: PropTypes.string,
+    latLongTabAll: PropTypes.string,
+    latLongTabOk: PropTypes.string,
+    latLongTabError: PropTypes.string
   }
 
   static defaultProps = {
@@ -43,7 +48,7 @@ class Modal extends React.Component {
   }
 
   getHeader() {
-    const{ id, title } = this.props
+    const{ id, title, latLongTabAll } = this.props
 
     return(
       <div className="modal-header">
@@ -53,10 +58,23 @@ class Modal extends React.Component {
                   iconSize="24"
                   iconName="icon-close" />
         </ModalCloseTrigger>
-        <h4 className="modal-title">
+        <h3 className="modal-title">
           { title }
-        </h4>
+        </h3>
+        { latLongTabAll !== undefined ? this.renderDropdown() : null }
       </div>
+    )
+  }
+
+  renderDropdown() {
+    const{ latLongTabAll, latLongTabOk, latLongTabError } = this.props
+
+    return(
+      <Dropdown id="lat_long_dropdown" label={ `${latLongTabAll} (0)` } icon="icon-drop-down">
+        <DropdownItem id="dropdown_item_id" label={ `${latLongTabAll} (0)` }/>
+        <DropdownItem id="dropdown_item_id" label={ `${latLongTabOk} (0)` } />
+        <DropdownItem id="dropdown_item_id" label={ `${latLongTabError} (0)` } />
+      </Dropdown>
     )
   }
 
