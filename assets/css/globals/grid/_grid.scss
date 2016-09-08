@@ -535,18 +535,62 @@
 .sn-cell--text-center {
   text-align: center;
 }
-.sn-cell--text-responsive-center {
-  text-align: left;
-  @media (max-width: $tablet-xmedium) {
-    text-align: center;
-  }
-}
 .sn-cell--text-right {
   text-align: right;
 }
 .sn-cell--text-justify {
   text-align: justify;
 }
+.sn-cell--text-responsive-center-sm {
+  @media (max-width: $mobile-threshold) {
+    text-align: center;
+  }
+}
+.sn-cell--text-responsive-center,
+.sn-cell--text-responsive-center-md {
+  @media (max-width: $tablet-threshold) {
+    text-align: center;
+  }
+}
+.sn-cell--text-responsive-center,
+.sn-cell--text-responsive-center-lg {
+  @media (max-width: $screen-threshold) {
+    text-align: center;
+  }
+}
+.sn-cell--text-responsive-left-sm {
+  @media (max-width: $mobile-threshold) {
+    text-align: left;
+  }
+}
+.sn-cell--text-responsive-left,
+.sn-cell--text-responsive-left-md {
+  @media (max-width: $tablet-threshold) {
+    text-align: left;
+  }
+}
+.sn-cell--text-responsive-left-lg {
+  @media (max-width: $screen-threshold) {
+    text-align: left;
+  }
+}
+.sn-cell--text-responsive-right-sm {
+  @media (max-width: $mobile-threshold) {
+    text-align: right;
+  }
+}
+.sn-cell--text-responsive-right,
+.sn-cell--text-responsive-right-md {
+  @media (max-width: $tablet-threshold) {
+    text-align: right;
+  }
+}
+.sn-cell--text-responsive-right-lg {
+  @media (max-width: $screen-threshold) {
+    text-align: right;
+  }
+}
+
 
 
 // Wrap & White Spaces
