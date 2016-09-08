@@ -18,7 +18,7 @@ class Modal extends React.Component {
     children: PropTypes.node,
     isOpen: PropTypes.bool,
     btnId: PropTypes.string,
-    children: PropTypes.node
+    dropdown: PropTypes.node
   }
 
   static defaultProps = {
@@ -44,7 +44,7 @@ class Modal extends React.Component {
   }
 
   getHeader() {
-    const{ id, title, children } = this.props
+    const{ id, title, dropdown } = this.props
 
     return(
       <div className="modal-header">
@@ -57,7 +57,7 @@ class Modal extends React.Component {
         <h3 className="modal-title">
           { title }
         </h3>
-        { children }
+        { dropdown }
       </div>
     )
   }
