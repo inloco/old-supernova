@@ -281,10 +281,10 @@
 // Box Padding
 
 .sn-grid--cell-padding > * {
-  padding: $cell-padding-vm $cell-padding-hm;
+  padding: $box-col-padding-vm $box-col-padding-hm;
 }
 .sn-grid--cell-padding-sm > * {
-  padding: $cell-padding-sm-vm $cell-padding-sm-hm;
+  padding: $box-col-padding-sm-vm $box-col-padding-sm-hm;
 }
 .sn-grid--cell-wrap {
   -webkit-flex-wrap: wrap;
@@ -467,6 +467,36 @@
 .sn-cell--order-10            { @include flexorder(10); }
 .sn-cell--order-11            { @include flexorder(11); }
 .sn-cell--order-12            { @include flexorder(12); }
+
+
+
+// Cell Paddings
+
+.sn-cell--padding,
+.sn-cell--padding-md          { padding: $cell-padding-vertical-md $cell-padding-horizontal-md; }
+.sn-cell--padding-sm          { padding: $cell-padding-vertical-sm $cell-padding-horizontal-sm; }
+.sn-cell--padding-lg          { padding: $cell-padding-vertical-lg $cell-padding-horizontal-lg; }
+
+.sn-cell--padding-top,
+.sn-cell--padding-top-md      { padding-top: $cell-padding-vertical-md; }
+.sn-cell--padding-top-sm      { padding-top: $cell-padding-vertical-sm; }
+.sn-cell--padding-top-lg      { padding-top: $cell-padding-vertical-lg; }
+
+.sn-cell--padding-bottom,
+.sn-cell--padding-bottom-md   { padding-bottom: $cell-padding-vertical-md; }
+.sn-cell--padding-bottom-sm   { padding-bottom: $cell-padding-vertical-sm; }
+.sn-cell--padding-bottom-lg   { padding-bottom: $cell-padding-vertical-lg; }
+
+.sn-cell--padding-left,
+.sn-cell--padding-left-md     { padding-left: $cell-padding-horizontal-md; }
+.sn-cell--padding-left-sm     { padding-left: $cell-padding-horizontal-sm; }
+.sn-cell--padding-left-lg     { padding-left: $cell-padding-horizontal-lg; }
+
+.sn-cell--padding-right,
+.sn-cell--padding-right-md    { padding-right: $cell-padding-horizontal-md; }
+.sn-cell--padding-right-sm    { padding-right: $cell-padding-horizontal-sm; }
+.sn-cell--padding-right-lg    { padding-right: $cell-padding-horizontal-lg; }
+
 
 
 // Item Align
