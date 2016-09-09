@@ -13,6 +13,7 @@ import Checkbox from "./components/Form/Checkbox"
 import Drawer from "./components/Drawer/Main"
 import DrawerNav from "./components/Drawer/Nav"
 import DrawerTitle from "./components/Drawer/Title"
+import DrawerProfile from "./components/Drawer/Profile"
 import Dropdown from "./components/Dropdown/Main"
 import FormGroup from "./components/Form/Group"
 import Header from "./components/Header"
@@ -71,6 +72,7 @@ export {
   Drawer,
   DrawerNav,
   DrawerTitle,
+  DrawerProfile,
   Dropdown,
   FormGroup,
   Header,
