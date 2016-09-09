@@ -23,11 +23,13 @@
   background: $default-board-background;
   @include shadow-2dp();
 
-
   // Board Bleeds
 
   &.sn-board--bleed {
     padding: $default-board-bleed;
+    @media (max-width: $screen-threshold) {
+      padding: $default-board-bleed-mobile;
+    }
   }
 
   &.sn-board--bleed-sm {
@@ -36,6 +38,9 @@
 
   &.sn-board--bleed-top {
     padding-top: $default-board-bleed;
+    @media (max-width: $screen-threshold) {
+      padding: $default-board-bleed-mobile;
+    }
   }
 
 }

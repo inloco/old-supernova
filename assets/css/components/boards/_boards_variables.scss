@@ -18,4 +18,6 @@ $default-board-background                              : $color-white;
 $default-board-bleed                                   : $hm * 10;
 $default-board-bleed-sm                                : $hm * 4;
 
+$default-board-bleed-mobile                            : ($vm * 8) ($hm * 4);
+
 
