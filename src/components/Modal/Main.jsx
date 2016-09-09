@@ -17,7 +17,8 @@ class Modal extends React.Component {
     cancelLabel: PropTypes.string,
     children: PropTypes.node,
     isOpen: PropTypes.bool,
-    btnId: PropTypes.string
+    btnId: PropTypes.string,
+    dropdown: PropTypes.node
   }
 
   static defaultProps = {
@@ -43,7 +44,7 @@ class Modal extends React.Component {
   }
 
   getHeader() {
-    const{ id, title } = this.props
+    const{ id, title, dropdown } = this.props
 
     return(
       <div className="modal-header">
@@ -53,9 +54,10 @@ class Modal extends React.Component {
                   iconSize="24"
                   iconName="icon-close" />
         </ModalCloseTrigger>
-        <h4 className="modal-title">
+        <h3 className="modal-title">
           { title }
-        </h4>
+        </h3>
+        { dropdown }
       </div>
     )
   }
