@@ -89,19 +89,27 @@
   }
   input[type="file"] {
     line-height: $default-input-line-height;
-
     ~ .sn-field__bar {
       display: none;
     }
   }
-
+  .sn-field__text {
+    display: block;
+    color: $color-black;
+    height: $default-input-field-text-height;
+    padding: $default-input-padding;
+    padding-top: $default-input-field-text-top-position;
+    line-height: $default-input-line-height;
+    width: 100%;
+    font-size: $default-input-font-size;
+    background: none;
+  }
   .sn-field__addon {
     display: none;
     position: absolute;
-    top: 7px;
+    top: $default-input-field-addon-top-position;
     color: $default-form-input-addon-color;
   }
-
   &.sn-input__addon,
   &.sn-input__addon--left {
     padding-left: 24px;
@@ -116,6 +124,28 @@
       display: inline-block;
       right: 0;
     }
+  }
+  &.sn-input--text {
+    .sn-field__bar{
+      display: none;
+    }
+  }
+  &.sn-input--dropdown {
+   .sn-dropdown {
+     height: 34px;
+     line-height: $default-input-line-height;
+     border-bottom: $default-input-field-bar-border-bottom-size solid $default-form-bar-color;
+     .sn-dropdown__button {
+       border-bottom: 0;
+       padding-left: 1px;
+     }
+     .sn-dropdown__results {
+       border-top: 0;
+     }
+   }
+   .sn-field__bar {
+     display: none;
+   }
   }
 }
 

@@ -186,7 +186,7 @@
 
 @mixin responsive-cell($responsive-breakpoint, $margin, $margin-xs, $margin-sm, $margin-lg) {
   .sn-grid.sn-grid--responsive-#{$responsive-breakpoint} {
-    display: inline-block;
+    display: block;
   }
   .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter > *:first-child {
     margin: $margin 0 0 0;
