@@ -38,14 +38,9 @@ class TextArea extends React.Component {
   handleChange(event) {
     event.persist()
 
-    this.setState({
-      value: event.target.value
-    },
-    () => {
-      if(this.props.onChange) {
-        this.props.onChange(event)
-      }
-    })
+    if(this.props.onChange) {
+      this.props.onChange(event)
+    }
   }
 
   getTextAreaClassName() {
