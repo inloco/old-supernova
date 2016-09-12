@@ -9,17 +9,17 @@ class Dropdown extends React.Component {
 
     this.state = {
       open: false,
-      defaultValue: props.defaultValue
+      value: props.value
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ defaultValue: nextProps.defaultValue })
+    this.setState({ value: nextProps.value })
   }
 
   changeLabelTo(newLabel) {
     this.setState({
-      defaultValue: newLabel
+      value: newLabel
     })
   }
 
@@ -82,7 +82,7 @@ class Dropdown extends React.Component {
           onClick={this.handleClick}
           type="button"
         >
-          {this.state.defaultValue}
+          {this.state.value}
         </button>
 
         <ul className="sn-dropdown__results" style={listStyle}>
