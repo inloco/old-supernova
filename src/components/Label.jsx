@@ -11,7 +11,7 @@ class Label extends React.Component {
 
     return (
       <label
-        className={`sn-field__label ${this.props.fixed ? 'sn-field__label--fixed' : ''}`}
+        className={`sn-field__label ${this.props.fixed ? "sn-field__label--fixed" : ""}`}
         htmlFor={htmlFor}>
         { value }
       </label>

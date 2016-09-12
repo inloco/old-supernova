@@ -39,7 +39,7 @@ class Main extends React.Component {
     return(
       <div>
         <div
-          className={`sn-modal ${this.state.open ? 'sn-modal--open' : ''}`}
+          className={`sn-modal ${this.state.open ? "sn-modal--open" : ''}`}
           id={this.props.id}
           onClick={this.handleBackdropClick.bind(this)}>
 
