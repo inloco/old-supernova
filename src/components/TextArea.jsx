@@ -21,7 +21,8 @@ class TextArea extends React.Component {
     super(props)
 
     this.state = {
-      hasValue: props.defaultValue !== "" && props.defaultValue !== undefined
+      hasValue: props.defaultValue !== "" && props.defaultValue !== undefined,
+      value: props.defaultValue
     }
   }
 
@@ -34,12 +35,20 @@ class TextArea extends React.Component {
     }
   }
 
+  handleChange(event) {
+    event.persist()
+
+    if(this.props.onChange) {
+      this.props.onChange(event)
+    }
+  }
+
   getTextAreaClassName() {
     return this.state.hasValue ? "has-value" : ""
   }
 
   getTextAreaProps() {
-    const { id, name, required, tabIndex, rows, defaultValue } = this.props
+    const { id, name, required, tabIndex, rows, defaultValue, value } = this.props
 
     return {
       id,
@@ -48,6 +57,8 @@ class TextArea extends React.Component {
       tabIndex,
       rows,
       defaultValue,
+      value,
+      onChange:  this.handleChange.bind(this),
       onBlur:    this.handleBlur.bind(this),
       className: this.getTextAreaClassName()
     }
