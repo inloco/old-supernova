@@ -28,6 +28,7 @@
   color: $default-button-color-text;
   margin: 0;
   height: $default-button-height;
+  width: auto;
   min-width: $default-button-min-width;
   padding: $default-button-padding;
   font-size: $default-button-font-size;
@@ -53,9 +54,15 @@
     margin-left: $default-button-content-margin;
   }
 
+  &:hover, &:active {
+    @include button-hover-shadow();
+  }
+  &:active {
+    background-color: $default-button-active-color;
+  }
+
 
   // Button sizes
-
 
   &.sn-button--xs {
     height: $default-button-xs-height;
@@ -103,14 +110,13 @@
   }
 
 
+  // Button Full Width
 
+  &.sn-button--full-width {
+    width: 100%;
+  }
 
-  &:hover, &:active {
-    @include button-hover-shadow();
-  }
-  &:active {
-    background-color: $default-button-active-color;
-  }
+  // Button Raised
 
   &.sn-button--raised {
     background: $default-button-primary-color;
@@ -128,6 +134,8 @@
       background-color: $default-button-primary-color-disabled !important;
     }
   }
+
+  // Button Colored
 
   &.sn-button--colored {
     background-color: $button-primary-color-alt;
@@ -147,6 +155,8 @@
     }
   }
 
+  // Button Accent
+
   &.sn-button--accent {
     background-color: $button-primary-accent-alt;
     color: $button-primary-accent-text;
@@ -165,11 +175,14 @@
     }
   }
 
+  // Button Disabled
+
   &:disabled {
     @include button-disabled-shadow();
     color: $default-button-disabled-color-text !important;
     cursor: auto;
   }
+
 }
 
 
