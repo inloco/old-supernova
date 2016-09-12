@@ -10,7 +10,9 @@ class Label extends React.Component {
     const{ htmlFor, value } = this.props
 
     return (
-      <label className="sn-field__label" htmlFor={htmlFor}>
+      <label
+        className={`sn-field__label ${this.props.fixed ? 'sn-field__label--fixed' : ''}`}
+        htmlFor={htmlFor}>
         { value }
       </label>
     )

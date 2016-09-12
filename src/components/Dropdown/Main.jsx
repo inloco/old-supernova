@@ -1,4 +1,5 @@
 import React, { PropTypes } from "react"
+import Label from "./../Label"
 
 class Dropdown extends React.Component {
   constructor(props) {
@@ -8,17 +9,17 @@ class Dropdown extends React.Component {
 
     this.state = {
       open: false,
-      label: props.label
+      defaultValue: props.defaultValue
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ label: nextProps.label })
+    this.setState({ defaultValue: nextProps.defaultValue })
   }
 
   changeLabelTo(newLabel) {
     this.setState({
-      label: newLabel
+      defaultValue: newLabel
     })
   }
 
@@ -74,12 +75,14 @@ class Dropdown extends React.Component {
 
     return (
       <div className={this.getClassName()}>
+        {this.props.label ? <Label value={this.props.label} fixed={true}/> : ""}
+
         <button
           className="sn-dropdown__button"
           onClick={this.handleClick}
           type="button"
         >
-          {this.state.label}
+          {this.state.defaultValue}
         </button>
 
         <ul className="sn-dropdown__results" style={listStyle}>
