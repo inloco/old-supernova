@@ -69,7 +69,13 @@ class Alert extends React.Component {
   }
 
   close() {
-    this.setState({ active: false })
+    this.setState({
+      active: false
+    })
+
+    if(this.props.onClose) {
+      this.props.onClose()
+    }
   }
 
   componentDidMount() {
