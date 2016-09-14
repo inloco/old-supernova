@@ -5,6 +5,7 @@ class Button extends React.Component {
     label:     PropTypes.string,
     disabled:  PropTypes.bool,
     raised:    PropTypes.bool,
+    fullWidth: PropTypes.bool,
     type:      PropTypes.string,
     style:     PropTypes.string,
     onClick:   PropTypes.func,
@@ -15,14 +16,20 @@ class Button extends React.Component {
   }
 
   static defaultProps = {
-    disabled: false,
-    raised:   false,
-    type:     "button",
-    style:    null
+    disabled:  false,
+    raised:    false,
+    fullWidth: false,
+    type:      "button",
+    style:     null
   }
+
 
   getRaisedClassName() {
     return this.props.raised ? `sn-button--raised` : null
+  }
+
+  getFullWidthClassName() {
+    return this.props.fullWidth ? `sn-button--full-width` : null
   }
 
   getStyleClassName() {
@@ -41,6 +48,7 @@ class Button extends React.Component {
     return `
       sn-button
       ${this.getRaisedClassName()}
+      ${this.getFullWidthClassName()}
       ${this.getStyleClassName()}
       ${this.props.className}
       ${this.getSizeClassName()}`
