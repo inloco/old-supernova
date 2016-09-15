@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react"
 import Label from "./Label"
+import _ from "lodash"
 
 class Input extends React.Component {
   static propTypes = {
@@ -17,29 +18,34 @@ class Input extends React.Component {
     id:           null,
     name:         null,
     type:         "text",
-    tabIndex:     0
+    tabIndex:     0,
+    value:        ""
   }
 
   constructor(props) {
     super(props)
 
     this.state = {
-      hasValue: props.defaultValue !== "" && props.defaultValue !== undefined,
-      value: props.defaultValue
-    }
-  }
-
-  handleBlur(event) {
-    const input    = event.target
-    const hasValue = input.value !== ""
-
-    if(hasValue !== this.state.hasValue) {
-      this.setState({ hasValue })
+      value: props.value
     }
   }
 
   getInputClassName() {
-    return this.state.hasValue ? "has-value" : ""
+    return this.state.value === "" ? "" : "has-value"
+  }
+
+  getErrorClassName() {
+    return this.props.error ? 'has-error' : ''
+  }
+
+  getAddonClassName() {
+    return this.props.addon ? 'sn-input__addon--right' : ''
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      value: nextProps.value
+    })
   }
 
   handleChange(event) {
@@ -47,39 +53,21 @@ class Input extends React.Component {
 
     this.setState({
       value: event.target.value
-    },
-    () => {
-      if(this.props.onChange) {
+    }, () => {
+      if(typeof this.props.onChange === "function") {
         this.props.onChange(event)
       }
     })
   }
 
   getInputProps() {
-    const {
-      id,
-      required,
-      label,
-      defaultValue,
-      type,
-      name,
-      autoFocus,
-      tabIndex,
-      onChange
-    } = this.props
+    const { addon, value, error, fixed, label, ...validProps } = this.props
 
     return {
-      id,
-      required,
-      label,
-      defaultValue,
-      type,
-      name,
-      autoFocus,
-      tabIndex,
-      onChange:  this.handleChange.bind(this),
-      onBlur:    this.handleBlur.bind(this),
-      className: this.getInputClassName()
+      ...validProps,
+      onChange: this.handleChange.bind(this),
+      className: this.getInputClassName(),
+      value: this.state.value
     }
   }
 
@@ -91,11 +79,20 @@ class Input extends React.Component {
     }
   }
 
+  renderAddon() {
+    const { addon } = this.props
+
+    if(addon) {
+      return <span className="sn-field__addon">{addon}</span>
+    }
+  }
+
   render() {
     return(
-      <div className={`sn-input ${this.props.error ? 'has-error' : ''}`}>
+      <div className={`sn-input ${this.getErrorClassName()} ${this.getAddonClassName()}`}>
         <input {...this.getInputProps()}/>
         {this.renderLabel()}
+        {this.renderAddon()}
         <i className="sn-field__bar"></i>
         <span className="sn-form-group__message">{this.props.error}</span>
       </div>
