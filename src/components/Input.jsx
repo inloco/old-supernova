@@ -18,14 +18,15 @@ class Input extends React.Component {
     id:           null,
     name:         null,
     type:         "text",
-    tabIndex:     0
+    tabIndex:     0,
+    value:        ""
   }
 
   constructor(props) {
     super(props)
 
     this.state = {
-      value: props.value || ""
+      value: props.value
     }
   }
 
