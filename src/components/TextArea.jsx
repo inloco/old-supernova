@@ -8,59 +8,51 @@ class TextArea extends React.Component {
     rows:            PropTypes.number,
     tabIndex:        PropTypes.number,
     required:        PropTypes.bool,
-    label:           PropTypes.string,
-    defaultValue:    PropTypes.string
+    label:           PropTypes.string
   }
 
   static defaultProps = {
-    tabIndex:        0,
-    defaultRequired: false
+    tabIndex:        0
   }
 
   constructor(props) {
     super(props)
 
     this.state = {
-      hasValue: props.defaultValue !== "" && props.defaultValue !== undefined,
-      value: props.defaultValue
+      value: props.value || ""
     }
   }
 
-  handleBlur(event) {
-    const textArea    = event.target
-    const hasValue = textArea.value !== ""
-
-    if(hasValue !== this.state.hasValue) {
-      this.setState({ hasValue })
-    }
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      value: nextProps.value
+    })
   }
 
   handleChange(event) {
     event.persist()
 
-    if(this.props.onChange) {
-      this.props.onChange(event)
-    }
+    this.setState({
+      value: event.target.value
+    }, () => {
+      if(typeof this.props.onChange === "function") {
+        this.props.onChange(event)
+      }
+    })
   }
 
   getTextAreaClassName() {
-    return this.state.hasValue ? "has-value" : ""
+    return this.state.value === "" ? "" : "has-value"
   }
 
   getTextAreaProps() {
-    const { id, name, required, tabIndex, rows, defaultValue, value } = this.props
+    const { value, error, fixed, label, ...validProps } = this.props
 
     return {
-      id,
-      name,
-      required,
-      tabIndex,
-      rows,
-      defaultValue,
-      value,
-      onChange:  this.handleChange.bind(this),
-      onBlur:    this.handleBlur.bind(this),
-      className: this.getTextAreaClassName()
+      ...validProps,
+      onChange: this.handleChange.bind(this),
+      className: this.getTextAreaClassName(),
+      value: this.state.value
     }
   }
 
