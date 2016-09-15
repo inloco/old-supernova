@@ -18,19 +18,28 @@ class Input extends React.Component {
     id:           null,
     name:         null,
     type:         "text",
-    tabIndex:     0
+    tabIndex:     0,
+    value:        ""
   }
 
   constructor(props) {
     super(props)
 
     this.state = {
-      value: props.value || ""
+      value: props.value
     }
   }
 
   getInputClassName() {
     return this.state.value === "" ? "" : "has-value"
+  }
+
+  getErrorClassName() {
+    return this.props.error ? 'has-error' : ''
+  }
+
+  getAddonClassName() {
+    return this.props.addon ? 'sn-input__addon--right' : ''
   }
 
   componentWillReceiveProps(nextProps) {
@@ -52,7 +61,7 @@ class Input extends React.Component {
   }
 
   getInputProps() {
-    const { value, error, fixed, label, ...validProps } = this.props
+    const { addon, value, error, fixed, label, ...validProps } = this.props
 
     return {
       ...validProps,
@@ -70,11 +79,20 @@ class Input extends React.Component {
     }
   }
 
+  renderAddon() {
+    const { addon } = this.props
+
+    if(addon) {
+      return <span className="sn-field__addon">{addon}</span>
+    }
+  }
+
   render() {
     return(
-      <div className={`sn-input ${this.props.error ? 'has-error' : ''}`}>
+      <div className={`sn-input ${this.getErrorClassName()} ${this.getAddonClassName()}`}>
         <input {...this.getInputProps()}/>
         {this.renderLabel()}
+        {this.renderAddon()}
         <i className="sn-field__bar"></i>
         <span className="sn-form-group__message">{this.props.error}</span>
       </div>

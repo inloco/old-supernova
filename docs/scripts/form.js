@@ -10,7 +10,7 @@ var FormExample = React.createClass({
           <Checkbox label="Indoor" />
           <Checkbox label="Retargeting" />
           <Checkbox label="Pretargeting" />
-          <Input value="oi"/>
+          <Input/>
         </FormGroup>
       </div>
     )
