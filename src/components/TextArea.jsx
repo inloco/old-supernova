@@ -12,14 +12,15 @@ class TextArea extends React.Component {
   }
 
   static defaultProps = {
-    tabIndex:        0
+    tabIndex: 0,
+    value: ""
   }
 
   constructor(props) {
     super(props)
 
     this.state = {
-      value: props.value || ""
+      value: props.value
     }
   }
 
