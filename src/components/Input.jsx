@@ -1,6 +1,5 @@
 import React, { PropTypes } from "react"
 import Label from "./Label"
-import _ from "lodash"
 
 class Input extends React.Component {
   static propTypes = {
@@ -31,15 +30,15 @@ class Input extends React.Component {
   }
 
   getInputClassName() {
-    return this.state.value === "" ? "" : "has-value"
+    return this.state.value ? "has-value" : ""
   }
 
   getErrorClassName() {
-    return this.props.error ? 'has-error' : ''
+    return this.props.error ? "has-error" : ""
   }
 
   getAddonClassName() {
-    return this.props.addon ? 'sn-input__addon--right' : ''
+    return this.props.addon ? "sn-input__addon--right" : ""
   }
 
   componentWillReceiveProps(nextProps) {
