@@ -43,7 +43,7 @@ class TextArea extends React.Component {
   }
 
   getTextAreaClassName() {
-    return this.state.value === "" ? "" : "has-value"
+    return this.state.value ? "has-value" : ""
   }
 
   getTextAreaProps() {
