@@ -79,6 +79,11 @@
   margin-bottom: $bleed-vm-sm;
 }
 
+// bleed extra small
+.sn-grid--bleed-vertical-xs{
+  margin: $bleed-vm-xs 0;
+}
+
 
 @media screen and (max-width: $screen-threshold) {
   .sn-grid--bleed {
