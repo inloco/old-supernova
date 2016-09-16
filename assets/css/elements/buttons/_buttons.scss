@@ -47,10 +47,9 @@
 
   i {
     vertical-align: middle;
-    margin-right: $default-button-content-margin;
   }
 
-  span {
+  i ~ span {
     margin-left: $default-button-content-margin;
   }
 
@@ -72,9 +71,8 @@
     line-height: $default-button-xs-line-height;
     i {
       font-size: $default-button-xs-icon-font-size;
-      margin-right: $default-button-xs-content-margin;
     }
-    span {
+    i ~ span {
       margin-left: $default-button-xs-content-margin;
     }
   }
@@ -87,9 +85,8 @@
     line-height: $default-button-sm-line-height;
     i {
       font-size: $default-button-sm-icon-font-size;
-      margin-right: $default-button-sm-content-margin;
     }
-    span {
+    i ~ span {
       margin-left: $default-button-sm-content-margin;
     }
   }
@@ -102,9 +99,8 @@
     line-height: $default-button-lg-line-height;
     i {
       font-size: $default-button-lg-icon-font-size;
-      margin-right: $default-button-lg-content-margin;
     }
-    span {
+    i ~ span {
       margin-left: $default-button-lg-content-margin;
     }
   }
