@@ -28,6 +28,7 @@
 // Subheader
 
 .sn-layout__subheader {
+  position: relative;
   background-color: $default-layout-subheader-background-color;
   min-height: $default-layout-subheader-min-height;
 }
@@ -115,7 +116,7 @@
   }
 
   .sn-layout--fixed-drawer .sn-layout__content & {
-    padding: 0 $default-layout-header-desktop-indent 0 $default-layout-header-desktop-indent;
+    padding: 0 $default-layout-header-row-screen-padding 0 $default-layout-header-row-screen-padding;
     @media screen and (max-width: $default-layout-screen-size-threshold) {
       padding: 0 $default-layout-header-mobile-indent 0 $default-layout-header-mobile-baseline;
     }
