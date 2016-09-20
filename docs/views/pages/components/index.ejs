@@ -64,6 +64,35 @@
       </div>
     </div>
     <div class="sn-cell--1">
+      <div class="sn-select has-error">
+        <select id="select">
+          <option>Option 1</option>
+          <option>Option 2</option>
+        </select>
+        <label for="select" class="sn-field__label sn-field__label--fixed">Selectbox</label>
+        <i class="sn-field__bar"></i>
+        <span class="sn-form-group__message">Error message</span>
+      </div>
+    </div>
+    <div class="sn-cell--1">
+      <div class="sn-input sn-input--dropdown">
+        <div class="sn-dropdown has-error">
+          <button class="sn-dropdown__button">CPM</button>
+          <!--<ul class="sn-dropdown__results">-->
+            <!--<li>CPC</li>-->
+            <!--<li>CPD</li>-->
+            <!--<li>CPI</li>-->
+          <!--</ul>-->
+          <span class="sn-dropdown__message">
+            Erro do dropdown com texto muito grande para quebrar a linha.
+          </span>
+        </div>
+        <label for="input" class="sn-field__label sn-field__label--fixed">Tipo</label>
+        <i class="sn-field__bar"></i>
+        <span class="sn-form-group__message">Error message</span>
+      </div>
+    </div>
+    <div class="sn-cell--1">
       <div class="sn-input sn-input--dropdown">
         <div class="sn-dropdown">
           <button class="sn-dropdown__button">CPM</button>
@@ -94,9 +123,19 @@
       </div>
     </div>
     <div class="sn-cell--1">
-      <div class="sn-input sn-input--text">
-        <div class="sn-field__text">Texto fixo</div>
-        <label for="input" class="sn-field__label sn-field__label--fixed">Fixed Label</label>
+      <div class="sn-input sn-input--dropdown">
+        <div class="sn-dropdown sn-dropdown--box">
+          <button class="sn-dropdown__button">CPM</button>
+          <ul class="sn-dropdown__results">
+            <li>CPC</li>
+            <li>CPD</li>
+            <li>CPI</li>
+          </ul>
+          <span class="sn-dropdown__message">
+            Erro do dropdown com texto muito grande para quebrar a linha.
+          </span>
+        </div>
+        <label for="input" class="sn-field__label sn-field__label--fixed">Tipo</label>
         <i class="sn-field__bar"></i>
         <span class="sn-form-group__message">Error message</span>
       </div>
@@ -173,6 +212,7 @@
             <li>Dropdown Result 2</li>
             <li>Dropdown Result 3</li>
           </ul>
+          <span class="sn-dropdown__message">Error message</span>
         </div>
       </div>
     </div>
