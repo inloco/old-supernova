@@ -20,12 +20,16 @@ class Group extends React.Component {
     const { label, id } = this.props
 
     return(
-      <div className="sn-form-group" id={id}>
+      <div className={`sn-form-group ${this.props.className}`} id={id}>
         <span className="sn-form-group__label">{label}</span>
         {this.renderChildren()}
       </div>
     )
   }
+}
+
+Group.defaultProps = {
+  className: ""
 }
 
 export default Group
