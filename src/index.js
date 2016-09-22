@@ -23,6 +23,7 @@ import ModalFooter from "./components/Modal/Footer"
 import ModalHeader from "./components/Modal/Header"
 import Pills from "./components/Pills/Main"
 import Pill from "./components/Pills/Pill"
+import Radio from "./components/Radio"
 import SearchBox from "./components/SearchBox"
 import Select from "./components/Form/Select"
 import SidebarFooter from "./components/Sidebar/Footer/Main"
@@ -83,6 +84,7 @@ export {
   ModalHeader,
   Pills,
   Pill,
+  Radio,
   SearchBox,
   Select,
   SidebarFooter,
