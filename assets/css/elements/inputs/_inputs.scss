@@ -67,6 +67,8 @@
 
 .sn-input {
   position: relative;
+  display: inline-block;
+  width: 100%;
   input,
   textarea {
     display: block;
@@ -112,14 +114,16 @@
   }
   &.sn-input__addon,
   &.sn-input__addon--left {
-    padding-left: 24px;
+    padding-left: $default-input-addon-padding;
+    width: calc(100% - 20px);
     .sn-field__addon {
       display: inline-block;
       left: 0;
     }
   }
   &.sn-input__addon--right {
-    padding-right: 24px;
+    padding-right: $default-input-addon-padding;
+    width: calc(100% - 20px);
     .sn-field__addon {
       display: inline-block;
       right: 0;
@@ -173,6 +177,7 @@
    }
    .sn-field__bar {
      display: none;
+
    }
   }
 }

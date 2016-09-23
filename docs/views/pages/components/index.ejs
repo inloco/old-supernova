@@ -43,8 +43,158 @@
 
   <div class="sn-board sn-board--bleed">
     Board Component
+    <br>
+    <!-- <ContactForm contact={this.props.proposal.contact}/> -->
   </div>
 
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed">
+    <div class="sn-cell--1">
+      <div class="sn-chip sn-chip--lg sn-chip--centered">
+        <div class="sn-chip__mask">
+          <!--<img src="http://netdna.webdesignerdepot.com/apple-touch-icon-144x144_n.png" alt="">-->
+        </div>
+        <!--<div class="sn-chip__title">Título do Chip</div>-->
+        <!--<div class="sn-chip__subtitle">Subtítulo do Chip</div>-->
+        <!--<div class="sn-chip__legend">Legenda do Chip</div>-->
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="sn-board">
+
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed sn-grid--bleed-top sn-grid--cell-gutter-xs">
+
+    <!-- COLUNA 1 -->
+    <div class="sn-cell--1">
+
+      <div class="sn-grid sn-grid--responsive-tablet-threshold sn-grid--cell-gutter-xs">
+        <div class="sn-cell--1">
+          <div class="sn-input">
+            <input type="text" required="required" id="input"/>
+            <label for="input" class="sn-field__label sn-field__label--fixed">Início</label>
+            <i class="sn-field__bar"></i>
+            <span class="sn-form-group__message">Error message</span>
+          </div>
+        </div>
+        <div class="sn-cell--1">
+          <div class="sn-input">
+            <input type="text" required="required" id="input"/>
+            <label for="input" class="sn-field__label sn-field__label--fixed">Fim</label>
+            <i class="sn-field__bar"></i>
+            <span class="sn-form-group__message">Error message</span>
+          </div>
+        </div>
+        <div class="sn-cell--1">
+          <div class="sn-input">
+            <input type="text" required="required" id="input"/>
+            <label for="input" class="sn-field__label sn-field__label--fixed">Audiência</label>
+            <i class="sn-field__bar"></i>
+            <span class="sn-form-group__message">Error message</span>
+          </div>
+        </div>
+        <div class="sn-cell--1">
+          <div class="sn-input sn-input__addon--right">
+            <input type="text" required="required" id="input"/>
+            <label for="input" class="sn-field__label sn-field__label--fixed">Visibilidade</label>
+            <span class="sn-field__addon">%</span>
+            <i class="sn-field__bar"></i>
+            <span class="sn-form-group__message">Error message</span>
+          </div>
+        </div>
+        <div class="sn-cell--1">
+          <div class="sn-input sn-input--text">
+            <div class="sn-field__text">100.000.000</div>
+            <label for="input" class="sn-field__label sn-field__label--fixed">Aud. Estimada</label>
+            <i class="sn-field__bar"></i>
+            <span class="sn-form-group__message">Error message</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- COLUNA 2 -->
+    <div class="sn-cell--1">
+
+      <div class="sn-grid sn-grid--responsive-tablet-threshold sn-grid--cell-gutter-xs">
+        <div class="sn-cell--1">
+          <div class="sn-grid sn-grid--horizontal sn-grid--cell-gutter-xs">
+            <div class="sn-cell--1">
+              <div class="sn-input sn-input--dropdown">
+                <div class="sn-dropdown">
+                  <button class="sn-dropdown__button">CPM</button>
+                  <!--<ul class="sn-dropdown__results">-->
+                    <!--<li>CPC</li>-->
+                    <!--<li>CPD</li>-->
+                    <!--<li>CPI</li>-->
+                  <!--</ul>-->
+                </div>
+                <label for="input" class="sn-field__label sn-field__label--fixed">Tipo</label>
+                <i class="sn-field__bar"></i>
+                <span class="sn-form-group__message">Error message</span>
+              </div>
+            </div>
+            <div class="sn-cell--1">
+              <div class="sn-input sn-input--text sn-input__addon--left">
+                <div class="sn-field__text">10,00</div>
+                <label for="input" class="sn-field__label sn-field__label--fixed">Valor</label>
+                <span class="sn-field__addon">R$</span>
+                <i class="sn-field__bar"></i>
+                <span class="sn-form-group__message">100.000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sn-cell--1">
+          <div class="sn-input sn-input--text sn-input__addon--left">
+            <div class="sn-field__text">10,00</div>
+            <label for="input" class="sn-field__label sn-field__label--fixed">Total Tabela</label>
+            <span class="sn-field__addon">R$</span>
+            <i class="sn-field__bar"></i>
+            <span class="sn-form-group__message">100.000</span>
+          </div>
+        </div>
+        <div class="sn-cell--1">
+          <div class="sn-input sn-input__addon--right">
+            <input type="text" required="required" id="input"/>
+            <label for="input" class="sn-field__label sn-field__label--fixed">Desconto</label>
+            <span class="sn-field__addon">%</span>
+            <i class="sn-field__bar"></i>
+            <span class="sn-form-group__message">Error message</span>
+          </div>
+        </div>
+        <div class="sn-cell--1">
+          <div class="sn-input sn-input--text sn-input__addon--left">
+            <div class="sn-field__text">10,00</div>
+            <label for="input" class="sn-field__label sn-field__label--fixed">CPM Negociado</label>
+            <span class="sn-field__addon">R$</span>
+            <i class="sn-field__bar"></i>
+            <span class="sn-form-group__message">100.000</span>
+          </div>
+        </div>
+        <div class="sn-cell--1">
+          <div class="sn-input sn-input--text sn-input__addon--left">
+            <div class="sn-field__text">10,00</div>
+            <label for="input" class="sn-field__label sn-field__label--fixed">Total Negociado</label>
+            <span class="sn-field__addon">R$</span>
+            <i class="sn-field__bar"></i>
+            <span class="sn-form-group__message">100.000</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
+
+  <br>
 
   <div class="sn-grid sn-grid--horizontal sn-grid--bleed-all sn-grid--cell-gutter-sm">
     <div class="sn-cell--1">
