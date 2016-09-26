@@ -74,7 +74,7 @@ class Input extends React.Component {
     const { id, label } = this.props
 
     if(label) {
-      return <Label value={label} htmlFor={id} />
+      return <Label value={label} htmlFor={id} fixed={this.props.fixed} />
     }
   }
 
