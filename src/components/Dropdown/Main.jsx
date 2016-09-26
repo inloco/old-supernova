@@ -44,8 +44,14 @@ class Dropdown extends React.Component {
     return layout ? `sn-dropdown--${layout}` : ""
   }
 
+  getErrorClassName() {
+    const { error } = this.props
+
+    return error ? "has-error" : ""
+  }
+
   getClassName() {
-    return `sn-dropdown ${this.getLayoutClassName()}`
+    return `sn-dropdown ${this.getLayoutClassName()} ${this.getErrorClassName()}`
   }
 
   renderChildren() {
@@ -68,6 +74,10 @@ class Dropdown extends React.Component {
     )
   }
 
+  renderError() {
+    return this.props.error ? <span className="sn-dropdown__message">{this.props.error}</span> : ""
+  }
+
   render() {
     const listStyle = {
       display: this.state.open ? "block" : "none"
@@ -88,6 +98,8 @@ class Dropdown extends React.Component {
         <ul className="sn-dropdown__results" style={listStyle}>
           {this.renderChildren()}
         </ul>
+
+        {this.renderError()}
       </div>
     )
   }
