@@ -29,7 +29,7 @@ $default-form-label-font-size-floating-focus: $default-form-label-font-size;
 $default-form-label-font-size-floating-position-top: $default-form-label-fixed-position-top;
 
 // Input & Select
-$default-input-select-margin: ($vm*8) 0;
+$default-input-select-margin: ($vm*6) 0 ($vm*4) 0;
 
 // Select
 $default-select-height: ($vm*8.5);
@@ -42,12 +42,13 @@ $default-input-font-size: $dfs;
 $default-input-line-height: $dlh;
 $default-input-padding: ($vm/4) ($hm/4) ($vm/4) ($hm/4);
 $default-input-margin: $vm*8;
+$default-input-addon-padding: $hm*5;
 $default-input-field-bar-border-bottom-size: ($vm / 4);
 $default-input-field-bar-height: ($vm / 2);
 $default-input-field-bar-position-bottom: (($vm * 4) / -16);
 $default-input-field-text-height: $vm * 6.5;
 $default-input-field-text-top-position: $vm * 1.75;
-$default-input-field-addon-top-position: $default-input-field-text-top-position;
+$default-input-field-addon-top-position: $vm * 2;
 $default-textarea-padding-top: $vm * 1.75;
 
 // Radio & Checkbox
