@@ -2,15 +2,18 @@ import React, { PropTypes } from "react"
 
 class Info extends React.Component {
   static propTyes = {
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
+    icon: PropTypes.string
+  }
+
+  static defaultProps = {
+    icon: "icon-info"
   }
 
   render() {
-    const{ text } = this.props
-
     return (
-      <span className="helper-bottom-left" title={ text }>
-         <span className="icon-16 icon-info"></span>
+      <span className="helper-bottom-left" title={ this.props.text }>
+         <span className={ `icon-16 ${this.props.icon}` }></span>
       </span>
     )
   }
