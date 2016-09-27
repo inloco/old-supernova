@@ -85,6 +85,7 @@
   }
   textarea {
     padding-top: $default-textarea-padding-top;
+    padding-bottom: $default-textarea-padding-top;
   }
   input {
     height: $default-input-height;
@@ -482,3 +483,89 @@
   }
 }
 
+
+// INPUT RANGE
+
+.sn-input input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 12px 0 8px 0;
+  height: 14px;
+  ~ .sn-field__bar {
+    display: none;
+  }
+}
+
+@mixin input-range-button() {
+  border: 0 solid transparent;
+  height: $default-form-group-input-range-size;
+  width: $default-form-group-input-range-size;
+  border-radius: 50%;
+  background: $default-form-group-input-range-button-color;
+  cursor: pointer;
+}
+@mixin input-range-runnable-track() {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: $default-form-group-input-range-bar;
+  border-radius: 0px;
+  border: 0px solid #000001;
+}
+
+.sn-input input[type=range]:focus {
+  outline: none;
+}
+.sn-input input[type=range]::-webkit-slider-thumb {
+  @include input-range-button();
+  -webkit-appearance: none;
+  margin-top: -6px;
+  transition: all .1s linear;
+}
+.sn-input input[type=range]::-moz-range-thumb {
+  @include input-range-button();
+}
+.sn-input input[type=range]::-ms-thumb {
+  @include input-range-button();
+}
+.sn-input input[type=range]:active::-webkit-slider-thumb {
+  height: 20px;
+  width: 20px;
+  margin-top: -10px;
+}
+.sn-input input[type=range]:focus::-webkit-slider-thumb {
+  background-color: $default-form-group-input-range-button-hover-color;
+}
+.sn-input input[type=range]::-webkit-slider-runnable-track {
+  @include input-range-runnable-track();
+}
+.sn-input input[type=range]::-moz-range-track {
+  @include input-range-runnable-track();
+}
+.sn-input input[type=range]:active::-webkit-slider-runnable-track {
+  background: $default-form-group-input-range-bar;
+}
+.sn-input input[type=range]::-ms-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.sn-input input[type=range]::-ms-fill-lower {
+  background: #bbbbbb;
+  border: 0px solid #000001;
+  border-radius: 0px;
+}
+.sn-input input[type=range]::-ms-fill-upper {
+  background: $default-form-group-input-range-bar;
+  border: 0px solid #000001;
+  border-radius: 0px;
+}
+.sn-input input[type=range]:active::-ms-fill-lower {
+  background: $default-form-group-input-range-bar;
+}
+.sn-input input[type=range]:active::-ms-fill-upper {
+  background: #d5d5d5;
+}

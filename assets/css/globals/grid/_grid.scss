@@ -600,7 +600,8 @@
 
 // Wrap & White Spaces
 
-.sn-cell--word-wrap { word-wrap: break-word; }
+.sn-cell--break-word { word-wrap: break-word; }
+.sn-cell--break-all { word-break: break-all; }
 .sn-cell--white-space { white-space: pre-wrap; }
 .sn-cell--ellipsis {
   white-space: nowrap;

@@ -43,8 +43,6 @@
 
   <div class="sn-board sn-board--bleed">
     Board Component
-    <br>
-    <!-- <ContactForm contact={this.props.proposal.contact}/> -->
   </div>
 
 
@@ -196,19 +194,19 @@
 
   <br>
 
-  <div class="sn-grid sn-grid--horizontal sn-grid--bleed-all sn-grid--cell-gutter-sm">
+  <div class="sn-grid sn-grid--horizontal sn-grid--bleed-all sn-grid--cell-gutter-xs">
     <div class="sn-cell--1">
       <div class="sn-input">
-        <input type="text" required="required" id="input"/>
-        <label for="input" class="sn-field__label sn-field__label--fixed">Fixed Label</label>
+        <input type="range">
+        <label for="input" class="sn-field__label sn-field__label--fixed">Input Range</label>
         <i class="sn-field__bar"></i>
-        <span class="sn-form-group__message">Error message</span>
+        <span class="sn-form-group__message">Error messagee</span>
       </div>
     </div>
     <div class="sn-cell--1">
-      <div class="sn-input sn-input--text">
+      <div class="sn-input sn-input--text has-error">
         <div class="sn-field__text">100.000.000</div>
-        <label for="input" class="sn-field__label sn-field__label--fixed">Fixed Label</label>
+        <label for="input" class="sn-field__label sn-field__label--fixed">Input Text</label>
         <i class="sn-field__bar"></i>
         <span class="sn-form-group__message">Error message</span>
       </div>
@@ -237,37 +235,32 @@
             Erro do dropdown com texto muito grande para quebrar a linha.
           </span>
         </div>
-        <label for="input" class="sn-field__label sn-field__label--fixed">Tipo</label>
+        <label for="input" class="sn-field__label sn-field__label--fixed">Dropdown</label>
         <i class="sn-field__bar"></i>
         <span class="sn-form-group__message">Error message</span>
       </div>
     </div>
     <div class="sn-cell--1">
-      <div class="sn-input sn-input--dropdown">
-        <div class="sn-dropdown">
-          <button class="sn-dropdown__button">CPM</button>
-          <ul class="sn-dropdown__results">
-            <li>CPC</li>
-            <li>CPD</li>
-            <li>CPI</li>
-          </ul>
-        </div>
-        <label for="input" class="sn-field__label sn-field__label--fixed">Tipo</label>
+      <div class="sn-input sn-input--text sn-input__addon--left">
+        <div class="sn-field__text">10,00</div>
+        <label for="input" class="sn-field__label sn-field__label--fixed">Input Text Addon</label>
+        <span class="sn-field__addon">R$</span>
         <i class="sn-field__bar"></i>
         <span class="sn-form-group__message">Error message</span>
       </div>
-    </div>
-    <div class="sn-input sn-input--text sn-input__addon--left">
-      <div class="sn-field__text">10,00</div>
-      <label for="input" class="sn-field__label sn-field__label--fixed">Valor</label>
-      <span class="sn-field__addon">R$</span>
-      <i class="sn-field__bar"></i>
-      <span class="sn-form-group__message">Error message</span>
     </div>
     <div class="sn-cell--1">
       <div class="sn-input">
         <input type="text" required="required" id="input"/>
-        <label for="input" class="sn-field__label sn-field__label--fixed">Fixed Label</label>
+        <label for="input" class="sn-field__label sn-field__label--fixed">Input text</label>
+        <i class="sn-field__bar"></i>
+        <span class="sn-form-group__message">Error message</span>
+      </div>
+    </div>
+    <div class="sn-cell--1">
+      <div class="sn-input">
+        <textarea rows="1" required="required" id="input"></textarea>
+        <label for="input" class="sn-field__label sn-field__label--fixed">Textarea</label>
         <i class="sn-field__bar"></i>
         <span class="sn-form-group__message">Error message</span>
       </div>
@@ -285,15 +278,7 @@
             Erro do dropdown com texto muito grande para quebrar a linha.
           </span>
         </div>
-        <label for="input" class="sn-field__label sn-field__label--fixed">Tipo</label>
-        <i class="sn-field__bar"></i>
-        <span class="sn-form-group__message">Error message</span>
-      </div>
-    </div>
-    <div class="sn-cell--1">
-      <div class="sn-input">
-        <input type="text" required="required" id="input"/>
-        <label for="input" class="sn-field__label sn-field__label--fixed">Fixed Label</label>
+        <label for="input" class="sn-field__label sn-field__label--fixed">Dropdown-box</label>
         <i class="sn-field__bar"></i>
         <span class="sn-form-group__message">Error message</span>
       </div>
