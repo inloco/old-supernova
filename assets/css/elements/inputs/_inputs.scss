@@ -84,8 +84,9 @@
     box-shadow: none;
   }
   textarea {
-    padding-top: $default-textarea-padding-top;
-    padding-bottom: $default-textarea-padding-top;
+    margin-top: $default-textarea-margin-top;
+    margin-bottom: $default-textarea-margin-bottom;
+    line-height: $default-textarea-line-height;
   }
   input {
     height: $default-input-height;
@@ -374,6 +375,9 @@
   font-size: $default-form-label-font-size-floating;
   font-weight: normal;
   transition: all $default-form-animation-transition ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &.sn-field__label--fixed {
     display: block;

@@ -49,7 +49,9 @@ $default-input-field-bar-position-bottom: (($vm * 4) / -16);
 $default-input-field-text-height: $vm * 6.5;
 $default-input-field-text-top-position: $vm * 1.75;
 $default-input-field-addon-top-position: $vm * 2;
-$default-textarea-padding-top: $vm * 1.75;
+$default-textarea-margin-top: $vm * 1.75;
+$default-textarea-margin-bottom: $vm * 1.37;
+$default-textarea-line-height: $dlh * 0.95;
 $default-form-group-input-range-size: $hm * 3.5;
 $default-form-group-input-top-margin: $vm * 2.5;
 
