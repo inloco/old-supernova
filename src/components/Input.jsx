@@ -24,11 +24,26 @@ class Input extends React.Component {
   static defaultProps = {
     value:          "",
     defaultChecked: false,
-    required:       false
+    required:       false,
+    type:           "text"
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.value !== this.props.value) {
+      this.setState({ value: nextProps.value })
+    }
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value })
+    event.persist()
+
+    this.setState({
+      value: event.target.value
+    }, () => {
+      if(typeof this.props.onChange === "function") {
+        this.props.onChange(event)
+      }
+    })
   }
 
   getClassName() {

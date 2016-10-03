@@ -2,15 +2,15 @@ import React, { PropTypes } from "react"
 
 class Label extends React.Component {
   static propTyes = {
-    htmlFor: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired
+    value: PropTypes.string.isRequired,
+    htmlFor: PropTypes.string
   }
 
   render() {
     const{ htmlFor, value } = this.props
 
     return (
-      <label className="control-label" htmlFor={ htmlFor }>
+      <label className="control-label" htmlFor={ htmlFor ? htmlFor : null }>
         { value }
       </label>
     )

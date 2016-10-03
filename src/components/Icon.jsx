@@ -18,7 +18,7 @@ class Icon extends React.Component {
     const{ size, name } = this.props
 
     return (
-      <span className={ this.getIconClass() }/>
+      <span className={ this.getIconClass() } onClick={this.props.onClick} />
     )
   }
 }

@@ -74,7 +74,8 @@ class Modal extends React.Component {
                   size="sm"
                   style="validate-then-dismiss-modal"
                   label={ label }
-                  id={ btnId !== undefined ? btnId : null} />
+                  id={ btnId !== undefined ? btnId : null}
+                  onClick={ this.props.onClickOkButton } />
           <Button type="button"
                   btnType="default"
                   size="sm"

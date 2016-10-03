@@ -13,8 +13,8 @@ class User extends React.Component {
     dropdownItemHref: PropTypes.string,
     dropdownItemName: PropTypes.string,
     dropdownItemId: PropTypes.string,
-    accountHref: PropTypes.string.isRequired,
-    accountLabel: PropTypes.string.isRequired,
+    accountHref: PropTypes.string,
+    accountLabel: PropTypes.string,
     logoutHref: PropTypes.string.isRequired,
     logoutLabel: PropTypes.string.isRequired,
     creditsCash: PropTypes.string,
@@ -81,21 +81,25 @@ class User extends React.Component {
     )
   }
 
-  getUserLogin() {
-    const{ accountHref, accountLabel, logoutHref, logoutLabel } = this.props
+  renderAccount() {
+    return (
+      <li>
+        <a href={ this.props.accountHref }>
+          <span className="icon-16 icon-user"></span>
+          { this.props.accountLabel }
+        </a>
+      </li>
+    )
+  }
 
+  getUserLogin() {
     return (
       <ul className="user-login">
+        { this.props.accountHref ? this.renderAccount() : null }
         <li>
-          <a href={ accountHref }>
-            <span className="icon-16 icon-user"></span>
-            { accountLabel }
-          </a>
-        </li>
-        <li>
-          <a href={ logoutHref } data-toggle="modal" data-target="#modal-logout">
+          <a href={ this.props.logoutHref } data-toggle="modal" data-target="#modal-logout">
             <span className="icon-16 icon-turn-off"></span>
-            { logoutLabel }
+            { this.props.logoutLabel }
           </a>
         </li>
       </ul>
