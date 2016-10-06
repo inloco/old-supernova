@@ -6,10 +6,10 @@ class Table extends React.Component {
   }
 
   render() {
-    const { children } = this.props
+    const { children, className } = this.props
 
     return (
-      <table className="sn-table sn-table--stripped sn-table--bordered sn-table--flat sn-table--only-content">
+      <table className={className}>
         { children }
       </table>
     )
