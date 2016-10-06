@@ -1,6 +1,7 @@
 import React, { PropTypes } from "react"
 import ModalCloseTrigger from "./CloseTrigger"
 import Button from "./../Button"
+import Label from "./../Label"
 
 class Modal extends React.Component {
   constructor(props) {
@@ -18,12 +19,16 @@ class Modal extends React.Component {
     children: PropTypes.node,
     isOpen: PropTypes.bool,
     btnId: PropTypes.string,
-    dropdown: PropTypes.node
+    dropdown: PropTypes.node,
+    confirmSubmit: PropTypes.bool,
+    confirmMessage: PropTypes.string,
+    confirmLabel: PropTypes.string
   }
 
   static defaultProps = {
     className: "",
-    isOpen: false
+    isOpen: false,
+    confirmSubmit: false
   }
 
   componentDidMount() {
@@ -43,7 +48,7 @@ class Modal extends React.Component {
     this.refs.wrapper.removeEventListener("modal:closeTrigger:click")
   }
 
-  getHeader() {
+  renderHeader() {
     const{ id, title, dropdown } = this.props
 
     return(
@@ -62,24 +67,56 @@ class Modal extends React.Component {
     )
   }
 
-  getFooter() {
-    const{ id, title, label, btnId, cancelLabel } = this.props
+  renderNormalButtons() {
+    const{ btnId } = this.props
 
+    return (
+      <div>
+        <Button
+          type="button"
+          isModal={ true }
+          btnType="primary"
+          size="sm"
+          style="validate-then-dismiss-modal"
+          label={ this.props.label }
+          id={ btnId !== undefined ? btnId : null}
+          onClick={ this.props.onClickOkButton } />
+        <Button
+          type="button"
+          btnType="default"
+          size="sm"
+          isModal={ true }
+          label={ this.props.cancelLabel } />
+      </div>
+    )
+  }
+
+  renderConfirmSubmit() {
+    return (
+      <div>
+        <Label value={ this.props.confirmMessage } />
+        <Button
+          type="button"
+          btnType="default"
+          size="sm"
+          isModal={ true }
+          label={ this.props.cancelLabel } />
+        <Button
+          type="button"
+          btnType="primary"
+          size="sm"
+          label={ this.props.confirmLabel }
+          isModal={ true }
+          onClick={ this.props.onClickConfirmButton } />
+      </div>
+    )
+  }
+
+  renderFooter() {
     return(
       <div className="modal-footer">
-        <ModalCloseTrigger modalId={ id }>
-          <Button type="button"
-                  isModal={ true }
-                  btnType="primary"
-                  size="sm"
-                  style="validate-then-dismiss-modal"
-                  label={ label }
-                  id={ btnId !== undefined ? btnId : null} />
-          <Button type="button"
-                  btnType="default"
-                  size="sm"
-                  isModal={ true }
-                  label={ cancelLabel } />
+        <ModalCloseTrigger modalId={ this.props.id }>
+          { this.props.confirmSubmit ? this.renderConfirmSubmit() : this.renderNormalButtons() }
         </ModalCloseTrigger>
       </div>
     )
@@ -104,11 +141,11 @@ class Modal extends React.Component {
              style={ this.getStyle() }>
           <div className={ `modal-dialog modal-${size}` }>
             <div className="modal-content">
-              { this.getHeader() }
+              { this.renderHeader() }
               <div className="modal-body">
                 { children }
               </div>
-              { this.getFooter() }
+              { this.renderFooter() }
             </div>
           </div>
         </div>

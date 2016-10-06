@@ -18,17 +18,35 @@ class Input extends React.Component {
     className:       PropTypes.string,
     defaultChecked:  PropTypes.bool,
     onClick:         PropTypes.func,
-    onKeyPress:      PropTypes.func
+    onKeyPress:      PropTypes.func,
+    min:             PropTypes.sring,
+    max:             PropTypes.sring,
+    step:            PropTypes.sring,
   }
 
   static defaultProps = {
     value:          "",
     defaultChecked: false,
-    required:       false
+    required:       false,
+    type:           "text"
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.value !== this.props.value) {
+      this.setState({ value: nextProps.value })
+    }
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value })
+    event.persist()
+
+    this.setState({
+      value: event.target.value
+    }, () => {
+      if(typeof this.props.onChange === "function") {
+        this.props.onChange(event)
+      }
+    })
   }
 
   getClassName() {
@@ -43,7 +61,10 @@ class Input extends React.Component {
       name,
       dataRemoteInput,
       defaultChecked,
-      required
+      required,
+      min,
+      max,
+      step
     } = this.props
 
     return {
@@ -53,6 +74,9 @@ class Input extends React.Component {
       name,
       defaultChecked,
       required,
+      min,
+      max,
+      step,
       value:               this.state.value,
       "data-remote-input": dataRemoteInput,
       className:           this.getClassName(),
