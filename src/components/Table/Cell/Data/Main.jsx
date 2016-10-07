@@ -3,8 +3,10 @@ import { getColumnClassByType } from "../../../../helpers/table"
 
 class Data extends React.Component {
   render() {
+    const { dataLabel, className } = this.props
+
     return (
-      <td>{ this.props.children }</td>
+      <td className={className} data-label={dataLabel}>{ this.props.children }</td>
     )
   }
 }
