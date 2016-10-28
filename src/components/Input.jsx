@@ -22,13 +22,17 @@ class Input extends React.Component {
     min:             PropTypes.sring,
     max:             PropTypes.sring,
     step:            PropTypes.sring,
+    disabled:        PropTypes.bool,
+    readOnly:        PropTypes.bool
   }
 
   static defaultProps = {
     value:          "",
     defaultChecked: false,
     required:       false,
-    type:           "text"
+    disabled:       false,
+    type:           "text",
+    readOnly:       false
   }
 
   componentWillReceiveProps(nextProps) {
@@ -62,6 +66,8 @@ class Input extends React.Component {
       dataRemoteInput,
       defaultChecked,
       required,
+      disabled,
+      readOnly,
       min,
       max,
       step
@@ -74,6 +80,8 @@ class Input extends React.Component {
       name,
       defaultChecked,
       required,
+      disabled,
+      readOnly,
       min,
       max,
       step,

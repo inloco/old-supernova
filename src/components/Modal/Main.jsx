@@ -22,13 +22,15 @@ class Modal extends React.Component {
     dropdown: PropTypes.node,
     confirmSubmit: PropTypes.bool,
     confirmMessage: PropTypes.string,
-    confirmLabel: PropTypes.string
+    confirmLabel: PropTypes.string,
+    onlyOneFooterButton: PropTypes.bool
   }
 
   static defaultProps = {
     className: "",
     isOpen: false,
-    confirmSubmit: false
+    confirmSubmit: false,
+    onlyOneFooterButton: false
   }
 
   componentDidMount() {
@@ -67,20 +69,26 @@ class Modal extends React.Component {
     )
   }
 
-  renderNormalButtons() {
+  renderButton() {
     const{ btnId } = this.props
 
     return (
+      <Button
+        type="button"
+        isModal={ true }
+        btnType="primary"
+        size="sm"
+        style="validate-then-dismiss-modal"
+        label={ this.props.label }
+        id={ btnId !== undefined ? btnId : null}
+        onClick={ this.props.onClickOkButton } />
+    )
+  }
+
+  renderNormalButtons() {
+    return (
       <div>
-        <Button
-          type="button"
-          isModal={ true }
-          btnType="primary"
-          size="sm"
-          style="validate-then-dismiss-modal"
-          label={ this.props.label }
-          id={ btnId !== undefined ? btnId : null}
-          onClick={ this.props.onClickOkButton } />
+        { this.props.onlyOneFooterButton ? null : this.renderButton() }
         <Button
           type="button"
           btnType="default"
