@@ -14,14 +14,14 @@
     "build-dev": "rm -rf build && webpack --config webpack.dev.config.js --watch",
     "test": "jest",
     "test:watch": "jest --watch",
-    "start-dev:doc": "cd docs && node index.js",
-    "postinstall": "npm run build"
+    "start-dev:doc": "cd docs && node index.js"
+  },
+  "peerDependencies": {
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0"
   },
   "dependencies": {
-    "material-design-icons": "^2.2.3",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0",
-    "react-google-charts": "^1.0.2"
+    "material-design-icons": "^2.2.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.7",
@@ -42,7 +42,9 @@
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.14"
+    "webpack": "^1.12.14",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0"
   },
   "jest": {
     "testRegex": "(.*)-test.js$",

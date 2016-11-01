@@ -1,15 +1,30 @@
-var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: './src/index.js',
+
+  output: {
+    library: 'Supernova',
+    libraryTarget: 'umd',
+    path: __dirname + '/build',
+    filename: 'index.js',
+  },
+
+  externals: [
+    {
+      react: {
+        root: 'React',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react'
+      }
+    }
+  ],
+
   module: {
     loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel'
-      },
+      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
       {
         test:   /\.(scss|sass|css)$/,
         loader: ExtractTextPlugin.extract("style", "css!sass")
@@ -20,26 +35,20 @@ module.exports = {
       }
     ]
   },
+
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
-  output: {
-    path: __dirname + '/build',
-    publicPath: '/',
-    filename: 'index.js',
-    library: 'Supernova',
-    libraryTarget: 'umd'
+
+  node: {
+    Buffer: false
   },
-  externals: {
-    'react': 'react',
-    'react-dom': 'react-dom'
-  },
+
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new ExtractTextPlugin("[name].css"),
     new webpack.DefinePlugin({
-      'process.env':{
-        'NODE_ENV': JSON.stringify('production')
-      }
+      'process.env.NODE_ENV': JSON.stringify('production')
     })
   ]
-};
+}
