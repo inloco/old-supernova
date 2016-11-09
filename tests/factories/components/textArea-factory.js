@@ -13,6 +13,7 @@ class TextAreaFactory extends Factory {
         name="targeting[geo_locations]"
         rows={5}
         tabIndex={3}
+        label="test"
       />
     )
   }
