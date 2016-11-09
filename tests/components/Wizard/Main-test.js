@@ -24,7 +24,7 @@ describe("Wizard", () => {
   })
 
   it("shows the second step with content 'Baar'", () => {
-    wizardHasContent(wizardNode, "Baar")
+    wizardHasContent("Baar", wizardNode)
   })
 
   describe("when click in the next button", () => {
