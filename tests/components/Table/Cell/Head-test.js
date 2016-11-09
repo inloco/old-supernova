@@ -14,8 +14,4 @@ describe("Cell Head", () => {
   it("has text Id", () => {
     expect(node.textContent).toEqual("Id")
   })
-
-  it("has class type", () => {
-    expect(node.getAttribute("class").includes('number-col')).toBeTruthy
-  })
 })

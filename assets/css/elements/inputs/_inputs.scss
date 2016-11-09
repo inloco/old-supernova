@@ -69,6 +69,7 @@
   position: relative;
   display: inline-block;
   width: 100%;
+  min-width: 32px;
   input,
   textarea {
     display: block;
@@ -368,6 +369,7 @@
 
 .sn-field__label {
   position: absolute;
+  width: 100%;
   top: $default-form-label-position-top;
   pointer-events: none;
   padding-left: $default-form-label-padding-left;
