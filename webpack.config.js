@@ -25,7 +25,7 @@ module.exports = {
   },
   output: {
     path: __dirname + '/build',
-    publicPath: '/',
+    publicPath: './',
     filename: 'index.js',
     library: 'Supernova',
     libraryTarget: 'umd'
