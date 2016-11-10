@@ -116,6 +116,7 @@
     width: 100%;
     border-top: 1px solid $default-search-box-line-divider;
     background-color: white;
+    z-index: 1;
     @include shadow-2dp();
     li {
       padding: 4px 40px 4px 12px;
