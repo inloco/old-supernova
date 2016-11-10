@@ -1,27 +1,28 @@
-jest.unmock("../../factories/components/form-factory")
-
 import React from "react"
-import ReactDOM from "react-dom"
-import TestUtils from "react-addons-test-utils"
-import FormFactory from "../../factories/components/form-factory"
+import Checkbox from "./../../../src/components/Form/Checkbox"
+import { shallow } from "enzyme"
 
 describe("Checkbox", () => {
-  const factory = new FormFactory
-  const node = factory.getNode().querySelector("#checkbox-factory")
+  const wrapper = shallow(<Checkbox/>)
 
   it("has checkbox class", () => {
-    expect(node.classList.contains("sn-checkbox")).toBeTruthy()
+    expect(wrapper.hasClass("sn-checkbox")).toBeTruthy()
   })
 
   it("has checkbox input", () => {
-    const input = node.querySelector("input")
-
-    expect(input.type).toEqual("checkbox")
+    expect(wrapper.find("input").length).toEqual(1)
   })
 
   it("has checkbox icon", () => {
-    const icon = node.querySelector(".sn-input__icon")
+    expect(wrapper.find(".sn-input__icon").length).toEqual(1)
+  })
 
-    expect(icon).not.toBeNull()
+  it("executes onClick props when is clicked", () => {
+    const clickFun = jest.fn()
+    const wrapper = shallow(<Checkbox onClick={clickFun}/>)
+
+    wrapper.find('input').simulate('click')
+
+    expect(clickFun.mock.calls.length).toEqual(1)
   })
 })
