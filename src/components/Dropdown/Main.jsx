@@ -27,15 +27,10 @@ class Dropdown extends React.Component {
     this.setState({ open: !this.state.open })
   }
 
-  handleClick(event, child) {
-    const newLabel = event.target.textContent
+  handleClick(event) {
+    this.changeLabelTo(event.target.textContent)
 
     this.toggleList()
-    this.changeLabelTo(newLabel)
-
-    if(child) {
-      child.props.onClick()
-    }
   }
 
   getLayoutClassName() {
@@ -68,7 +63,7 @@ class Dropdown extends React.Component {
 
   renderItem(child, index) {
     return(
-      <li key={index} onClick={(e) => { this.handleClick(e, child) }}>
+      <li key={index} onClick={this.handleClick}>
         {child}
       </li>
     )

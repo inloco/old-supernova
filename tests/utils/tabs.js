@@ -1,7 +1,7 @@
 export const isShowingContent = (node, expectedContent) => {
   const content = node.querySelector(".sn-tabs__content").textContent
 
-  expect(content).toEqual(expectedContent)
+  expect(content.includes(expectedContent)).toBeTruthy()
 }
 
 export const isActive = tab => {

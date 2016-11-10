@@ -11,10 +11,6 @@ describe("Cell Data Title", () => {
     expect(node.tagName).toEqual("TD")
   })
 
-  it("has class type", () => {
-    expect(node.getAttribute("class").includes("title-col")).toBeTruthy
-  })
-
   it("has a link with href", () => {
     const link = node.querySelector("a")
 

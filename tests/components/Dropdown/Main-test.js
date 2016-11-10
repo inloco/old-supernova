@@ -1,71 +1,68 @@
-jest.unmock("../../factories/components/dropdown-factory")
-
-import TestUtils from "react-addons-test-utils"
 import DropdownFactory from "../../factories/components/dropdown-factory"
+import { mount } from "enzyme"
 
 describe("Dropdown", () => {
-  const factory = new DropdownFactory
-  const node = factory.getNode()
+  const wrapper = mount(DropdownFactory)
 
   it("has the dropdown class", () => {
-    expect(node.classList.contains("sn-dropdown")).toBeTruthy()
+    expect(wrapper.find(".sn-dropdown").length).toEqual(1)
   })
 
   it("has a button label equal 'dropdown'", () => {
-    const button = node.querySelector(".sn-dropdown__button")
+    const button = wrapper.find(".sn-dropdown__button")
 
-    expect(button.textContent).toEqual("Dropdown")
+    expect(button.text()).toEqual("Dropdown")
   })
 
   it("has a button with 'button' type", () => {
-    const button = node.querySelector(".sn-dropdown__button")
+    const button = wrapper.find(".sn-dropdown__button")
 
-    expect(button.type).toEqual("button")
+    expect(button.props().type).toEqual("button")
   })
 
   it("has a list with 3 items", () => {
-    const items = node.querySelectorAll(".sn-dropdown__results li")
+    const items = wrapper.find(".sn-dropdown__results li")
 
     expect(items.length).toEqual(3)
   })
 
   it("has a not visible list", () => {
-    const list = node.querySelector(".sn-dropdown__results")
+    const list = wrapper.find(".sn-dropdown__results")
 
-    expect(list.style.display).toEqual("none")
+    expect(list.props().style.display).toEqual("none")
   })
 
   it("has box layout", () => {
-    expect(node.classList.contains("sn-dropdown--box")).toBeTruthy()
+    expect(wrapper.find(".sn-dropdown--box").length).toEqual(1)
   })
 
   describe("when clicks in dropdown button", () => {
-    const button = node.querySelector(".sn-dropdown__button")
-    const list =   node.querySelector(".sn-dropdown__results")
+    const button = wrapper.find(".sn-dropdown__button")
+    const list =   wrapper.find(".sn-dropdown__results")
 
     it("shows the list", () => {
-      TestUtils.Simulate.click(button)
+      button.simulate("click")
 
-      expect(list.style.display).toEqual("block")
+      expect(list.props().style.display).toEqual("block")
     })
 
     describe("when clicks again in the button", () => {
       it("hiddens the list", () => {
-        TestUtils.Simulate.click(button)
+        button.simulate("click")
 
-        expect(list.style.display).toEqual("none")
+        expect(list.props().style.display).toEqual("none")
       })
     })
 
     describe("when clicks in an item of list", () => {
       it("changes label", () => {
-        const item = list.querySelector("li")
-        const label = node.querySelector("button")
+        const item = list.find("li").first()
+        const label = wrapper.find("button").first()
 
-        TestUtils.Simulate.click(button)
-        TestUtils.Simulate.click(item)
+        button.simulate("click")
+        item.simulate("click")
 
-        expect(label.textContent).toEqual("Dropdown result 1")
+        expect(label.text()).toEqual("Dropdown result 1")
       })
     })
   })

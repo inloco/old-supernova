@@ -14,7 +14,7 @@ class InputFactory extends Factory{
         required={ true }
         name="email"
         autoFocus={ true }
-        defaultValue="foo@foo.com"
+        value="foo@foo.com"
       />
     )
   }
