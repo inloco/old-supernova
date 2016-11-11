@@ -3,11 +3,13 @@ import SearchBox from "./../../src/components/SearchBox"
 import { shallow } from "enzyme"
 
 describe("Search Box", () => {
+  const onChangeSpy = jest.fn()
   const wrapper = shallow(
     <SearchBox
       label="Busque aqui"
       helpMessage="Foo"
-      typeMessage="info"/>
+      typeMessage="info"
+      onChange={onChangeSpy}/>
   )
 
   it("has searchbox class", () => {
@@ -42,5 +44,13 @@ describe("Search Box", () => {
     const infoMessage = wrapper.find(".sn-search-box__message.sn-search-box__message--info")
 
     expect(infoMessage).not.toBeNull()
+  })
+
+  context("when input change", () => {
+    it("executes onChange function 1 time", () => {
+      wrapper.find("input").simulate('change')
+
+      expect(onChangeSpy.mock.calls.length).toEqual(1)
+    })
   })
 })
