@@ -9,7 +9,8 @@ describe("Search Box", () => {
       label="Busque aqui"
       helpMessage="Foo"
       typeMessage="info"
-      onChange={onChangeSpy}/>
+      onChange={onChangeSpy}
+      results={[{ title: "foo"}]}/>
   )
 
   it("has searchbox class", () => {
@@ -48,12 +49,18 @@ describe("Search Box", () => {
 
   context("when input change", () => {
     it("executes onChange function 1 time", () => {
-      const fooEvent = {}
+      const fooEvent = { target: { value: "foo" }}
 
       wrapper.find("input").simulate('change', fooEvent)
 
       expect(onChangeSpy.mock.calls.length).toEqual(1)
       expect(onChangeSpy).toBeCalledWith(fooEvent)
+    })
+
+    it("updates results", () => {
+      wrapper.setProps({ results: [{ title: "other" }, { title: "baar" }]})
+
+      expect(wrapper.state().results.length).toEqual(2)
     })
   })
 })

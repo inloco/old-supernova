@@ -28,6 +28,12 @@ class SearchBox extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.results !== this.props.results) {
+      this.setState({ results: nextProps.results })
+    }
+  }
+
   render() {
     return (
       <div className="sn-search-box">
@@ -128,7 +134,11 @@ class SearchBox extends React.Component {
   }
 
   getVisibleResults() {
-    return this.state.results.filter(result => !result.selected && result.matched)
+    const { results } = this.state
+
+    return this.props.ajax
+            ? results.filter(result => !result.selected)
+            : results.filter(result => !result.selected && result.matched)
   }
 
   renderEmptyMessage() {
