@@ -48,9 +48,12 @@ describe("Search Box", () => {
 
   context("when input change", () => {
     it("executes onChange function 1 time", () => {
-      wrapper.find("input").simulate('change')
+      const fooEvent = {}
+
+      wrapper.find("input").simulate('change', fooEvent)
 
       expect(onChangeSpy.mock.calls.length).toEqual(1)
+      expect(onChangeSpy).toBeCalledWith(fooEvent)
     })
   })
 })

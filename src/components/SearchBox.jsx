@@ -95,7 +95,7 @@ class SearchBox extends React.Component {
 
   handleInputChange(event) {
     if(typeof this.props.onChange === "function") {
-      this.props.onChange()
+      this.props.onChange(event)
     }
 
     this.setState({
