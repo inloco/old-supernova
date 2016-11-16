@@ -94,6 +94,10 @@ class SearchBox extends React.Component {
   }
 
   handleInputChange(event) {
+    if(typeof this.props.onChange === "function") {
+      this.props.onChange(event)
+    }
+
     this.setState({
       results: this.state.results.map(result => {
         const matched = result.title.toLowerCase().includes(event.target.value.toLowerCase())
