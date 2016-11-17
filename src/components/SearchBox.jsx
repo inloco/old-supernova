@@ -35,10 +35,32 @@ class SearchBox extends React.Component {
   }
 
   render() {
+    const haveSelectedResults = this.getSelectedResults().length > 0
+    const isToShowInput = !(this.props.single && haveSelectedResults)
+
     return (
       <div className="sn-search-box">
         {this.renderSelectedResults()}
+        {isToShowInput && this.renderInput()}
+      </div>
+    )
+  }
 
+  renderSelectedResults() {
+    const selectedResults = this.getSelectedResults()
+
+    if(selectedResults.length === 0) return null
+
+    return (
+      <ul className="sn-search-box__selected">
+        {selectedResults.map(result => <li key={result.id}>{this.renderSelectedResultCard(result)}</li>)}
+      </ul>
+    )
+  }
+
+  renderInput() {
+    return (
+      <div>
         <input
           ref={input => this.input = input}
           type="text"
@@ -53,18 +75,6 @@ class SearchBox extends React.Component {
         {this.hasMinimumInputLength() && this.renderResults()}
         {this.renderHelpMessage()}
       </div>
-    )
-  }
-
-  renderSelectedResults() {
-    const selectedResults = this.getSelectedResults()
-
-    if(selectedResults.length === 0) return null
-
-    return (
-      <ul className="sn-search-box__selected">
-        {selectedResults.map(result => <li key={result.id}>{this.renderSelectedResultCard(result)}</li>)}
-      </ul>
     )
   }
 
@@ -111,7 +121,7 @@ class SearchBox extends React.Component {
   handleUnselectClick(unselectedResult) {
     this.unselectResult(unselectedResult)
 
-    this.input.focus()
+    this.input && this.input.focus()
   }
 
   unselectResult(unselectedResult) {

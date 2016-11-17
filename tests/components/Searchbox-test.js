@@ -106,4 +106,27 @@ describe("Search Box", () => {
       expect(firstCustomComponent.props().result).toEqual({ id: 0, title: "foo" })
     })
   })
+
+  context("when is single", () => {
+    beforeEach(() => {
+      wrapper = shallow(
+        <SearchBox
+          single
+          label="Busque aqui"
+          results={[{ id: 0, title: "foo"}]}/>
+      )
+    })
+
+    it("shows input searchbox when not have results", () => {
+      expect(wrapper.find("input").length).toEqual(1)
+    })
+
+    it("hiddens input searchbox when have one result", () => {
+      wrapper.setState({
+        selectedResultsIds: [0]
+      })
+
+      expect(wrapper.find("input").length).toEqual(0)
+    })
+  })
 })
