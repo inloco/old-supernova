@@ -1,12 +1,18 @@
 import { mount } from "enzyme"
+import sinon from "sinon"
 import React from "react"
 import CellHead from "../../../../src/components/Table/Cell/Head"
 
 describe("Cell Head", () => {
-  let wrapper
+  let wrapper, spyClick
 
   beforeEach(() => {
-    wrapper = mount(<CellHead type="number" color="#fff">Id</CellHead>)
+    spyClick = sinon.spy()
+    wrapper = mount(
+      <CellHead type="number" color="#fff" onClick={() => spyClick()}>
+        Id
+      </CellHead>
+    )
   })
 
   it("has children", () => {
@@ -19,5 +25,10 @@ describe("Cell Head", () => {
 
   it("has color", () => {
     expect(wrapper.props().color).toEqual("#fff")
+  })
+
+  it("has onClick", () => {
+    wrapper.simulate("click")
+    expect(spyClick.calledOnce).toBeTruthy
   })
 })

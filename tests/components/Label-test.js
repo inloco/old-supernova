@@ -6,10 +6,12 @@ describe("Label", () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = mount(<Label
-                      htmlFor="input-a"
-                      value="Something"
-                      className="some-class" />)
+    wrapper = mount(
+      <Label
+        htmlFor="input-a"
+        value="Something"
+        className="some-class" />
+    )
   })
 
   it("has for", () => {
