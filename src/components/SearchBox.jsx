@@ -1,20 +1,16 @@
 import React, { PropTypes } from "react"
+import _ from "lodash"
 
 class SearchBox extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      results: this.addIdsInResults(props.results),
+      results: props.results,
       selectedResultsIds: [],
+      latestResultsIds: props.results.map(result => result.id),
       expandedResults: false
     }
-  }
-
-  addIdsInResults(results) {
-    return results.map((result, index) => {
-      return { ...result, id: index }
-    })
   }
 
   componentDidMount() {
@@ -32,7 +28,8 @@ class SearchBox extends React.Component {
   componentWillReceiveProps(nextProps) {
     if(nextProps.results !== this.props.results) {
       this.setState({
-        results: this.addIdsInResults(nextProps.results)
+        latestResultsIds: nextProps.results.map(result => result.id),
+        results: _.unionBy(nextProps.results, this.state.results, "id")
       })
     }
   }
@@ -147,11 +144,17 @@ class SearchBox extends React.Component {
   }
 
   getVisibleResults() {
-    const { results } = this.state
+    const currentResults = this.getCurrentResults()
 
     return this.props.ajax
-            ? results.filter(result => !this.resultIsSelected(result))
-            : results.filter(result => !this.resultIsSelected(result) && result.matched)
+            ? currentResults.filter(result => !this.resultIsSelected(result))
+            : currentResults.filter(result => !this.resultIsSelected(result) && result.matched)
+  }
+
+  getCurrentResults() {
+    const { latestResultsIds, results } = this.state
+
+    return results.filter(result => latestResultsIds.includes(result.id))
   }
 
   renderEmptyMessage() {
