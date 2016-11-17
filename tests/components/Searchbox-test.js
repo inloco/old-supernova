@@ -4,13 +4,18 @@ import { shallow } from "enzyme"
 
 describe("Search Box", () => {
   const onChangeSpy = jest.fn()
-  const wrapper = shallow(
-    <SearchBox
-      label="Busque aqui"
-      helpMessage="Foo"
-      typeMessage="info"
-      onChange={onChangeSpy}/>
-  )
+  let wrapper
+
+  beforeEach(() => {
+    wrapper = shallow(
+      <SearchBox
+        label="Busque aqui"
+        helpMessage="Foo"
+        typeMessage="info"
+        onChange={onChangeSpy}
+        results={[{ id: 0, title: "foo"}]}/>
+    )
+  })
 
   it("has searchbox class", () => {
     expect(wrapper.hasClass("sn-search-box")).toBeTruthy()
@@ -48,12 +53,24 @@ describe("Search Box", () => {
 
   context("when input change", () => {
     it("executes onChange function 1 time", () => {
-      const fooEvent = {}
+      const fooEvent = { target: { value: "foo" }}
 
       wrapper.find("input").simulate('change', fooEvent)
 
       expect(onChangeSpy.mock.calls.length).toEqual(1)
       expect(onChangeSpy).toBeCalledWith(fooEvent)
+    })
+
+    it("updates results", () => {
+      wrapper.setProps({
+        results: [
+          { id: 1, title: "other" },
+          { id: 2, title: "baar" }
+        ]
+      })
+
+      expect(wrapper.state().results.length).toEqual(3)
+      expect(wrapper.state().latestResultsIds.length).toEqual(2)
     })
   })
 })

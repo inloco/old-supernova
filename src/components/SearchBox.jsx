@@ -1,19 +1,16 @@
 import React, { PropTypes } from "react"
+import _ from "lodash"
 
 class SearchBox extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      results: this.addIdsInResults(props.results),
+      results: props.results,
+      selectedResultsIds: [],
+      latestResultsIds: props.results.map(result => result.id),
       expandedResults: false
     }
-  }
-
-  addIdsInResults(results) {
-    return results.map((result, index) => {
-      return { ...result, id: index }
-    })
   }
 
   componentDidMount() {
@@ -25,6 +22,15 @@ class SearchBox extends React.Component {
   handleOutsideClick(event) {
     if(event.target !== this.input) {
       this.setState({ expandedResults: false })
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.results !== this.props.results) {
+      this.setState({
+        latestResultsIds: nextProps.results.map(result => result.id),
+        results: _.unionBy(nextProps.results, this.state.results, "id")
+      })
     }
   }
 
@@ -44,7 +50,7 @@ class SearchBox extends React.Component {
 
         <span className="sn-search-box__input--icon"></span>
 
-        {this.hasMinimumInputValue() && this.renderResults()}
+        {this.hasMinimumInputLength() && this.renderResults()}
         {this.renderHelpMessage()}
       </div>
     )
@@ -63,7 +69,13 @@ class SearchBox extends React.Component {
   }
 
   getSelectedResults() {
-    return this.state.results.filter(result => result.selected)
+    const { results, selectedResultsIds } = this.state
+
+    return results.filter(result => this.resultIsSelected(result))
+  }
+
+  resultIsSelected(result) {
+    return this.state.selectedResultsIds.includes(result.id)
   }
 
   renderSelectedResultCard(selectedResult) {
@@ -83,14 +95,18 @@ class SearchBox extends React.Component {
     this.setState({ expandedResults: true })
   }
 
-  handleUnselectClick(selectedResult) {
-    this.setState({
-      results: this.state.results.map(result => {
-        return selectedResult.id === result.id ? { ...result, selected: false } : result
-      })
-    })
+  handleUnselectClick(unselectedResult) {
+    this.unselectResult(unselectedResult)
 
     this.input.focus()
+  }
+
+  unselectResult(unselectedResult) {
+    const { selectedResultsIds } = this.state
+
+    this.setState({
+      selectedResultsIds: selectedResultsIds.filter(resultId => unselectedResult.id !== resultId)
+    })
   }
 
   handleInputChange(event) {
@@ -107,7 +123,7 @@ class SearchBox extends React.Component {
     })
   }
 
-  hasMinimumInputValue() {
+  hasMinimumInputLength() {
     return this.input && this.input.value.length > 1
   }
 
@@ -128,7 +144,17 @@ class SearchBox extends React.Component {
   }
 
   getVisibleResults() {
-    return this.state.results.filter(result => !result.selected && result.matched)
+    const currentResults = this.getCurrentResults()
+
+    return this.props.ajax
+            ? currentResults.filter(result => !this.resultIsSelected(result))
+            : currentResults.filter(result => !this.resultIsSelected(result) && result.matched)
+  }
+
+  getCurrentResults() {
+    const { latestResultsIds, results } = this.state
+
+    return results.filter(result => latestResultsIds.includes(result.id))
   }
 
   renderEmptyMessage() {
@@ -172,11 +198,11 @@ class SearchBox extends React.Component {
     this.input.value = ""
   }
 
-  selectResult(resultToSelect) {
+  selectResult(selectedResult) {
+    const { selectedResultsIds } = this.state
+
     this.setState({
-      results: this.state.results.map(result => {
-        return resultToSelect.id === result.id ? { ...result, selected: true } : result
-      })
+      selectedResultsIds: selectedResultsIds.concat(selectedResult.id)
     })
   }
 
