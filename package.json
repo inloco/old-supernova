@@ -13,16 +13,17 @@
     "postinstall": "npm run build"
   },
   "dependencies": {
+    "enzyme": "^2.6.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
-    "react-google-charts": "^1.0.0"
+    "react-google-charts": "^1.0.0",
+    "sinon": "^1.17.6"
   },
   "devDependencies": {
-    "jest-cli": "*",
+    "jest-cli": "^17.0.3",
     "react-addons-test-utils": "~15.1.0",
     "autoprefixer": "^6.3.5",
     "babel-cli": "^6.10.1",
-    "babel-jest": "^9.0.0",
     "babel-core": "^6.7.4",
     "babel-loader": "^6.2.4",
     "babel-polyfill": "^6.7.4",

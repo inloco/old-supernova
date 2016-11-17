@@ -1,21 +1,34 @@
-jest.unmock("../../../factories/components/table-factory")
-jest.unmock("../../../../src/helpers/table")
-
-import TableFactory from "../../../factories/components/table-factory"
+import { mount } from "enzyme"
+import sinon from "sinon"
+import React from "react"
+import CellHead from "../../../../src/components/Table/Cell/Head"
 
 describe("Cell Head", () => {
-  const factory = new TableFactory
-  const node = factory.getNode().querySelector("th")
+  let wrapper, spyClick
 
-  it("is a th", () => {
-    expect(node.tagName).toEqual("TH")
+  beforeEach(() => {
+    spyClick = sinon.spy()
+    wrapper = mount(
+      <CellHead type="number" color="#fff" onClick={() => spyClick()}>
+        Id
+      </CellHead>
+    )
   })
 
-  it("has text Id", () => {
-    expect(node.textContent).toEqual("Id")
+  it("has children", () => {
+    expect(wrapper.props().children).toEqual("Id")
   })
 
-  it("has class type", () => {
-    expect(node.getAttribute("class").includes('number-col')).toBeTruthy
+  it("has type", () => {
+    expect(wrapper.props().type).toEqual("number")
+  })
+
+  it("has color", () => {
+    expect(wrapper.props().color).toEqual("#fff")
+  })
+
+  it("has onClick", () => {
+    wrapper.simulate("click")
+    expect(spyClick.calledOnce).toBeTruthy
   })
 })
