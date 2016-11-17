@@ -1,21 +1,23 @@
-jest.unmock("../../../factories/components/table-factory")
-jest.unmock("../../../../src/helpers/table")
-
-import TableFactory from "../../../factories/components/table-factory"
+import { mount } from "enzyme"
+import React from "react"
+import CellHead from "../../../../src/components/Table/Cell/Head"
 
 describe("Cell Head", () => {
-  const factory = new TableFactory
-  const node = factory.getNode().querySelector("th")
+  let wrapper
 
-  it("is a th", () => {
-    expect(node.tagName).toEqual("TH")
+  beforeEach(() => {
+    wrapper = mount(<CellHead type="number" color="#fff">Id</CellHead>)
   })
 
-  it("has text Id", () => {
-    expect(node.textContent).toEqual("Id")
+  it("has children", () => {
+    expect(wrapper.props().children).toEqual("Id")
   })
 
-  it("has class type", () => {
-    expect(node.getAttribute("class").includes('number-col')).toBeTruthy
+  it("has type", () => {
+    expect(wrapper.props().type).toEqual("number")
+  })
+
+  it("has color", () => {
+    expect(wrapper.props().color).toEqual("#fff")
   })
 })

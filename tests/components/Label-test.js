@@ -1,21 +1,26 @@
-jest.unmock("../factories/components/label-factory")
-
-import LabelFactory from "../factories/components/label-factory"
-
+import { mount } from "enzyme"
 import React from "react"
-import ReactDOM from "react-dom"
-import TestUtils from "react-addons-test-utils"
 import Label from "../../src/components/Label"
 
 describe("Label", () => {
-  const factory = new LabelFactory
-  const node = factory.getNode()
+  let wrapper
+
+  beforeEach(() => {
+    wrapper = mount(<Label
+                      htmlFor="input-a"
+                      value="Something"
+                      className="some-class" />)
+  })
 
   it("has for", () => {
-    expect(node.htmlFor).toEqual("targeting_geo_locations")
+    expect(wrapper.props().htmlFor).toEqual("input-a")
   })
 
   it("has value", () => {
-    expect(node.textContent).toEqual("Locations")
+    expect(wrapper.props().value).toEqual("Something")
+  })
+
+  it("has class", () => {
+    expect(wrapper.props().className).toEqual("some-class")
   })
 })

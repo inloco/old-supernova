@@ -8,13 +8,13 @@ class Label extends React.Component {
   }
 
   render() {
-    const{ htmlFor, value } = this.props
+    const{ htmlFor } = this.props
 
     return (
       <label
         className={`control-label ${this.props.className}`}
-        htmlFor={ htmlFor ? htmlFor : null }>
-        { value }
+        htmlFor={htmlFor ? htmlFor : null}>
+        {this.props.value}
       </label>
     )
   }
