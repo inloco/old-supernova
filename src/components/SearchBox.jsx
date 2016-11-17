@@ -79,6 +79,12 @@ class SearchBox extends React.Component {
   }
 
   renderSelectedResultCard(selectedResult) {
+    const CustomComponent = this.props.component
+
+    if(CustomComponent) {
+      return <CustomComponent result={selectedResult}/>
+    }
+
     return (
       <div>
         <div className="sn-search-box__item-content">{selectedResult.title}</div>

@@ -73,4 +73,37 @@ describe("Search Box", () => {
       expect(wrapper.state().latestResultsIds.length).toEqual(2)
     })
   })
+
+  context("when use custom component", () => {
+    const CustomComponent = props => {
+      return <div>Foo</div>
+    }
+
+    beforeEach(() => {
+      wrapper = shallow(
+        <SearchBox
+          label="Busque aqui"
+          helpMessage="Foo"
+          typeMessage="info"
+          onChange={onChangeSpy}
+          results={[{ id: 0, title: "foo"}]}
+          component={CustomComponent}/>
+      )
+
+      wrapper.setState({
+        selectedResultsIds: [0]
+      })
+    })
+
+
+    it("shows one CustomComponent", () => {
+      expect(wrapper.find("CustomComponent").length).toEqual(1)
+    })
+
+    it("pass result to CustomComponent", () => {
+      const firstCustomComponent = wrapper.find("CustomComponent").first()
+
+      expect(firstCustomComponent.props().result).toEqual({ id: 0, title: "foo" })
+    })
+  })
 })
