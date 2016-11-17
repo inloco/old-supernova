@@ -82,7 +82,14 @@ class SearchBox extends React.Component {
     const CustomComponent = this.props.component
 
     if(CustomComponent) {
-      return <CustomComponent result={selectedResult}/>
+      return <div>
+        <CustomComponent result={selectedResult}/>
+        <button
+          type="button"
+          className="sn-search-box__item-button sn-search-box__item-button--top"
+          onClick={this.handleUnselectClick.bind(this, selectedResult)}>
+        </button>
+      </div>
     }
 
     return (
