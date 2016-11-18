@@ -129,7 +129,7 @@ class SearchBox extends React.Component {
 
     this.setState({
       selectedResultsIds: selectedResultsIds.filter(resultId => unselectedResult.id !== resultId)
-    })
+    }, () => this.props.onUnselectResult(unselectedResult))
   }
 
   handleInputChange(event) {
@@ -226,7 +226,7 @@ class SearchBox extends React.Component {
 
     this.setState({
       selectedResultsIds: selectedResultsIds.concat(selectedResult.id)
-    })
+    }, () => this.props.onSelectResult(selectedResult))
   }
 
   renderHelpMessage() {

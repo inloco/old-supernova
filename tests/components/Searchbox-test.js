@@ -129,4 +129,50 @@ describe("Search Box", () => {
       expect(wrapper.find("input").length).toEqual(0)
     })
   })
+
+  context("when select a result", () => {
+    let onSelectResultSpy
+
+    beforeEach(() => {
+      onSelectResultSpy = jest.fn()
+      wrapper = shallow(
+        <SearchBox
+          single
+          label="Busque aqui"
+          results={[{ id: 0, title: "foo"}]}
+          onSelectResult={onSelectResultSpy}/>
+      )
+
+      wrapper.instance().selectResult({ id: 0 })
+    })
+
+    it("executes onSelectResult function", () => {
+      expect(onSelectResultSpy).toBeCalledWith({ id: 0 })
+    })
+  })
+
+  context("when unselect a result", () => {
+    let onUnselectResultSpy
+
+    beforeEach(() => {
+      onUnselectResultSpy = jest.fn()
+      wrapper = shallow(
+        <SearchBox
+          single
+          label="Busque aqui"
+          results={[{ id: 0, title: "foo"}]}
+          onUnselectResult={onUnselectResultSpy}/>
+      )
+
+      wrapper.setState({
+        selectedResultsIds: [0]
+      })
+
+      wrapper.instance().unselectResult({ id: 0 })
+    })
+
+    it("executes onSelectResult function", () => {
+      expect(onUnselectResultSpy).toBeCalledWith({ id: 0 })
+    })
+  })
 })
