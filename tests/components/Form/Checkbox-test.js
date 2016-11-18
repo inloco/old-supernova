@@ -26,7 +26,7 @@ describe("Checkbox", () => {
     expect(clickFun.mock.calls.length).toEqual(1)
   })
 
-  it("cames checked whe is true", () => {
+  it("comes checked when is true", () => {
     const wrapper = shallow(<Checkbox checked={true}/>)
 
     expect(wrapper.find("input").props().checked).toBeTruthy()
