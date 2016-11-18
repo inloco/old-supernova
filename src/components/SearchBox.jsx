@@ -36,7 +36,7 @@ class SearchBox extends React.Component {
 
   render() {
     const haveSelectedResults = this.getSelectedResults().length > 0
-    const isToShowInput = !(this.props.single && haveSelectedResults)
+    const shouldShowInput = !(this.props.single && haveSelectedResults)
 
     return (
       <div className="sn-search-box">
