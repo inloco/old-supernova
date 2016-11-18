@@ -41,7 +41,7 @@ class SearchBox extends React.Component {
     return (
       <div className="sn-search-box">
         {this.renderSelectedResults()}
-        {isToShowInput && this.renderInput()}
+        {shouldShowInput && this.renderInput()}
       </div>
     )
   }
