@@ -1,4 +1,6 @@
 import React, { PropTypes } from "react"
+import Button from "./Button"
+import Icon from "./Icon"
 import _ from "lodash"
 
 class SearchBox extends React.Component {
@@ -152,17 +154,35 @@ class SearchBox extends React.Component {
 
   renderResults() {
     const visibleResults = this.getVisibleResults()
+    const isEmpty = visibleResults.length === 0
+    const hasEmptyButton = this.props.emptyButton
 
     return (
       <ul
         className="sn-search-box__results"
         style={{ display: this.state.expandedResults ? 'block' : 'none' }}>
-        {
-          visibleResults.length === 0
-            ? this.renderEmptyMessage()
-            : visibleResults.map(result => <li key={result.id}>{this.renderResultCard(result)}</li>)
-        }
+        {isEmpty && this.renderEmptyMessage()}
+        {isEmpty && hasEmptyButton && this.renderEmptyButton()}
+
+        {!isEmpty && visibleResults.map(result =>
+          <li key={result.id}>{this.renderResultCard(result)}</li>
+        )}
       </ul>
+    )
+  }
+
+  renderEmptyButton() {
+    return (
+      <li className="sn-search-box__results--action">
+        <div className="sn-search-box__item-content">
+          <Button size="xs" onClick={this.props.emptyButton.onClick}>
+            <Icon code="add"/>
+            <span className="is-hidden--tablet-threshold">
+              {this.props.emptyButton.label}
+            </span>
+          </Button>
+        </div>
+      </li>
     )
   }
 

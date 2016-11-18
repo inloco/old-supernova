@@ -1,6 +1,7 @@
 import React from "react"
 import SearchBox from "./../../src/components/SearchBox"
-import { shallow } from "enzyme"
+import sinon from "sinon"
+import { shallow, mount } from "enzyme"
 
 describe("Search Box", () => {
   const onChangeSpy = jest.fn()
@@ -173,6 +174,48 @@ describe("Search Box", () => {
 
     it("executes onSelectResult function", () => {
       expect(onUnselectResultSpy).toBeCalledWith({ id: 0 })
+    })
+  })
+
+  context("when is empty", () => {
+    context("and has empty button seted", () => {
+      let button, onClickSpy, stubHasMinimumInputLength
+
+      beforeEach(() => {
+        stubHasMinimumInputLength = sinon.stub(SearchBox.prototype, "hasMinimumInputLength", () => true)
+        onClickSpy = jest.fn()
+        wrapper = mount(
+          <SearchBox
+            single
+            ajax
+            label="Busque aqui"
+            emptyButton={{ label: "Novo cliente", onClick: onClickSpy }}/>
+        )
+
+        wrapper.setState({ expandedResults: true })
+
+        button = wrapper.find(".sn-search-box__results--action button")
+      })
+
+      afterEach(() => {
+        stubHasMinimumInputLength.restore()
+      })
+
+      describe("button", () => {
+        it("is displayed", () => {
+          expect(button.length).toBe(1)
+        })
+
+        it("has + Novo cliente label", () => {
+          expect(button.text().includes("Novo cliente")).toBeTruthy()
+        })
+
+        it("calls onClick function when clicked", () => {
+          button.simulate("click")
+
+          expect(onClickSpy).toBeCalled()
+        })
+      })
     })
   })
 })

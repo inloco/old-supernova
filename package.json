@@ -39,13 +39,12 @@
     "jest": "^17.0.0",
     "node-sass": "^3.8.0",
     "react-addons-test-utils": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "react-dom": "^15.3.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0"
+    "react": "^15.3.0"
   },
   "jest": {
     "testRegex": "(.*)-test.js$",
