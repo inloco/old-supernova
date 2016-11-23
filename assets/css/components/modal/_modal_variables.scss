@@ -11,8 +11,6 @@
  *
  */
 
-@import "../../globals/colors/colors_variables";
-
 
 // Modal variables
 $default-modal-border-radius                   : $default-border-radius;
@@ -35,7 +33,5 @@ $default-modal-width-xl                        : $screen-xsmall; // ~992px
 
 
 
-// Colors
-$default-modal-header-button-color: $default-button-secondary-color;
-$default-modal-border-color: $default-dividers-color;
+
 

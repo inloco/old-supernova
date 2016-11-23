@@ -12,8 +12,7 @@
  */
 
 
-@import "../../customizable";
-
+@import "../typography/typography_variables";
 
 
 // Defines baseline grid based on vertical and horizontal movements
@@ -29,52 +28,12 @@ $dlh      : $default-line-height;         // ~20px
 
 
 
-// Vertical Margins (based on baseline grid)
-
-$vs-4     : $vm * 1;        // ~4px
-$vs-8     : $vm * 2;        // ~8px
-$vs-10    : $vm * 2.5;      // ~10px
-$vs-12    : $vm * 3;        // ~12px
-$vs-16    : $vm * 4;        // ~16px
-$vs-20    : $vm * 5;        // ~20px
-$vs-24    : $vm * 6;        // ~24px
-$vs-28    : $vm * 7;        // ~28px
-$vs-32    : $vm * 8;        // ~32px
-$vs-36    : $vm * 9;        // ~36px
-$vs-40    : $vm * 10;       // ~40px
-$vs-48    : $vm * 12;       // ~48px
-$vs-52    : $vm * 13;       // ~52px
-$vs-56    : $vm * 14;       // ~56px
-$vs-64    : $vm * 16;       // ~64px
-$vs-72    : $vm * 18;       // ~72px
-
-// Horizontal Margins (based on baseline grid)
-
-$hs-4     : $hm * 1;        // ~4px
-$hs-8     : $hm * 2;        // ~8px
-$hs-10    : $hm * 2.5;      // ~10px
-$hs-12    : $hm * 3;        // ~12px
-$hs-16    : $hm * 4;        // ~16px
-$hs-20    : $hm * 5;        // ~20px
-$hs-24    : $hm * 6;        // ~24px
-$hs-28    : $hm * 7;        // ~28px
-$hs-32    : $hm * 8;        // ~32px
-$hs-36    : $hm * 9;        // ~36px
-$hs-40    : $hm * 10;       // ~40px
-$hs-48    : $hm * 12;       // ~48px
-$hs-52    : $hm * 13;       // ~52px
-$hs-56    : $hm * 14;       // ~56px
-$hs-64    : $hm * 16;       // ~64px
-$hs-72    : $hm * 18;       // ~72px
-
-
-
 //----
 
 
 // Border Radius size
 
-$default-border-radius: $default-font-size / 8;
+$default-border-radius    : $default-font-size / 8;  // ~2px
 
 
 

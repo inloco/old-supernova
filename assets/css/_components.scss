@@ -6,27 +6,19 @@
  *  Copyright 2016 - All Rights Reserved.
  *
  *  -------- SUPERNOVA --------
- *     sass compilable file
+ *     import utilities file
  *  ----------- *** -----------
- *  /globals
- *  /elements
- *  /components
+ *  general variables
+ *  material color palette
+ *  functions
+ *  mixins
  *  ----------- *** -----------
  *
  *  *** DO NOT MODIFY THIS FILE ***
  *
  */
 
-@import "customizables";
-@import "globals/globals";
-@import "elements/elements";
+
+// Components
 @import "components/components";
-
-
-// REMOVE THIS FILE
-@import "presentation";
-
-
-
-
 

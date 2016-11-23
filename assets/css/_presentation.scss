@@ -234,3 +234,27 @@ pre {
     border: 1px solid #ccc;
   }
 }
+
+
+.mycomp {
+  width: $hm * 20;
+  height: $vm * 10;
+  padding: ($hm * 8) ($vm * 8);
+  font-size: $dfs * 1;
+  line-height: $dlh * 1;
+  background-color: $default-brand-color;
+  color: white;
+}
+.brand-color {
+  background-color: $default-brand-color;
+}
+.accent-color {
+  background-color: $default-accent-color;
+}
+
+.imagem-comp {
+  width: 300px;
+  height: 300px;
+  background-color: red;
+  @include background-image(photo,jpg,300px, auto);
+}

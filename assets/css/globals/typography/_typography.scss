@@ -13,13 +13,11 @@
 
 
 // Imports
-
-@import "../functions/functions";     // Import Functions
-@import "typography_mixins";          // Import Typography Mixins
-@import "../../customizable";         // Import Customizable
-@import "typography_variables";       // Import Typography Variables
-@import "../general/general_variables";
-@import "../colors/colors_variables";
+@import "modular-scale/modular-scale";    // Import Modular Scale Script
+@import "typography_mixins";              // Import Typography Mixins
+@import "typography_variables";           // Import Typography Variables
+@import "../general/general_variables";   // Import General Variables
+@import "../../globals/colors/colors_variables";     // Import Colors Variables
 
 
 // Word Breaks for large texts

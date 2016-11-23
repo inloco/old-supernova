@@ -16,7 +16,6 @@
 @import "../general/general_variables";
 @import "../typography/typography_variables";
 @import "../colors/colors_variables";
-@import "../../customizable";
 
 
 $default-layout-screen-size-threshold                 : $screen-threshold !default; // ~1024px
@@ -55,11 +54,11 @@ $default-layout-drawer-mobile-padding                 : $hm * 8 !default; // ~32
 
 
 // Footer
-$default-layout-footer-title                          : $hs-20; // ~20px
-$default-layout-footer-padding                        : $hs-16 !default; // ~16px
+$default-layout-footer-title                          : $hm * 5; // ~20px
+$default-layout-footer-padding                        : $hm * 4 !default; // ~16px
 $default-layout-footer-heading-font-size              : $dfs * 1.7142857143 !default; // ~24px
-$default-layout-footer-heading-line-height            : $default-line-height !default;
-$default-layout-footer-button-size                    : $hs-36 !default; // ~36px
+$default-layout-footer-heading-line-height            : $dlh !default;
+$default-layout-footer-button-size                    : $hm * 4 !default; // ~36px
 
 
 // Z-index

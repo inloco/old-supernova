@@ -28,13 +28,13 @@ $default-button-group-margin-value: $hm * 1;
 // Button Sizes
 
 // xs
-$default-button-xs-height: $vm * 6;
-$default-button-xs-min-width: $hm * 4;
-$default-button-xs-padding: 0 $hm * 2.3;
-$default-button-xs-line-height: $vm * 6;
-$default-button-xs-font-size: $default-font-size / 1.4;
-$default-button-xs-icon-font-size: $dfs * 1 !important;
-$default-button-xs-content-margin: $hm * .75;
+$default-button-xs-height                 : $vm * 6;
+$default-button-xs-min-width              : $hm * 4;
+$default-button-xs-padding                : 0 $hm * 2.3;
+$default-button-xs-line-height            : $vm * 6;
+$default-button-xs-font-size              : $default-font-size / 1.4;
+$default-button-xs-icon-font-size         : $dfs * 1 !important;
+$default-button-xs-content-margin         : $hm * .75;
 
 // sm
 $default-button-sm-height: $vm * 7.1;

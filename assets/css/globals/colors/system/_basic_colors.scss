@@ -1,0 +1,247 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *   colors variables sass file
+ *  ----------- *** ------------
+ *
+ *  Variables for all Globals, Elements and Components colors.
+ *
+ */
+
+
+
+// ====== GLOBALS
+
+
+// GENERALS
+
+// Black & White
+$color-black: rgb(0,0,0);
+$color-white: rgb(255,255,255);
+
+// Dark & Light
+$color-dark-contrast: $color-white !default;
+$color-light-contrast: $color-black !default;
+
+// Body, Html Background
+$default-body-background-color      : #eee;
+
+// Text colors
+$default-text-color-primary         : rgba($color-black, 0.87) !default;
+$default-text-color-secondary       : rgba($color-black, 0.54) !default;
+$default-text-color-disabled        : rgba($color-black, 0.38) !default;
+$default-text-color-contrast        : $color-black !default;
+$default-body-text-color            : $default-text-color-primary !default;
+$default-text-link-color            : $default-brand-accent-color !default;
+$default-label-color                : darken($palette-grey-500, 8%);
+
+// Dividers
+$default-dividers-color             : rgba($color-black, 0.12) !default;
+
+
+// LAYOUT
+
+// -- Layout Header & Subheader
+$default-layout-header-bg-color                           : $default-header-background-color !default;
+$default-layout-header-text-color                         : $default-header-text-color !default;
+$default-layout-header-nav-hover-color                    : rgba($palette-grey-700, 0.6) !default;
+$default-layout-header-tab-text-color                     : rgba($color-dark-contrast, 0.6) !default;
+$default-layout-header-tab-highlight                      : $default-accent-color !default;
+$default-layout-subheader-background-color                : $palette-grey-200;
+
+// -- Drawer
+$default-layout-nav-color                                 : $palette-grey-300 !default;
+$default-layout-drawer-bg-color                           : $palette-grey-50 !default;
+$default-layout-drawer-border-color                       : $palette-grey-300 !default;
+$default-layout-text-color                                : $palette-grey-800 !default;
+$default-layout-drawer-navigation-color                   : $palette-grey-600 !default;
+$default-layout-drawer-navigation-link-active-color       : $palette-grey-300 !default;
+$default-layout-drawer-navigation-link-active-background  : darken($default-layout-drawer-navigation-link-active-color, 1%) !default;
+$default-layout-drawer-button-color                       : $default-layout-header-text-color;
+
+// -- Obfuscator (for drawer)
+$default-obfuscator-background-color                      : rgba($color-black, 0.5);
+
+// -- Footer
+$default-layout-footer-button-fill-color                  : $default-layout-footer-color !default;
+$default-layout-footer-underline-color                    : $default-layout-footer-color !default;
+$default-layout-footer-link-color                         : $default-text-link-color !default;
+$default-layout-footer-link-hover-color                   : $default-text-link-color !default;
+
+
+
+
+// ====== ELEMENTS
+
+
+// Buttons
+
+// -- Default buttons
+$default-button-primary-color       : rgba($palette-grey-500, 0.20) !default;
+$default-button-secondary-color     : $color-black !default;
+$default-button-hover-color         : $default-button-primary-color !default;
+$default-button-active-color        : rgba($palette-grey-500, 0.40) !default;
+$default-button-focus-color         : rgba($color-black, 0.12) !default;
+$default-button-color-text          : $color-black !default;
+
+// -- Colored buttons
+$button-primary-color-alt           : $default-primary-color !default;
+$button-secondary-color-alt         : $color-dark-contrast !default;
+$button-hover-color-alt             : $button-primary-color-alt !default;
+$button-active-color-alt            : darken($default-primary-color, 6%) !default;
+$button-focus-color-alt             : darken($default-primary-color, 6%) !default;
+$button-primary-color-text          : $color-white !default;
+
+// -- Accent buttons
+$button-primary-accent-alt          : $default-accent-color !default;
+$button-secondary-accent-alt        : $color-dark-contrast !default;
+$button-hover-accent-alt            : $button-primary-accent-alt !default;
+$button-active-accent-alt           : darken($button-primary-accent-alt, 6%) !default;
+$button-focus-accent-alt            : darken($button-primary-accent-alt, 6%) !default;
+$button-primary-accent-text         : $color-white !default;
+
+// -- Disabled buttons
+$default-button-primary-color-disabled    : rgba($color-black, 0.12) !default;
+$default-button-secondary-color-disabled  : rgba($color-black, 0.26) !default;
+$default-button-disabled-color-text       : $default-button-secondary-color-disabled;
+
+// Inputs
+$default-form-group-container-background                  : $color-white;
+$default-form-input-color                                 : $color-black;
+$default-form-label-color                                 : $default-label-color;
+$default-form-label-color-floating                        : $palette-grey-400;
+$default-form-label-color-focus                           : $default-accent-color;
+$default-form-bar-color                                   : $palette-grey-400;
+$default-form-bar-color-focus                             : $default-accent-color;
+$default-form-input-icon-border-color                     : $palette-grey-400;
+$default-form-input-icon-color-focus                      : $default-accent-color;
+$default-form-input-icon-done-sign-color                  : $color-white;
+$default-form-input-icon-color-error                      : $default-danger-color;
+$default-form-input-addon-color                           : $palette-grey-500;
+$default-form-group-color-message-error                   : $default-danger-color;
+$default-form-group-color-message-warning                 : $default-warning-color;
+$default-form-group-color-message-info                    : $default-info-color;
+$default-form-group-input-range-button-color              : $default-primary-color;
+$default-form-group-input-range-button-hover-color        : $default-accent-color;
+$default-form-group-input-range-bar                       : $palette-grey-400;
+
+
+// Tables
+
+$default-table-color                       : rgba($color-black, 0.54) !default;
+$default-table-title-color                 : rgba($color-black, 0.87) !default;
+$default-table-stripped-hover-background   : darken($palette-grey-200, 2%);
+$default-table-border-color                : $palette-grey-300;
+
+
+
+
+// ====== COMPONENTS
+
+
+// Cards
+$default-card-list-background-strip                  : $palette-grey-200;
+$default-card-icon-button-hover                      : $default-text-link-color;
+$default-card-border-color                           : $palette-blue-grey-100;
+$default-card-background                             : $color-white;
+
+
+// Steps
+$default-steps-background                            : $palette-grey-300 !default;
+$default-steps-waiting-color                         : $palette-grey-400 !default;
+$default-steps-waiting-background                    : $palette-grey-200 !default;
+$default-steps-active-color                          : $palette-grey-700 !default;
+$default-steps-active-brackground                    : $color-white !default;
+$default-steps-done-color                            : $palette-light-green-600 !default;
+$default-steps-done-background                       : lighten($palette-light-green-50, 2%) !default;
+$default-steps-icon-color                            : $color-white !default;
+$default-steps-icon-waiting-background               : $default-steps-waiting-color;
+$default-steps-icon-active-background                : $default-steps-active-color;
+$default-steps-icon-done-background                  : $default-steps-done-color;
+
+
+// Alerts
+$default-alert-color                                 : $color-white;
+$default-alert-background-color-success              : $default-success-color;
+$default-alert-background-color-info                 : $default-info-color;
+$default-alert-background-color-warning              : $default-warning-color;
+$default-alert-background-color-danger               : $default-danger-color;
+
+
+// Dropdown
+$default-dropdown-color-text                         : $color-black !default;
+
+$default-dropdown-background-color                   : $color-white;
+$default-dropdown-line-divider                       : $default-dividers-color;
+$default-dropdown-background-color                   : $color-white;
+$default-dropdown-selected-color                     : $default-accent-color;
+$default-dropdown-item-hover-background-color        : $palette-grey-200;
+$default-dropdown-icon-color                         : $palette-grey-600;
+$default-dropdown-results-color                      : $color-black;
+
+$default-dropdown-error-color                        : $default-danger-color;
+$default-dropdown-warning-color                      : $default-warning-color;
+
+$default-dropdown-border-color                       : $palette-grey-300;
+$default-dropdown-box-icon-background-color          : $palette-grey-200;
+
+
+
+// Info-box
+
+$default-info-box-color-text                         : $default-text-color-primary;
+$default-info-box-color-black                        : $color-black;
+
+$default-info-box-default-color                      : $palette-grey-500;
+$default-info-box-warning-color                      : $default-warning-color;
+$default-info-box-danger-color                       : $default-danger-color;
+$default-info-box-info-color                         : $default-info-color;
+
+
+// Modal
+
+$default-modal-header-button-color                   : $default-button-secondary-color;
+$default-modal-border-color                          : $default-dividers-color;
+
+
+
+// Search-boxes
+
+$default-search-box-line-divider                     : $default-dividers-color;
+
+$default-search-box-background-color                 : $color-white;
+$default-search-box-selected-color                   : $default-accent-color;
+$default-search-box-item-hover-background-color      : $palette-grey-200;
+
+$default-search-box-item-type-color                  : $palette-grey-400;
+
+$default-search-box-item-button-color                : $palette-grey-400;
+$default-search-box-item-button-color-active         : $color-white;
+$default-search-box-item-button-selected-background-color-active        : $default-danger-color;
+$default-search-box-item-button-results-background-color-active         : $default-accent-color;
+$default-search-box-message-color-success            : $default-success-color;
+$default-search-box-message-color-warning            : $default-warning-color;
+$default-search-box-message-color-danger             : $default-danger-color;
+$default-search-box-message-color-info               : $default-info-color;
+
+
+
+// Tabs
+
+$default-tab-color                                   : $default-text-color-secondary;
+$default-tab-selected                                : $default-text-color-primary;
+$default-tab-underline                               : $default-primary-color;
+$default-tab-effect                                  : $palette-light-green-300;
+$default-tab-dark-color                              : $default-text-color-contrast;
+$default-tab-dark-selected                           : $default-text-color-contrast;
+$default-tab-dark-underline                          : $default-text-color-contrast;
+
+
+// Wells
+
+$default-well-background                             : $color-white;

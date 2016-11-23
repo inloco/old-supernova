@@ -11,81 +11,81 @@
  *
  */
 
-@import "../../globals/colors/colors_variables";
+
 
 
 // Form group
-$default-form-group-container-paddings : (($vm*4) * 1.5) (($hm*4) * 1.5);
-$default-form-group-margin: $vm*4 0;
+$default-form-group-container-paddings                  : (($vm*4) * 1.5) (($hm*4) * 1.5);
+$default-form-group-margin                              : $vm*4 0;
 
 // Form & Field labels
-$default-form-label-font-size: $dfs * .9;
-$default-form-label-padding: $vm 0 ($vm*2) 0;
-$default-form-label-position-top: $vm * 1.75;
-$default-form-label-fixed-position-top: -($vm*4);
-$default-form-label-padding-left: $hm/4;
-$default-form-label-font-size-floating: $dfs;
-$default-form-label-font-size-floating-focus: $default-form-label-font-size;
-$default-form-label-font-size-floating-position-top: $default-form-label-fixed-position-top;
+$default-form-label-font-size                           : $dfs * .9;
+$default-form-label-padding                             : $vm 0 ($vm*2) 0;
+$default-form-label-position-top                        : $vm * 1.75;
+$default-form-label-fixed-position-top                  : -($vm*4);
+$default-form-label-padding-left                        : $hm/4;
+$default-form-label-font-size-floating                  : $dfs;
+$default-form-label-font-size-floating-focus            : $default-form-label-font-size;
+$default-form-label-font-size-floating-position-top     : $default-form-label-fixed-position-top;
 
 // Input & Select
-$default-input-select-margin: ($vm*6) 0 ($vm*4) 0;
+$default-input-select-margin            : ($vm*6) 0 ($vm*4) 0;
 
 // Select
-$default-select-height: ($vm*8.5);
-$default-select-font-size: $dfs;
-$default-select-line-height: $dlh * 1.4;
+$default-select-height                  : ($vm*8.5);
+$default-select-font-size               : $dfs;
+$default-select-line-height             : $dlh * 1.4;
 
 // Input & Field Bar
-$default-input-height: $vm*8;
-$default-input-font-size: $dfs;
-$default-input-line-height: $dlh;
-$default-input-padding: ($vm/4) ($hm/4) ($vm/4) ($hm/4);
-$default-input-margin: $vm*8;
-$default-input-addon-padding: $hm*5;
-$default-input-field-bar-border-bottom-size: ($vm / 4);
-$default-input-field-bar-height: ($vm / 2);
-$default-input-field-bar-position-bottom: (($vm * 4) / -16);
-$default-input-field-text-height: $vm * 6.5;
-$default-input-field-text-top-position: $vm * 1.75;
-$default-input-field-addon-top-position: $vm * 2;
-$default-textarea-margin-top: $vm * 1.75;
-$default-textarea-margin-bottom: $vm * 1.37;
-$default-textarea-line-height: $dlh * 0.95;
-$default-form-group-input-range-size: $hm * 3.5;
-$default-form-group-input-top-margin: $vm * 2.5;
+$default-input-height                               : $vm*8;
+$default-input-font-size                            : $dfs;
+$default-input-line-height                          : $dlh;
+$default-input-padding                              : ($vm/4) ($hm/4) ($vm/4) ($hm/4);
+$default-input-margin                               : $vm*8;
+$default-input-addon-padding                        : $hm*5;
+$default-input-field-bar-border-bottom-size         : ($vm / 4);
+$default-input-field-bar-height                     : ($vm / 2);
+$default-input-field-bar-position-bottom            : (($vm * 4) / -16);
+$default-input-field-text-height                    : $vm * 6.5;
+$default-input-field-text-top-position              : $vm * 1.75;
+$default-input-field-addon-top-position             : $vm * 2;
+$default-textarea-margin-top                        : $vm * 1.75;
+$default-textarea-margin-bottom                     : $vm * 1.37;
+$default-textarea-line-height                       : $dlh * 0.95;
+$default-form-group-input-range-size                : $hm * 3.5;
+$default-form-group-input-top-margin                : $vm * 2.5;
 
 
 // Radio & Checkbox
-$default-radio-checkbox-label-padding: 0 0 0 ($hm * 8);
-$default-radio-checkbox-margin: $vm 0 $vm 0;
-$default-radio-checkbox-siblings-margin: ($vm*2.5) 0 $vm;
+$default-radio-checkbox-label-padding               : 0 0 0 ($hm * 8);
+$default-radio-checkbox-margin                      : $vm 0 $vm 0;
+$default-radio-checkbox-siblings-margin             : ($vm*2.5) 0 $vm;
 
 // Checkbox
-$default-checkbox-icon-sign-size: $hm * 0.7;
-$default-checkbox-icon-sign-border-radius: $default-border-radius;
-$default-checkbox-icon-sign-before-size: $hm * 3.2;   // done sign size (font-size referenced)
-$default-checkbox-icon-sign-before-top: $hm * 3.5;   // done sign right side (font-size referenced)
-$default-checkbox-icon-sign-before-left: $hm * 1.6;   // done sign right side (font-size referenced)
-$default-checkbox-icon-sign-after-size: $hm * 1.8;    // done sign size (font-size referenced)
-$default-checkbox-icon-sign-after-top: $hm * 2.1;       // done sign left side (font-size referenced)
-$default-checkbox-icon-sign-after-left: 0;            // done sign left side (font-size referenced)
+$default-checkbox-icon-sign-size                    : $hm * 0.7;
+$default-checkbox-icon-sign-border-radius           : $default-border-radius;
+$default-checkbox-icon-sign-before-size             : $hm * 3.2;   // done sign size (font-size referenced)
+$default-checkbox-icon-sign-before-top              : $hm * 3.5;   // done sign right side (font-size referenced)
+$default-checkbox-icon-sign-before-left             : $hm * 1.6;   // done sign right side (font-size referenced)
+$default-checkbox-icon-sign-after-size              : $hm * 1.8;    // done sign size (font-size referenced)
+$default-checkbox-icon-sign-after-top               : $hm * 2.1;       // done sign left side (font-size referenced)
+$default-checkbox-icon-sign-after-left              : 0;            // done sign left side (font-size referenced)
 
 // Input Icons
-$default-input-icon-font-size: ($hm*4);
-$default-input-icon-size: ($hm*4);
-$default-input-icon-border-size: ($hm/2);
-$default-input-icon-border-top-position: -($vm/2);
-$default-input-icon-border-radius: ($hm*4) / 4;
-$default-input-icon-position-top: -($vm);
-$default-input-icon-position-left: -(($hm*4)/4);
-$default-input-icon-margin: $hm;
+$default-input-icon-font-size               : ($hm*4);
+$default-input-icon-size                    : ($hm*4);
+$default-input-icon-border-size             : ($hm/2);
+$default-input-icon-border-top-position     : -($vm/2);
+$default-input-icon-border-radius           : ($hm*4) / 4;
+$default-input-icon-position-top            : -($vm);
+$default-input-icon-position-left           : -(($hm*4)/4);
+$default-input-icon-margin                  : $hm;
 
 // Transitions
-$default-form-animation-transition: 0.28s !default;
-$default-form-animation-transition-checkbox-icon: 0.1s !default;
+$default-form-animation-transition                        : 0.28s !default;
+$default-form-animation-transition-checkbox-icon          : 0.1s !default;
 
 // Messages
-$default-form-group-message-padding: ($vm*1.5) ($hm/4);
-$default-form-group-message-font-size: $dfs * .9;
-$default-form-group-line-height: $dlh / 1.2;
+$default-form-group-message-padding         : ($vm*1.5) ($hm/4);
+$default-form-group-message-font-size       : $dfs * .9;
+$default-form-group-line-height             : $dlh / 1.2;

@@ -1,6 +1,6 @@
 @import "functions/ratios";
 
-@import "../typography";
+@import "../typography_variables";
 $ms-base    : $default-font-size    !default;
 $ms-ratio   : $default-scale-factor !default;
 $ms-range   : $default-scale-range  !default;

@@ -11,8 +11,6 @@
  *
  */
 
-@import "../general/general_variables";
-@import "../../customizable";
 
 
 
@@ -29,6 +27,12 @@
   }
 }
 
+
+
+// BREAKPOINTS
+
+$activate-standard-breakpoints      : true;  // 360, 480, 560, 640, 768, 992, 1024 and 1280 breakpoints; // true or false
+$activate-material-breakpoints      : true;   // 480, 600, 840, 960, 1280, 1440, and 1600 breakpoints;  // true or false
 
 // Breakpoints mixins for responsive performance
 
@@ -228,27 +232,11 @@
 
 @mixin background-image($file, $type, $width, $height) {
 
-  $default-images-dir     : "/assets/";
-  $default-sm-dir         : "supernova/1_0x/";
-  $default-md-dir         : "supernova/1_5x/";
-  $default-hd-dir         : "supernova/2_0x/";
-  $default-xh-dir         : "supernova/3_0x/";
-  $default-xx-dir         : "supernova/4_0x/";
-
-  @if $customizable-images-path == true {
-    $default-images-dir     : $customizable-images-dir;
-    $default-sm-dir         : $customizable-sm-dir;
-    $default-md-dir         : $customizable-md-dir;
-    $default-hd-dir         : $customizable-hd-dir;
-    $default-xh-dir         : $customizable-xh-dir;
-    $default-xx-dir         : $customizable-xx-dir;
-  }
-
-  $image-dir-sm: #{$default-images-dir}#{$default-sm-dir}; // "/assets/1_0x/";
-  $image-dir-md: #{$default-images-dir}#{$default-md-dir}; // "/assets/1_5x/";
-  $image-dir-hd: #{$default-images-dir}#{$default-hd-dir}; // "/assets/2_0x/";
-  $image-dir-xh: #{$default-images-dir}#{$default-xh-dir}; // "/assets/3_0x/";
-  $image-dir-xx: #{$default-images-dir}#{$default-xx-dir}; // "/assets/3_0x/";
+  $image-dir-sm: #{$default-images-dir}#{$default-sm-dir}; // "/assets/supernova/1_0x/";
+  $image-dir-md: #{$default-images-dir}#{$default-md-dir}; // "/assets/supernova/1_5x/";
+  $image-dir-hd: #{$default-images-dir}#{$default-hd-dir}; // "/assets/supernova/2_0x/";
+  $image-dir-xh: #{$default-images-dir}#{$default-xh-dir}; // "/assets/supernova/3_0x/";
+  $image-dir-xx: #{$default-images-dir}#{$default-xx-dir}; // "/assets/supernova/3_0x/";
 
   // for sm-display
   background-image: url($image-dir-sm + $file + '.' + $type);
@@ -337,14 +325,6 @@ $shadow-key-umbra-opacity               : 0.2 !default;
 $shadow-ambient-shadow-opacity          : 0.12 !default;
 $shadow-focus-umbra-shadow-opacity      : .18 !default;
 $shadow-focus-ambient-shadow-opacity    : .36 !default;
-
-@if $customizable-shadows == true {
-  $shadow-key-penumbra-opacity          : $customizable-penumbra-opacity !default;
-  $shadow-key-umbra-opacity             : $customizable-umbra-opacity !default;
-  $shadow-ambient-shadow-opacity        : $customizable-shadow-ambient-opacity !default;
-  $shadow-focus-umbra-shadow-opacity    : $customizable-focus-umbra-opacity !default;
-  $shadow-focus-ambient-shadow-opacity  : $customizable-focus-ambient-shadow-opacity !default;
-}
 
 
 @mixin button-shadow() {
