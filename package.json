@@ -12,7 +12,7 @@
   "scripts": {
     "build": "rm -rf build && webpack -p",
     "build-dev": "rm -rf build && webpack --config webpack.dev.config.js --watch",
-    "test": "jest",
+    "test": "jest --runInBand",
     "test:watch": "jest --watch",
     "start-dev:doc": "cd docs && node index.js",
     "eslint": "eslint ./src --ext .js --ext .jsx --cache || true",
