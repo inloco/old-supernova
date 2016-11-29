@@ -1,0 +1,61 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *   colors variables sass file
+ *  ----------- *** ------------
+ *
+ *  Variables for all Globals, Elements and Components colors.
+ *
+ */
+
+
+
+
+// ====== DARK THEME
+
+@if $customizable-theme == dark { // Default value is light
+
+  $default-body-background-color              : rgb(44,50,55) !important;
+
+  $default-text-color-primary                 : rgb(248,248,242) !important;
+  $default-body-text-color                    : rgb(248,248,242) !important;
+  $default-text-color-secondary               : rgba($color-white, 0.70) !important;
+  $default-text-color-disabled                : rgba($color-white, 0.50) !important;
+  $default-text-color-contrast                : $color-white !important;
+
+  $default-layout-header-bg-color             : rgb(56,64,71);
+
+  $default-layout-nav-color                                 : rgb(248,248,242) !important;
+  $default-layout-drawer-bg-color                           : lighten($default-layout-header-bg-color, 5%);
+  $default-layout-drawer-border-color                       : $palette-blue-grey-800 !important;
+  $default-layout-text-color                                : rgb(248,248,242) !important;
+  $default-layout-drawer-navigation-color                   : $palette-grey-300 !important;
+  $default-layout-drawer-navigation-link-active-background  : darken($default-layout-drawer-bg-color, 5%) !important;
+  $default-layout-drawer-navigation-link-active-color       : $palette-grey-500 !important;
+
+  $default-layout-footer-background-color                   : darken($default-layout-header-bg-color, 10%) !important;
+  $default-layout-footer-color                              : $palette-grey-600 !important;
+  $default-layout-footer-heading-color                      : $palette-grey-500 !important;
+  .sn-icon  { color: #FFF !important; }
+
+}
+
+@if $customizable-header-color == brand {
+  $default-layout-header-bg-color         : $customizable-brand-color !important;
+}
+
+//
+//Dracula Theme
+// Background	rgb(40,42,54)
+// Current Line / Selection  rgb(68,71,90)
+// Foreground	rgb(248,248,242)
+// Comment	rgb(98,114,164)
+//
+//In Loco Media BLUE	rgb(43,49,63)
+
+

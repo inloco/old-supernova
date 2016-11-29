@@ -1,0 +1,83 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *      variables sass file
+ *  ----------- *** ------------
+ *
+ */
+
+
+@import "../typography/typography_variables";
+
+
+// Defines baseline grid based on vertical and horizontal movements
+
+
+// use for calculate sizes, margins and paddings
+$vm       : $default-vertical-movement;   // ~4px
+$hm       : $default-horizontal-movement; // ~4px
+
+// Use for calculate fonts size and fonts line-height
+$dfs      : $default-font-size;           // ~16px
+$dlh      : $default-line-height;         // ~20px
+
+
+
+//----
+
+
+// Border Radius size
+
+$default-border-radius    : $default-font-size / 8;  // ~2px
+
+
+
+// Z-INDEX variables
+
+$z-layout-content         : 1;
+
+$z-1                      : 100;
+$z-2                      : 200;
+$z-3                      : 300;
+$z-4                      : 400;
+$z-5                      : 500;
+
+$z-content-panels         : 600;
+$z-popovers               : 700;
+$z-tooltips               : 800;
+$z-layout-header          : 900;  // main-top
+$z-layout-obfuscator      : 1000; // background-overlay
+$z-layout-drawer          : 1100; // menu
+$z-modal-obfuscator       : 1200;
+$z-modal-container        : 1300;
+$z-alerts                 : 1400;
+$z-fit                    : 9999;
+
+
+
+// Breakpoints
+
+$mobile-screen            : 320px;  // mobile minimal size
+
+$mobile-small             : 360px;  // stand.
+$mobile-large             : 480px;  // material & stand.
+$tablet-xxsmall           : 560px;  // stand.
+$tablet-xsmall            : 600px;  // material
+$tablet-small             : 640px;  // stand.
+$tablet-xmedium           : 768px;  // stand.
+$tablet-medium            : 840px;  // material
+$tablet-large             : 960px;  // material
+$screen-xsmall            : 992px;  // stand.
+$screen-small             : 1024px; // stand.
+$screen-xmedium           : 1280px; // material & stand.
+$screen-medium            : 1440px; // material
+$screen-large             : 1600px; // material
+
+$mobile-threshold         : 480px;  // mobile-threshold
+$tablet-threshold         : 768px;  // tablet-threshold
+$screen-threshold         : 1024px; // screen-threshold

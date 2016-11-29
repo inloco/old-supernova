@@ -1,0 +1,57 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *    grid variables sass file
+ *  ----------- *** ------------
+ *
+ */
+
+
+
+// Grid Bleed Sizes
+$bleed-hm                           : $hm * 10; // ~40px
+$bleed-vm                           : $vm * 10; // ~40px
+$bleed-hm-sm                        : $hm * 4;  // ~16px
+$bleed-vm-sm                        : $vm * 6;  // ~24px
+$bleed-vm-xs                        : $vm * 2;  // ~8px
+
+// Grid Col Gutter Sizes
+$gutter-hm                          : $hm * 4;  // ~16px
+$gutter-xs-hm                       : $hm;      // ~4px
+$gutter-sm-hm                       : $hm * 2;  // ~8px
+$gutter-lg-hm                       : $hm * 6;  // ~24px
+
+// Grid Row Gutter Sizes
+$gutter-vm                          : $vm * 4;   // ~16px
+$gutter-xs-vm                       : $vm / 2;   // ~2px
+$gutter-sm-vm                       : $vm;       // ~4px
+$gutter-lg-vm                       : $vm * 4;   // ~16px
+$gutter-reverse-vm                  : $vm;       // ~4px
+$gutter-lg-screen-xsmall            : $hm * 2;   // ~8px
+
+// Box Col Padding
+$box-col-padding-hm                 : $hm * 4;   // ~16px
+$box-col-padding-vm                 : $vm * 2;   // ~8px
+
+// Box Col Padding Small
+$box-col-padding-sm-hm              : $hm * 2;   // ~8px
+$box-col-padding-sm-vm              : $vm;       // ~4px
+
+// Box Cell Expo Flexitem base margin
+$cell-expo-flexitem-hm              : $hm;       // ~4px
+
+// Cell Padding
+$cell-padding-vertical-lg           : $vm * 4;   // 16px;
+$cell-padding-vertical-md           : $vm * 2;   // 8px;
+$cell-padding-vertical-sm           : $vm;       // 4px;
+$cell-padding-horizontal-lg         : $hm * 4;   // 16px;
+$cell-padding-horizontal-md         : $hm * 2;   // 8px;
+$cell-padding-horizontal-sm         : $hm;       // 4px;
+
+
+

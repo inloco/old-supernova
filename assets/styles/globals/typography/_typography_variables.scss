@@ -1,0 +1,137 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *    typography variables file
+ *  ----------- *** ------------
+ *
+ */
+
+
+@import "../typography/modular-scale/functions/ratios";
+
+
+// Font settings
+
+$default-font-family                   : "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$default-font-monospace                : Menlo, Monaco, Consolas, "Courier New", monospace !default;
+
+$default-font-size                     : 14px !default; // Use only px, em or % units - Preferably 14px.
+$default-em-line-height                : 1.43 !default; // Just number. Do not use unit.
+$default-line-height                   : floor($default-font-size * $default-em-line-height); // ~20px for 1.43 line height.
+$default-headings-line-height          : 1.2 !default; // Just number. Do not use unit.
+$default-font-weight                   : 400 !default;
+
+
+
+// Heading Scale Factor
+
+$default-main-heading-size             : 4; // h1 size. Is {number} times about font-size;
+$default-scale-factor                  : $augmented-fourth !default; // 1.41421 - Scale to calculate the proportions of the remaining headings. See scale factor table below or insert a number.
+$default-scale-range                   : null;
+$default-scale-fluid                   : true; // Set true or false
+
+
+
+// CALC FOR em AND % units:
+
+$font-unit              : unit($default-font-size);
+$font-size-number       : strip-unit($default-font-size);
+$line-height-number     : strip-unit($default-line-height);
+
+@if $font-unit == "em" {
+  //$default-line-height: $default-em-line-height;
+}
+
+@if $font-unit == "%" {
+  $default-fs: 16;
+  $default-lh: 20;
+  $fs-percent-calc: 100;
+
+  $font-size-perc-to-pixel: ($default-fs / $fs-percent-calc) * $font-size-number;
+  $line-height-perc-to-pixel: ($default-lh / $fs-percent-calc) * $line-height-number;
+
+  $font-size-real-pixel: $font-size-perc-to-pixel * 1px;
+  $line-height-real-pixel: $line-height-perc-to-pixel * 1px;
+
+  $default-font-size: $font-size-real-pixel;
+  $default-line-height: $line-height-real-pixel;
+}
+
+
+// Defines Vertical / Horizontal Movements
+
+$default-vertical-movement-divider   : 5;
+$default-horizontal-movement-divider : 3.5;
+
+$default-horizontal-movement         : floor($default-font-size / $default-horizontal-movement-divider);    // ~4px
+$default-vertical-movement           : floor($default-line-height / $default-vertical-movement-divider);      // ~4px
+
+
+
+
+// ICONS
+
+.material-icons {
+  font-size: $default-font-size * 1.625; // ~24px
+}
+
+
+
+// Headings variables
+
+$h1-size    : $default-main-heading-size;
+$h2-size    : $h1-size - 1;
+$h3-size    : $h2-size - 1;
+$h4-size    : $h3-size - 1;
+$h5-size    : $h4-size - 1;
+$h6-size    : $h5-size - 1;
+
+$default-headings-top-margin        : ($default-headings-line-height * 1px) * 20;
+$default-headings-bottom-margin     : ($default-headings-line-height * 1px) * 12;
+
+$h1-font-size: ms($h1-size);
+$h1-line-height: $default-headings-line-height;
+$h1-font-weight: $default-font-weight;
+
+$h2-font-size: ms($h2-size);
+$h2-line-height: $default-headings-line-height;
+$h2-font-weight: $default-font-weight;
+
+$h3-font-size: ms($h3-size);
+$h3-line-height: $default-headings-line-height;
+$h3-font-weight: $default-font-weight;
+
+$h4-font-size: ms($h4-size);
+$h4-line-height: $default-headings-line-height;
+$h4-font-weight: $default-font-weight;
+
+$h5-font-size: ms($h5-size);
+$h5-line-height: $default-headings-line-height;
+$h5-font-weight: $default-font-weight;
+
+$h6-font-size: ms($h6-size);
+$h6-line-height: $default-headings-line-height;
+$h6-font-weight: $default-font-weight;
+
+
+// Text variables
+
+$default-text-typo-display-4        : $default-font-size * 8;       // ~112px on 14px based;
+$default-text-typo-display-3        : $default-font-size * 4;       // ~56px on 14px based;
+$default-text-typo-display-2        : $default-font-size * 3.214;   // ~45px on 14px based;
+$default-text-typo-display-1        : $default-font-size * 2.428;   // ~34px on 14px based;
+$default-text-typo-headline         : $default-font-size * 1.714;   // ~24px on 14px based;
+$default-text-typo-title            : $default-font-size * 1.428;   // ~20px on 14px based;
+$default-text-typo-subhead          : $default-font-size * 1.142;   // ~16px on 14px based;
+$default-text-typo-body             : $default-font-size;           // ~14px default;
+$default-text-typo-caption          : $default-font-size * 0.857;   // ~12px on 14px based;
+$default-text-typo-blockquote       : $default-font-size * 1.714;   // ~24px on 14px based;
+$default-text-typo-menu             : $default-font-size;           // ~14px default;
+$default-text-typo-button           : $default-font-size;           // ~14px default;
+$default-text-typo-label            : $default-font-size * 0.857;   // ~12px on 14px based;
+$default-text-typo-table            : $default-font-size * 0.928;   // ~12px on 14px based;

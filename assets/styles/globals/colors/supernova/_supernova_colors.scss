@@ -1,0 +1,39 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *   colors variables sass file
+ *  ----------- *** ------------
+ *
+ *  Variables for all Globals, Elements and Components colors.
+ *
+ */
+
+
+
+// Brand colors
+$default-brand-color                          : $palette-blue-grey-800 !default;
+$default-brand-accent-color                   : $palette-light-green-500 !default;
+
+// Primary & Accent colors
+$default-primary-color                        : $default-brand-color !default;
+$default-accent-color                         : $default-brand-accent-color !default;
+
+// System alert colors
+$default-success-color                        : desaturate($palette-green-A700, 20%) !default;
+$default-warning-color                        : $palette-amber-A700 !default;
+$default-danger-color                         : $palette-red-A700 !default;
+$default-info-color                           : desaturate($palette-purple-A700, 30%) !default;
+
+
+// System layout colors
+$default-header-background-color              : $default-brand-color;
+$default-header-text-color                    : $color-white;
+
+$default-layout-footer-background-color       : lighten($default-brand-color, 60%) !default;
+$default-layout-footer-color                  : $palette-grey-800 !default;
+$default-layout-footer-heading-color          : $palette-grey-900 !default;

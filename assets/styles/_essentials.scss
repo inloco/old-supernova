@@ -1,0 +1,31 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA --------
+ *     import utilities file
+ *  ----------- *** -----------
+ *  general variables
+ *  material color palette
+ *  functions
+ *  mixins
+ *  ----------- *** -----------
+ *
+ *  *** DO NOT MODIFY THIS FILE ***
+ *
+ */
+
+
+//  Utilities
+@import "globals/general/general_variables";
+@import "globals/colors/palettes/material-palette";
+@import "globals/functions/functions";
+@import "globals/mixins/mixins";
+
+// Essentials
+@import "globals/globals";
+@import "elements/elements";
+

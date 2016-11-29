@@ -1,0 +1,528 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *        sass mixin file
+ *  ----------- *** ------------
+ *
+ */
+
+
+
+
+// Clearfix mixin
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+
+// BREAKPOINTS
+
+$activate-standard-breakpoints      : true;  // 360, 480, 560, 640, 768, 992, 1024 and 1280 breakpoints; // true or false
+$activate-material-breakpoints      : true;   // 480, 600, 840, 960, 1280, 1440, and 1600 breakpoints;  // true or false
+
+// Breakpoints mixins for responsive performance
+
+@if $activate-standard-breakpoints == false {
+  $mobile-small      : 0;
+  $tablet-xxsmall    : 0;
+  $tablet-small      : 0;
+  $tablet-xmedium    : 0;
+  $screen-xsmall     : 0;
+  $screen-small      : 0;
+}
+
+@if $activate-material-breakpoints == false {
+  $tablet-xsmall     : 0;
+  $tablet-medium     : 0;
+  $tablet-large      : 0;
+  $screen-medium     : 0;
+  $screen-large      : 0;
+}
+
+@if $activate-standard-breakpoints == false and $activate-material-breakpoints == false {
+  $mobile-large      : 0;
+  $screen-xmedium    : 0;
+}
+
+@mixin breakpoint($point) {
+
+  // If STANDARD Breakpoints is true
+
+  @if $activate-standard-breakpoints == true {
+    @if $point == $mobile-small {  // 360px
+      @media (max-width: $mobile-small) {
+        @content;
+      }
+    }
+    @if $point == $tablet-xxsmall { // 560px
+      @media (max-width: $tablet-xxsmall) {
+        @content;
+      }
+    }
+    @if $point == $tablet-small { // 640px
+      @media (max-width: $tablet-small) {
+        @content;
+      }
+    }
+    @if $point == $tablet-xmedium { // 768px
+      @media (max-width: $tablet-xmedium) {
+        @content;
+      }
+    }
+    @if $point == $screen-xsmall { // 992px
+      @media (max-width: $screen-xsmall) {
+        @content;
+      }
+    }
+    @if $point == $screen-small { // 1024px
+      @media (max-width: $screen-small) {
+        @content;
+      }
+    }
+  }
+
+  // If GOOGLE Breakpoints is true
+
+  @if $activate-material-breakpoints == true {
+    @if $point == $tablet-xsmall { // 600px
+      @media (max-width: $tablet-xsmall) {
+        @content;
+      }
+    }
+    @if $point == $tablet-medium { // 840px
+      @media (max-width: $tablet-medium) {
+        @content;
+      }
+    }
+    @if $point == $tablet-large { // 960px
+      @media (max-width: $tablet-large) {
+        @content;
+      }
+    }
+    @if $point == $screen-medium { // 1440px
+      @media (max-width: $screen-medium) {
+        @content;
+      }
+    }
+    @if $point == $screen-large { // 1600px
+      @media (max-width: $screen-large) {
+        @content;
+      }
+    }
+  }
+
+  // If STANDARD or GOOGLE Breakpoints is true
+
+  @if $activate-standard-breakpoints == true or $activate-material-breakpoints == true {
+    @if $point == $mobile-large { // 480px
+      @media (max-width: $mobile-large) {
+        @content;
+      }
+    }
+    @if $point == $screen-xmedium { // 1280px
+      @media (max-width: $screen-xmedium) {
+        @content;
+      }
+    }
+  }
+
+}
+
+
+
+// Flexbox mixin
+
+@mixin flexbox() {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -ms-text-overflow: "...";
+  text-overflow: "...";
+  min-height: none;
+}
+
+// Flex Item mixin
+
+@mixin flex($proportion) {
+  -webkit-box-flex: $proportion;    /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: $proportion;       /* OLD - Firefox 19- (buggy but mostly works) */
+  -ms-flex: $proportion;            /* TWEENER - IE 10 */
+  -webkit-flex: $proportion;        /* NEW - Chrome */
+  flex: $proportion;                /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+@mixin flexitem($grow, $shrink, $size) {
+  -webkit-box-flex: $grow $shrink $size;    /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: $grow $shrink $size;       /* OLD - Firefox 19- (buggy but mostly works) */
+  -ms-flex: $grow $shrink $size;            /* TWEENER - IE 10 */
+  -webkit-flex: $grow $shrink $size;        /* NEW - Chrome */
+  flex: $grow $shrink $size;                /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+// Flex Item order mixin
+
+@mixin flexorder($order) {
+  -webkit-box-order: $order;
+  -moz-box-order: $order;
+  -ms-order: $order;
+  -webkit-order: $order;
+  order: $order;
+}
+
+
+// Mixin responsive cell
+
+@mixin responsive-cell($responsive-breakpoint, $margin, $margin-xs, $margin-sm, $margin-lg) {
+  .sn-grid.sn-grid--responsive-#{$responsive-breakpoint} {
+    display: block;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter > *:first-child {
+    margin: $margin 0 0 0;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-xs > *:first-child {
+    margin: $margin 0 0 0;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-sm > *:first-child {
+    margin: $margin 0 0 0;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-lg > *:first-child {
+    margin: $margin 0 0 0;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter:last-child,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter > *,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter > *:last-child {
+    margin: $margin 0;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-xs:last-child,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-xs > *, ,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-xs > *:last-child {
+    margin: $margin-xs 0;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-sm:last-child,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-sm > *, ,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-sm > *:last-child {
+    margin: $margin-sm 0;
+  }
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-lg:last-child,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-lg > *, ,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-lg > *:last-child {
+    margin: $margin-lg 0;
+  }
+}
+
+
+
+// Images mixin for responsive performance
+
+@mixin background-image($file, $type, $width, $height) {
+
+  $image-dir-sm: #{$default-images-dir}#{$default-sm-dir}; // "/assets/supernova/1_0x/";
+  $image-dir-md: #{$default-images-dir}#{$default-md-dir}; // "/assets/supernova/1_5x/";
+  $image-dir-hd: #{$default-images-dir}#{$default-hd-dir}; // "/assets/supernova/2_0x/";
+  $image-dir-xh: #{$default-images-dir}#{$default-xh-dir}; // "/assets/supernova/3_0x/";
+  $image-dir-xx: #{$default-images-dir}#{$default-xx-dir}; // "/assets/supernova/3_0x/";
+
+  // for sm-display
+  background-image: url($image-dir-sm + $file + '.' + $type);
+  -webkit-background-size: $width $height;
+  -moz-background-size: $width $height;
+  -o-background-size: $width $height;
+  background-size: $width $height;
+
+
+  // for md-display
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and ( min--moz-device-pixel-ratio: 1.5),
+  only screen and ( min-device-pixel-ratio: 1.5) {
+    & {
+      background-image: url($image-dir-md + $file + '.' + $type);
+      -webkit-background-size: $width $height;
+      -moz-background-size: $width $height;
+      -o-background-size: $width $height;
+      background-size: $width $height;
+    }
+  }
+
+  // for hd-display
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and ( min--moz-device-pixel-ratio: 2),
+  only screen and ( min-device-pixel-ratio: 2) {
+    & {
+      background-image: url($image-dir-hd + $file + '.' + $type);
+      -webkit-background-size: $width $height;
+      -moz-background-size: $width $height;
+      -o-background-size: $width $height;
+      background-size: $width $height;
+    }
+  }
+
+  // for xh-display
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 3),
+  only screen and ( min--moz-device-pixel-ratio: 3),
+  only screen and ( min-device-pixel-ratio: 3) {
+    & {
+      background-image: url($image-dir-xh + $file + '.' + $type);
+      -webkit-background-size: $width $height;
+      -moz-background-size: $width $height;
+      -o-background-size: $width $height;
+      background-size: $width $height;
+    }
+  }
+
+  // for xx-display
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 4),
+  only screen and ( min--moz-device-pixel-ratio: 4),
+  only screen and ( min-device-pixel-ratio: 4) {
+    & {
+      background-image: url($image-dir-xx + $file + '.' + $type);
+      -webkit-background-size: $width $height;
+      -moz-background-size: $width $height;
+      -o-background-size: $width $height;
+      background-size: $width $height;
+    }
+  }
+
+}
+
+
+
+
+// COLOR and BACKGROUND OPACITY
+
+@mixin color-opacity($color-opacity, $opacity-value) {
+  color: rgba($color-opacity, $opacity-value);
+}
+@mixin background-color-opacity($background-color-opacity, $background-opacity-value) {
+  background-color: rgba($background-color-opacity, $background-opacity-value);
+
+}
+
+
+// SHADOWS
+
+$shadow-key-penumbra-opacity            : 0.14 !default;
+$shadow-key-umbra-opacity               : 0.2 !default;
+$shadow-ambient-shadow-opacity          : 0.12 !default;
+$shadow-focus-umbra-shadow-opacity      : .18 !default;
+$shadow-focus-ambient-shadow-opacity    : .36 !default;
+
+
+@mixin button-shadow() {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+              0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+@mixin button-hover-shadow() {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 1px 18px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+@mixin button-disabled-shadow() {
+  box-shadow: none !important;
+}
+@mixin drawer-shadow() {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+              0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+@mixin bars-shadow() {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+              0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+@mixin footer-shadow() {
+  box-shadow: 3px 0 4px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              3px 0 3px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+              1px 0 8px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+@mixin focus-shadow() {
+  box-shadow: 0 0 8px rgba(0,0,0, $shadow-focus-umbra-shadow-opacity),
+              0 8px 16px rgba(0,0,0, $shadow-focus-ambient-shadow-opacity);
+}
+
+@mixin shadow-2dp() {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+              0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+@mixin shadow-3dp() {
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 3px 3px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+              0 1px 8px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+@mixin shadow-4dp() {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 1px 10px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 2px 4px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+@mixin shadow-6dp() {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 1px 18px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+@mixin shadow-8dp() {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 3px 14px 2px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 5px 5px -3px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+@mixin shadow-16dp() {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0  6px 30px 5px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0  8px 10px -5px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+@mixin shadow-24dp() {
+  box-shadow: 0  9px 46px  8px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+              0 11px 15px -7px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
+              0 24px 38px  3px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}
+
+
+
+// ANIMATION
+
+$animation-curve-fast-out-slow-in       : cubic-bezier(0.4, 0, 0.2, 1) !default;
+$animation-curve-linear-out-slow-in     : cubic-bezier(0, 0, 0.2, 1) !default;
+$animation-curve-fast-out-linear-in     : cubic-bezier(0.4, 0, 1, 1) !default;
+$animation-curve-default                : $animation-curve-fast-out-slow-in !default;
+
+@mixin material-animation-fast-out-slow-in($duration:0.2s) {
+  transition-duration                   : $duration;
+  transition-timing-function            : $animation-curve-fast-out-slow-in;
+}
+@mixin material-animation-linear-out-slow-in($duration:0.2s) {
+  transition-duration                   : $duration;
+  transition-timing-function            : $animation-curve-linear-out-slow-in;
+}
+@mixin material-animation-fast-out-linear-in($duration:0.2s) {
+  transition-duration                   : $duration;
+  transition-timing-function            : $animation-curve-fast-out-linear-in;
+}
+@mixin material-animation-default($duration:0.2s) {
+  transition-duration                   : $duration;
+  transition-timing-function            : $animation-curve-default;
+}
+
+
+
+// TRANSFORMATIONS
+
+@mixin scale($ratio...) {
+  -webkit-transform: scale($ratio);
+  -ms-transform: scale($ratio); // IE9 only
+  -o-transform: scale($ratio);
+  transform: scale($ratio);
+}
+
+@mixin scaleX($ratio) {
+  -webkit-transform: scaleX($ratio);
+  -ms-transform: scaleX($ratio); // IE9 only
+  -o-transform: scaleX($ratio);
+  transform: scaleX($ratio);
+}
+@mixin scaleY($ratio) {
+  -webkit-transform: scaleY($ratio);
+  -ms-transform: scaleY($ratio); // IE9 only
+  -o-transform: scaleY($ratio);
+  transform: scaleY($ratio);
+}
+@mixin skew($x, $y) {
+  -webkit-transform: skewX($x) skewY($y);
+  -ms-transform: skewX($x) skewY($y); // See https://github.com/twbs/bootstrap/issues/4885; IE9+
+  -o-transform: skewX($x) skewY($y);
+  transform: skewX($x) skewY($y);
+}
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+  -ms-transform: translate($x, $y); // IE9 only
+  -o-transform: translate($x, $y);
+  transform: translate($x, $y);
+}
+@mixin translate3d($x, $y, $z) {
+  -webkit-transform: translate3d($x, $y, $z);
+  transform: translate3d($x, $y, $z);
+}
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+  -ms-transform: rotate($degrees); // IE9 only
+  -o-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+@mixin rotateX($degrees) {
+  -webkit-transform: rotateX($degrees);
+  -ms-transform: rotateX($degrees); // IE9 only
+  -o-transform: rotateX($degrees);
+  transform: rotateX($degrees);
+}
+@mixin rotateY($degrees) {
+  -webkit-transform: rotateY($degrees);
+  -ms-transform: rotateY($degrees); // IE9 only
+  -o-transform: rotateY($degrees);
+  transform: rotateY($degrees);
+}
+@mixin perspective($perspective) {
+  -webkit-perspective: $perspective;
+  -moz-perspective: $perspective;
+  perspective: $perspective;
+}
+@mixin perspective-origin($perspective) {
+  -webkit-perspective-origin: $perspective;
+  -moz-perspective-origin: $perspective;
+  perspective-origin: $perspective;
+}
+@mixin transform-origin($origin) {
+  -webkit-transform-origin: $origin;
+  -moz-transform-origin: $origin;
+  -ms-transform-origin: $origin; // IE9 only
+  transform-origin: $origin;
+}
+
+
+// TRANSITIONS
+
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+@mixin transition-property($transition-property...) {
+  -webkit-transition-property: $transition-property;
+  transition-property: $transition-property;
+}
+@mixin transition-delay($transition-delay) {
+  -webkit-transition-delay: $transition-delay;
+  transition-delay: $transition-delay;
+}
+@mixin transition-duration($transition-duration...) {
+  -webkit-transition-duration: $transition-duration;
+  transition-duration: $transition-duration;
+}
+@mixin transition-timing-function($timing-function) {
+  -webkit-transition-timing-function: $timing-function;
+  transition-timing-function: $timing-function;
+}
+@mixin transition-transform($transition...) {
+  -webkit-transition: -webkit-transform $transition;
+  -moz-transition: -moz-transform $transition;
+  -o-transition: -o-transform $transition;
+  transition: transform $transition;
+}

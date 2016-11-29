@@ -1,0 +1,55 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *       buttons variables
+ *  ----------- *** ------------
+ *
+ */
+
+
+// Buttons Variables
+
+$default-button-height: $vm * 9;
+$default-button-min-width: $hm * 4;
+$default-button-padding: 0 $hm * 3;
+$default-button-line-height: $vm * 9;
+$default-button-border-radius: $default-border-radius;
+$default-button-font-size: $default-font-size / 1.1428571429;
+$default-button-transition: all .4s;
+$default-button-icon-font-size: $dfs * 1.625 !important;
+$default-button-content-margin: $hm;
+$default-button-group-margin-value: $hm * 1;
+
+// Button Sizes
+
+// xs
+$default-button-xs-height                 : $vm * 6;
+$default-button-xs-min-width              : $hm * 4;
+$default-button-xs-padding                : 0 $hm * 2.3;
+$default-button-xs-line-height            : $vm * 6;
+$default-button-xs-font-size              : $default-font-size / 1.4;
+$default-button-xs-icon-font-size         : $dfs * 1 !important;
+$default-button-xs-content-margin         : $hm * .75;
+
+// sm
+$default-button-sm-height: $vm * 7.1;
+$default-button-sm-min-width: $hm * 4;
+$default-button-sm-padding: 0 $hm * 3;
+$default-button-sm-line-height: $vm * 6;
+$default-button-sm-font-size: $default-font-size / 1.2;
+$default-button-sm-icon-font-size: $dfs * 1.2 !important;
+$default-button-sm-content-margin: $hm * 1;
+
+// lg
+$default-button-lg-height: $vm * 10.5;
+$default-button-lg-min-width: $hm * 4;
+$default-button-lg-padding: 0 $hm * 4;
+$default-button-lg-line-height: $vm * 9;
+$default-button-lg-font-size: $default-font-size / 1;
+$default-button-lg-icon-font-size: $dfs * 1.6 !important;
+$default-button-lg-content-margin: $hm * 1;
