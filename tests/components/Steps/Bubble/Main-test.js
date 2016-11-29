@@ -1,6 +1,6 @@
-jest.unmock("../../../factories/components/steps/bubble-factory")
+jest.unmock("../../../factories/components/Steps/bubble-factory")
 
-import StepsFactory from "../../../factories/components/steps/bubble-factory"
+import StepsFactory from "../../../factories/components/Steps/bubble-factory"
 
 describe("Steps Bubble", () => {
   const factory = new StepsFactory

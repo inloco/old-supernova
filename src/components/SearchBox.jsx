@@ -28,10 +28,26 @@ class SearchBox extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    this.updateResultsIfIsNeeded(nextProps)
+    this.selectNewResultIfIsNeeded(nextProps)
+  }
+
+  updateResultsIfIsNeeded(nextProps) {
     if(nextProps.results !== this.props.results) {
       this.setState({
         latestResultsIds: nextProps.results.map(result => result.id),
         results: _.unionBy(nextProps.results, this.state.results, "id")
+      })
+    }
+  }
+
+  selectNewResultIfIsNeeded(nextProps) {
+    const nextSelectedResult = nextProps.selectedResult
+
+    if(nextSelectedResult && nextSelectedResult !== this.props.selectedResult) {
+      this.setState({
+        results: [...this.state.results, nextSelectedResult],
+        selectedResultsIds: [nextSelectedResult.id]
       })
     }
   }
