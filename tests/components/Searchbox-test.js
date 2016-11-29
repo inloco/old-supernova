@@ -218,4 +218,20 @@ describe("Search Box", () => {
       })
     })
   })
+
+  context("when put a selectResult", () => {
+    beforeEach(() => {
+      wrapper.setProps({ selectedResult: { id: 45, name: "Foo" }})
+    })
+
+    it("add the new result", () => {
+      const resultWithId45 = wrapper.state().results.find(result => result.id === 45)
+
+      expect(resultWithId45).not.toBeUndefined()
+    })
+
+    it("add the id in selectedResultsIds", () => {
+      expect(wrapper.state().selectedResultsIds.includes(45)).toBeTruthy()
+    })
+  })
 })

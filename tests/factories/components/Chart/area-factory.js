@@ -1,6 +1,5 @@
 jest.unmock("../../../../src/components/Chart/Area")
 jest.unmock("./../base-factory")
-jest.unmock("react-google-charts")
 
 import React from "react"
 import Factory from "./../base-factory"
