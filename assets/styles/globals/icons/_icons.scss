@@ -16,13 +16,13 @@
     INLOCOMEDIA ICON FONT
 ****************************/
 
+@import "~material-design-icons/iconfont/material-icons.css";
 
 // Basics Paths
 
-$icon-font-path:          "../fonts/";
+$icon-font-path:          "~/assets/fonts";
 $icon-font-name:          "supernova";
 $icon-font-svg-id:        "supernova";
-
 
 @font-face {
   font-family: 'Supernova';
