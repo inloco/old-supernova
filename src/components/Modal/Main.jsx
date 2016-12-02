@@ -1,6 +1,10 @@
 import React, { PropTypes } from "react"
 
 class Main extends React.Component {
+  static defaultProps = {
+    dismiss: true
+  }
+
   constructor(props) {
     super(props)
 
@@ -22,7 +26,9 @@ class Main extends React.Component {
   }
 
   handleBackdropClick(event) {
-    this.props.onClose()
+    if(this.props.dismiss) {
+      this.props.onClose()
+    }
   }
 
   handleWrapClick(event) {
