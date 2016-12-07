@@ -44,13 +44,29 @@ class SearchBox extends React.Component {
   selectNewResultIfIsNeeded(nextProps) {
     const nextSelectedResult = nextProps.selectedResult
 
-    if(nextSelectedResult && nextSelectedResult !== this.props.selectedResult) {
+    if(!nextSelectedResult) return undefined
+
+    const existentResult = this.state.results.find(result => result.id === nextSelectedResult.id)
+
+    if(existentResult) {
+      return this.updateSelectedResult(nextSelectedResult)
+    }
+
+    if(nextSelectedResult !== this.props.selectedResult) {
       this.setState({
         results: [...this.state.results, nextSelectedResult],
         selectedResultsIds: [nextSelectedResult.id]
       })
     }
   }
+
+  updateSelectedResult(updatedResult) {
+    this.setState({
+      results: this.state.results.map(result =>
+        result.id === updatedResult.id ? updatedResult : result
+      )
+    })
+  } 
 
   render() {
     const haveSelectedResults = this.getSelectedResults().length > 0
