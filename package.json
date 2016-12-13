@@ -21,9 +21,7 @@
   },
   "peerDependencies": {
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
-  },
-  "dependencies": {
+    "react-dom": "^15.4.1",
     "material-design-icons": "^2.2.3"
   },
   "devDependencies": {

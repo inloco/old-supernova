@@ -1,4 +1,10 @@
 # Supernova #
+## Dependencies
+To use this package you will need install in your project:
+- react
+- react-dom
+- material-design-icons
+
 ## Install
 Copy and paste this commands in your terminal.
 ```sh

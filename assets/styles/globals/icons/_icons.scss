@@ -16,6 +16,45 @@
     INLOCOMEDIA ICON FONT
 ****************************/
 
-@import "supernova_logo";
-@import "material_icons";
+// Basics Paths
+
+$icon-font-path:          "~/assets/fonts";
+$icon-font-name:          "supernova";
+$icon-font-svg-id:        "supernova";
+
+@font-face {
+  font-family: 'Supernova';
+  src:url('#{$icon-font-path}#{$icon-font-name}.eot');
+  src:url('#{$icon-font-path}#{$icon-font-name}.eot?#iefix') format('embedded-opentype'),
+      url('#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-name}') format('svg'),
+      url('#{$icon-font-path}#{$icon-font-name}.woff') format('woff'),
+      url('#{$icon-font-path}#{$icon-font-name}.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Catchall baseclass
+
+
+.sn-icon {
+  position: relative;
+  display: inline-block;
+  font-family: 'Supernova';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 12px;
+  font-size: 24px;
+}
+
+
+// INDIVIDUAL ICONS
+
+
+//  System
+.sn-icon__supernova--brand                           { &:before {content: "\e900";} }
+.sn-icon__inlocomedia--brand                         { &:before {content: "\e901";} }
 
