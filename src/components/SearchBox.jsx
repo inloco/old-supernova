@@ -161,9 +161,11 @@ class SearchBox extends React.Component {
   unselectResult(unselectedResult) {
     const { selectedResultsIds } = this.state
 
-    this.setState({
-      selectedResultsIds: selectedResultsIds.filter(resultId => unselectedResult.id !== resultId)
-    }, () => this.props.onUnselectResult(unselectedResult))
+    if(this.props.shouldUnselectResult()) {
+      this.setState({
+        selectedResultsIds: selectedResultsIds.filter(resultId => unselectedResult.id !== resultId)
+      }, () => this.props.onUnselectResult(unselectedResult))
+    }    
   }
 
   handleInputChange(event) {
@@ -302,7 +304,8 @@ class SearchBox extends React.Component {
 }
 
 SearchBox.defaultProps = {
-  results: []
+  results: [],
+  shouldUnselectResult: () => true
 }
 
 export default SearchBox
