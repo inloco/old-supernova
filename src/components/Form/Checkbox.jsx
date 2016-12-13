@@ -2,7 +2,7 @@ import React, { PropTypes } from "react"
 
 class Checkbox extends React.Component {
   render() {
-    const { id, label, ...inputProps } = this.props
+    const { id, label, error, ...inputProps } = this.props
 
     return(
       <div className="sn-checkbox" id={id}>
