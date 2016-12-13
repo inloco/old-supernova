@@ -16,6 +16,7 @@
     INLOCOMEDIA ICON FONT
 ****************************/
 
+
 // Basics Paths
 
 $icon-font-path:          "~/assets/fonts";
@@ -57,4 +58,5 @@ $icon-font-svg-id:        "supernova";
 //  System
 .sn-icon__supernova--brand                           { &:before {content: "\e900";} }
 .sn-icon__inlocomedia--brand                         { &:before {content: "\e901";} }
+
 
