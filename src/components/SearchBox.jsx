@@ -187,30 +187,31 @@ class SearchBox extends React.Component {
   renderResults() {
     const visibleResults = this.getVisibleResults()
     const isEmpty = visibleResults.length === 0
-    const hasEmptyButton = this.props.emptyButton
+    const hasAddButton = this.props.addButton
 
     return (
       <ul
         className="sn-search-box__results"
         style={{ display: this.state.expandedResults ? 'block' : 'none' }}>
         {isEmpty && this.renderEmptyMessage()}
-        {isEmpty && hasEmptyButton && this.renderEmptyButton()}
-
+        
         {!isEmpty && visibleResults.map(result =>
           <li key={result.id}>{this.renderResultCard(result)}</li>
         )}
+        
+        {hasAddButton && this.renderAddButton()}
       </ul>
     )
   }
 
-  renderEmptyButton() {
+  renderAddButton() {
     return (
       <li className="sn-search-box__results--action">
         <div className="sn-search-box__item-content">
-          <Button size="xs" onClick={this.props.emptyButton.onClick}>
+          <Button size="xs" onClick={this.props.addButton.onClick}>
             <Icon code="add"/>
             <span className="is-hidden--tablet-threshold">
-              {this.props.emptyButton.label}
+              {this.props.addButton.label}
             </span>
           </Button>
         </div>
