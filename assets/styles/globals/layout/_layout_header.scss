@@ -58,7 +58,7 @@
     display: flex;
   }
 
-  .sn-layout--fixed-drawer > & {
+  .sn-layout--fixed-drawer & {
     padding-left: $default-layout-drawer-width;
     @media screen and (max-width: $default-layout-screen-size-threshold) {
       padding: 0;
