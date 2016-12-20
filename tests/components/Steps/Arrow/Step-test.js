@@ -14,11 +14,11 @@ describe("Steps Arrow Item", () => {
   it("has icon with correct number", () => {
     var icon = node.querySelector("i")
 
-    expect(icon.textContent).toEqual("1")
+    expect(icon.textContent).toEqual("done")
   })
 
   it("has label", () => {
-    expect(node.textContent).toEqual("1Informações Gerais")
+    expect(node.textContent).toEqual("doneInformações Gerais")
   })
 
   it("is done", () => {
