@@ -18,7 +18,7 @@ describe("Steps Arrow Item", () => {
   })
 
   it("has label", () => {
-    expect(node.textContent).toEqual("doneInformações Gerais")
+    expect(node.textContent.includes("Informações Gerais")).toBeTruthy()
   })
 
   it("is done", () => {
