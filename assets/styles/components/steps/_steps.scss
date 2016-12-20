@@ -147,8 +147,12 @@
       border-radius: 50%;
       color: $default-steps-icon-color;
       background-color: $default-steps-icon-waiting-background;
-    }
 
+      &.material-icons {
+        padding: 1px 2px;
+        font-size: 18px;
+      }
+    }
   }
   // ./sn-steps__item
 
