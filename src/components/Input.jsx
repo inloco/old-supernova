@@ -38,7 +38,11 @@ class Input extends React.Component {
   }
 
   getAddonClassName() {
-    return this.props.addon ? "sn-input__addon--right" : ""
+    if(this.props.addon) {
+      return "sn-input__addon--right"
+    }
+
+    return this.props.leftAddon ? "sn-input__addon--left" : ""
   }
 
   componentWillReceiveProps(nextProps) {
@@ -60,7 +64,7 @@ class Input extends React.Component {
   }
 
   getInputProps() {
-    const { addon, value, error, fixed, label, ...validProps } = this.props
+    const { addon, leftAddon, value, error, fixed, label, ...validProps } = this.props
 
     return {
       ...validProps,
@@ -86,9 +90,18 @@ class Input extends React.Component {
     }
   }
 
+  renderLeftAddon() {
+    const { leftAddon } = this.props
+
+    if(leftAddon) {
+      return <span className="sn-field__addon">{leftAddon}</span>
+    }
+  }
+
   render() {
     return(
       <div className={`sn-input ${this.getErrorClassName()} ${this.getAddonClassName()}`}>
+        {this.renderLeftAddon()}
         <input {...this.getInputProps()}/>
         {this.renderLabel()}
         {this.renderAddon()}
