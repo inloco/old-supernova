@@ -21,6 +21,12 @@ import Modal from "./components/Modal/Main"
 import ModalBody from "./components/Modal/Body"
 import ModalFooter from "./components/Modal/Footer"
 import ModalHeader from "./components/Modal/Header"
+import Paginator from "./components/Paginator/Main"
+import PaginatorFirst from "./components/Paginator/First"
+import PaginatorLast from "./components/Paginator/Last"
+import PaginatorNext from "./components/Paginator/Next"
+import PaginatorNumber from "./components/Paginator/Number"
+import PaginatorPrevious from "./components/Paginator/Previous"
 import Pills from "./components/Pills/Main"
 import Pill from "./components/Pills/Pill"
 import Radio from "./components/Radio"
@@ -81,6 +87,12 @@ export {
   ModalBody,
   ModalFooter,
   ModalHeader,
+  Paginator,
+  PaginatorFirst,
+  PaginatorLast,
+  PaginatorNext,
+  PaginatorNumber,
+  PaginatorPrevious,
   Pills,
   Pill,
   Radio,

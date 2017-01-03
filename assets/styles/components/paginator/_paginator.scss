@@ -1,0 +1,15 @@
+.sn-paginator {
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.sn-paginator__item {
+  cursor: pointer;
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  text-align: center;
+  float: left;
+  font-weight: 700;
+  line-height: 20px;
+}
