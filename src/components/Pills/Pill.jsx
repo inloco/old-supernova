@@ -3,8 +3,8 @@ import React, { PropTypes } from "react"
 class Pill extends React.Component {
   static propTypes = {
     name:           PropTypes.string,
-    value:          PropTypes.string.isRequired,
-    label:          PropTypes.string.isRequired,
+    value:          PropTypes.string,
+    label:          PropTypes.string,
     defaultChecked: PropTypes.bool
   }
 
@@ -12,7 +12,7 @@ class Pill extends React.Component {
     defaultChecked: false
   }
 
-  getProps() {
+  getRadioProps() {
     const { name, value, defaultChecked } = this.props
 
     return { name, value, defaultChecked }
@@ -20,8 +20,8 @@ class Pill extends React.Component {
 
   render() {
     return (
-      <label className="sn-pills__label">
-        <input type="radio" {...this.getProps()}/>
+      <label className="sn-pills__label" onClick={this.props.onClick}>
+        <input type="radio" {...this.getRadioProps()}/>
         <span className="sn-pills__label--content">
           {this.props.label}
         </span>

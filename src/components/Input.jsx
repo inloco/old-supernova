@@ -98,6 +98,14 @@ class Input extends React.Component {
     }
   }
 
+  renderLeftAddon() {
+    const { leftAddon } = this.props
+
+    if(leftAddon) {
+      return <span className="sn-field__addon">{leftAddon}</span>
+    }
+  }
+
   render() {
     return(
       <div className={`sn-input ${this.getErrorClassName()} ${this.getAddonClassName()}`}>
