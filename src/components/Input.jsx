@@ -64,7 +64,7 @@ class Input extends React.Component {
   }
 
   getInputProps() {
-    const { addon, leftAddon, value, error, fixed, label, ...validProps } = this.props
+    const { rightAddon, leftAddon, value, error, fixed, label, ...validProps } = this.props
 
     return {
       ...validProps,
