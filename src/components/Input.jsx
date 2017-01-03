@@ -38,7 +38,11 @@ class Input extends React.Component {
   }
 
   getAddonClassName() {
-    return this.props.addon ? "sn-input__addon--right" : ""
+    if(this.props.rightAddon) {
+      return "sn-input__addon--right"
+    }
+
+    return this.props.leftAddon ? "sn-input__addon--left" : ""
   }
 
   componentWillReceiveProps(nextProps) {
@@ -60,7 +64,7 @@ class Input extends React.Component {
   }
 
   getInputProps() {
-    const { addon, value, error, fixed, label, ...validProps } = this.props
+    const { rightAddon, leftAddon, value, error, fixed, label, ...validProps } = this.props
 
     return {
       ...validProps,
@@ -78,20 +82,29 @@ class Input extends React.Component {
     }
   }
 
-  renderAddon() {
-    const { addon } = this.props
+  renderRightAddon() {
+    const { rightAddon } = this.props
 
-    if(addon) {
-      return <span className="sn-field__addon">{addon}</span>
+    if(rightAddon) {
+      return <span className="sn-field__addon">{rightAddon}</span>
+    }
+  }
+
+  renderLeftAddon() {
+    const { leftAddon } = this.props
+
+    if(leftAddon) {
+      return <span className="sn-field__addon">{leftAddon}</span>
     }
   }
 
   render() {
     return(
       <div className={`sn-input ${this.getErrorClassName()} ${this.getAddonClassName()}`}>
+        {this.renderLeftAddon()}
         <input {...this.getInputProps()}/>
         {this.renderLabel()}
-        {this.renderAddon()}
+        {this.renderRightAddon()}
         <i className="sn-field__bar"></i>
         <span className="sn-form-group__message">{this.props.error}</span>
       </div>
