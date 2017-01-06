@@ -6,7 +6,7 @@
  *  Copyright 2016 - All Rights Reserved.
  *
  *  -------- SUPERNOVA ---------
- *    typography variables file
+ *   Typography variables file
  *  ----------- *** ------------
  *
  */
@@ -48,7 +48,7 @@ $line-height-number     : strip-unit($default-line-height);
 }
 
 @if $font-unit == "%" {
-  $default-fs: 16;
+  $default-fs: 14;
   $default-lh: 20;
   $fs-percent-calc: 100;
 
@@ -69,16 +69,7 @@ $default-vertical-movement-divider   : 5;
 $default-horizontal-movement-divider : 3.5;
 
 $default-horizontal-movement         : floor($default-font-size / $default-horizontal-movement-divider);    // ~4px
-$default-vertical-movement           : floor($default-line-height / $default-vertical-movement-divider);      // ~4px
-
-
-
-
-// ICONS
-
-.material-icons {
-  font-size: $default-font-size * 1.625; // ~24px
-}
+$default-vertical-movement           : floor($default-line-height / $default-vertical-movement-divider);    // ~4px
 
 
 

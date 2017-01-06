@@ -51,7 +51,7 @@ $default-layout-header-bg-color                           : $default-header-back
 $default-layout-header-text-color                         : $default-header-text-color !default;
 $default-layout-header-nav-hover-color                    : rgba($palette-grey-700, 0.6) !default;
 $default-layout-header-tab-text-color                     : rgba($color-dark-contrast, 0.6) !default;
-$default-layout-header-tab-highlight                      : $default-accent-color !default;
+$default-layout-header-tab-highlight                      : $default-accent-color !default; 
 $default-layout-subheader-background-color                : $palette-grey-200;
 
 // -- Drawer
@@ -63,6 +63,9 @@ $default-layout-drawer-navigation-color                   : $palette-grey-600 !d
 $default-layout-drawer-navigation-link-active-color       : $palette-grey-300 !default;
 $default-layout-drawer-navigation-link-active-background  : darken($default-layout-drawer-navigation-link-active-color, 1%) !default;
 $default-layout-drawer-button-color                       : $default-layout-header-text-color;
+$default-layout-drawer-button-color-screen                : rgba(0, 0, 0, 0.5);
+$default-layout-drawer-user-link-color                    : $palette-grey-500;
+$default-layout-drawer-user-link-color-hover              : $color-black;
 
 // -- Obfuscator (for drawer)
 $default-obfuscator-background-color                      : rgba($color-black, 0.5);

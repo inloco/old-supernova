@@ -28,17 +28,16 @@
   left: 0;
   z-index: $default-layout-drawer-zindex;
   box-sizing: border-box;
-  border-right: 1px solid $default-layout-drawer-border-color;
+  border-right: $default-layout-drawer-border-right solid $default-layout-drawer-border-color;
   @include shadow-2dp();
-
   background: $default-layout-drawer-bg-color;
   color: $default-layout-text-color;
 
   // Transform offscreen.
-  transform: translateX($default-layout-drawer-transform);
+  @include translateX($default-layout-drawer-transform);
   transform-style: preserve-3d;
   will-change: transform;
-  @include material-animation-default();
+  @include animation-default();
   transition-property: transform;
   overflow: visible;
   overflow-y: auto;
@@ -65,7 +64,7 @@
     height: $default-layout-drawer-title-height;
     padding: $default-layout-drawer-title-padding-vertical $default-layout-drawer-desktop-padding;
     font-size: $default-layout-drawer-title-font-size;
-    border-bottom: 1px solid $default-dividers-color;
+    border-bottom: $default-layout-drawer-title-border-bottom solid $default-dividers-color;
     @media screen and (max-width: $default-layout-screen-size-threshold) {
       //line-height: $default-layout-header-mobile-height;
       padding-left: $default-layout-drawer-mobile-padding;
@@ -73,9 +72,9 @@
 
     img, .sn-layout__drawer-title__image {
       position: absolute;
-      top: 16px;
-      max-width: 152px;
-      max-height: 40px;
+      top: $default-layout-drawer-title-image-title-top;
+      max-width: $default-layout-drawer-title-image-max-width;
+      max-height: $default-layout-drawer-title-image-max-height;
       border: 0;
     }
   }
@@ -85,9 +84,9 @@
     position: relative;
     display: inline-block;
     width: 100%;
-    padding: 16px 0 12px 0;
-    margin-bottom: 4px;
-    border-bottom: 1px solid $default-dividers-color;
+    padding: $default-layout-drawer-user-padding;
+    margin-bottom: $default-layout-drawer-user-margin-bottom;
+    border-bottom: $default-layout-drawer-user-border-bottom solid $default-dividers-color;
     //-webkit-box-shadow: $shadow-user-menu;
     //box-shadow: $shadow-user-menu;
     z-index: 1;
@@ -98,51 +97,50 @@
     .sn-layout__drawer-user__avatar {
       position: relative;
       float: left;
-      width: 50px;
-      height: 50px;
-      margin: 0 4px 4px 12px;
-      padding: 0;
-      border:0;
+      width: $default-layout-drawer-user-avatar-width;
+      height: $default-layout-drawer-user-avatar-height;
+      margin: $default-layout-drawer-user-avatar-margin;
       background-color: transparent;
       .sn-layout__drawer-user__avatar-mask {
         position: absolute;
         left: 0;
         right: 0;
         top: 0;
-        bottom:0;
+        bottom: 0;
         margin: auto;
-        width: 52px;
-        height: 52px;
+        width: $default-layout-drawer-user-avatar-mask-width;
+        height: $default-layout-drawer-user-avatar-mask-height;
         padding: 0;
         border: 0 !important;
         border-color: transparent;
-        background-color: transparent; border-radius: 50%;
+        background-color: transparent; 
+        border-radius: 50%;
         overflow: hidden;
-        transition: all .2s linear;
+        @include transition(all .2s linear);
         &:hover {
-          background-color: #FFF;
           cursor: pointer;
           opacity: 1;
-          border: 1px solid grey;
+          background-color: #FFF;
           @include shadow-3dp();
           &:before {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            content: "\e3C9";
+            top: $default-layout-drawer-user-avatar-mask-hover-top;
+            left: $default-layout-drawer-user-avatar-mask-hover-left;
             display: inline-block;
             font-family: 'Material Icons';
             font-style: normal;
             font-weight: normal;
+            content: "\e3C9";
             line-height: 1;
             outline: none;
             color: #000;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            width: 24px;
-            height: 24px;
-            padding: 4px;
-            font-size: 24px;
+            width: $default-layout-drawer-user-avatar-mask-hover-width;
+            height: $default-layout-drawer-user-avatar-mask-hover-height;
+            padding: $default-layout-drawer-user-avatar-mask-hover-padding;
+            border: 0;
+            font-size: $default-layout-drawer-user-avatar-mask-hover-font-size;
           }
         }
 
@@ -155,14 +153,14 @@
           bottom: 0;
           margin: auto;
           padding: 0;
-          width: 48px;
-          height: 48px;
+          width: $default-layout-drawer-user-avatar-image-width;
+          height: $default-layout-drawer-user-avatar-image-height;
           border-radius: 50%;
-          outline:none;
-          border:0;
+          outline: none;
+          border: 0;
           border-color: transparent;
           background-color: transparent;
-          transition: all .2s linear;
+          @include transition(all .2s linear);
           &:hover {
             opacity: 0.2;
           }
@@ -171,69 +169,67 @@
     }
     .sn-layout__drawer-user__info {
       float: left;
-      width: 148px;
-      padding: 8px 0 4px 4px;
+      width: $default-layout-drawer-user-info-width;
+      padding: $default-layout-drawer-user-info-padding;
       .sn-layout__drawer-user__info-name {
         display: inline-block;
-        width: 140px;
-        font-size: 16px;
-        padding-left: 2px;
-        padding-bottom: 4px;
+        width: $default-layout-drawer-user-info-name-width;
+        padding: $default-layout-drawer-user-info-name-padding;
+        font-size: $default-layout-drawer-user-info-name-font-size;
+        line-height: $default-layout-drawer-user-info-name-line-height;
         word-break: break-word;
-        line-height: 1.2;
       }
       .sn-layout__drawer-user__info-contact {
         display: inline-block;
-        width: 140px;
-        font-size: 12px;
-        color: $default-text-color-secondary;
-        padding-left: 2px;
-        padding-bottom: 4px;
+        width: $default-layout-drawer-user-info-contact-width;
+        padding: $default-layout-drawer-user-info-contact-padding; 
+        font-size: $default-layout-drawer-user-info-contact-font-size;
+        line-height: $default-layout-drawer-user-info-contact-line-height;
         word-break: break-all;
-        line-height: 1.2;
+        color: $default-text-color-secondary;
       }
       .sn-layout__drawer-user__info-actions {
         width: 100%;
-        list-style: none;
-        min-height: 16px;
-        font-size: 13px;
+        min-height: $default-layout-drawer-user-info-actions-min-height;
+        margin: $default-layout-drawer-user-info-actions-margin;
+        padding: 0;
+        font-size: $default-layout-drawer-user-info-actions-font-size;
         clear: both;
         color: black;
-        padding: 0;
-        margin: 4px 0;
+        list-style: none;
         li {
           position: relative;
           display: inline;
-          margin-right: 16px;
+          margin: $default-layout-drawer-user-info-actions-li-margin;
+          &.active {
+            a {
+              color: $default-layout-drawer-user-link-color-hover;
+            }
+          }          
           a {
             display: inline-block;
             position: relative;
-            height: 20px;
-            padding-left: 20px;
-            color: grey;
+            height: $default-layout-drawer-user-info-actions-link-height;
+            padding: $default-layout-drawer-user-info-actions-link-padding;
+            color: $default-layout-drawer-user-link-color;
             &:hover, &:active {
-              color: black;
+              color: $default-layout-drawer-user-link-color-hover;
               text-decoration: none;
             }
             &:focus {
-              color: black;
+              color: $default-layout-drawer-user-link-color-hover;
               text-decoration: none;
             }
             i {
               position: absolute;
-              top: 1px;
+              top: $default-layout-drawer-user-info-actions-icon-top;
               left: 0;
-              font-size: 16px;
-            }
-          }
-          &.active {
-            a {
-            color: black;
+              font-size: $default-layout-drawer-user-info-actions-icon-font-size;
             }
           }
         }
         p {
-          font-size: 16px;
+          font-size: $default-layout-drawer-user-info-actions-p-font-size;
         }
       }
 
@@ -268,11 +264,11 @@
       }
       i {
         float: left;
-        width: 20px;
-        height: 20px;
-        font-size: 20px;
+        width: $default-layout-drawer-navigation-link-width;
+        height: $default-layout-drawer-navigation-link-height;
+        font-size: $default-layout-drawer-navigation-link-font-size;
         vertical-align: middle;
-        margin-right: 16px;
+        margin: $default-layout-drawer-navigation-link-margin;
       }
     }
     &.sn-layout__drawer-navigation__link--current {
@@ -315,7 +311,7 @@
   }
   @media screen and (max-width: $default-layout-screen-size-threshold) {
     margin: $default-layout-drawer-button-screen-threshold-margin;
-    color: rgba(0, 0, 0, 0.5);
+    color: $default-layout-drawer-button-color-screen;
   }
   @media screen and (min-width: $default-layout-screen-size-threshold + 1px) {
     .sn-layout--fixed-drawer .sn-layout__header & {
@@ -342,7 +338,7 @@
 
   visibility: hidden;
   transition-property: background-color;
-  @include material-animation-default();
+  @include animation-default();
   &.is-visible {
     background-color: $default-obfuscator-background-color;
     visibility: visible;

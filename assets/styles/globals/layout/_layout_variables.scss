@@ -31,13 +31,15 @@ $default-layout-header-mobile-baseline                : $hm * 16 !default; // ~6
 $default-layout-header-mobile-indent                  : $hm * 4 !default; // ~16px
 $default-layout-header-desktop-indent                 : $hm * 8 !default; // ~32px - original is 40px
 $default-layout-subheader-min-height                  : $vm * 14 !default; // ~56px
-
+$default-layout-header-navigation-link-padding        : 0 ($vm * 6); // ~ 0 24px
+$default-layout-header-navigation-link-padding        : 0;
 
 // Drawer
 $default-layout-drawer-narrow                         : $hm * 60 !default; // ~240px
 //$default-layout-drawer-wide                           : 456px !default;
 $default-layout-drawer-width                          : $default-layout-drawer-narrow !default;
-$default-layout-drawer-title-font-size                : $dfs * 1.2857142857 !default;
+$default-layout-drawer-border-right                   : $hm * 0.25 !default; // ~1px
+$default-layout-drawer-title-font-size                : $dfs * 1.2857142857 !default; // ~18px
 $default-layout-drawer-title-padding-vertical         : $vm * 6 !default;
 $default-layout-drawer-title-height                   : $default-layout-header-desktop-height - ($default-layout-drawer-title-padding-vertical * 2);
 $default-layout-drawer-button-mobile-size             : $hm * 8 !default; // ~32px
@@ -50,8 +52,51 @@ $default-layout-drawer-button-screen-threshold-margin : $vm $hm !default; // ~4p
 $default-layout-drawer-navigation-padding-top         : $vm * 3 !default; // ~4px
 $default-layout-drawer-desktop-padding                : $hm * 4 !default; // ~16px
 $default-layout-drawer-mobile-padding                 : $hm * 8 !default; // ~32px
-
-
+// Drawer Title
+$default-layout-drawer-title-border-bottom            : $vm * 0.25 !default; // ~1px
+$default-layout-drawer-title-image-title-top          : $vm * 4 !default; // ~16px
+$default-layout-drawer-title-image-max-width          : $hm * 38 !default; // ~152px
+$default-layout-drawer-title-image-max-height         : $hm * 10 !default; // ~40px
+// Drawer User
+$default-layout-drawer-user-padding                   : ($vm * 4) 0 ($vm * 3) 0; // ~16px 0 12px 0
+$default-layout-drawer-user-margin-bottom             : $vm; // ~4px
+$default-layout-drawer-user-border-bottom             : $vm * 0.25 !default; // ~1px
+$default-layout-drawer-user-avatar-width              : $hm * 12.5; // ~50px;
+$default-layout-drawer-user-avatar-height             : $vm * 12.5; // ~50px;
+$default-layout-drawer-user-avatar-margin             : 0 $hm $vm ($hm * 3); // ~0 4px 4px 12px
+$default-layout-drawer-user-avatar-mask-width         : $hm * 13; // ~50px;
+$default-layout-drawer-user-avatar-mask-height        : $vm * 13; // ~50px;
+$default-layout-drawer-user-avatar-mask-hover-top     : $vm * 3; // ~12px;
+$default-layout-drawer-user-avatar-mask-hover-left    : $hm * 3; // ~12px;
+$default-layout-drawer-user-avatar-mask-hover-width   : $hm * 5; // ~20px;
+$default-layout-drawer-user-avatar-mask-hover-height  : $vm * 5; // ~20px;
+$default-layout-drawer-user-avatar-mask-hover-padding : $hm * 0.5; // ~2px;
+$default-layout-drawer-user-avatar-mask-hover-font-size : $dfs * 1.7142857143; // ~24px;
+$default-layout-drawer-user-avatar-image-width        : $hm * 12; // ~48px
+$default-layout-drawer-user-avatar-image-height       : $vm * 12; // ~48px
+$default-layout-drawer-user-info-width                : $hm * 37; // ~148px
+$default-layout-drawer-user-info-padding              : ($vm * 2) 0 $vm ($hm * 2); // ~8px 0 4px 8px
+$default-layout-drawer-user-info-name-width           : $hm * 35; // ~140px
+$default-layout-drawer-user-info-name-font-size       : $dfs * 1.14285714297; // ~16px
+$default-layout-drawer-user-info-name-line-height     : $dlh; // ~20px
+$default-layout-drawer-user-info-name-padding         : 0 0 $vm ($hm * 0.5); // ~ 0 0 4px 2px
+$default-layout-drawer-user-info-contact-width        : $hm * 35; // ~140px
+$default-layout-drawer-user-info-contact-padding      : 0 0 ($vm * 0.5) $hm; // ~ 0 0 2px 4px
+$default-layout-drawer-user-info-contact-font-size    : $dfs * 0.8571428571; // ~12px
+$default-layout-drawer-user-info-contact-line-height  : $default-layout-drawer-user-info-name-line-height;
+$default-layout-drawer-user-info-actions-min-height   : $vm * 4; // ~ 16px
+$default-layout-drawer-user-info-actions-margin       : $vm 0; // ~ 4px 0
+$default-layout-drawer-user-info-actions-font-size    : $dfs * 0.9285714286; // ~13px
+$default-layout-drawer-user-info-actions-li-margin    : 0 ($hm * 4) 0 0; // ~ 0 16px 0 0
+$default-layout-drawer-user-info-actions-link-height  : $vm * 5; // ~ 20px
+$default-layout-drawer-user-info-actions-link-padding : 0 0 0 ($hm * 5); // ~ 0 0 0 20px
+$default-layout-drawer-user-info-actions-icon-top     : $vm * 0.25 !default; // ~ 1px
+$default-layout-drawer-user-info-actions-icon-font-size : $dfs * 1.1428571429; // ~ 16px
+$default-layout-drawer-user-info-actions-p-font-size  : $dfs * 1.1428571429; // ~ 16px
+$default-layout-drawer-navigation-link-width          : $hm * 5; // ~ 20px
+$default-layout-drawer-navigation-link-height         : $vm * 5; // ~ 20px
+$default-layout-drawer-navigation-link-font-size      : $dfs * 0.7; // ~ 20px
+$default-layout-drawer-navigation-link-margin         : 0 ($vm * 4) 0 0; // ~ 0 16px 0 0
 
 // Footer
 $default-layout-footer-title                          : $hm * 5; // ~20px
