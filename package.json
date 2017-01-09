@@ -10,7 +10,7 @@
     "url": "git+ssh://git@bitbucket.org/ubeedev/supernova.git"
   },
   "scripts": {
-    "build": "rm -rf build && babel src --presets es2015,stage-0,react -d build",
+    "build": "rm -rf build && babel src -d build",
     "build-dev": "rm -rf build && webpack --config webpack.dev.config.js --watch",
     "test": "jest --runInBand",
     "test:watch": "jest --watch",
@@ -18,7 +18,7 @@
     "eslint": "eslint ./src --ext .js --ext .jsx --cache || true",
     "eslint:table": "eslint ./src --ext .js --ext .jsx --cache --format table || true",
     "eslint:summary": "eslint ./src --ext .js --ext .jsx --cache --format ‘node_modules/eslint-friendly-formatter’ || true",
-    "postinstall": "npm run build"
+    "prepublish": "npm run build"
   },
   "peerDependencies": {
     "react": "^15.4.1",
