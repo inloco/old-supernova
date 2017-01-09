@@ -5,6 +5,7 @@
   "main": "./build/index.js",
   "author": "In Loco Media Front-End Team",
   "license": "ISC",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+ssh://git@bitbucket.org/ubeedev/supernova.git"
