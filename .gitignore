@@ -1,7 +1,6 @@
 node_modules
 npm-debug.log
 .vscode/settings.json
-build
 .idea/
 
 # OS files
