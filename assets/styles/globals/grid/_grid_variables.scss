@@ -28,7 +28,7 @@ $gutter-lg-hm                       : $hm * 6;  // ~24px
 
 // Grid Row Gutter Sizes
 $gutter-vm                          : $vm * 4;   // ~16px
-$gutter-xs-vm                       : $vm / 2;   // ~2px
+$gutter-xs-vm                       : $vm * 0.5;   // ~2px
 $gutter-sm-vm                       : $vm;       // ~4px
 $gutter-lg-vm                       : $vm * 4;   // ~16px
 $gutter-reverse-vm                  : $vm;       // ~4px
@@ -52,6 +52,3 @@ $cell-padding-vertical-sm           : $vm;       // 4px;
 $cell-padding-horizontal-lg         : $hm * 4;   // 16px;
 $cell-padding-horizontal-md         : $hm * 2;   // 8px;
 $cell-padding-horizontal-sm         : $hm;       // 4px;
-
-
-

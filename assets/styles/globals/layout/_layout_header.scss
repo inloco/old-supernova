@@ -50,7 +50,7 @@
   z-index: $default-layout-header-zindex;
 
   @include shadow-2dp();
-  @include material-animation-default();
+  @include animation-default();
   transition-property: max-height, box-shadow;
 
 
@@ -161,7 +161,7 @@
     display: block;
     color: $default-layout-header-text-color;
     line-height: $default-layout-header-desktop-row-height;
-    padding: 0 24px;
+    padding: $default-layout-header-navigation-link-padding;
 
     @media screen and (max-width: $default-layout-screen-size-threshold) {
       line-height: $default-layout-header-mobile-row-height;
