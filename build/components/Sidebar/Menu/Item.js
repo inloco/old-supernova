@@ -78,9 +78,9 @@ var Item = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var _props = this.props,
-          label = _props.label,
-          href = _props.href;
+      var _props = this.props;
+      var label = _props.label;
+      var href = _props.href;
 
 
       return _react2.default.createElement(

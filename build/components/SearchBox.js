@@ -178,9 +178,9 @@ var SearchBox = function (_React$Component) {
     value: function getSelectedResults() {
       var _this4 = this;
 
-      var _state = this.state,
-          results = _state.results,
-          selectedResultsIds = _state.selectedResultsIds;
+      var _state = this.state;
+      var results = _state.results;
+      var selectedResultsIds = _state.selectedResultsIds;
 
 
       return results.filter(function (result) {
@@ -336,9 +336,9 @@ var SearchBox = function (_React$Component) {
   }, {
     key: "getCurrentResults",
     value: function getCurrentResults() {
-      var _state2 = this.state,
-          latestResultsIds = _state2.latestResultsIds,
-          results = _state2.results;
+      var _state2 = this.state;
+      var latestResultsIds = _state2.latestResultsIds;
+      var results = _state2.results;
 
 
       return results.filter(function (result) {

@@ -30,9 +30,9 @@ var Group = function (_React$Component) {
   _createClass(Group, [{
     key: "renderChildren",
     value: function renderChildren() {
-      var _props = this.props,
-          name = _props.name,
-          children = _props.children;
+      var _props = this.props;
+      var name = _props.name;
+      var children = _props.children;
 
 
       if (name) {
@@ -49,9 +49,9 @@ var Group = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _props2 = this.props,
-          label = _props2.label,
-          id = _props2.id;
+      var _props2 = this.props;
+      var label = _props2.label;
+      var id = _props2.id;
 
 
       return _react2.default.createElement(

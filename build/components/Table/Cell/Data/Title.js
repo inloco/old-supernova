@@ -34,9 +34,9 @@ var Title = function (_React$Component) {
   _createClass(Title, [{
     key: "render",
     value: function render() {
-      var _props = this.props,
-          children = _props.children,
-          href = _props.href;
+      var _props = this.props;
+      var children = _props.children;
+      var href = _props.href;
 
 
       return _react2.default.createElement(

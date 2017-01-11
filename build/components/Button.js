@@ -61,12 +61,12 @@ var Button = function (_React$Component) {
   }, {
     key: "getProps",
     value: function getProps() {
-      var _props = this.props,
-          disabled = _props.disabled,
-          type = _props.type,
-          tabIndex = _props.tabIndex,
-          onClick = _props.onClick,
-          name = _props.name;
+      var _props = this.props;
+      var disabled = _props.disabled;
+      var type = _props.type;
+      var tabIndex = _props.tabIndex;
+      var onClick = _props.onClick;
+      var name = _props.name;
 
 
       return {
@@ -81,9 +81,9 @@ var Button = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _props2 = this.props,
-          label = _props2.label,
-          children = _props2.children;
+      var _props2 = this.props;
+      var label = _props2.label;
+      var children = _props2.children;
 
 
       return _react2.default.createElement(

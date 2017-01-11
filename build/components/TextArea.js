@@ -70,12 +70,13 @@ var TextArea = function (_React$Component) {
   }, {
     key: "getTextAreaProps",
     value: function getTextAreaProps() {
-      var _props = this.props,
-          value = _props.value,
-          error = _props.error,
-          fixed = _props.fixed,
-          label = _props.label,
-          validProps = _objectWithoutProperties(_props, ["value", "error", "fixed", "label"]);
+      var _props = this.props;
+      var value = _props.value;
+      var error = _props.error;
+      var fixed = _props.fixed;
+      var label = _props.label;
+
+      var validProps = _objectWithoutProperties(_props, ["value", "error", "fixed", "label"]);
 
       return _extends({}, validProps, {
         onChange: this.handleChange.bind(this),
@@ -86,9 +87,9 @@ var TextArea = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _props2 = this.props,
-          id = _props2.id,
-          label = _props2.label;
+      var _props2 = this.props;
+      var id = _props2.id;
+      var label = _props2.label;
 
 
       return _react2.default.createElement(

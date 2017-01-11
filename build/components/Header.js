@@ -39,7 +39,7 @@ var Header = function (_React$Component) {
           _react2.default.createElement(
             "i",
             { className: "material-icons" },
-            "\uE5D2"
+            ""
           )
         ),
         _react2.default.createElement(

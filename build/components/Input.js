@@ -84,14 +84,15 @@ var Input = function (_React$Component) {
   }, {
     key: "getInputProps",
     value: function getInputProps() {
-      var _props = this.props,
-          rightAddon = _props.rightAddon,
-          leftAddon = _props.leftAddon,
-          value = _props.value,
-          error = _props.error,
-          fixed = _props.fixed,
-          label = _props.label,
-          validProps = _objectWithoutProperties(_props, ["rightAddon", "leftAddon", "value", "error", "fixed", "label"]);
+      var _props = this.props;
+      var rightAddon = _props.rightAddon;
+      var leftAddon = _props.leftAddon;
+      var value = _props.value;
+      var error = _props.error;
+      var fixed = _props.fixed;
+      var label = _props.label;
+
+      var validProps = _objectWithoutProperties(_props, ["rightAddon", "leftAddon", "value", "error", "fixed", "label"]);
 
       return _extends({}, validProps, {
         onChange: this.handleChange.bind(this),
@@ -102,9 +103,9 @@ var Input = function (_React$Component) {
   }, {
     key: "renderLabel",
     value: function renderLabel() {
-      var _props2 = this.props,
-          id = _props2.id,
-          label = _props2.label;
+      var _props2 = this.props;
+      var id = _props2.id;
+      var label = _props2.label;
 
 
       if (label) {

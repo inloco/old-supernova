@@ -30,13 +30,13 @@ var Ballon = function (_React$Component) {
   _createClass(Ballon, [{
     key: "render",
     value: function render() {
-      var _props = this.props,
-          label = _props.label,
-          value = _props.value,
-          icon = _props.icon,
-          color = _props.color,
-          addon = _props.addon,
-          id = _props.id;
+      var _props = this.props;
+      var label = _props.label;
+      var value = _props.value;
+      var icon = _props.icon;
+      var color = _props.color;
+      var addon = _props.addon;
+      var id = _props.id;
 
 
       return _react2.default.createElement(

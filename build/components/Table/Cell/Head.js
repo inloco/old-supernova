@@ -32,9 +32,9 @@ var Head = function (_React$Component) {
   _createClass(Head, [{
     key: "render",
     value: function render() {
-      var _props = this.props,
-          children = _props.children,
-          type = _props.type;
+      var _props = this.props;
+      var children = _props.children;
+      var type = _props.type;
 
 
       return _react2.default.createElement(

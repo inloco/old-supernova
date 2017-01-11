@@ -47,7 +47,7 @@ var Header = function (_React$Component) {
             onClick: this.context.onClose,
             type: "button",
             className: "sn-modal__header__close-button" },
-          _react2.default.createElement(_Icon2.default, { code: "\uE5CD" })
+          _react2.default.createElement(_Icon2.default, { code: "" })
         ),
         _react2.default.createElement(
           "span",

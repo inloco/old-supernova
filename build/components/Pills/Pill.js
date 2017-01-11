@@ -32,10 +32,10 @@ var Pill = function (_React$Component) {
   _createClass(Pill, [{
     key: "getRadioProps",
     value: function getRadioProps() {
-      var _props = this.props,
-          name = _props.name,
-          value = _props.value,
-          defaultChecked = _props.defaultChecked;
+      var _props = this.props;
+      var name = _props.name;
+      var value = _props.value;
+      var defaultChecked = _props.defaultChecked;
 
 
       return { name: name, value: value, defaultChecked: defaultChecked };

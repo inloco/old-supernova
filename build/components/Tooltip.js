@@ -40,9 +40,9 @@ var Tooltip = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _props = this.props,
-          message = _props.message,
-          children = _props.children;
+      var _props = this.props;
+      var message = _props.message;
+      var children = _props.children;
 
 
       return _react2.default.createElement(
