@@ -30,9 +30,9 @@ var Logo = function (_React$Component) {
   _createClass(Logo, [{
     key: "render",
     value: function render() {
-      var _props = this.props,
-          href = _props.href,
-          src = _props.src;
+      var _props = this.props;
+      var href = _props.href;
+      var src = _props.src;
 
 
       return _react2.default.createElement(

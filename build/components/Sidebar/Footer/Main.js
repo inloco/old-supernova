@@ -35,9 +35,9 @@ var Footer = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _props = this.props,
-          company = _props.company,
-          children = _props.children;
+      var _props = this.props;
+      var company = _props.company;
+      var children = _props.children;
 
 
       return _react2.default.createElement(
@@ -51,7 +51,7 @@ var Footer = function (_React$Component) {
             null,
             company
           ),
-          " \xA9 ",
+          " © ",
           this.getCurrentYear()
         ),
         _react2.default.createElement(

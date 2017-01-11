@@ -30,11 +30,11 @@ var Item = function (_React$Component) {
   _createClass(Item, [{
     key: "render",
     value: function render() {
-      var _props = this.props,
-          label = _props.label,
-          addon = _props.addon,
-          value = _props.value,
-          icon = _props.icon;
+      var _props = this.props;
+      var label = _props.label;
+      var addon = _props.addon;
+      var value = _props.value;
+      var icon = _props.icon;
 
 
       return _react2.default.createElement(

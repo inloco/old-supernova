@@ -34,11 +34,12 @@ var Checkbox = function (_React$Component) {
   _createClass(Checkbox, [{
     key: "render",
     value: function render() {
-      var _props = this.props,
-          id = _props.id,
-          label = _props.label,
-          error = _props.error,
-          inputProps = _objectWithoutProperties(_props, ["id", "label", "error"]);
+      var _props = this.props;
+      var id = _props.id;
+      var label = _props.label;
+      var error = _props.error;
+
+      var inputProps = _objectWithoutProperties(_props, ["id", "label", "error"]);
 
       return _react2.default.createElement(
         "div",

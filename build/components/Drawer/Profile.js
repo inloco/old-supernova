@@ -71,7 +71,7 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                   "i",
                   { className: "material-icons" },
-                  "\uE7FD"
+                  ""
                 ),
                 "Conta"
               )
@@ -85,7 +85,7 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                   "i",
                   { className: "material-icons" },
-                  "\uE8AC"
+                  ""
                 ),
                 "Sair"
               )

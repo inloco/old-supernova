@@ -39,9 +39,10 @@ var Radio = function (_React$Component) {
   _createClass(Radio, [{
     key: "render",
     value: function render() {
-      var _props = this.props,
-          label = _props.label,
-          inputProps = _objectWithoutProperties(_props, ["label"]);
+      var _props = this.props;
+      var label = _props.label;
+
+      var inputProps = _objectWithoutProperties(_props, ["label"]);
 
       return _react2.default.createElement(
         "div",

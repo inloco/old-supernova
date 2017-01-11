@@ -138,7 +138,7 @@ var Alert = function (_React$Component) {
           _react2.default.createElement(
             "i",
             { className: "material-icons" },
-            "\uE14C"
+            ""
           )
         ),
         _react2.default.createElement(

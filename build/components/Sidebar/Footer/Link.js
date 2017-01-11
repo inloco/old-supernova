@@ -30,9 +30,9 @@ var Link = function (_React$Component) {
   _createClass(Link, [{
     key: "render",
     value: function render() {
-      var _props = this.props,
-          href = _props.href,
-          label = _props.label;
+      var _props = this.props;
+      var href = _props.href;
+      var label = _props.label;
 
 
       return _react2.default.createElement(

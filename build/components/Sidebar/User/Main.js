@@ -50,9 +50,9 @@ var User = function (_React$Component) {
   }, {
     key: "getUserImpersonate",
     value: function getUserImpersonate() {
-      var _props = this.props,
-          userImpersonateHref = _props.userImpersonateHref,
-          userImpersonateLabel = _props.userImpersonateLabel;
+      var _props = this.props;
+      var userImpersonateHref = _props.userImpersonateHref;
+      var userImpersonateLabel = _props.userImpersonateLabel;
 
 
       return _react2.default.createElement(
@@ -64,11 +64,11 @@ var User = function (_React$Component) {
   }, {
     key: "getUserInfo",
     value: function getUserInfo() {
-      var _props2 = this.props,
-          userName = _props2.userName,
-          userEmail = _props2.userEmail,
-          currentDropdownItemName = _props2.currentDropdownItemName,
-          userImpersonateLabel = _props2.userImpersonateLabel;
+      var _props2 = this.props;
+      var userName = _props2.userName;
+      var userEmail = _props2.userEmail;
+      var currentDropdownItemName = _props2.currentDropdownItemName;
+      var userImpersonateLabel = _props2.userImpersonateLabel;
 
 
       return _react2.default.createElement(
@@ -92,12 +92,12 @@ var User = function (_React$Component) {
   }, {
     key: "getDropdown",
     value: function getDropdown() {
-      var _props3 = this.props,
-          currentDropdownItemName = _props3.currentDropdownItemName,
-          currentDropdownItemId = _props3.currentDropdownItemId,
-          dropdownItemHref = _props3.dropdownItemHref,
-          dropdownItemName = _props3.dropdownItemName,
-          dropdownItemId = _props3.dropdownItemId;
+      var _props3 = this.props;
+      var currentDropdownItemName = _props3.currentDropdownItemName;
+      var currentDropdownItemId = _props3.currentDropdownItemId;
+      var dropdownItemHref = _props3.dropdownItemHref;
+      var dropdownItemName = _props3.dropdownItemName;
+      var dropdownItemId = _props3.dropdownItemId;
 
 
       return _react2.default.createElement(
@@ -116,11 +116,11 @@ var User = function (_React$Component) {
   }, {
     key: "getUserLogin",
     value: function getUserLogin() {
-      var _props4 = this.props,
-          accountHref = _props4.accountHref,
-          accountLabel = _props4.accountLabel,
-          logoutHref = _props4.logoutHref,
-          logoutLabel = _props4.logoutLabel;
+      var _props4 = this.props;
+      var accountHref = _props4.accountHref;
+      var accountLabel = _props4.accountLabel;
+      var logoutHref = _props4.logoutHref;
+      var logoutLabel = _props4.logoutLabel;
 
 
       return _react2.default.createElement(
@@ -151,10 +151,10 @@ var User = function (_React$Component) {
   }, {
     key: "getUserCredits",
     value: function getUserCredits() {
-      var _props5 = this.props,
-          creditsCash = _props5.creditsCash,
-          creditsCurrency = _props5.creditsCurrency,
-          creditsTitle = _props5.creditsTitle;
+      var _props5 = this.props;
+      var creditsCash = _props5.creditsCash;
+      var creditsCurrency = _props5.creditsCurrency;
+      var creditsTitle = _props5.creditsTitle;
 
 
       return _react2.default.createElement(_Item2.default, { value: creditsCash,

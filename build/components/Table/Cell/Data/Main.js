@@ -32,9 +32,9 @@ var Data = function (_React$Component) {
   _createClass(Data, [{
     key: "render",
     value: function render() {
-      var _props = this.props,
-          dataLabel = _props.dataLabel,
-          className = _props.className;
+      var _props = this.props;
+      var dataLabel = _props.dataLabel;
+      var className = _props.className;
 
 
       return _react2.default.createElement(

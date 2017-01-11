@@ -30,10 +30,10 @@ var Select = function (_React$Component) {
   _createClass(Select, [{
     key: "render",
     value: function render() {
-      var _props = this.props,
-          id = _props.id,
-          label = _props.label,
-          children = _props.children;
+      var _props = this.props;
+      var id = _props.id;
+      var label = _props.label;
+      var children = _props.children;
 
 
       return _react2.default.createElement(

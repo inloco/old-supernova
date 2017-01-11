@@ -30,9 +30,9 @@ var Label = function (_React$Component) {
   _createClass(Label, [{
     key: "render",
     value: function render() {
-      var _props = this.props,
-          htmlFor = _props.htmlFor,
-          value = _props.value;
+      var _props = this.props;
+      var htmlFor = _props.htmlFor;
+      var value = _props.value;
 
 
       return _react2.default.createElement(
