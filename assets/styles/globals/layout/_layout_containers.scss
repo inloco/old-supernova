@@ -33,11 +33,3 @@
   position: relative;
   -webkit-overflow-scrolling: touch;
 }
-.sn-layout__title,
-.sn-layout-title {
-  display: block;
-  position: relative;
-  @include typo-title();
-  font-weight: 400;
-  box-sizing: border-box;
-}

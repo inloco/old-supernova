@@ -14,45 +14,20 @@
 
 @import "layout_variables";
 
-
-
-// Header
-
-.sn-layout__header {
-  background-color: $default-layout-header-bg-color;
-  color: $default-layout-header-text-color;
-  min-height: $default-layout-header-desktop-height;
-}
-
-
-// Subheader
-
-.sn-layout__subheader {
-  position: relative;
-  background-color: $default-layout-subheader-background-color;
-  min-height: $default-layout-subheader-min-height;
-}
-
 // Header & Subheader
 
 .sn-layout__header,
 .sn-layout__subheader {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  box-sizing: border-box;
-  flex-shrink: 0;
+  position: relative;
   width: 100%;
   margin: 0;
   padding: 0;
   border: none;
+  box-sizing: border-box;
   z-index: $default-layout-header-zindex;
-
   @include shadow-2dp();
   @include animation-default();
   transition-property: max-height, box-shadow;
-
 
   .sn-layout--fixed-header > & {
     display: flex;
@@ -81,96 +56,153 @@
     width: calc(100% - #{$default-layout-drawer-width});
   }
 
-  @media screen and (min-width: $default-layout-screen-size-threshold + 1px) {
-    .sn-layout--fixed-drawer > & {
-      .sn-layout__header-row {
-        padding-left: $default-layout-header-row-screen-padding;
-      }
-    }
-  }
+  // @media screen and (min-width: $default-layout-screen-size-threshold + 1px) {
+  //   .sn-layout--fixed-drawer > & {
+  //     .sn-layout__title-group {
+  //       padding-left: $default-layout-header-row-screen-padding;
+  //     }
+  //   }
+  // }
 
   & > * {
     flex-shrink: 0;
-  }
-
+  }  
 }
-// ./ Header
+// ./ Header & Subheader basics
 
 
-// Header Row
 
-.sn-layout__header-row {
+// Header
+
+.sn-layout__header {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: flex-start;
   flex-shrink: 0;
-  box-sizing: border-box;
-  align-self: stretch;
-  align-items: center;
-  height: $default-layout-header-desktop-row-height;
-  margin: 0;
-  padding: 0 $default-layout-header-desktop-indent 0 $default-layout-header-desktop-baseline;
-
-  .sn-layout--no-drawer-button & {
-    padding-left: $default-layout-header-desktop-indent;
-  }
-
-  .sn-layout--fixed-drawer .sn-layout__content & {
-    padding: 0 $default-layout-header-row-screen-padding 0 $default-layout-header-row-screen-padding;
-    @media screen and (max-width: $default-layout-screen-size-threshold) {
-      padding: 0 $default-layout-header-mobile-indent 0 $default-layout-header-mobile-baseline;
+  background-color: $default-layout-header-bg-color;
+  color: $default-layout-header-text-color;
+  min-height: $default-layout-header-desktop-height;
+  :first-child[class*='sn-layout__title-group'] {
+    >.sn-layout__title-wrap {
+      margin-left: 40px;
+      @media screen and (max-width: $default-layout-screen-size-threshold) {  
+        margin-left: 16px;
+      }  
     }
   }
-
-  @media screen and (min-width: $default-layout-screen-size-threshold + 1px) {
-    .sn-layout--no-desktop-drawer-button & {
-      padding-left: $default-layout-header-desktop-indent;
+  .sn-layout__title-group {
+    .sn-layout__title-wrap {
+      position: relative;
+      margin-left: 40px;
+      &:before {
+        position: absolute;
+        display: flex;
+        flex: 1;
+        font-family: 'Material Icons';
+        content: "\E315";
+        font-size: 24px;
+        left: -32px;
+        opacity: .5;
+      }
+    }
+    :first-child {
+      &:before {
+        display: none;
+      }
     }
   }
+  @media screen and (max-width: $default-layout-screen-size-threshold) {  
+    min-height: $default-layout-header-mobile-row-height;
 
-  @media screen and (max-width: $default-layout-screen-size-threshold) {
-    height: $default-layout-header-mobile-row-height;
-    padding: 0 $default-layout-header-mobile-indent 0 $default-layout-header-mobile-baseline;
-
-    .sn-layout--no-drawer-button & {
-      padding-left: $default-layout-header-mobile-indent;
-    }
-  }
-
-  & > * {
-    flex-shrink: 0;
-  }
-
-  .sn-layout__header--scroll & {
-    width: 100%;
-  }
-
-  & .sn-navigation {
-    margin: 0;
-    padding: 0;
-    height: $default-layout-header-desktop-row-height;
-    flex-direction: row;
-    align-items: center;
-
-    @media screen and (max-width: $default-layout-screen-size-threshold) {
-      height: $default-layout-header-mobile-row-height;
-    }
-  }
-
-  & .sn-navigation__link {
-    display: block;
-    color: $default-layout-header-text-color;
-    line-height: $default-layout-header-desktop-row-height;
-    padding: $default-layout-header-navigation-link-padding;
-
-    @media screen and (max-width: $default-layout-screen-size-threshold) {
-      line-height: $default-layout-header-mobile-row-height;
-      padding: 0 $default-layout-header-mobile-indent;
+    .sn-layout__title-group {
+      .sn-layout__title-wrap {
+        display: none;
+      }
+      >:last-child {
+        display: flex;
+        margin-left: $default-layout-header-mobile-baseline;
+        &:before {
+          display: none;
+        }
+      }  
     }
   }
 
 }
-// ./ Header Row
+// ./ Header 
 
 
 
+.sn-layout__subheader {
+  background-color: $default-layout-subheader-background-color;
+  min-height: $default-layout-subheader-min-height;
+}
+
+.sn-layout__title-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.sn-layout__title-wrap {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-grow: 0;
+  a {
+    color: $default-layout-header-text-color;
+  }
+}
+
+.sn-layout__title {
+  display: block;
+  position: relative;
+  @include typo-title();
+  font-weight: 400;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.sn-layout__subtitle {
+  display: block;
+  position: relative;
+  @include typo-body-2();
+  font-weight: 500;
+  box-sizing: border-box;
+  white-space: nowrap;
+  opacity: .6;
+}
+
+.sn-layout__navigation {
+  @include flexitem(0,0,auto);
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  margin: 0;
+  margin-left: 16px;
+  margin-right: 8px;
+  padding: 0;
+  height: $default-layout-header-desktop-row-height;
+  align-items: center;
+  @media screen and (max-width: $default-layout-screen-size-threshold) {
+    height: $default-layout-header-mobile-row-height;
+  }
+  button {
+    min-width: 48px;
+    height: 48px;
+    color: white;
+    cursor: pointer;
+    margin-right: 8px;
+  }
+}
+
+.sn-layout__brand {
+  height: 48px;
+  margin: 0 8px;
+  img {
+    width: 100%;
+  }
+}

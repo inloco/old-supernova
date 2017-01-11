@@ -7,13 +7,14 @@ class Header extends React.Component {
 
   render() {
     return (
-      <header className="sn-layout__header sn-presentation-header">
-        <div aria-expanded="false" role="button" tabIndex="0" className="sn-layout__drawer-button">
-          <i className="material-icons"></i>
+      <header className="sn-layout__header">
+        <div className="sn-layout__drawer-button" aria-expanded="false" role="button" tabIndex="0">
+          <i className="material-icons">&#xE5D2;</i>
         </div>
-
-        <div className="sn-layout__header-row">
-          <span className="sn-layout-title">{this.props.children}</span>
+        <div className="sn-layout__title-group">
+          <div className="sn-layout__title-wrap">
+            <span className="sn-layout__title">{this.props.children}</span>
+          </div>
         </div>
       </header>
     )
