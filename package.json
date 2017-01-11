@@ -18,7 +18,8 @@
     "start-dev:doc": "cd docs && node index.js",
     "eslint": "eslint ./src --ext .js --ext .jsx --cache || true",
     "eslint:table": "eslint ./src --ext .js --ext .jsx --cache --format table || true",
-    "eslint:summary": "eslint ./src --ext .js --ext .jsx --cache --format ‘node_modules/eslint-friendly-formatter’ || true"
+    "eslint:summary": "eslint ./src --ext .js --ext .jsx --cache --format ‘node_modules/eslint-friendly-formatter’ || true",
+    "postinstall": "npm run build"
   },
   "peerDependencies": {
     "react": "^15.4.1",
