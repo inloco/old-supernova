@@ -67,6 +67,13 @@
     }
   }
 
+  &.sn-dropdown--menu {
+    .sn-dropdown__button {
+      border: 0;
+      padding-left: 0;
+    }
+  }
+
 
   .sn-dropdown__button {
     position: relative;
