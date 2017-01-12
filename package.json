@@ -18,14 +18,27 @@
     "start-dev:doc": "cd docs && node index.js",
     "eslint": "eslint ./src --ext .js --ext .jsx --cache || true",
     "eslint:table": "eslint ./src --ext .js --ext .jsx --cache --format table || true",
-    "eslint:summary": "eslint ./src --ext .js --ext .jsx --cache --format ‘node_modules/eslint-friendly-formatter’ || true"
+    "eslint:summary": "eslint ./src --ext .js --ext .jsx --cache --format ‘node_modules/eslint-friendly-formatter’ || true",
+    "postinstall": "npm run build"
   },
   "peerDependencies": {
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "material-design-icons": "^2.2.3"
   },
-  "devDependencies": {
+  "jest": {
+    "testRegex": "(.*)-test.js$",
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx"
+    ]
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
     "autoprefixer": "^6.3.7",
     "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
@@ -56,19 +69,5 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14"
-  },
-  "jest": {
-    "testRegex": "(.*)-test.js$",
-    "testPathIgnorePatterns": [
-      "<rootDir>/build/"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "jsx"
-    ]
-  },
-  "dependencies": {
-    "lodash": "^4.17.4"
   }
 }
