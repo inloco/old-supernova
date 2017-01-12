@@ -1,0 +1,176 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *     balloons component file
+ *  ----------- *** ------------
+ *
+ */
+
+@import "balloons_variables";
+
+
+// Balloons
+
+
+$balloon-min-size: 192px;
+$number-of-balloons: 4;
+$balloon-box-footer-size: $balloon-min-size * $number-of-balloons + 14;
+
+
+
+.sn-balloon {
+  width: 100%;
+  margin-bottom: 15px;
+  -webkit-border-radius: 2px; 
+  border-radius: 2px; 
+  // Hack for IE10
+  @media screen and (min-width:0\0) {
+    box-shadow: 0px 1px 4px rgba(0,0,0,.2);
+  }
+
+  &.sn-balloon--squared {
+    -webkit-border-radius: 0px; 
+    border-radius: 0px;   
+    .sn-balloon__title {
+      -webkit-border-top-left-radius: 0px; 
+      border-top-left-radius: 0px;
+      -webkit-border-top-right-radius: 0px; 
+      border-top-right-radius: 0px;       
+    }
+    margin-bottom: 0;  
+  }   
+  
+  .sn-balloon__title {
+    position: relative;
+    width: auto;
+    padding: 6px 10px 2px 10px;
+    // color: #bdbdbd;
+    color: grey;
+    font-weight: normal; 
+    font-size: 13px;    
+    // background-color: #92C840;
+    background-color: white;
+    -webkit-border-top-left-radius: 2px; 
+    border-top-left-radius: 2px;
+    -webkit-border-top-right-radius: 2px; 
+    border-top-right-radius: 2px;          
+    .material-icons {
+      float: left;
+      padding: 1px;
+      margin: 0 8px 0 0;
+      font-size: 16px;
+    }
+  }
+
+  .sn-balloon__value {
+    background-color: #fff;
+    padding: 8px 10px 10px 10px;
+    font-size: 24px;
+    -ms-word-break: break-all;
+    word-break: break-all;
+  }
+
+  .sn-balloon__currency {
+    display: inline-block;
+    color: silver;
+    font-size: 20px;
+    padding-right: 8px;
+  }
+
+  .sn-balloon__graphic {
+    background-color: white;
+    padding: 2px 10px;
+    min-width: 200px;
+    max-width: 288px;
+    img {
+      width: 100%;
+    }
+  }
+
+}
+
+
+// BALLOON FLAT (without shadow effect)
+
+.sn-balloon--flat {
+}
+
+
+
+
+
+// BALLOON-BOX
+
+
+.sn-balloon-box::-webkit-scrollbar {
+  display: none;
+}
+
+
+.balloon-box-footer {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  margin-top: -15px;
+  height: 15px;
+  overflow: hidden;
+  background-color: red;
+  opacity: 0;
+  @-moz-document url-prefix() {
+    opacity: 0;
+    @media only screen 
+    and (min-width: 320px) 
+    and (max-width: $balloon-box-footer-size) {
+      opacity: 1;
+      background-color: #F9F9F9;
+    }
+  }
+}
+
+.sn-balloon-box {
+  position: relative;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  width: auto;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;  
+  -ms-text-overflow: "..."; 
+  text-overflow: "..."; 
+  overflow-x: auto;
+  overflow-y: hidden;
+  background-color: white;
+
+  .sn-balloon {
+    margin-bottom: 1px;
+    // Hack for IE10
+    @media screen and (min-width:0\0) {
+      // box-shadow: 0px 1px 4px rgba(0,0,0,.2);
+    }
+    
+    .sn-balloon__title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;       
+    }
+
+    .sn-balloon__value {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;      
+    }
+  }
+
+
+}
