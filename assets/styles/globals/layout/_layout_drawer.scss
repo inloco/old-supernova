@@ -113,7 +113,7 @@
         padding: 0;
         border: 0 !important;
         border-color: transparent;
-        background-color: transparent; 
+        background-color: transparent;
         border-radius: 50%;
         overflow: hidden;
         @include transition(all .2s linear);
@@ -182,7 +182,7 @@
       .sn-layout__drawer-user__info-contact {
         display: inline-block;
         width: $default-layout-drawer-user-info-contact-width;
-        padding: $default-layout-drawer-user-info-contact-padding; 
+        padding: $default-layout-drawer-user-info-contact-padding;
         font-size: $default-layout-drawer-user-info-contact-font-size;
         line-height: $default-layout-drawer-user-info-contact-line-height;
         word-break: break-all;
@@ -205,7 +205,7 @@
             a {
               color: $default-layout-drawer-user-link-color-hover;
             }
-          }          
+          }
           a {
             display: inline-block;
             position: relative;
@@ -266,7 +266,7 @@
         float: left;
         width: $default-layout-drawer-navigation-link-width;
         height: $default-layout-drawer-navigation-link-height;
-        font-size: $default-layout-drawer-navigation-link-font-size;
+        font-size: $default-layout-drawer-navigation-link-icon-size;
         vertical-align: middle;
         margin: $default-layout-drawer-navigation-link-margin;
       }
