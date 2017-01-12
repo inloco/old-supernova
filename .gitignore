@@ -1,8 +1,8 @@
 node_modules
 npm-debug.log
 .vscode/settings.json
-build
 .idea/
+build
 
 # OS files
 .DS_STORE
