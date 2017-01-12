@@ -1,22 +1,33 @@
-jest.unmock("../factories/components/header-factory")
-
-import HeaderFactory from "../factories/components/header-factory"
+import { shallow } from 'enzyme'
+import React from 'react'
+import Header from './../../src/components/Header'
 
 describe("Header", () => {
-  const factory = new HeaderFactory
-  const node = factory.getNode()
-
-  it("is a header", () => {
-    expect(node.tagName).toEqual("HEADER")
-  })
+  const wrapper = shallow(<Header
+                          title="Some section"
+                          subtitle="Second section" />)
 
   it("has header class", () => {
-    expect(node.classList.contains("sn-layout__header")).toBeTruthy()
+    const currentHeader = wrapper.find(".sn-layout__header")
+
+    expect(currentHeader.length).toEqual(1)
   })
 
   it("has 'Some section' cotent", () => {
-    const row = node.querySelector(".sn-layout__header-row")
+    const currentTitle = wrapper.find(".sn-layout__title")
 
-    expect(row.textContent).toEqual("Some section")
+    expect(currentTitle.text()).toEqual("Some section")
+  })
+
+  it("has 'Second section' cotent", () => {
+    const currentSubtitle = wrapper.find(".sn-layout__subtitle")
+
+    expect(currentSubtitle.text()).toEqual("Second section")
+  })
+
+  it("has drawer button", () => {
+    const currentDrawerButton = wrapper.find(".sn-layout__drawer-button")
+
+    expect(currentDrawerButton.length).toEqual(1)
   })
 })
