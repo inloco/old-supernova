@@ -5,7 +5,7 @@ class Header extends React.Component {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
     drawerButton: PropTypes.bool,
-    rightElement: PropTypes.node
+    rightElement: PropTypes.func
   }
 
   static defaultProps = {
