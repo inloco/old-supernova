@@ -29,9 +29,11 @@ class Header extends React.Component {
   }
 
   renderRightElement() {
+    const RightElement = this.props.rightElement
+
     return (
       <div className="sn-layout__navigation">
-        {this.props.rightElement}
+        <RightElement />
       </div>
     )
   }
