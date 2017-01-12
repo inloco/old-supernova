@@ -3,19 +3,19 @@ import React, { PropTypes } from 'react'
 class Header extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
-    subTitle: PropTypes.string,
-    withDrawerButton: PropTypes.bool,
-    children: PropTypes.node
+    subtitle: PropTypes.string,
+    drawerButton: PropTypes.bool,
+    rightElement: PropTypes.node
   }
 
   static defaultProps = {
-    withDrawerButton: true
+    drawerButton: true
   }
 
   renderDrawerButton() {
     return (
       <div className="sn-layout__drawer-button" aria-expanded="false">
-        <i className="material-icons">&#xE5D2;</i>
+        <i className="material-icons">menu</i>
       </div>
     )
   }
@@ -23,15 +23,15 @@ class Header extends React.Component {
   renderSubTitle() {
     return (
       <span className="sn-layout__subtitle">
-        {this.props.subTitle}
+        {this.props.subtitle}
       </span>
     )
   }
 
-  renderChildren() {
+  renderRightElement() {
     return (
       <div className="sn-layout__navigation">
-        {this.props.children}
+        {this.props.rightElement}
       </div>
     )
   }
@@ -39,16 +39,16 @@ class Header extends React.Component {
   render() {
     return (
       <header className="sn-layout__header">
-        {this.props.withDrawerButton && this.renderDrawerButton()}
+        {this.props.drawerButton && this.renderDrawerButton()}
         <div className="sn-layout__title-group">
           <div className="sn-layout__title-wrap">
             <span className="sn-layout__title">
               {this.props.title}
             </span>
-            {this.props.subTitle && this.renderSubTitle()}
+            {this.props.subtitle && this.renderSubTitle()}
           </div>
         </div>
-        {this.props.children && this.renderChildren()}
+        {this.props.rightElement && this.renderRightElement()}
       </header>
     )
   }
