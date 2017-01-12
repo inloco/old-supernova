@@ -15,8 +15,22 @@ describe("Header", () => {
   })
 
   it("has 'Some section' cotent", () => {
-    const row = node.querySelector(".sn-layout__header-row")
+    const row = node.querySelector(".sn-layout__title")
 
     expect(row.textContent).toEqual("Some section")
+  })
+
+  it("has 'Second section' cotent", () => {
+    const row = node.querySelector(".sn-layout__subtitle")
+
+    expect(row.textContent).toEqual("Second section")
+  })
+
+  it("has drawer button", () => {
+    const row = node.querySelector(".sn-layout__drawer-button")
+
+    expect(node.querySelector("i")
+               .classList
+               .contains("material-icons")).toBeTruthy()
   })
 })

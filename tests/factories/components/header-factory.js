@@ -5,10 +5,14 @@ import React from "react"
 import Factory from "./base-factory"
 import Header from "../../../src/components/Header"
 
-class HeaderFactory extends Factory{
+class HeaderFactory extends Factory {
   template() {
     return(
-      <Header>Some section</Header>
+      <Header
+        title="Some section"
+        subTitle="Second section">
+        Something here
+      </Header>
     )
   }
 }
