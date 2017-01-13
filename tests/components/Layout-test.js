@@ -42,5 +42,4 @@ describe('Layout', () => {
       expect(layoutWithDrawer.length).toEqual(1)
     })
   })
-
 })

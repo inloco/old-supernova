@@ -21,6 +21,7 @@
   width: auto;
   margin: 0;
   background: $default-board-background;
+  overflow: 'hidden';
   @include shadow-2dp();
 
   // Board Bleeds

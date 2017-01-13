@@ -1,6 +1,7 @@
 import Alert from "./components/Alert"
 import ArrowSteps from "./components/Steps/Arrow/Main"
 import ArrowStep from "./components/Steps/Arrow/Step"
+import Board from "./components/Board"
 import BubbleSteps from "./components/Steps/Bubble/Main"
 import BubbleStep from "./components/Steps/Bubble/Step"
 import Card from "./components/Card/Main"
@@ -10,6 +11,7 @@ import CardList from "./components/Card/List"
 import CardRowGroup from "./components/Card/RowGroup"
 import CardColGroup from "./components/Card/ColGroup"
 import Checkbox from "./components/Form/Checkbox"
+import Content from "./components/Content"
 import Drawer from "./components/Drawer/Main"
 import DrawerNav from "./components/Drawer/Nav"
 import DrawerTitle from "./components/Drawer/Title"
@@ -68,6 +70,7 @@ export {
   Alert,
   ArrowSteps,
   ArrowStep,
+  Board,
   BubbleSteps,
   BubbleStep,
   Card,
@@ -77,6 +80,7 @@ export {
   CardColGroup,
   CardList,
   Checkbox,
+  Content,
   Drawer,
   DrawerNav,
   DrawerTitle,
