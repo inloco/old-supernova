@@ -1,6 +1,7 @@
 import Alert from "./components/Alert"
 import ArrowSteps from "./components/Steps/Arrow/Main"
 import ArrowStep from "./components/Steps/Arrow/Step"
+import Board from "./components/Board"
 import BubbleSteps from "./components/Steps/Bubble/Main"
 import BubbleStep from "./components/Steps/Bubble/Step"
 import Card from "./components/Card/Main"
@@ -69,6 +70,7 @@ export {
   Alert,
   ArrowSteps,
   ArrowStep,
+  Board,
   BubbleSteps,
   BubbleStep,
   Card,
