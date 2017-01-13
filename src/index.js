@@ -17,6 +17,7 @@ import DrawerProfile from "./components/Drawer/Profile"
 import Dropdown from "./components/Dropdown/Main"
 import FormGroup from "./components/Form/Group"
 import Header from "./components/Header"
+import Layout from "./components/Layout"
 import Modal from "./components/Modal/Main"
 import ModalBody from "./components/Modal/Body"
 import ModalFooter from "./components/Modal/Footer"
@@ -87,6 +88,7 @@ export {
   ModalBody,
   ModalFooter,
   ModalHeader,
+  Layout,
   Paginator,
   PaginatorFirst,
   PaginatorLast,
