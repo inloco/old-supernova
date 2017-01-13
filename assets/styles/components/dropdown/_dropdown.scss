@@ -17,11 +17,18 @@
 // Dropdown
 
 
-.sn-dropdown {
+// Simple Dropdown
+.sn-dropdown  {
   position: relative;
 
+  .sn-dropdown__button {
+    padding-left: 0;
+  }
+
   &.has-error {
-    border-bottom: 2px solid $default-dropdown-error-color;
+    .sn-dropdown__button {
+      border-bottom: 2px solid $default-dropdown-error-color;
+    }
     .sn-dropdown__message {
       display: block;
       color: $default-dropdown-error-color;
@@ -32,7 +39,9 @@
   }
 
   &.has-warning {
-    border-bottom: 2px solid $default-dropdown-warning-color;
+    .sn-dropdown__button {
+      border-bottom: 2px solid $default-dropdown-warning-color;
+    }
     .sn-dropdown__message {
       display: block;
       color: $default-dropdown-warning-color;
@@ -42,7 +51,43 @@
     }
   }
 
-  &.sn-dropdown--box {
+
+// Input Dropdown
+  &.sn-dropdown--input {
+    .sn-dropdown__button {
+      border-bottom: 1px solid $default-dropdown-border-color;
+      padding: $default-dropdown-padding;
+    }
+    &.has-error {
+      .sn-dropdown__button {
+        border-bottom: 2px solid $default-dropdown-error-color;
+      }
+      .sn-dropdown__message {
+        display: block;
+        color: $default-dropdown-error-color;
+      }
+      ~.sn-field__label {
+        color: $default-dropdown-error-color;
+      }
+    }
+    &.has-warning {
+      .sn-dropdown__button {
+        border-bottom: 2px solid $default-dropdown-warning-color;
+      }
+      .sn-dropdown__message {
+        display: block;
+        color: $default-dropdown-warning-color;
+      }
+      ~.sn-field__label {
+        color: $default-dropdown-warning-color;
+      }
+    }    
+  }
+
+
+// Box Dropdown / Status
+  &.sn-dropdown--box,
+  &.sn-dropdown--status {
     border-bottom: 0;
     .sn-dropdown__button {
       border: 1px solid $default-dropdown-border-color;
@@ -65,14 +110,36 @@
         color: $default-dropdown-error-color;
       }
     }
+    &.has-warning {
+      .sn-dropdown__button {
+        border: 2px solid $default-dropdown-warning-color;
+      }
+      .sn-dropdown__message {
+        display: block;
+        color: $default-dropdown-warning-color;
+      }
+      ~.sn-field__label {
+        color: $default-dropdown-warning-color;
+      }
+    }      
   }
 
-  &.sn-dropdown--menu {
+
+// Status Dropdown
+
+  &.sn-dropdown--status {
     .sn-dropdown__button {
-      border: 0;
-      padding-left: 0;
+      border-left: 4px solid silver;
+    }
+    &.has-error .sn-dropdown__button,
+    &.has-warning .sn-dropdown__button {
+      border-left-width: 4px;
     }
   }
+}
+
+
+
 
 
   .sn-dropdown__button {
@@ -80,7 +147,6 @@
     display: inline-block;
     background: 0 0;
     border: 0;
-    border-bottom: 1px solid $default-dropdown-border-color;
     color: $default-dropdown-color-text;
     margin: 0;
     height: $default-dropdown-height;
@@ -155,13 +221,9 @@
     }
   }
 
-
   .sn-dropdown__message {
     display: none;
     padding: 6px 1px;
     font-size: 12.6px;
     line-height: 16.66667px;
   }
-
-
-}
