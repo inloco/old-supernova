@@ -1,16 +1,23 @@
-jest.unmock("../../factories/components/table-factory")
+import React from 'react'
+import TableBody from './../../../src/components/Table/Body'
+import { shallow } from 'enzyme'
 
-import TableFactory from "../../factories/components/table-factory"
+describe("TableBody", () => {
+  const wrapper = shallow(
+    <TableBody>
+      <td>Some</td>
+    </TableBody>
+  )
 
-describe("Table Body", () => {
-  const factory = new TableFactory  
-  const node = factory.getNode().querySelector("tbody")
-  
-  it("is a tbody", () => {   
-    expect(node.tagName).toEqual("TBODY")
+  it("is a tbody", () => {
+    const tbody = wrapper.find('tbody')
+
+    expect(tbody.length).toEqual(1)
   })
-  
+
   it("has children", () => {
-    expect(node.children.length).toBeGreaterThan(0)
+    const children = wrapper.children()
+
+    expect(children).not.toBe(undefined)
   })
 })

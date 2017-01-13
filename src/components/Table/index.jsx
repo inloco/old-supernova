@@ -17,7 +17,10 @@ class Table extends React.Component {
 
   render() {
     return (
-      <table className={`sn-table ${this.getClassNameByProps()}`}>
+      <table
+        style={this.props.style}
+        className={`sn-table ${this.getClassNameByProps()}`}
+      >
         {this.props.children}
       </table>
     )

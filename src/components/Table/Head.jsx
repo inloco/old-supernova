@@ -4,13 +4,13 @@ class Head extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired
   }
-  
+
   render() {
     const { children } = this.props
-    
+
     return (
       <thead>
-        <tr>{ children }</tr>
+        { children }
       </thead>
     )
   }

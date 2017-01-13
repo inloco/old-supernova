@@ -4,12 +4,14 @@ class Row extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired
   }
-  
+
   render() {
-    const { children } = this.props
-    
+    const headerClassName = this.props.header ? `sn-table__header` : ''
+
     return (
-      <tr>{ children }</tr>
+      <tr className={headerClassName}>
+        { this.props.children }
+      </tr>
     )
   }
 }

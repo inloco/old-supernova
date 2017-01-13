@@ -1,16 +1,39 @@
-jest.unmock("../../factories/components/table-factory")
+import React from 'react'
+import TableRow from './../../../src/components/Table/Row'
+import { shallow } from 'enzyme'
 
-import TableFactory from "../../factories/components/table-factory"
+describe('TableRow', () => {
+  const wrapper = shallow(
+    <TableRow>
+      <td>Some</td>
+    </TableRow>
+  )
 
-describe("Table Row", () => {
-  const factory = new TableFactory  
-  const node = factory.getNode().querySelector("tr")
-  
-  it("is a tr", () => {
-    expect(node.tagName).toEqual("TR")
+  it('is a tr', () => {
+    const tr = wrapper.find('tr')
+
+    expect(tr.length).toEqual(1)
   })
-  
-  it("has children", () => {
-    expect(node.children.length).toBeGreaterThan(0)
+
+  it('has children', () => {
+    const children = wrapper.children()
+
+    expect(children).not.toBe(undefined)
+  })
+
+  describe('when header', () => {
+    it('is not seted it not have header className', () => {
+      const trWithHeaderClassName = wrapper.find('.sn-table__header')
+
+      expect(trWithHeaderClassName.length).toEqual(0)
+    })
+
+    it('is seted it has header className', () => {
+      wrapper.setProps({ header: true })
+
+      const trWithHeaderClassName = wrapper.find('.sn-table__header')
+
+      expect(trWithHeaderClassName.length).toEqual(1)
+    })
   })
 })

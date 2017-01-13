@@ -46,16 +46,14 @@ import SidebarUser from "./components/Sidebar/User/Main"
 import SidebarUserItem from "./components/Sidebar/User/Item"
 import Sidebar from "./components/Sidebar/Main"
 import Subheader from "./components/Subheader"
-import Table from "./components/Table/Main"
+import Table from "./components/Table"
 import TableHead from "./components/Table/Head"
 import TableRow from "./components/Table/Row"
 import TableBody from "./components/Table/Body"
+import TableCell from "./components/Table/Cell"
 import Tabs from "./components/Tabs/Main"
 import Tab from "./components/Tabs/Tab"
 import Tooltip from "./components/Tooltip"
-import CellHead from "./components/Table/Cell/Head"
-import CellData from "./components/Table/Cell/Data/Main"
-import CellDataTitle from "./components/Table/Cell/Data/Title"
 import Balloon from "./components/Balloon"
 import BalloonBox from "./components/BalloonBox"
 import Info from "./components/Info"
@@ -122,12 +120,10 @@ export {
   TableHead,
   TableRow,
   TableBody,
+  TableCell,
   Tabs,
   Tab,
   Tooltip,
-  CellHead,
-  CellData,
-  CellDataTitle,
   Balloon,
   BalloonBox,
   Info,
