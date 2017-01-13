@@ -13,6 +13,10 @@ class Dropdown extends React.Component {
     }
   }
 
+  static defaultProps = {
+    statusColor: "silver"
+  }
+
   componentWillReceiveProps(nextProps) {
     this.setState({ value: nextProps.value })
   }
@@ -78,6 +82,8 @@ class Dropdown extends React.Component {
       display: this.state.open ? "block" : "none"
     }
 
+    const statusStyle = this.props.layout === "status" ? {borderLeftColor: this.props.statusColor} : {}
+
     return (
       <div className={this.getClassName()}>
         {this.props.label ? <Label value={this.props.label} fixed={true}/> : ""}
@@ -86,6 +92,7 @@ class Dropdown extends React.Component {
           className="sn-dropdown__button"
           onClick={this.handleClick}
           type="button"
+          style={statusStyle}
         >
           {this.state.value}
         </button>
