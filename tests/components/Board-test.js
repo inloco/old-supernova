@@ -24,7 +24,7 @@ describe('Board', () => {
   it('has bleed props', () => {
     wrapper.setProps({ bleed: true })
 
-    const boardWithBleed = wrapper.find('.sn-board__bleed-all')
+    const boardWithBleed = wrapper.find('.sn-board--bleed')
 
     expect(boardWithBleed.length).toEqual(1)
   })
