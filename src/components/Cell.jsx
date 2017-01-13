@@ -5,7 +5,7 @@ const Cell = props => {
   const sizeClassName = `sn-cell--${size}`
 
   return (
-    <div className={`sn-cell ${sizeClassName}`} {...cellProps} />
+    <div className={`${sizeClassName}`} {...cellProps} />
   )
 }
 
