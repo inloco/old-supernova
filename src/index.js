@@ -10,6 +10,7 @@ import CardList from "./components/Card/List"
 import CardRowGroup from "./components/Card/RowGroup"
 import CardColGroup from "./components/Card/ColGroup"
 import Checkbox from "./components/Form/Checkbox"
+import Content from "./components/Content"
 import Drawer from "./components/Drawer/Main"
 import DrawerNav from "./components/Drawer/Nav"
 import DrawerTitle from "./components/Drawer/Title"
@@ -77,6 +78,7 @@ export {
   CardColGroup,
   CardList,
   Checkbox,
+  Content,
   Drawer,
   DrawerNav,
   DrawerTitle,
