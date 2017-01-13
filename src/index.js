@@ -55,6 +55,7 @@ import CellHead from "./components/Table/Cell/Head"
 import CellData from "./components/Table/Cell/Data/Main"
 import CellDataTitle from "./components/Table/Cell/Data/Title"
 import Balloon from "./components/Balloon"
+import BalloonBox from "./components/BalloonBox"
 import Info from "./components/Info"
 import Input from "./components/Input"
 import Button from "./components/Button"
@@ -124,6 +125,7 @@ export {
   CellData,
   CellDataTitle,
   Balloon,
+  BalloonBox,
   Info,
   Input,
   Button,
