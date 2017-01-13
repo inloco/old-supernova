@@ -8,6 +8,7 @@ import Card from "./components/Card/Main"
 import CardCol from "./components/Card/Col"
 import CardRow from "./components/Card/Row"
 import CardList from "./components/Card/List"
+import Cell from "./components/Cell"
 import CardRowGroup from "./components/Card/RowGroup"
 import CardColGroup from "./components/Card/ColGroup"
 import Checkbox from "./components/Form/Checkbox"
@@ -18,6 +19,7 @@ import DrawerTitle from "./components/Drawer/Title"
 import DrawerProfile from "./components/Drawer/Profile"
 import Dropdown from "./components/Dropdown/Main"
 import FormGroup from "./components/Form/Group"
+import Grid from "./components/Grid"
 import Header from "./components/Header"
 import Layout from "./components/Layout"
 import Modal from "./components/Modal/Main"
@@ -80,6 +82,7 @@ export {
   CardRowGroup,
   CardColGroup,
   CardList,
+  Cell,
   Checkbox,
   Content,
   Drawer,
@@ -88,6 +91,7 @@ export {
   DrawerProfile,
   Dropdown,
   FormGroup,
+  Grid,
   Header,
   Modal,
   ModalBody,
