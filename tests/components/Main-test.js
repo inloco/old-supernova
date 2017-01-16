@@ -1,4 +1,4 @@
-import DropdownFactory from "../../factories/components/dropdown-factory"
+import DropdownFactory from "../factories/components/dropdown-factory"
 import { mount } from "enzyme"
 
 describe("Dropdown", () => {
@@ -12,6 +12,12 @@ describe("Dropdown", () => {
     const button = wrapper.find(".sn-dropdown__button")
 
     expect(button.text()).toEqual("Dropdown")
+  })
+
+  it("has a button with border colored", () => {
+    const button = wrapper.find(".sn-dropdown__button")
+
+    expect(button.props().style.borderLeftColor).toEqual("#FF9800")
   })
 
   it("has a button with 'button' type", () => {
@@ -32,8 +38,8 @@ describe("Dropdown", () => {
     expect(list.props().style.display).toEqual("none")
   })
 
-  it("has box layout", () => {
-    expect(wrapper.find(".sn-dropdown--box").length).toEqual(1)
+  it("has status layout", () => {
+    expect(wrapper.find(".sn-dropdown--status").length).toEqual(1)
   })
 
   describe("when clicks in dropdown button", () => {
