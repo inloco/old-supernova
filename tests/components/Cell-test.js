@@ -10,7 +10,7 @@ describe('Cell', () => {
   )
 
   it('has Cell', () => {
-    const cell = wrapper.find('.sn-cell')
+    const cell = wrapper.find('.sn-cell--auto')
 
     expect(cell.length).toEqual(1)
   })
