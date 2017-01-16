@@ -1,15 +1,21 @@
 import React from 'react'
-import TableHead from './../../../src/components/Table/Head'
+import Cell from './../../../src/components/Table/Cell'
 import { shallow } from 'enzyme'
 
-describe('TableHead', () => {
+describe('Cell', () => {
   const wrapper = shallow(
-    <TableHead>
-      <th>Some</th>
-    </TableHead>
+    <Cell>Some</Cell>
   )
 
+  it('is a td', () => {
+    const td = wrapper.find('td')
+
+    expect(td.length).toEqual(1)
+  })
+
   it('is a th', () => {
+    wrapper.setProps({ head: true })
+
     const th = wrapper.find('th')
 
     expect(th.length).toEqual(1)
