@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react"
 import UserItem from "./Item"
-import Dropdown from "../../Dropdown/Main"
+import Dropdown from "../../Dropdown"
 
 class User extends React.Component {
   static propTypes = {
