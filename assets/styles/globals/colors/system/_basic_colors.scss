@@ -52,7 +52,9 @@ $default-layout-header-text-color                         : $default-header-text
 $default-layout-header-nav-hover-color                    : rgba($palette-grey-700, 0.6) !default;
 $default-layout-header-tab-text-color                     : rgba($color-dark-contrast, 0.6) !default;
 $default-layout-header-tab-highlight                      : $default-accent-color !default; 
+$default-layout-header-button-color                       : $color-white; 
 $default-layout-subheader-background-color                : $palette-grey-200;
+
 
 // -- Drawer
 $default-layout-nav-color                                 : $palette-grey-300 !default;

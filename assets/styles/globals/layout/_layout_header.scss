@@ -56,14 +56,6 @@
     width: calc(100% - #{$default-layout-drawer-width});
   }
 
-  // @media screen and (min-width: $default-layout-screen-size-threshold + 1px) {
-  //   .sn-layout--fixed-drawer > & {
-  //     .sn-layout__title-group {
-  //       padding-left: $default-layout-header-row-screen-padding;
-  //     }
-  //   }
-  // }
-
   & > * {
     flex-shrink: 0;
   }  
@@ -85,24 +77,24 @@
   min-height: $default-layout-header-desktop-height;
   :first-child[class*='sn-layout__title-group'] {
     >.sn-layout__title-wrap {
-      margin-left: 40px;
+      margin-left: $default-layout-header-title-group-title-wrap-margin-left;
       @media screen and (max-width: $default-layout-screen-size-threshold) {  
-        margin-left: 16px;
+        margin-left: $default-layout-header-title-group-title-wrap-threshold-margin-left;
       }  
     }
   }
   .sn-layout__title-group {
     .sn-layout__title-wrap {
       position: relative;
-      margin-left: 40px;
+      margin-left: $default-layout-header-title-group-title-wrap-margin-left;
       &:before {
         position: absolute;
         display: flex;
         flex: 1;
         font-family: 'Material Icons';
         content: "\E315";
-        font-size: 24px;
-        left: -32px;
+        font-size: $default-layout-header-title-group-title-wrap-arrow-font-size;
+        left: -$default-layout-header-title-group-left-position;
         opacity: .5;
       }
     }
@@ -113,7 +105,7 @@
     }
   }
   @media screen and (max-width: $default-layout-screen-size-threshold) {  
-    min-height: $default-layout-header-mobile-row-height;
+    min-height: $default-layout-header-mobile-height;
 
     .sn-layout__title-group {
       .sn-layout__title-wrap {
@@ -181,27 +173,25 @@
   display: flex;
   flex-grow: 1;
   justify-content: flex-end;
-  margin: 0;
-  margin-left: 16px;
-  margin-right: 8px;
+  margin: $default-layout-header-navigation-margin;
   padding: 0;
-  height: $default-layout-header-desktop-row-height;
+  height: $default-layout-header-desktop-height;
   align-items: center;
   @media screen and (max-width: $default-layout-screen-size-threshold) {
-    height: $default-layout-header-mobile-row-height;
+    height: $default-layout-header-mobile-height;
   }
   button {
-    min-width: 48px;
-    height: 48px;
-    color: white;
+    min-width: $default-layout-header-navigation-button-width;
+    height: $default-layout-header-navigation-button-height;
+    color: $default-layout-header-button-color;
     cursor: pointer;
-    margin-right: 8px;
+    margin: $default-layout-header-navigation-button-margin;
   }
 }
 
 .sn-layout__brand {
-  height: 48px;
-  margin: 0 8px;
+  height: $default-layout-header-navigation-brand-height;
+  margin: $default-layout-header-navigation-brand-margin;
   img {
     width: 100%;
   }

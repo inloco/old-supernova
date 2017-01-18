@@ -21,18 +21,25 @@
 $default-layout-screen-size-threshold                 : $screen-threshold !default; // ~1024px
 
 // Header & Subheader
-$default-layout-header-mobile-row-height              : $hm * 14 !default; // ~56px
-$default-layout-header-mobile-height                  : $default-layout-header-mobile-row-height;
-$default-layout-header-desktop-row-height             : $hm * 16 !default; // ~64px
-$default-layout-header-desktop-height                 : $default-layout-header-desktop-row-height;
+$default-layout-header-mobile-height                  : $hm * 14 !default; // ~56px
+$default-layout-header-desktop-height                 : $hm * 16 !default; // ~64px
 $default-layout-header-row-screen-padding             : $hm * 10 !default; // ~40px//
 $default-layout-header-desktop-baseline               : $hm * 20 !default; // ~80px
 $default-layout-header-mobile-baseline                : $hm * 16 !default; // ~64px - original is 72px
 $default-layout-header-mobile-indent                  : $hm * 4 !default; // ~16px
 $default-layout-header-desktop-indent                 : $hm * 8 !default; // ~32px - original is 40px
+$default-layout-header-navigation-margin              : 0 ($vm * 4.5) 0 ($vm * 4) ; // ~ 0 18px 0 16px;
+$default-layout-header-navigation-button-width        : $hm * 12; // ~ 48px;
+$default-layout-header-navigation-button-height       : $vm * 12; // ~ 48px;
+$default-layout-header-navigation-button-margin       : auto ($hm * 2) auto auto; // ~ auto 8px auto auto;
+$default-layout-header-navigation-brand-height        : $vm * 12; // ~ 48px;
+$default-layout-header-navigation-brand-margin        : 0 ($hm * 2); // ~ 0 8px;;
+$default-layout-header-title-group-left-position      : $hm * 8; // ~ 32px;
+$default-layout-header-title-group-title-wrap-margin-left  : $hm * 10; // ~ 40px;
+$default-layout-header-title-group-title-wrap-threshold-margin-left  : $hm * 4; // ~ 16px;
+$default-layout-header-title-group-title-wrap-arrow-font-size  : $dfs * 1.7142857143; // ~ 24px;
 $default-layout-subheader-min-height                  : $vm * 14 !default; // ~56px
-$default-layout-header-navigation-link-padding        : 0 ($vm * 6); // ~ 0 24px
-$default-layout-header-navigation-link-padding        : 0;
+
 
 // Drawer
 $default-layout-drawer-narrow                         : $hm * 60 !default; // ~240px
