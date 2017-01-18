@@ -1,8 +1,22 @@
-import DropdownFactory from "../factories/components/dropdown-factory"
+import React from 'react'
+import Dropdown from './../../src/components/Dropdown'
 import { mount } from "enzyme"
 
 describe("Dropdown", () => {
-  const wrapper = mount(DropdownFactory)
+  const options = [
+    { value: 1, name: 'Option 1' },
+    { value: 2, name: 'Option 2' },
+    { value: 3, name: 'Option 3' }
+  ]
+
+  const wrapper = mount(
+    <Dropdown
+      value={1}
+      options={options}
+      layout="status"
+      statusColor="#FF9800"
+    />
+  )
 
   it("has the dropdown class", () => {
     expect(wrapper.find(".sn-dropdown").length).toEqual(1)
@@ -11,7 +25,7 @@ describe("Dropdown", () => {
   it("has a button label equal 'dropdown'", () => {
     const button = wrapper.find(".sn-dropdown__button")
 
-    expect(button.text()).toEqual("Dropdown")
+    expect(button.text()).toEqual("Option 1")
   })
 
   it("has a button with border colored", () => {
@@ -68,7 +82,7 @@ describe("Dropdown", () => {
         button.simulate("click")
         item.simulate("click")
 
-        expect(label.text()).toEqual("Dropdown result 1")
+        expect(label.text()).toEqual("Option 1")
       })
     })
   })
