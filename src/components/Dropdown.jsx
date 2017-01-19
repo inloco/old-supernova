@@ -1,11 +1,9 @@
 import React, { PropTypes } from "react"
-import Label from "./../Label"
+import Label from "./Label"
 
 class Dropdown extends React.Component {
   constructor(props) {
     super(props)
-
-    this.handleClick = this.handleClick.bind(this)
 
     this.state = {
       open: false,
@@ -17,24 +15,8 @@ class Dropdown extends React.Component {
     statusColor: "silver"
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ value: nextProps.value })
-  }
-
-  changeLabelTo(newLabel) {
-    this.setState({
-      value: newLabel
-    })
-  }
-
   toggleList() {
     this.setState({ open: !this.state.open })
-  }
-
-  handleClick(event) {
-    this.changeLabelTo(event.target.textContent)
-
-    this.toggleList()
   }
 
   getLayoutClassName() {
@@ -53,28 +35,30 @@ class Dropdown extends React.Component {
     return `sn-dropdown ${this.getLayoutClassName()} ${this.getErrorClassName()}`
   }
 
-  renderChildren() {
-    const { children } = this.props
+  renderOptions() {
+    const options = this.props.options || []
 
-    if(!Array.isArray(children)) {
-      return this.renderItem(children, 0)
-    }
-
-    return children.map((child, index) => {
-      return this.renderItem(child, index)
-    })
-  }
-
-  renderItem(child, index) {
-    return(
-      <li key={index} onClick={this.handleClick}>
-        {child}
+    return options.map((option, index) => (
+      <li
+        key={index}
+        onClick={() => {
+          this.setState({ value: option.value })
+          this.toggleList()
+        }}
+      >
+        {option.name}
       </li>
-    )
+    ))
   }
 
   renderError() {
     return this.props.error ? <span className="sn-dropdown__message">{this.props.error}</span> : ""
+  }
+
+  renderLabel() {
+    const option = this.props.options.find(option => option.value === this.state.value)
+
+    return option ? option.name : ''
   }
 
   render() {
@@ -90,21 +74,25 @@ class Dropdown extends React.Component {
 
         <button
           className="sn-dropdown__button"
-          onClick={this.handleClick}
+          onClick={() => this.toggleList()}
           type="button"
           style={statusStyle}
         >
-          {this.state.value}
+          {this.renderLabel()}
         </button>
 
         <ul className="sn-dropdown__results" style={listStyle}>
-          {this.renderChildren()}
+          {this.renderOptions()}
         </ul>
 
         {this.renderError()}
       </div>
     )
   }
+}
+
+Dropdown.defaultProps = {
+  options: []
 }
 
 export default Dropdown
