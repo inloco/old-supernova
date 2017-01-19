@@ -37,14 +37,6 @@ import Pill from "./components/Pills/Pill"
 import Radio from "./components/Radio"
 import SearchBox from "./components/SearchBox"
 import Select from "./components/Form/Select"
-import SidebarFooter from "./components/Sidebar/Footer/Main"
-import SidebarFooterLink from "./components/Sidebar/Footer/Link"
-import SidebarMenu from "./components/Sidebar/Menu/Main"
-import SidebarMenuItem from "./components/Sidebar/Menu/Item"
-import SidebarLogo from "./components/Sidebar/Logo"
-import SidebarUser from "./components/Sidebar/User/Main"
-import SidebarUserItem from "./components/Sidebar/User/Item"
-import Sidebar from "./components/Sidebar/Main"
 import Subheader from "./components/Subheader"
 import Table from "./components/Table"
 import TableHead from "./components/Table/Head"
@@ -107,14 +99,6 @@ export {
   Radio,
   SearchBox,
   Select,
-  SidebarFooter,
-  SidebarFooterLink,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarLogo,
-  SidebarUser,
-  SidebarUserItem,
-  Sidebar,
   Subheader,
   Table,
   TableHead,
