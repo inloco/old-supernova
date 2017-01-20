@@ -5,7 +5,7 @@ import { shallow } from 'enzyme'
 
 describe('Balloon', () => {
   const wrapper = shallow(
-    <Balloon label="CPC" value="123" />
+    <Balloon label="CPC" value="123" addon="%" />
   )
 
   it('has balloon', () => {
@@ -23,7 +23,13 @@ describe('Balloon', () => {
   it('has value', () => {
     const value = wrapper.find('.sn-balloon__value')
 
-    expect(value.text()).toEqual('123')
+    expect(value.text().includes('123')).toBeTruthy()
+  })
+
+  it('has addon', () => {
+    const addon = wrapper.find('.sn-balloon__currency')
+
+    expect(addon.text()).toEqual('%')
   })
 
   describe('when icon', () => {
