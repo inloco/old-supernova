@@ -15,6 +15,10 @@ class Dropdown extends React.Component {
     statusColor: "silver"
   }
 
+  componentDidMount() {
+    this.props.onChange(this.state.value)
+  }
+
   toggleList() {
     this.setState({ open: !this.state.open })
   }
@@ -44,6 +48,7 @@ class Dropdown extends React.Component {
         onClick={() => {
           this.setState({ value: option.value })
           this.toggleList()
+          this.props.onChange(option.value)
         }}
       >
         {option.name}
@@ -92,7 +97,8 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.defaultProps = {
-  options: []
+  options: [],
+  onChange: () => {}
 }
 
 export default Dropdown
