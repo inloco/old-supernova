@@ -3,6 +3,7 @@ import Dropdown from './../../src/components/Dropdown'
 import { mount } from "enzyme"
 
 describe("Dropdown", () => {
+  const onChange = jest.fn()
   const options = [
     { value: 1, name: 'Option 1' },
     { value: 2, name: 'Option 2' },
@@ -15,6 +16,7 @@ describe("Dropdown", () => {
       options={options}
       layout="status"
       statusColor="#FF9800"
+      onChange={onChange}
     />
   )
 
@@ -84,6 +86,16 @@ describe("Dropdown", () => {
 
         expect(label.text()).toEqual("Option 1")
       })
+    })
+  })
+
+  describe('when dropdowns change the value', () => {
+    it('calls onChange', () => {
+      const dropdownItem = wrapper.find('li').last()
+
+      dropdownItem.simulate('click')
+
+      expect(onChange).toBeCalledWith(3)
     })
   })
 })
