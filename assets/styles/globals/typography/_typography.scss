@@ -159,6 +159,10 @@ h6 {
   margin-bottom: $default-headings-bottom-margin;
 }
 
+.sn-typo--headline-clean {
+  @include typo-headline;
+}
+
 .sn-typo--headline-color-contrast {
   @include typo-headline($colorContrast: true);
   margin-bottom: $default-headings-bottom-margin;
