@@ -17,8 +17,13 @@ describe("Dropdown", () => {
       layout="status"
       statusColor="#FF9800"
       onChange={onChange}
+      callOnChangeWhenMount
     />
   )
+
+  it('calls onChange when mount', () => {
+    expect(onChange).toBeCalledWith(1)
+  })
 
   it("has the dropdown class", () => {
     expect(wrapper.find(".sn-dropdown").length).toEqual(1)
