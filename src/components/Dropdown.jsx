@@ -16,7 +16,15 @@ class Dropdown extends React.Component {
   }
 
   componentDidMount() {
-    this.props.onChange(this.state.value)
+    if(this.props.callOnChangeWhenMount) {
+      this.props.onChange(this.state.value)
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if(this.state.value !== nextState.value) {
+      this.props.onChange(nextState.value)
+    }
   }
 
   toggleList() {
@@ -39,17 +47,18 @@ class Dropdown extends React.Component {
     return `sn-dropdown ${this.getLayoutClassName()} ${this.getErrorClassName()}`
   }
 
+  handleOptionClick(option) {
+    this.setState({ value: option.value })
+    this.toggleList()
+  }
+
   renderOptions() {
     const options = this.props.options || []
 
     return options.map((option, index) => (
       <li
         key={index}
-        onClick={() => {
-          this.setState({ value: option.value })
-          this.toggleList()
-          this.props.onChange(option.value)
-        }}
+        onClick={this.handleOptionClick.bind(this, option)}
       >
         {option.name}
       </li>
@@ -98,6 +107,7 @@ class Dropdown extends React.Component {
 
 Dropdown.defaultProps = {
   options: [],
+  callOnChangeWhenMount: false,
   onChange: () => {}
 }
 
