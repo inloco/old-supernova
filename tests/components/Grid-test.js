@@ -21,19 +21,21 @@ describe('Grid', () => {
     expect(children.length).toEqual(1)
   })
 
-  describe('when horizontal', () => {
-    it('is not seted it not have horizontal className', () => {
-      const gridWithHorizontal = wrapper.find('.sn-grid--horizontal')
-
-      expect(gridWithHorizontal.length).toEqual(0)
-    })
-
-    it('is seted it have horizontal className', () => {
-      wrapper.setProps({ horizontal: true })
-
+  describe('when has not vertical props', () => {
+    it('has horizontal className', () => {
       const gridWithHorizontal = wrapper.find('.sn-grid--horizontal')
 
       expect(gridWithHorizontal.length).toEqual(1)
+    })
+  })
+
+  describe('when has vertical props', () => {
+    it('has vertical className', () => {
+      wrapper.setProps({ vertical: true })
+
+      const gridWithVertical = wrapper.find('.sn-grid--vertical')
+
+      expect(gridWithVertical.length).toEqual(1)
     })
   })
 })

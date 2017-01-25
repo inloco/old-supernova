@@ -1,12 +1,16 @@
 import React from 'react'
 
 const Grid = props => {
-  const { horizontal, className, ...gridProps } = props
-  const horizontalClassName = horizontal ? 'sn-grid--horizontal' : ''
+  const { vertical, className, ...gridProps } = props
+  const gridType = vertical ? 'sn-grid--vertical' : 'sn-grid--horizontal'
 
   return (
-    <div className={`sn-grid ${horizontalClassName} ${className}`} {...gridProps} />
+    <div className={`sn-grid ${gridType} ${className}`} {...gridProps} />
   )
+}
+
+Grid.defaultProps = {
+  vertical: false
 }
 
 export default Grid

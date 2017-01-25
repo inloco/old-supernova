@@ -18,7 +18,6 @@
 
 .sn-card {
   position: relative;
-  @include flexbox();
   background: $default-card-background;
   width: auto;
   margin: 0;
