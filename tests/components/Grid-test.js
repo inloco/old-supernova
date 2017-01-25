@@ -21,14 +21,16 @@ describe('Grid', () => {
     expect(children.length).toEqual(1)
   })
 
-  describe('when vertical', () => {
-    it('is not seted it not have vertical className', () => {
+  describe('when has not vertical props', () => {
+    it('has horizontal className', () => {
       const gridWithHorizontal = wrapper.find('.sn-grid--horizontal')
 
       expect(gridWithHorizontal.length).toEqual(1)
     })
+  })
 
-    it('is seted it have vertical className', () => {
+  describe('when has vertical props', () => {
+    it('has vertical className', () => {
       wrapper.setProps({ vertical: true })
 
       const gridWithVertical = wrapper.find('.sn-grid--vertical')
