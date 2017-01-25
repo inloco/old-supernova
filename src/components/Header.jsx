@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 
 class Header extends React.Component {
   static propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.any.isRequired,
     subtitle: PropTypes.string,
     drawerButton: PropTypes.bool,
     rightElement: PropTypes.func
