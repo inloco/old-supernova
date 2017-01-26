@@ -2,7 +2,7 @@ import React from 'react'
 
 const Section = props => {
   return (
-    <div className="classe-aqui">
+    <div className="sn-layout__drawer-navigation__section">
       {props.title}
     </div>
   )
