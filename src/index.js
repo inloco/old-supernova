@@ -14,7 +14,9 @@ import CardColGroup from "./components/Card/ColGroup"
 import Checkbox from "./components/Form/Checkbox"
 import Content from "./components/Content"
 import Drawer from "./components/Drawer/Main"
-import DrawerNav from "./components/Drawer/Nav"
+import DrawerNav from "./components/Drawer/Nav/Main"
+import DrawerNavLink from "./components/Drawer/Nav/Link"
+import DrawerNavSection from "./components/Drawer/Nav/Section"
 import DrawerTitle from "./components/Drawer/Title"
 import DrawerProfile from "./components/Drawer/Profile"
 import Dropdown from "./components/Dropdown"
@@ -77,6 +79,8 @@ export {
   Content,
   Drawer,
   DrawerNav,
+  DrawerNavLink,
+  DrawerNavSection,
   DrawerTitle,
   DrawerProfile,
   Dropdown,
