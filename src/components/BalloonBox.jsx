@@ -2,7 +2,7 @@ import React from 'react'
 
 const BalloonBox = props => {
   return (
-    <div className="sn-balloon-box" {...props} />
+    <div {...props} className={`sn-balloon-box ${props.className}`} />
   )
 }
 
