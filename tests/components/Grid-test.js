@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 
 describe('Grid', () => {
   const wrapper = shallow(
-    <Grid>
+    <Grid bleed>
       <h1>Grid</h1>
     </Grid>
   )
@@ -19,6 +19,10 @@ describe('Grid', () => {
     const children = wrapper.find('h1')
 
     expect(children.length).toEqual(1)
+  })
+
+  it('is bleed', () => {
+    expect(wrapper.find('.sn-grid--bleed-all').length).toEqual(1)
   })
 
   describe('when has not vertical props', () => {
@@ -36,6 +40,20 @@ describe('Grid', () => {
       const gridWithVertical = wrapper.find('.sn-grid--vertical')
 
       expect(gridWithVertical.length).toEqual(1)
+    })
+  })
+
+  describe('when has gutter props', () => {
+    it('uses default gutter class name', () => {
+      wrapper.setProps({ gutter: true })
+
+      expect(wrapper.find('.sn-grid--cell-gutter').length).toEqual(1)
+    })
+
+    it('uses gutter with option in class name', () => {
+      wrapper.setProps({ gutter: 'xs' })
+
+      expect(wrapper.find('.sn-grid--cell-gutter-xs').length).toEqual(1)
     })
   })
 })
