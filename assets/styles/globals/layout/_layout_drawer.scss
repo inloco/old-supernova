@@ -71,8 +71,6 @@
     }
 
     img, .sn-layout__drawer-title__image {
-      position: absolute;
-      top: $default-layout-drawer-title-image-title-top;
       max-width: $default-layout-drawer-title-image-max-width;
       max-height: $default-layout-drawer-title-image-max-height;
       border: 0;
@@ -278,12 +276,12 @@
       }
     }
     .sn-layout__drawer-navigation__section {
-      width: 100%;
+      width: calc(100% - $default-layout-drawer-navigation-section-padding);
       display: block;
       padding: $default-layout-drawer-navigation-section-padding;
       font-size: $default-layout-drawer-navigation-section-font-size;
       color: $default-layout-drawer-navigation-section-color;
-      background-color: white;
+      background-color: $default-layout-drawer-navigation-section-bg-color;
     }
   }
 }

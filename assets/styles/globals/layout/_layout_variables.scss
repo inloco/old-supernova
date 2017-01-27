@@ -47,7 +47,7 @@ $default-layout-drawer-narrow                         : $hm * 60 !default; // ~2
 $default-layout-drawer-width                          : $default-layout-drawer-narrow !default;
 $default-layout-drawer-border-right                   : $hm * 0.25 !default; // ~1px
 $default-layout-drawer-title-font-size                : $dfs * 1.2857142857 !default; // ~18px
-$default-layout-drawer-title-padding-vertical         : $vm * 6 !default;
+$default-layout-drawer-title-padding-vertical         : $vm * 4 !default;
 $default-layout-drawer-title-height                   : $default-layout-header-desktop-height - ($default-layout-drawer-title-padding-vertical * 2);
 $default-layout-drawer-button-mobile-size             : $hm * 8 !default; // ~32px
 $default-layout-drawer-button-desktop-size            : $hm * 12 !default; // ~48px
@@ -61,7 +61,6 @@ $default-layout-drawer-desktop-padding                : $hm * 4 !default; // ~16
 $default-layout-drawer-mobile-padding                 : $hm * 8 !default; // ~32px
 // Drawer Title
 $default-layout-drawer-title-border-bottom            : $vm * 0.25 !default; // ~1px
-$default-layout-drawer-title-image-title-top          : $vm * 4 !default; // ~16px
 $default-layout-drawer-title-image-max-width          : $hm * 38 !default; // ~152px
 $default-layout-drawer-title-image-max-height         : $hm * 10 !default; // ~40px
 // Drawer User
