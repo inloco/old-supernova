@@ -7,19 +7,41 @@ import { shallow } from 'enzyme'
 
 describe("Drawer Profile", () => {
   const wrapper = shallow(
-    <Drawer>
-      <DrawerProfile
-        name="Nome do Usuário"
-        email="nome@inlocomedia.com"/>
-    </Drawer>
+    <DrawerProfile
+      name="Nome do Usuário"
+      email="nome@inlocomedia.com"
+    />
   )
-  const node = wrapper.find(".sn-layout__drawer")
 
-  it("exists", () => {
-    expect(node.length).toEqual(1)
+  it("has an avatar", () => {
+    const avatar = wrapper.find(".sn-layout__drawer-user__avatar")
+
+    expect(wrapper.length).toEqual(1)
   })
 
-  it("has a profile", () => {
-    expect(node.find("Profile").length).toEqual(1)
+  it("has user info", () => {
+    const info = wrapper.find(".sn-layout__drawer-user__info")
+
+    expect(info.length).toEqual(1)
+  })
+
+  describe("user info", () => {
+    it("has user with name 'Nome do Usuário'", () => {
+      const name = wrapper.find(".sn-layout__drawer-user__info-name")
+
+      expect(name.text()).toEqual("Nome do Usuário")
+    })
+
+    it("has user with email 'nome@inlocomedia.com'", () => {
+      const email = wrapper.find(".sn-layout__drawer-user__info-contact")
+
+      expect(email.text()).toEqual("nome@inlocomedia.com")
+    })
+
+    it("has actions", () => {
+      const actions = wrapper.find(".sn-layout__drawer-user__info-actions")
+
+      expect(actions.length).toEqual(1)
+    })
   })
 })
