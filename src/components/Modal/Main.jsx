@@ -8,17 +8,23 @@ class Main extends React.Component {
   constructor(props) {
     super(props)
 
+    this.handleWrapClick = this.handleWrapClick.bind(this)
+    this.handleBackdropClick = this.handleBackdropClick.bind(this)
+
     this.state = {
       open: this.props.open
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      open: nextProps.open
-    })
+    if(nextProps.open !== this.state.open) {
+      this.setState({
+        open: nextProps.open
+      })
+    }
   }
 
+  // Modal Header uses to close on click in x button
   getChildContext() {
     return {
       onClose: this.props.onClose
@@ -42,21 +48,25 @@ class Main extends React.Component {
   }
 
   render() {
+    const openClassName = this.state.open ? 'sn-modal--open' : ''
+    const sizeClassName = this.props.size ? `sn-modal--${this.props.size}` : ''
+
     return(
       <div>
         <div
-          className={`sn-modal ${this.state.open ? "sn-modal--open" : ''}`}
           id={this.props.id}
-          onClick={this.handleBackdropClick.bind(this)}>
-
+          className={`sn-modal ${openClassName} ${sizeClassName}`}
+          onClick={this.handleBackdropClick}
+        >
           <div
             className="sn-modal__wrap"
-            onClick={this.handleWrapClick.bind(this)}>
+            onClick={this.handleWrapClick}
+          >
             <div className="sn-modal__content">{this.props.children}</div>
           </div>
         </div>
 
-        {this.state.open ? this.renderBackdrop() : null}
+        {this.state.open && this.renderBackdrop()}
       </div>
     )
   }
