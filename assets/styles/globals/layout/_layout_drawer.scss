@@ -250,9 +250,10 @@
       position: relative;
       display: block;
       flex-shrink: 0;
-      padding: $default-layout-drawer-desktop-padding;
       margin: 0;
-      color: $default-layout-drawer-navigation-color;
+      font-size: $default-layout-drawer-navigation-link-font-size;
+      padding: $default-layout-drawer-desktop-padding;
+      color: $default-layout-drawer-navigation-link-color;
       text-decoration: none;
       clear: both;
       @media screen and (max-width: $default-layout-screen-size-threshold) {
@@ -260,7 +261,8 @@
         $default-layout-drawer-mobile-padding;
       }
       &:hover {
-        background-color: $default-layout-drawer-navigation-link-active-background;
+        color: $default-layout-drawer-navigation-link-hover-color;
+        background-color: $default-layout-drawer-navigation-link-hover-bg-color;
       }
       i {
         float: left;
@@ -270,10 +272,18 @@
         vertical-align: middle;
         margin: $default-layout-drawer-navigation-link-margin;
       }
+      &.sn-layout__drawer-navigation__link--current {
+        color: $default-layout-drawer-navigation-link-active-color;
+        background-color: $default-layout-drawer-navigation-link-active-background;
+      }
     }
-    &.sn-layout__drawer-navigation__link--current {
-      background-color: $default-layout-drawer-navigation-link-active-background;
-      color: $default-layout-drawer-navigation-link-active-color;
+    .sn-layout__drawer-navigation__section {
+      width: 100%;
+      display: block;
+      padding: $default-layout-drawer-navigation-section-padding;
+      font-size: $default-layout-drawer-navigation-section-font-size;
+      color: $default-layout-drawer-navigation-section-color;
+      background-color: white;
     }
   }
 }

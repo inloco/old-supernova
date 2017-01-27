@@ -58,12 +58,16 @@ $default-layout-subheader-background-color                : $palette-grey-200;
 
 // -- Drawer
 $default-layout-nav-color                                 : $palette-grey-300 !default;
-$default-layout-drawer-bg-color                           : $palette-grey-50 !default;
+$default-layout-drawer-bg-color                           : $color-white !default;
 $default-layout-drawer-border-color                       : $palette-grey-300 !default;
 $default-layout-text-color                                : $palette-grey-800 !default;
-$default-layout-drawer-navigation-color                   : $palette-grey-600 !default;
-$default-layout-drawer-navigation-link-active-color       : $palette-grey-300 !default;
-$default-layout-drawer-navigation-link-active-background  : darken($default-layout-drawer-navigation-link-active-color, 1%) !default;
+$default-layout-drawer-navigation-link-color              : $palette-grey-600 !default;
+$default-layout-drawer-navigation-link-hover-color        : $color-black !default;
+$default-layout-drawer-navigation-link-hover-bg-color     : $palette-grey-100 !default;
+$default-layout-drawer-navigation-link-active-color       : $color-black !default;
+$default-layout-drawer-navigation-link-active-background  : $palette-grey-50 !default;
+$default-layout-drawer-navigation-section-color           : $palette-grey-400 !default;
+$default-layout-drawer-navigation-section-bg-color        : $palette-grey-50 !default;
 $default-layout-drawer-button-color                       : $default-layout-header-text-color;
 $default-layout-drawer-button-color-screen                : rgba(0, 0, 0, 0.5);
 $default-layout-drawer-user-link-color                    : $palette-grey-500;

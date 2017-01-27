@@ -100,11 +100,14 @@ $default-layout-drawer-user-info-actions-link-padding : 0 0 0 ($hm * 5); // ~ 0 
 $default-layout-drawer-user-info-actions-icon-top     : $vm * 0.25 !default; // ~ 1px
 $default-layout-drawer-user-info-actions-icon-font-size : $dfs * 1.1428571429; // ~ 16px
 $default-layout-drawer-user-info-actions-p-font-size  : $dfs * 1.1428571429; // ~ 16px
+// Drawer Navigation
 $default-layout-drawer-navigation-link-width          : $hm * 5; // ~ 20px
 $default-layout-drawer-navigation-link-height         : $vm * 5; // ~ 20px
-$default-layout-drawer-navigation-link-font-size      : $dfs * 0.7; // ~ 20px
-$default-layout-drawer-navigation-link-icon-size      : $dfs * 1.5; // ~ 20px
+$default-layout-drawer-navigation-link-font-size      : $dfs; // ~ 14px
+$default-layout-drawer-navigation-link-icon-size      : $dfs * 1.5; // ~ 21px
 $default-layout-drawer-navigation-link-margin         : 0 ($vm * 4) 0 0; // ~ 0 16px 0 0
+$default-layout-drawer-navigation-section-padding     : $vm 0 $vm ($hm * 4); // ~ 4px 0 4px 16px
+$default-layout-drawer-navigation-section-font-size   : $dfs * 0.8571428571; // ~ 12px
 
 // Footer
 $default-layout-footer-title                          : $hm * 5; // ~20px
