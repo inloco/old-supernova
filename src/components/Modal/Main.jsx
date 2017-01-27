@@ -24,6 +24,13 @@ class Main extends React.Component {
     }
   }
 
+  // Modal Header uses to close on click in x button
+  getChildContext() {
+    return {
+      onClose: this.props.onClose
+    }
+  }
+
   handleBackdropClick(event) {
     if(this.props.dismiss) {
       this.props.onClose()
