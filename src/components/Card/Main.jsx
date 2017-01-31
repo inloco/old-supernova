@@ -16,7 +16,7 @@ class Card extends React.Component {
 
     return (
       <div
-        className="sn-card sn-card--padding sn-card--col-gutter"
+        className={`sn-card sn-card--padding sn-card--col-gutter ${this.props.className}`}
         style={cardStyle}>
         {this.props.children}
       </div>
