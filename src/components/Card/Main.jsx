@@ -16,6 +16,7 @@ class Card extends React.Component {
 
     return (
       <div
+        onClick={this.props.onClick}
         className={`sn-card sn-card--padding sn-card--col-gutter ${this.props.className}`}
         style={cardStyle}>
         {this.props.children}

@@ -3,8 +3,9 @@ import Card from "../../../src/components/Card/Main"
 import { shallow } from 'enzyme'
 
 describe("Card", () => {
+  const onClick = jest.fn()
   const wrapper = shallow(
-    <Card className="some">
+    <Card className="some" onClick={onClick}>
       <h1>Some</h1>
     </Card>
   )
@@ -19,5 +20,13 @@ describe("Card", () => {
 
   it("has children", () => {
     expect(wrapper.find('h1')).toHaveLength(1)
+  })
+
+  describe("when click", () => {
+    it("calls onClick", () => {
+      wrapper.simulate('click')
+
+      expect(onClick).toBeCalled()
+    })
   })
 })
