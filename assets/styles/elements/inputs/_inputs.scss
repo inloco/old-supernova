@@ -180,7 +180,6 @@
    }
    .sn-field__bar {
      display: none;
-
    }
   }
 }
@@ -202,7 +201,7 @@
       top: $default-form-label-font-size-floating-position-top;
       left: 0;
     }
-  }
+  } 
 
   select,
   input,
@@ -574,4 +573,28 @@
 }
 .sn-input input[type=range]:active::-ms-fill-upper {
   background: #d5d5d5;
+}
+
+
+.sn-input,
+.sn-select,
+.sn-form-group__label {
+  .sn-tooltips {
+    position: absolute;
+    top: $default-input-tooltip-top-position;
+    right: 0;
+    color: $default-form-input-tooltip-icon-color;
+    .material-icons {
+      font-size: $default-input-tooltip-icon-font-size;
+      &:hover { 
+        cursor: default;
+      }
+    }
+  }
+}
+
+.sn-form-group__label {
+  .sn-tooltips {
+    top: 4px;
+  }   
 }

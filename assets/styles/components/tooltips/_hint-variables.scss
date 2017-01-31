@@ -3,6 +3,7 @@
 // Declares some variables used within the library.
 
 // Prefix for all classes. By default, BEM naming convention is used
+
 $hintPrefix: 'sn-tooltips--' !default;
 
 // font size
@@ -37,7 +38,7 @@ $hintShowDelay: 100ms !default;
 $hintHideDelay: 0ms !default;
 
 // z-index for tooltips
-$hintZIndex: 1000000 !default;
+$hintZIndex: $z-tooltips !default;
 
 // Size options
 $hintSizeSmall: 80px !default;
