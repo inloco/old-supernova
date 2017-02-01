@@ -1,11 +1,13 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import Header from './../../src/components/Header'
+import Button from './../../src/components/Button'
 
 describe("Header", () => {
   const wrapper = shallow(<Header
                           title="Some section"
-                          subtitle="Second section" />)
+                          subtitle="Second section"
+                          rightElement={<Button label="teste" />} />)
 
   it("has header class", () => {
     const currentHeader = wrapper.find(".sn-layout__header")
@@ -29,5 +31,11 @@ describe("Header", () => {
     const currentDrawerButton = wrapper.find(".sn-layout__drawer-button")
 
     expect(currentDrawerButton.length).toEqual(1)
+  })
+
+  it("has rigth element", () => {
+    const currentRigthElement = wrapper.find(".sn-layout__navigation").find(Button)
+
+    expect(currentRigthElement.length).toEqual(1)
   })
 })
