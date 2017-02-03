@@ -244,6 +244,7 @@
     flex-direction: column;
     align-items: stretch;
     padding-top: $default-layout-drawer-navigation-padding-top;
+    > a,
     .sn-layout__drawer-navigation__link {
       position: relative;
       display: block;
