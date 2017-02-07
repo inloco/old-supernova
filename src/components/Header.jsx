@@ -30,7 +30,7 @@ class Header extends React.Component {
   renderRightElement() {
 
     return (
-      <div className="sn-layout__navigation">
+      <div className="sn-layout__navigation is-hidden--tablet-threshold">
         {this.props.rightElement}
       </div>
     )
