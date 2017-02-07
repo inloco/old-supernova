@@ -1,4 +1,4 @@
-import React from 'React'
+import React from 'react'
 import Radio from './../../src/components/Radio'
 import { shallow } from 'enzyme'
 
