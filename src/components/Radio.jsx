@@ -4,20 +4,30 @@ class Radio extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      value: props.value
-    }
+    this.handleInputChange = this.handleInputChange.bind(this)
+  }
+
+  handleInputChange(e) {
+    const value = e.target.value
+
+    this.props.onChange(this.props.numeric ? Number(value) : value)
   }
 
   render() {
-    const { label, ...inputProps } = this.props
+    const { label, numeric, ...inputProps } = this.props
 
     return (
       <div className="sn-radio">
         <label>
-          <input type="radio" {...inputProps}/>
+          <input
+            type="radio"
+            {...inputProps}
+            onChange={this.handleInputChange}
+          />
+
           <i className="sn-input__icon"></i>
-          {this.props.label}
+
+          {label}
         </label>
       </div>
     )
