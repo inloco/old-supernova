@@ -1,47 +1,40 @@
+import React from 'react'
+import Alert from '../../src/components/Alert'
+import { mount } from 'enzyme'
+
 jest.useRealTimers()
-jest.unmock("../../src/components/Alert")
 
-import React from "react"
-import ReactDOM from "react-dom"
-import TestUtils from "react-addons-test-utils"
-import Alert from "../../src/components/Alert"
+describe('Alert', () => {
+  const onClose = jest.fn()
+  const wrapper = mount(
+    <Alert
+      onClose={onClose}
+      message="Some message here"
+      active={true}
+      closeAfter={2000}
+    />
+  )
 
-describe("Alert", () => {
-  const baseNode = document.createElement("div")
+  beforeEach(() => onClose.mockClear())
 
-  let component, node
-
-  beforeEach(() => {
-    component = ReactDOM.render(<Alert message="" active={true} />, baseNode)
-    node      = ReactDOM.findDOMNode(component)
-  })
-
-  it("will be close after 2 seconds", (done) => {
-    component = ReactDOM.render(<Alert message="" active={true} closeAfter={2000}/>, baseNode)
-
+  it('will be close after 2 seconds', (done) => {
     setTimeout(() => {
-      expect(component.state.active).toBeFalsy()
+      expect(onClose).toBeCalled()
       done()
     }, 2000)
   })
 
-  it("will be close after click in close button", () => {
-    const btnClose = node.querySelector("button")
+  it('will be close after click in close button', () => {
+    wrapper.find('button').simulate('click')
 
-    TestUtils.Simulate.click(btnClose)
-
-    expect(component.state.active).toBeFalsy()
+    expect(onClose).toBeCalled()
   })
 
-  it("has alert class", () => {
-    expect(node.classList.contains("sn-alert")).toBeTruthy()
+  it('has alert class', () => {
+    expect(wrapper.hasClass('sn-alert')).toBeTruthy()
   })
 
-  it("has correct default type", () => {
-    expect(node.classList.contains("sn-alert--success")).toBeTruthy()
-  })
-
-  it("is active by default", () => {
-    expect(node.classList.contains("sn-alert--active")).toBeTruthy()
+  it('has correct default type', () => {
+    expect(wrapper.hasClass('sn-alert--success')).toBeTruthy()
   })
 })

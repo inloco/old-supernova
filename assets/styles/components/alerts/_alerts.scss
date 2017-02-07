@@ -18,8 +18,9 @@
 
 
 .sn-alert {
-  position: fixed;
   top: $default-alert-position-top;
+  opacity: 1;
+  position: fixed;
   left: 0;
   right: 0;
   max-width: $default-alert-max-width;
@@ -27,15 +28,9 @@
   background-color: $default-alert-background-color-warning;
   margin: 0 auto;
   border: 0;
-  opacity: 0;
   @include shadow-16dp();
   z-index: $z-alerts;
   transition: all 0.5s;
-
-  &.sn-alert--active {
-    top: $default-alert-position-top !important;
-    opacity: 1;
-  }
 
   @media only screen
   and (min-width : 0)
