@@ -11,26 +11,31 @@ class Alert extends React.Component {
   }
 
   static defaultProps = {
-    type:   "success",
+    type: "success",
+    icon: "check",
     active: false
   }
 
-  constructor(props) {
-    super(props)
+  componentDidMount() {
+    this.closeAfter(this.props.closeAfter)
+  }
 
-    this.state = { active: props.active }
+  handleCloseClick() {
+    this.props.onClose()
+  }
+
+  closeAfter(time) {
+    if(time) {
+      setTimeout(this.props.onClose, time)
+    }
   }
 
   getTypeClassName() {
     return `sn-alert--${this.props.type}`
   }
 
-  getActiveClassName() {
-    return this.state.active ? "sn-alert--active" : ""
-  }
-
   getClassName() {
-    return `sn-alert ${this.getTypeClassName()} ${this.getActiveClassName()}`
+    return `sn-alert sn-alert--active ${this.getTypeClassName()}`
   }
 
   getIcon() {
@@ -45,58 +50,19 @@ class Alert extends React.Component {
     }
   }
 
-  getHeight() {
-    ReactDOM.findDOMNode(this).clientHeight
-  }
-
-  handleCloseClick(e) {
-    e.preventDefault()
-    this.close()
-  }
-
-  handleCloseAfter() {
-    const { closeAfter } = this.props
-
-    if(closeAfter !== undefined && this.state.active) {
-      setTimeout(() => { this.close() }, closeAfter)
-    }
-  }
-
-  hideOnTop() {
-    const node  = ReactDOM.findDOMNode(this)
-
-    node.style.top = `-${node.clientHeight}px`
-  }
-
-  close() {
-    this.setState({
-      active: false
-    })
-
-    if(this.props.onClose) {
-      this.props.onClose()
-    }
-  }
-
-  componentDidMount() {
-    this.hideOnTop()
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({ active: nextProps.active })
-  }
-
-  componentDidUpdate() {
-    this.handleCloseAfter()
-  }
-
   render() {
     return (
-      <div className={this.getClassName()} role="alert">
+      <div className={this.getClassName()}>
         {this.getIcon()}
-        <button type="button" className="sn-alert--close" onClick={this.handleCloseClick.bind(this)}>
+
+        <button
+          type="button"
+          className="sn-alert--close"
+          onClick={this.handleCloseClick.bind(this)}
+        >
           <i className="material-icons">&#xE14C;</i>
         </button>
+
         <div className="sn-alert--message">{this.props.message}</div>
       </div>
     )
