@@ -28,8 +28,8 @@ describe("Form Group", () => {
   it("has 2 inputs with the foo name", () => {
     const inputs = node.querySelectorAll(".sn-checkbox input")
 
-    for(let i in inputs) {
-      expect(inputs[i].name).toEqual("foo")
-    }
+    inputs.forEach(input => {
+      expect(input.name).toEqual("foo")
+    })
   })
 })
