@@ -6,7 +6,7 @@ dependencies:
   cache_directories:
     - node_modules
   override:
-    - npm install jest -g
+    - npm install npm -g
     - npm install
 
 test:
