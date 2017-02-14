@@ -7,7 +7,7 @@ class Button extends React.Component {
     raised:      PropTypes.bool,
     fullWidth:   PropTypes.bool,
     type:        PropTypes.string,
-    buttonStyle: PropTypes.string,
+    theme: PropTypes.string,
     onClick:     PropTypes.func,
     tabIndex:    PropTypes.number,
     className:   PropTypes.string,
@@ -20,7 +20,7 @@ class Button extends React.Component {
     raised:      false,
     fullWidth:   false,
     type:        "button",
-    buttonStyle: null
+    theme: null
   }
 
 
@@ -33,9 +33,9 @@ class Button extends React.Component {
   }
 
   getStyleClassName() {
-    const { buttonStyle } = this.props
+    const { theme } = this.props
 
-    return buttonStyle ? `sn-button--${buttonStyle}` : null
+    return theme ? `sn-button--${theme}` : null
   }
 
   getSizeClassName() {

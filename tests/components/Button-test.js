@@ -12,7 +12,7 @@ describe("Button", () => {
     <Button
       label="Login"
       raised
-      buttonStyle="colored"
+      theme="colored"
       type="submit"
       onClick={fooFunc} />
   )
