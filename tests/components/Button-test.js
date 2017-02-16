@@ -9,7 +9,12 @@ describe("Button", () => {
   const fooFunc = jest.fn()
 
   const button = TestUtils.renderIntoDocument(
-    <Button label="Login" raised={true} style="colored" type="submit" onClick={fooFunc}/>
+    <Button
+      label="Login"
+      raised
+      theme="colored"
+      type="submit"
+      onClick={fooFunc} />
   )
   const buttonNode = ReactDOM.findDOMNode(button)
 

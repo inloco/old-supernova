@@ -4,8 +4,7 @@ class Header extends React.Component {
   static propTypes = {
     title: PropTypes.any.isRequired,
     subtitle: PropTypes.string,
-    drawerButton: PropTypes.bool,
-    rightElement: PropTypes.func
+    drawerButton: PropTypes.bool
   }
 
   static defaultProps = {
@@ -29,11 +28,10 @@ class Header extends React.Component {
   }
 
   renderRightElement() {
-    const RightElement = this.props.rightElement
 
     return (
-      <div className="sn-layout__navigation">
-        <RightElement />
+      <div className="sn-layout__navigation is-hidden--tablet-threshold">
+        {this.props.rightElement}
       </div>
     )
   }

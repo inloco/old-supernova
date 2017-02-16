@@ -2,25 +2,25 @@ import React, { PropTypes } from "react"
 
 class Button extends React.Component {
   static propTypes = {
-    label:     PropTypes.string,
-    disabled:  PropTypes.bool,
-    raised:    PropTypes.bool,
-    fullWidth: PropTypes.bool,
-    type:      PropTypes.string,
-    style:     PropTypes.string,
-    onClick:   PropTypes.func,
-    tabIndex:  PropTypes.number,
-    className: PropTypes.string,
-    name:      PropTypes.string,
-    size:      PropTypes.string
+    label:       PropTypes.string,
+    disabled:    PropTypes.bool,
+    raised:      PropTypes.bool,
+    fullWidth:   PropTypes.bool,
+    type:        PropTypes.string,
+    theme: PropTypes.string,
+    onClick:     PropTypes.func,
+    tabIndex:    PropTypes.number,
+    className:   PropTypes.string,
+    name:        PropTypes.string,
+    size:        PropTypes.string
   }
 
   static defaultProps = {
-    disabled:  false,
-    raised:    false,
-    fullWidth: false,
-    type:      "button",
-    style:     null
+    disabled:    false,
+    raised:      false,
+    fullWidth:   false,
+    type:        "button",
+    theme: null
   }
 
 
@@ -33,9 +33,9 @@ class Button extends React.Component {
   }
 
   getStyleClassName() {
-    const { style } = this.props
+    const { theme } = this.props
 
-    return style ? `sn-button--${style}` : null
+    return theme ? `sn-button--${theme}` : null
   }
 
   getSizeClassName() {
