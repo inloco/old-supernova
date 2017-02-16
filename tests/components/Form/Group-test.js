@@ -1,35 +1,46 @@
-jest.unmock("../../factories/components/form-factory")
-
 import React from "react"
-import ReactDOM from "react-dom"
-import TestUtils from "react-addons-test-utils"
-import FormFactory from "../../factories/components/form-factory"
+import FormGroup from './../../../src/components/Form/Group'
+import Checkbox from './../../../src/components/Form/Checkbox'
+import { shallow } from 'enzyme'
+
 
 describe("Form Group", () => {
-  const factory = new FormFactory
-  const node = factory.getNode().querySelector("#form-group-factory")
+  const wrapper = shallow(
+    <FormGroup label="Form Group Label" id="form-group-factory" name="foo">
+      <Checkbox label="Texto do Checkbox" id="checkbox-factory"/>
+      <Checkbox label="Texto do Checkbox"/>
+    </FormGroup>
+  )
 
   it("has group class", () => {
-    expect(node.classList.contains("sn-form-group")).toBeTruthy()
+    expect(wrapper.hasClass("sn-form-group")).toBeTruthy()
   })
 
   it("has an label with 'Form Group Label' content", () => {
-    const label = node.querySelector(".sn-form-group__label")
+    const label = wrapper.find(".sn-form-group__label")
 
-    expect(label.textContent).toEqual("Form Group Label")
+    expect(label.text()).toEqual("Form Group Label")
   })
 
   it("has 2 checkboxes", () => {
-    const checkboxes = node.querySelectorAll(".sn-checkbox")
+    const checkboxes = wrapper.find(Checkbox)
 
     expect(checkboxes.length).toEqual(2)
   })
 
-  it("has 2 inputs with the foo name", () => {
-    const inputs = node.querySelectorAll(".sn-checkbox input")
+  describe('when has errors', () => {
+    beforeAll(() => {
+      wrapper.setProps({ error: ['Field is required']})
+    })
 
-    inputs.forEach(input => {
-      expect(input.name).toEqual("foo")
+    it('has error className', () => {
+      expect(wrapper.hasClass('has-error')).toBeTruthy()
+    })
+
+    it('displays error message', () => {
+      const message = wrapper.find('.sn-form-group__message')
+
+      expect(message.text()).toEqual('Field is required')
     })
   })
 })
