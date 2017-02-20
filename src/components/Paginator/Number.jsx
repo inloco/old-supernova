@@ -3,9 +3,11 @@ import Icon from "./../Icon"
 
 class Number extends React.Component {
   render() {
+    const { number, ...paginatorItemProps } = this.props
+
     return (
-      <span className="sn-paginator__item">
-        {this.props.number}
+      <span className="sn-paginator__item" {...paginatorItemProps}>
+        {number}
       </span>
     )
   }
