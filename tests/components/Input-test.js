@@ -1,41 +1,52 @@
-jest.unmock("../factories/components/input-factory")
-
-import InputFactory from "../factories/components/input-factory"
-
 import React from "react"
-import ReactDOM from "react-dom"
-import TestUtils from "react-addons-test-utils"
-import Input from "../../src/components/Input"
+import { shallow } from 'enzyme'
+import Input from "./../../src/components/Input"
 
 describe("Input", () => {
-  const factory = new InputFactory
-  const node = factory.getNode().querySelector("input")
+  const wrapper = shallow(<Input
+                            label="E-mail"
+                            type="email"
+                            required={ true }
+                            name="email"
+                            autoFocus={ true }
+                            value="foo@foo.com"
+                            meter />)
+
 
   it("has type", () => {
-    expect(node.type).toEqual("email")
+    const expectedType = "email"
+    const currentType = wrapper.find('input').props().type
+
+    expect(currentType).toEqual(expectedType)
   })
 
   it("has name", () => {
-    expect(node.name).toEqual("email")
+    const expectedName = "email"
+    const currentName = wrapper.find('input').props().name
+
+    expect(currentName).toEqual(expectedName)
   })
 
   it("has value", () => {
-    expect(node.value).toEqual("foo@foo.com")
+    const expectedValue = "foo@foo.com"
+    const currentValue = wrapper.find('input').props().value
+
+    expect(currentValue).toEqual(expectedValue)
   })
 
   it("is required", () => {
-    expect(node.required).toBeTruthy
+    expect(wrapper.find('input').props().required).toBeTruthy()
+  })
+
+  it("has meter", () => {
+    expect(wrapper.find('.sn-input__meter-box').length).toEqual(1)
   })
 
   describe("not required", () => {
-    const input = TestUtils.renderIntoDocument(
-      <Input label="E-mail" />
-    )
-
-    const specificNode = ReactDOM.findDOMNode(input)
+    const wrapperNotRequired = shallow(<Input label="E-mail" />)
 
     it("is not required", () => {
-      expect(specificNode.required).toBeTruthy
+      expect(wrapperNotRequired.find('input').props().required).toBeFalsy()
     })
   })
 })
