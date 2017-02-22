@@ -2,28 +2,32 @@ import React, { PropTypes } from "react"
 
 class Main extends React.Component {
   static propTypes = {
-    activeTab: PropTypes.number,
-    children:  PropTypes.node.isRequired
+    active: PropTypes.number,
+    children: PropTypes.node.isRequired,
+    updateWhenReceiveProps: PropTypes.bool
   }
 
   static defaultProps = {
-    active: false
+    active: 0,
+    updateWhenReceiveProps: false
   }
 
   constructor(props) {
     super(props)
 
-    this.state = { activeTab: props.activeTab }
+    this.state = { active: props.active }
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ activeTab: nextProps.activeTab })
+    if(this.props.updateWhenReceiveProps) {
+      this.setState({ active: nextProps.active })
+    }
   }
 
   handleTabClick(index) {
     const { onChange } = this.props
 
-    this.setState({ activeTab: index })
+    this.setState({ active: index })
 
     if(onChange) {
       onChange(index)
@@ -37,7 +41,7 @@ class Main extends React.Component {
   }
 
   getTabItemClassName(index) {
-    return this.state.activeTab === index ? "is-active" : ""
+    return this.state.active === index ? "is-active" : ""
   }
 
   renderTabsItems() {
@@ -55,7 +59,7 @@ class Main extends React.Component {
   renderTabsContent() {
     return this.props.children.map((tab, index) => {
       return React.cloneElement(tab, {
-        active: this.state.activeTab === index,
+        active: this.state.active === index,
         key:    index
       })
     })

@@ -17,9 +17,7 @@ class Profile extends React.Component {
           <span className="sn-layout__drawer-user__info-contact">{this.props.email}</span>
           <ul className="sn-layout__drawer-user__info-actions">
             <li>
-              <a href="#" onClick={this.props.onGoToAccount}>
-                <i className="material-icons"></i>Conta
-              </a>
+              {this.props.accountElement}
             </li>
             <li>
               <a href="#" onClick={this.props.onSignOut}>
