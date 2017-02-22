@@ -10,7 +10,7 @@ import Tab from "../../../src/components/Tabs/Tab"
 class TabsFactory extends Factory{
   template() {
     return(
-      <Tabs activeTab={1}>
+      <Tabs active={1}>
         <Tab label="Opção A">
           <div className="sn-grid--bleed-top">Conteúdo de A</div>
         </Tab>
