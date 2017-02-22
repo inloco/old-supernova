@@ -52,7 +52,7 @@ class Main extends React.Component {
     const sizeClassName = this.props.size ? `sn-modal--${this.props.size}` : ''
 
     return(
-      <div>
+      <div className={this.props.className}>
         <div
           id={this.props.id}
           className={`sn-modal ${openClassName} ${sizeClassName}`}
