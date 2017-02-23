@@ -29,6 +29,11 @@ class Dropdown extends React.Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
+    if(this.props.multiple && this.state.values !== nextState.values) {
+      this.props.onChange(nextState.values)
+      return
+    }
+
     if(this.state.value !== nextState.value) {
       this.props.onChange(nextState.value)
     }
