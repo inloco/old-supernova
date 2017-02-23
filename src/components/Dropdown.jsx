@@ -7,7 +7,8 @@ class Dropdown extends React.Component {
 
     this.state = {
       open: false,
-      value: props.value
+      value: props.value,
+      values: props.values
     }
   }
 
@@ -53,22 +54,56 @@ class Dropdown extends React.Component {
     return `sn-dropdown ${this.getLayoutClassName()} ${this.getErrorClassName()}`
   }
 
+  getOptionByValue(value) {
+    return this.props.options.find(option => option.value === value)
+  }
+
   handleOptionClick(option) {
-    this.setState({ value: option.value })
+    if(this.props.multiple) {
+      this.setState({
+        values: this.state.values.concat(option.value)
+      })
+    } else {
+      this.setState({ value: option.value })
+    }
+
     this.toggleList()
   }
 
-  renderOptions() {
-    const options = this.props.options || []
+  handleRemoveOptionClick(option) {
+    this.setState({
+      ...this.state,
+      values: this.state.values.filter(value => value !== option.value)
+    })
+  }
 
-    return options.map((option, index) => (
-      <li
-        key={index}
-        onClick={this.handleOptionClick.bind(this, option)}
-      >
-        {option.name}
-      </li>
-    ))
+  avaiableOptions() {
+    if(this.props.multiple) {
+      return this.props.options.filter(option =>
+        !this.state.values.find(value => value === option.value)
+      )
+    }
+
+    return this.props.options
+  }
+
+  renderOptions(options) {
+    const listStyle = {
+      display: this.state.open ? "block" : "none"
+    }
+
+    return (
+      <ul className="sn-dropdown__results" style={listStyle}>
+        {options.map((option, index) => (
+          <li
+            key={index}
+            onClick={this.handleOptionClick.bind(this, option)}
+          >
+            {option.name}
+          </li>
+        ))}
+      </ul>
+    )
   }
 
   renderError() {
@@ -76,22 +111,41 @@ class Dropdown extends React.Component {
   }
 
   renderLabel() {
-    const option = this.props.options.find(option => option.value === this.state.value)
+    const option = this.getOptionByValue(this.state.value)
 
     return option ? option.name : ''
   }
 
-  render() {
-    const listStyle = {
-      display: this.state.open ? "block" : "none"
-    }
+  renderSelectedValues() {
+    const hasValues = this.state.values.length
 
-    const statusStyle = this.props.layout === "status" ? {borderLeftColor: this.props.statusColor} : {}
+    if(!hasValues) return undefined
 
     return (
-      <div className={this.getClassName()}>
-        {this.props.label ? <Label value={this.props.label} fixed={true}/> : ""}
+      <div className="sn-search-box">
+        <ul className="sn-search-box__selected">
+          {this.state.values.map(selectedValue => {
+            const option = this.getOptionByValue(selectedValue)
 
+            return (
+              <li key={option.value}>
+                <div className="sn-search-box__item-content">{option.name}</div>
+                <button onClick={this.handleRemoveOptionClick.bind(this, option)} type="button" className="sn-search-box__item-button"></button>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    )
+  }
+
+  renderDropdownButton(options) {
+    const statusStyle = this.props.layout === "status"
+                          ? { borderLeftColor: this.props.statusColor }
+                          : {}
+
+    return (
+      <div>
         <button
           className="sn-dropdown__button"
           onClick={() => this.toggleList()}
@@ -101,11 +155,22 @@ class Dropdown extends React.Component {
           {this.renderLabel()}
         </button>
 
-        <ul className="sn-dropdown__results" style={listStyle}>
-          {this.renderOptions()}
-        </ul>
-
+        {this.renderOptions(options)}
         {this.renderError()}
+      </div>
+    )
+  }
+
+  render() {
+    const options = this.avaiableOptions()
+    const hasOptions = options.length > 0
+
+    return (
+      <div className={this.getClassName()}>
+        {this.props.label && <Label value={this.props.label} fixed={true}/>}
+        {this.props.multiple && this.renderSelectedValues()}
+
+        {hasOptions && this.renderDropdownButton(options)}
       </div>
     )
   }
@@ -114,7 +179,8 @@ class Dropdown extends React.Component {
 Dropdown.defaultProps = {
   options: [],
   callOnChangeWhenMount: false,
-  onChange: () => {}
+  onChange: () => {},
+  values: []
 }
 
 export default Dropdown
