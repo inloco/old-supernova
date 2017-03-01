@@ -59,6 +59,7 @@ import Icon from "./components/Icon"
 import Well from "./components/Well"
 import Wizard from "./components/Wizard/Main"
 import WizardStep from "./components/Wizard/Step"
+import Meter from "./components/Meter"
 import styles from "./../assets/styles/supernova.scss"
 
 export {
@@ -122,5 +123,6 @@ export {
   Icon,
   Well,
   Wizard,
-  WizardStep
+  WizardStep,
+  Meter
 }

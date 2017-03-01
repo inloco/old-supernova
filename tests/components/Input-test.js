@@ -1,6 +1,7 @@
 import React from "react"
-import { shallow } from 'enzyme'
 import Input from "./../../src/components/Input"
+import Meter from "./../../src/components/Meter"
+import { shallow } from 'enzyme'
 
 describe("Input", () => {
   const wrapper = shallow(<Input
@@ -39,7 +40,7 @@ describe("Input", () => {
   })
 
   it("has meter", () => {
-    expect(wrapper.find('.sn-input__meter-box').length).toEqual(1)
+    expect(wrapper.find(Meter).length).toEqual(1)
   })
 
   describe("not required", () => {
