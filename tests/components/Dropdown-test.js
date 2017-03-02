@@ -103,4 +103,48 @@ describe("Dropdown", () => {
       expect(onChange).toBeCalledWith(3)
     })
   })
+
+  describe('when is multiple', () => {
+    const wrapperWithMultiple = mount(
+      <Dropdown
+        multiple
+        layout="box"
+        options={[
+          { name: 'Todos os anúncios', value: 1 },
+          { name: 'Somente meus anúncios', value: 2 },
+        ]}
+      />
+    )
+
+    it('doesnt display results', () => {
+      expect(wrapperWithMultiple.find('.sn-search-box__selected li').length).toEqual(0)
+    })
+
+    describe('and click in multiple results', () => {
+      beforeAll(() => {
+        const options = wrapperWithMultiple.find('.sn-dropdown__results li')
+
+        options.last().simulate('click')
+        options.first().simulate('click')
+      })
+
+      it('saves values in state', () => {
+        expect(wrapperWithMultiple.state('values')).toEqual([2, 1])
+      })
+
+      it('display results', () => {
+        expect(wrapperWithMultiple.find('.sn-search-box__selected li').length).toEqual(2)
+      })
+
+      describe('when click in remove button', () => {
+        it('removes the value from state', () => {
+          const firstResult = wrapperWithMultiple.find('.sn-search-box__selected li').first()
+
+          firstResult.find('button').simulate('click')
+
+          expect(wrapperWithMultiple.state('values')).toEqual([1])
+        })
+      })
+    })
+  })
 })
