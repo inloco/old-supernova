@@ -201,7 +201,7 @@
       top: $default-form-label-font-size-floating-position-top;
       left: 0;
     }
-  } 
+  }
 
   select,
   input,
@@ -586,7 +586,7 @@
     color: $default-form-input-tooltip-icon-color;
     .material-icons {
       font-size: $default-input-tooltip-icon-font-size;
-      &:hover { 
+      &:hover {
         cursor: default;
       }
     }
@@ -596,5 +596,19 @@
 .sn-form-group__label {
   .sn-tooltips {
     top: 4px;
-  }   
+  }
 }
+
+.sn-input__meter-box {
+  line-height: 5px;
+  font-size: 12px;
+}
+
+meter::-webkit-meter-bar {background: #e6e6e9;}
+meter::-webkit-meter-optimum-value {background: green;}
+meter::-webkit-meter-suboptimum-value{background:orange;}
+meter::-webkit-meter-even-less-good-value{background:red;}
+
+meter::-moz-meter-bar {background: red;}
+meter::-moz-meter-optimum-value {background: lightgreen;}
+meter::-moz-meter-suboptimum-value{background:gold;}

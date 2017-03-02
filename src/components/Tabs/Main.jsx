@@ -1,35 +1,6 @@
-import React, { PropTypes } from "react"
+import React from 'react'
 
-class Main extends React.Component {
-  static propTypes = {
-    activeTab: PropTypes.number,
-    children:  PropTypes.node.isRequired
-  }
-
-  static defaultProps = {
-    active: false
-  }
-
-  constructor(props) {
-    super(props)
-
-    this.state = { activeTab: props.activeTab }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({ activeTab: nextProps.activeTab })
-  }
-
-  handleTabClick(index) {
-    const { onChange } = this.props
-
-    this.setState({ activeTab: index })
-
-    if(onChange) {
-      onChange(index)
-    }
-  }
-
+class Main extends React.PureComponent {
   getTabsLabel() {
     return this.props.children.map(tab => {
       return tab.props.label
@@ -37,14 +8,14 @@ class Main extends React.Component {
   }
 
   getTabItemClassName(index) {
-    return this.state.activeTab === index ? "is-active" : ""
+    return this.props.active === index ? 'is-active' : ''
   }
 
   renderTabsItems() {
     return this.getTabsLabel().map((label, index) => {
       return (
         <li className={this.getTabItemClassName(index)} key={index}>
-          <a href="#" onClick={this.handleTabClick.bind(this, index)}>
+          <a href="#" onClick={() => this.props.onClick(index)}>
             {label}
           </a>
         </li>
@@ -55,8 +26,8 @@ class Main extends React.Component {
   renderTabsContent() {
     return this.props.children.map((tab, index) => {
       return React.cloneElement(tab, {
-        active: this.state.activeTab === index,
-        key:    index
+        active: this.props.active === index,
+        key: index
       })
     })
   }
@@ -67,7 +38,6 @@ class Main extends React.Component {
         <div className="sn-tabs">
           <ul>{this.renderTabsItems()}</ul>
         </div>
-
         <div className="sn-tabs__content">
           {this.renderTabsContent()}
         </div>

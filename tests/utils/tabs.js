@@ -1,9 +1,9 @@
-export const isShowingContent = (node, expectedContent) => {
-  const content = node.querySelector(".sn-tabs__content").textContent
+export const isShowingContent = (content, expectedContent) => {
+  const currentContent = content.text()
 
-  expect(content.includes(expectedContent)).toBeTruthy()
+  expect(currentContent).toEqual(expectedContent)
 }
 
 export const isActive = tab => {
-  expect(tab.classList.contains("is-active")).toBeTruthy()
+  expect(tab.hasClass('is-active')).toBeTruthy()
 }
