@@ -105,10 +105,12 @@ describe("Dropdown", () => {
   })
 
   describe('when is multiple', () => {
+    const onChangeMultiple = jest.fn()
     const wrapperWithMultiple = mount(
       <Dropdown
         multiple
         layout="box"
+        onChange={onChangeMultiple}
         options={[
           { name: 'Todos os anúncios', value: 1 },
           { name: 'Somente meus anúncios', value: 2 },
@@ -134,6 +136,10 @@ describe("Dropdown", () => {
 
       it('display results', () => {
         expect(wrapperWithMultiple.find('.sn-search-box__selected li').length).toEqual(2)
+      })
+
+      it('call onChange', () => {
+        expect(onChangeMultiple.mock.calls[1][0]).toEqual([2, 1])
       })
 
       describe('when click in remove button', () => {
