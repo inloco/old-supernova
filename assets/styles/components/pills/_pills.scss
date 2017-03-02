@@ -55,7 +55,7 @@
     }
   }
 
-  .sn-pills__label > input[type=radio]:checked ~ .sn-pills__label--content {
+  .sn-pills__label .active.sn-pills__label--content {
     background-color: $button-primary-color-alt;
     color: #FFF;
   }

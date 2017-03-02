@@ -5,12 +5,17 @@ class Main extends React.Component {
     name: PropTypes.string
   }
 
+  static defaultProps = {
+    defaultChecked: 0
+  }
+
   renderChildren() {
     return this.props.children.map((child, index) => {
       return React.cloneElement(child, {
-        name:           this.props.name,
-        key:            index,
-        defaultChecked: index === 0
+        name: this.props.name,
+        key: index,
+        defaultChecked: index === this.props.defaultChecked,
+        onChange: this.props.onChange
       })
     })
   }
