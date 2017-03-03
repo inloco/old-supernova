@@ -157,7 +157,7 @@ class Dropdown extends React.Component {
           type="button"
           style={statusStyle}
         >
-          {this.renderLabel()}
+          {this.props.multiple ? this.props.placeholder : this.renderLabel()}
         </button>
 
         {this.renderOptions(options)}
@@ -167,13 +167,14 @@ class Dropdown extends React.Component {
   }
 
   render() {
+    const { label, multiple } = this.props
     const options = this.avaiableOptions()
     const hasOptions = options.length > 0
 
     return (
       <div className={this.getClassName()}>
-        {this.props.label && <Label value={this.props.label} fixed={true}/>}
-        {this.props.multiple && this.renderSelectedValues()}
+        {label && <Label value={label} fixed={true}/>}
+        {multiple && this.renderSelectedValues()}
 
         {hasOptions && this.renderDropdownButton(options)}
       </div>

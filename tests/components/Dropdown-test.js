@@ -111,6 +111,7 @@ describe("Dropdown", () => {
         multiple
         layout="box"
         onChange={onChangeMultiple}
+        placeholder="Pick some choice..."
         options={[
           { name: 'Todos os anúncios', value: 1 },
           { name: 'Somente meus anúncios', value: 2 },
@@ -120,6 +121,10 @@ describe("Dropdown", () => {
 
     it('doesnt display results', () => {
       expect(wrapperWithMultiple.find('.sn-search-box__selected li').length).toEqual(0)
+    })
+
+    it('display placeholder', () => {
+      expect(wrapperWithMultiple.find('button').text()).toEqual('Pick some choice...')
     })
 
     describe('and click in multiple results', () => {
