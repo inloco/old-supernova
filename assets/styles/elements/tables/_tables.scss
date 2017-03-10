@@ -60,6 +60,9 @@
       padding-right: 40px;
     }
     padding: 14px 16px;
+    &.sn-table__cell--clickable {
+      cursor: pointer;
+    }
   }
 
   th {
