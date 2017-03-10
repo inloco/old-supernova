@@ -17,15 +17,14 @@
 // Drawer
 
 .sn-layout__drawer {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  position: fixed;
   width: $default-layout-drawer-width;
-  height: 100%;
-  max-height: 100%;
-  position: absolute;
   top: 0;
   left: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+
   z-index: $default-layout-drawer-zindex;
   box-sizing: border-box;
   border-right: $default-layout-drawer-border-right solid $default-layout-drawer-border-color;
@@ -39,8 +38,6 @@
   will-change: transform;
   @include animation-default();
   transition-property: transform;
-  overflow: visible;
-  overflow-y: auto;
 
   @media screen and (min-width: $default-layout-screen-size-threshold + 1px) {
     .sn-layout--fixed-drawer & {
@@ -55,6 +52,12 @@
   }
   &* {
     flex-shrink: 0;
+  }
+
+  .sn-layout__drawer--wrap {
+    min-height: 100%;
+    position: relative;
+    width: 100%;
   }
 
 
@@ -241,9 +244,11 @@
   // Drawer Navigation
 
   .sn-layout__drawer-navigation {
+    position: relative;
     flex-direction: column;
     align-items: stretch;
     padding-top: $default-layout-drawer-navigation-padding-top;
+    height: 100%;
     > a,
     .sn-layout__drawer-navigation__link {
       position: relative;
@@ -276,6 +281,12 @@
         background-color: $default-layout-drawer-navigation-link-active-background;
       }
     }
+
+    > a:last-child,
+    .sn-layout__drawer-navigation__link:last-child {
+      margin-bottom: $default-layout-drawer-navigation-last-child-margin;
+    }
+
     .sn-layout__drawer-navigation__section {
       width: calc(100% - $default-layout-drawer-navigation-section-padding);
       display: block;
@@ -332,6 +343,19 @@
 }
 // ./ Drawer Button
 
+
+.sn-layout__drawer-footer {
+  display: block;
+  position: absolute;
+  width: $default-layout-drawer-footer-width;
+  padding: $default-layout-drawer-footer-padding-vertical $default-layout-drawer-footer-padding-horizontal;
+  background-color: #FFFFFF;
+  color: #000000;
+  font-size: $default-layout-drawer-footer-font-size;
+  bottom: 0;
+  border-top: $default-layout-drawer-footer-border-width solid #E0E0E0;
+  // z-index: 995;
+}
 
 
 // Obfuscator
