@@ -107,6 +107,15 @@ $default-layout-drawer-navigation-link-icon-size      : $dfs * 1.5; // ~ 21px
 $default-layout-drawer-navigation-link-margin         : 0 ($vm * 4) 0 0; // ~ 0 16px 0 0
 $default-layout-drawer-navigation-section-padding     : $vm 0 $vm ($hm * 4); // ~ 4px 0 4px 16px
 $default-layout-drawer-navigation-section-font-size   : $dfs * 0.8571428571; // ~ 12px
+$default-layout-drawer-navigation-last-child-margin   : $vm * 5; // ~ 120px
+// Drawer Footer
+$default-layout-drawer-footer-padding-horizontal      : $hm * 4; // ~ 16px
+$default-layout-drawer-footer-padding-vertical        : $vm * 4; // ~ 24px
+$default-layout-drawer-footer-width-difference        : 2 * $default-layout-drawer-footer-padding-horizontal;
+$default-layout-drawer-footer-width                   : calc(100% - (#{$default-layout-drawer-footer-width-difference}));
+$default-layout-drawer-footer-font-size               : $dfs * 0.8571428571; // ~ 12px
+$default-layout-drawer-footer-border-width            : $hm * 0.25; // ~ 1px
+
 
 // Footer
 $default-layout-footer-title                          : $hm * 5; // ~20px
