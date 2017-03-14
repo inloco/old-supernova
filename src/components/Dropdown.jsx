@@ -40,7 +40,7 @@ class Dropdown extends React.Component {
   }
 
   blurDropdown() {
-    this.setState({ open: !this.state.open })
+    this.setState({ open: false })
   }
   
   toggleList() {
