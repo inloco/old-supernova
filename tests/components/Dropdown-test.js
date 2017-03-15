@@ -139,7 +139,7 @@ describe('Dropdown', () => {
     })
 
     it('render input search with correct class', () => {
-      const input = wrapperSearchable.find('.sn-dropdown__input--search')
+      const input = wrapperSearchable.find('.sn-dropdown__input-search')
 
       expect(input.length).toEqual(1)
     })
@@ -161,7 +161,7 @@ describe('Dropdown', () => {
 
       button.simulate('click')
 
-      const input = wrapperSearchable.find('.sn-dropdown__input--search')
+      const input = wrapperSearchable.find('.sn-dropdown__input-search')
 
       input.simulate('change', {target: {value: 'Not a option'}})
 
@@ -175,7 +175,7 @@ describe('Dropdown', () => {
 
       button.simulate('click')
 
-      const input = wrapperSearchable.find('.sn-dropdown__input--search')
+      const input = wrapperSearchable.find('.sn-dropdown__input-search')
 
       input.simulate('change', {target: {value: '2'}})
 
