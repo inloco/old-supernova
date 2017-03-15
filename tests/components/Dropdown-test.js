@@ -14,8 +14,8 @@ describe('Dropdown', () => {
     <Dropdown
       value={1}
       options={options}
-      layout='status'
-      statusColor='#FF9800'
+      layout="status"
+      statusColor="#FF9800"
       onChange={onChange}
       callOnChangeWhenMount
     />
@@ -29,7 +29,7 @@ describe('Dropdown', () => {
     expect(wrapper.find('.sn-dropdown').length).toEqual(1)
   })
 
-  it('has a button label equal \'dropdown\'', () => {
+  it('has a button label equal dropdown', () => {
     const button = wrapper.find('.sn-dropdown__button')
 
     expect(button.text()).toEqual('Option 1')
@@ -41,7 +41,7 @@ describe('Dropdown', () => {
     expect(button.props().style.borderLeftColor).toEqual('#FF9800')
   })
 
-  it('has a button with \'button\' type', () => {
+  it('has a button with button type', () => {
     const button = wrapper.find('.sn-dropdown__button')
 
     expect(button.props().type).toEqual('button')
@@ -115,10 +115,10 @@ describe('Dropdown', () => {
     const wrapperSearchable = mount(
       <Dropdown
         searchable
-        searchPlaceholder='Buscar...'
+        searchPlaceholder="Buscar..."
         value={1}
         options={options}
-        layout='box'
+        layout="box"
         onChange={onChange}
         callOnChangeWhenMount
       />
@@ -132,7 +132,7 @@ describe('Dropdown', () => {
       expect(wrapperSearchable.find('.sn-dropdown').length).toEqual(1)
     })
 
-    it('has a button label equal \'dropdown\'', () => {
+    it('has a button label equal dropdown', () => {
       const button = wrapperSearchable.find('.sn-dropdown__button')
 
       expect(button.text()).toEqual('Option 1')
@@ -170,7 +170,7 @@ describe('Dropdown', () => {
       expect(options.length).toEqual(1)
     })
 
-    it('leave \'Option 2\' on dropdown when filter', () => {
+    it('leave Option 2 on dropdown when filter', () => {
       const button = wrapperSearchable.find('button')
 
       button.simulate('click')
@@ -191,12 +191,12 @@ describe('Dropdown', () => {
     const wrapperWithMultiple = mount(
       <Dropdown
         multiple
-        layout='box'
+        layout="box"
         onChange={onChangeMultiple}
-        placeholder='Pick some choice...'
+        placeholder="Pick some choice..."
         options={[
-          { name: 'Todos os anúncios', value: 1 },
-          { name: 'Somente meus anúncios', value: 2 },
+          { name: "Todos os anúncios", value: 1 },
+          { name: "Somente meus anúncios", value: 2 },
         ]}
       />
     )

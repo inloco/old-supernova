@@ -11,6 +11,8 @@ class Dropdown extends React.Component {
       value: props.value,
       values: props.values
     }
+
+    this.handleFilterChange = this.handleFilterChange.bind(this)
   }
 
   static defaultProps = {
@@ -100,19 +102,28 @@ class Dropdown extends React.Component {
     return this.props.options
   }
 
-  handleFilterChange(event){
+  handleFilterChange(event) {
     this.setState({searchValue: event.target.value})
   }
 
-  renderSearchField(){
+  getFilteredOptions(options) {
+    const filteredOptions = options.filter((option) => {
+      return option.name.toLowerCase().includes(
+        this.state.searchValue.toLowerCase())
+    })
+    return filteredOptions
+  }
+
+  renderSearchField() {
     return(
       <li>
         <input
-          className='sn-dropdown__input--search'
-          type='text'
+          className="sn-dropdown__input--search"
+          type="text"
           placeholder={this.props.searchPlaceholder}
           value={this.state.searchValue}
-          onChange={(event) => this.handleFilterChange(event)}></input>
+          onChange={this.handleFilterChange}
+        />
       </li>
     )
   }
@@ -124,13 +135,10 @@ class Dropdown extends React.Component {
     
     const { searchable } = this.props
 
-    const filteredOptions = !searchable ? options : options.filter((option) => {
-      return option.name.toLowerCase().includes(
-        this.state.searchValue.toLowerCase())
-    })
+    const filteredOptions = searchable ? this.getFilteredOptions(options) : options
 
     return (
-      <ul className='sn-dropdown__results' style={listStyle}>
+      <ul className="sn-dropdown__results" style={listStyle}>
         {searchable && this.renderSearchField()}
         {filteredOptions.map((option, index) => (
             <li
@@ -145,7 +153,7 @@ class Dropdown extends React.Component {
   }
 
   renderError() {
-    return this.props.error ? <span className='sn-dropdown__message'>{this.props.error}</span> : ''
+    return this.props.error ? <span className="sn-dropdown__message">{this.props.error}</span> : ""
   }
 
   renderLabel() {
@@ -160,15 +168,15 @@ class Dropdown extends React.Component {
     if(!hasValues) return undefined
 
     return (
-      <div className='sn-search-box'>
-        <ul className='sn-search-box__selected'>
+      <div className="sn-search-box">
+        <ul className="sn-search-box__selected">
           {this.state.values.map(selectedValue => {
             const option = this.getOptionByValue(selectedValue)
 
             return (
               <li key={option.value}>
-                <div className='sn-search-box__item-content'>{option.name}</div>
-                <button onClick={this.handleRemoveOptionClick.bind(this, option)} type='button' className='sn-search-box__item-button'></button>
+                <div className="sn-search-box__item-content">{option.name}</div>
+                <button onClick={this.handleRemoveOptionClick.bind(this, option)} type="button" className="sn-search-box__item-button"></button>
               </li>
             )
           })}
@@ -185,14 +193,13 @@ class Dropdown extends React.Component {
     return (
       <div onMouseLeave={() => this.blurDropdown()}>
         <button
-          className='sn-dropdown__button'
+          className="sn-dropdown__button"
           onClick={() => this.toggleList()}
-          type='button'
+          type="button"
           style={statusStyle}
         >
           {this.props.multiple ? this.props.placeholder : this.renderLabel()}
         </button>
-       
         {this.renderOptions(options)}
         {this.renderError()}
       </div>
@@ -208,7 +215,6 @@ class Dropdown extends React.Component {
       <div className={this.getClassName()}>
         {label && <Label value={label} fixed={true}/>}
         {multiple && this.renderSelectedValues()}
-
         {hasOptions && this.renderDropdownButton(options)}
       </div>
     )
