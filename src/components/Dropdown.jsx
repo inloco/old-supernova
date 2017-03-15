@@ -40,6 +40,10 @@ class Dropdown extends React.Component {
     }
   }
 
+  blurDropdown() {
+    this.setState({ open: false })
+  }
+  
   toggleList() {
     this.setState({ 
       open: !this.state.open,
@@ -179,7 +183,7 @@ class Dropdown extends React.Component {
                           : {}
 
     return (
-      <div>
+      <div onMouseLeave={() => this.blurDropdown()}>
         <button
           className='sn-dropdown__button'
           onClick={() => this.toggleList()}
