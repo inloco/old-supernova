@@ -62,14 +62,14 @@ describe('Grid', () => {
   describe('bleed', () => {
     it('is bleed', () => {
       wrapper.setProps({ bleed: true })
-      const grid = wrapper.find('.sn-grid--cell-bleed')
+      const grid = wrapper.find('.sn-grid--bleed')
 
       expect(grid.length).toEqual(1)
     })
 
     it('is sm bleed', () => {
       wrapper.setProps({ bleed: 'sm' })
-      const grid = wrapper.find('.sn-grid--cell-bleed-sm')
+      const grid = wrapper.find('.sn-grid--bleed-sm')
 
       expect(grid.length).toEqual(1)
     })
@@ -177,7 +177,6 @@ describe('Grid', () => {
       const grid = wrapper.find('.sn-grid--content-start')
 
       expect(grid.length).toEqual(1)
-      console.log('-->', wrapper.debug())
     })
   })
 })
