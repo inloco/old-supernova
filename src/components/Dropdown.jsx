@@ -13,6 +13,8 @@ class Dropdown extends React.Component {
     }
 
     this.handleFilterChange = this.handleFilterChange.bind(this)
+    this.toggleList = this.toggleList.bind(this)
+    this.blurDropdown = this.blurDropdown.bind(this)
   }
 
   static defaultProps = {
@@ -191,10 +193,10 @@ class Dropdown extends React.Component {
                           : {}
 
     return (
-      <div onMouseLeave={() => this.blurDropdown()}>
+      <div onMouseLeave={this.blurDropdown}>
         <button
           className="sn-dropdown__button"
-          onClick={() => this.toggleList()}
+          onClick={this.toggleList}
           type="button"
           style={statusStyle}
         >
