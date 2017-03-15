@@ -118,7 +118,7 @@ class Dropdown extends React.Component {
     return(
       <li>
         <input
-          className="sn-dropdown__input--search"
+          className="sn-dropdown__input-search"
           type="text"
           placeholder={this.props.searchPlaceholder}
           value={this.state.searchValue}
