@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import Label from '../Label'
+import Label from './../Label'
 
 class Dropdown extends React.Component {
   constructor(props) {
