@@ -30,9 +30,7 @@ class Main extends React.PureComponent {
   }
 
   getTabItemClassName(index) {
-    const { customBehavior, active } = this.props
-    const { activeTab } = this.state
-    const nextActiveTab = customBehavior ? active : activeTab
+    const nextActiveTab = this.getNextActiveTab()
 
     return nextActiveTab === index ? 'is-active' : ''
   }
@@ -50,9 +48,7 @@ class Main extends React.PureComponent {
   }
 
   renderTabsContent() {
-    const { customBehavior, active } = this.props
-    const { activeTab } = this.state
-    const nextActiveTab = customBehavior ? active : activeTab
+    const nextActiveTab = this.getNextActiveTab()
 
     return this.props.children.map((tab, index) => {
       return React.cloneElement(tab, {
@@ -60,6 +56,13 @@ class Main extends React.PureComponent {
         key: index
       })
     })
+  }
+
+  getNextActiveTab() {
+    const { customBehavior, active } = this.props
+    const { activeTab } = this.state
+
+    return customBehavior ? active : activeTab
   }
 
   render() {
