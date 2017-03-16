@@ -27,19 +27,27 @@ describe('Layout', () => {
     expect(children.length).toEqual(1)
   })
 
-  describe('fixed drawer className', () => {
-    it('not have drawer', () => {
+  it('not have drawer', () => {
       const layoutWithoutDrawer = wrapper.find('.sn-layout--fixed-drawer')
 
       expect(layoutWithoutDrawer.length).toEqual(0)
-    })
+  })
 
+  describe('Layout using drawer', () => {
     it('have drawer', () => {
       wrapper.setProps({ drawer: true })
 
       const layoutWithDrawer = wrapper.find('.sn-layout--fixed-drawer')
 
       expect(layoutWithDrawer.length).toEqual(1)
+    })
+
+    it('not have drawer', () => {
+      wrapper.setProps({ drawer: false })
+
+      const layoutWithDrawer = wrapper.find('.sn-layout--fixed-drawer')
+
+      expect(layoutWithDrawer.length).toEqual(0)
     })
   })
 })
