@@ -1,6 +1,28 @@
 import React from 'react'
 
 class Main extends React.PureComponent {
+  static defaultProps = {
+    active: 0,
+    customBehavior: false
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.handleTabClick = this.handleTabClick.bind(this)
+
+    this.state = { activeTab: props.active }
+  }
+
+  handleTabClick(index) {
+    const { onClick } = this.props
+    this.setState({ activeTab: index })
+
+    if(onClick) {
+      onClick(index)
+    }
+  }
+
   getTabsLabel() {
     return this.props.children.map(tab => {
       return tab.props.label
@@ -8,14 +30,18 @@ class Main extends React.PureComponent {
   }
 
   getTabItemClassName(index) {
-    return this.props.active === index ? 'is-active' : ''
+    const { customBehavior, active } = this.props
+    const { activeTab } = this.state
+    const nextActiveTab = customBehavior ? active : activeTab
+
+    return nextActiveTab === index ? 'is-active' : ''
   }
 
   renderTabsItems() {
     return this.getTabsLabel().map((label, index) => {
       return (
         <li className={this.getTabItemClassName(index)} key={index}>
-          <a href="#" onClick={() => this.props.onClick(index)}>
+          <a href="#" onClick={() => this.handleTabClick(index)}>
             {label}
           </a>
         </li>
@@ -24,9 +50,13 @@ class Main extends React.PureComponent {
   }
 
   renderTabsContent() {
+    const { customBehavior, active } = this.props
+    const { activeTab } = this.state
+    const nextActiveTab = customBehavior ? active : activeTab
+
     return this.props.children.map((tab, index) => {
       return React.cloneElement(tab, {
-        active: this.props.active === index,
+        active: nextActiveTab === index,
         key: index
       })
     })
