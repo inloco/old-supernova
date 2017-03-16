@@ -31,8 +31,8 @@
       "single"
     ],
     "semi": [
-      "error",
-      "always"
+     "error",
+     "never"
     ],
     "no-unused-expressions": "warn",
     "no-useless-concat": "warn",
