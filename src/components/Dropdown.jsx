@@ -1,19 +1,24 @@
-import React, { PropTypes } from "react"
-import Label from "./Label"
+import React, { PropTypes } from 'react'
+import Label from './Label'
 
 class Dropdown extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
+      searchValue: '',
       open: false,
       value: props.value,
       values: props.values
     }
+
+    this.handleFilterChange = this.handleFilterChange.bind(this)
+    this.toggleList = this.toggleList.bind(this)
+    this.blurDropdown = this.blurDropdown.bind(this)
   }
 
   static defaultProps = {
-    statusColor: "silver"
+    statusColor: 'silver'
   }
 
   componentDidMount() {
@@ -39,20 +44,27 @@ class Dropdown extends React.Component {
     }
   }
 
+  blurDropdown() {
+    this.setState({ open: false })
+  }
+  
   toggleList() {
-    this.setState({ open: !this.state.open })
+    this.setState({ 
+      open: !this.state.open,
+      searchValue: '',
+    })
   }
 
   getLayoutClassName() {
     const { layout } = this.props
 
-    return layout ? `sn-dropdown--${layout}` : ""
+    return layout ? `sn-dropdown--${layout}` : ''
   }
 
   getErrorClassName() {
     const { error } = this.props
 
-    return error ? "has-error" : ""
+    return error ? 'has-error' : ''
   }
 
   getClassName() {
@@ -92,21 +104,52 @@ class Dropdown extends React.Component {
     return this.props.options
   }
 
+  handleFilterChange(event) {
+    this.setState({searchValue: event.target.value})
+  }
+
+  getFilteredOptions(options) {
+    const filteredOptions = options.filter((option) => {
+      return option.name.toLowerCase().includes(
+        this.state.searchValue.toLowerCase())
+    })
+    return filteredOptions
+  }
+
+  renderSearchField() {
+    return(
+      <li>
+        <input
+          className="sn-dropdown__input-search"
+          type="text"
+          placeholder={this.props.searchPlaceholder}
+          value={this.state.searchValue}
+          onChange={this.handleFilterChange}
+        />
+      </li>
+    )
+  }
+
   renderOptions(options) {
     const listStyle = {
-      display: this.state.open ? "block" : "none"
+      display: this.state.open ? 'block' : 'none'
     }
+    
+    const { searchable } = this.props
+
+    const filteredOptions = searchable ? this.getFilteredOptions(options) : options
 
     return (
       <ul className="sn-dropdown__results" style={listStyle}>
-        {options.map((option, index) => (
-          <li
-            key={index}
-            onClick={this.handleOptionClick.bind(this, option)}
-          >
-            {option.name}
-          </li>
-        ))}
+        {searchable && this.renderSearchField()}
+        {filteredOptions.map((option, index) => (
+            <li
+              key={index}
+              onClick={this.handleOptionClick.bind(this, option)}
+            >
+              {option.name}
+            </li>
+          ))}
       </ul>
     )
   }
@@ -145,21 +188,20 @@ class Dropdown extends React.Component {
   }
 
   renderDropdownButton(options) {
-    const statusStyle = this.props.layout === "status"
+    const statusStyle = this.props.layout === 'status'
                           ? { borderLeftColor: this.props.statusColor }
                           : {}
 
     return (
-      <div>
+      <div onMouseLeave={this.blurDropdown}>
         <button
           className="sn-dropdown__button"
-          onClick={() => this.toggleList()}
+          onClick={this.toggleList}
           type="button"
           style={statusStyle}
         >
           {this.props.multiple ? this.props.placeholder : this.renderLabel()}
         </button>
-
         {this.renderOptions(options)}
         {this.renderError()}
       </div>
@@ -175,7 +217,6 @@ class Dropdown extends React.Component {
       <div className={this.getClassName()}>
         {label && <Label value={label} fixed={true}/>}
         {multiple && this.renderSelectedValues()}
-
         {hasOptions && this.renderDropdownButton(options)}
       </div>
     )

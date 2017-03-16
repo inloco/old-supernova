@@ -25,6 +25,11 @@
     padding-left: 0;
   }
 
+  .sn-dropdown__input-search {
+    width: 100%;
+    outline: 0;
+  }
+
   &.has-error {
     .sn-dropdown__button {
       border-bottom: 2px solid $default-dropdown-error-color;
