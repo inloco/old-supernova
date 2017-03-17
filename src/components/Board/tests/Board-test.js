@@ -1,5 +1,5 @@
 import React from 'react'
-import Board from './../../src/components/Board'
+import Board from './../Main'
 import { shallow } from 'enzyme'
 
 describe('Board', () => {
