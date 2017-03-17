@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 const Board = props => {
   const bleedClassName = props.bleed ? 'sn-board--bleed' : ''
@@ -8,6 +8,10 @@ const Board = props => {
       {props.children}
     </div>
   )
+}
+
+Board.propTypes = {
+  bleed: PropTypes.bool
 }
 
 export default Board
