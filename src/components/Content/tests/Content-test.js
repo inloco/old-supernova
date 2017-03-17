@@ -1,5 +1,5 @@
 import React from 'react'
-import Content from './../../src/components/Content'
+import Content from './../Main'
 import { shallow } from 'enzyme'
 
 describe('Content', () => {
@@ -19,5 +19,17 @@ describe('Content', () => {
     const children = wrapper.find('h1')
 
     expect(children.length).toEqual(1)
+  })
+
+  describe('Content empty', () => {
+    const emptyWrapper = shallow(
+      <Content/>
+    )
+
+    it('has content with no children', () => {
+      const children = emptyWrapper.find('.sn-layout__content').children()
+
+      expect(children.length).toEqual(0)
+    })
   })
 })
