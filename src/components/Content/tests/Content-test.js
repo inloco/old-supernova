@@ -20,4 +20,17 @@ describe('Content', () => {
 
     expect(children.length).toEqual(1)
   })
+
+  describe('Content empty', () => {
+    const emptyWrapper = shallow(
+      <Content>
+      </Content>
+    )
+
+    it('has content with no children', () => {
+      const children = emptyWrapper.find('.sn-layout__content').children()
+
+      expect(children.length).toEqual(0)
+    })
+  })
 })

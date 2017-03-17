@@ -1,11 +1,17 @@
 import React from 'react'
 
-const Content = props => {
-  return (
-    <main className="sn-layout__content">
-      {props.children}
-    </main>
-  )
+class Content extends React.Component {
+  constructor(props){
+    super(props)
+  }
+
+  render(){
+    return (
+      <main className="sn-layout__content">
+        {this.props.children}
+      </main>
+    )
+  }
 }
 
 export default Content
