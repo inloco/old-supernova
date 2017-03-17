@@ -28,4 +28,25 @@ describe('Board', () => {
 
     expect(boardWithBleed.length).toEqual(1)
   })
+
+  it('has no bleed props', () => {
+    wrapper.setProps({ bleed: false })
+
+    const boardWithoutBleed = wrapper.find('.sn-board--bleed')
+    
+    expect(boardWithoutBleed.length).toEqual(0)
+  })
+
+  describe('Board with no content', () => {
+    const EmptyWrapper = shallow(
+      <Board>
+      </Board>
+    )
+    
+    it('render no children', () => {
+      const children = EmptyWrapper.children()
+
+      expect(children.length).toEqual(0)
+    })    
+  })
 })
