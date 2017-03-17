@@ -23,8 +23,7 @@ describe('Content', () => {
 
   describe('Content empty', () => {
     const emptyWrapper = shallow(
-      <Content>
-      </Content>
+      <Content/>
     )
 
     it('has content with no children', () => {
