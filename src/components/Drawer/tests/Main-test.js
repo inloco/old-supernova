@@ -1,12 +1,12 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import TestUtils from "react-addons-test-utils"
-import Drawer from "../../../src/components/Drawer/Main"
-import DrawerTitle from "../../../src/components/Drawer/Title"
-import DrawerNav from "../../../src/components/Drawer/Nav/Main"
-import DrawerNavLink from "../../../src/components/Drawer/Nav/Link"
-import DrawerNavSection from "../../../src/components/Drawer/Nav/Section"
-import DrawerProfile from "../../../src/components/Drawer/Profile"
+import Drawer from "./../Main"
+import DrawerTitle from "./../Title"
+import DrawerNav from "./../Nav/Main"
+import DrawerNavLink from "./../Nav/Link"
+import DrawerNavSection from "./../Nav/Section"
+import DrawerProfile from "./../Profile"
 import { shallow } from 'enzyme'
 
 describe("Drawer", () => {

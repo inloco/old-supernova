@@ -1,8 +1,8 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import TestUtils from "react-addons-test-utils"
-import Drawer from "../../../src/components/Drawer/Main"
-import DrawerProfile from "../../../src/components/Drawer/Profile"
+import Drawer from "./../Main"
+import DrawerProfile from "./../Profile"
 import { shallow } from 'enzyme'
 
 describe("Drawer Profile", () => {
