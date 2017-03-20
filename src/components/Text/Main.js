@@ -9,7 +9,8 @@ class Text extends React.PureComponent {
     caps: PropTypes.string,
     wrap: PropTypes.string,
     className: PropTypes.string,
-    color: PropTypes.string
+    color: PropTypes.string,
+    span: PropTypes.bool
   }
 
   static defaultProps = {
