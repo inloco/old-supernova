@@ -1,10 +1,12 @@
 import React from "react"
 import Input from "./../../src/components/Input"
 import Meter from "./../../src/components/Meter"
+import Tooltip from "./../../src/components/Tooltip"
 import { shallow } from 'enzyme'
 
 describe("Input", () => {
   const wrapper = shallow(<Input
+                            info="Some message"
                             label="E-mail"
                             type="email"
                             required={ true }
@@ -33,6 +35,10 @@ describe("Input", () => {
     const currentValue = wrapper.find('input').props().value
 
     expect(currentValue).toEqual(expectedValue)
+  })
+
+  it("has tooltip", () => {
+    expect(wrapper.find(Tooltip).length).toEqual(1)
   })
 
   it("is required", () => {

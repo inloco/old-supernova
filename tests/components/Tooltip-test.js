@@ -1,29 +1,35 @@
-jest.unmock("../../src/components/Tooltip")
-
 import React from "react"
-import ReactDOM from "react-dom"
-import TestUtils from "react-addons-test-utils"
 import Tooltip from "../../src/components/Tooltip"
+import { shallow } from "enzyme"
 
 describe("Tooltip", () => {
-  const tooltip = TestUtils.renderIntoDocument(
-    <Tooltip message="Foo message">Foo</Tooltip>
+  const wrapper = shallow(
+    <Tooltip
+      message="Foo message"
+      size="sm"
+      position="bottom-left"
+    >
+      Foo
+    </Tooltip>
   )
-  const tooltipNode = ReactDOM.findDOMNode(tooltip)
 
   it("has message", () => {
-    expect(tooltipNode.getAttribute("aria-label")).toEqual("Foo message")
+    expect(wrapper.props()['aria-label']).toEqual("Foo message")
   })
 
   it("has children", () => {
-    expect(tooltipNode.textContent).toEqual("Foo")
+    expect(wrapper.text()).toEqual("Foo")
   })
 
   it("has tooltip className", () => {
-    expect(tooltipNode.classList.contains("sn-tooltips")).toBeTruthy()
+    expect(wrapper.hasClass("sn-tooltips")).toBeTruthy()
   })
 
   it("has position className", () => {
-    expect(tooltipNode.classList.contains("sn-tooltips--top")).toBeTruthy()
+    expect(wrapper.hasClass("sn-tooltips--bottom-left")).toBeTruthy()
+  })
+
+  it("has size className", () => {
+    expect(wrapper.hasClass("sn-tooltips--sm")).toBeTruthy()
   })
 })
