@@ -83,6 +83,8 @@ class Input extends React.Component {
   handleChange(event) {
     const { onChange } = this.props
 
+    event.persist()
+
     this.setState(
       { value: event.target.value },
       () => onChange && onChange(event)
