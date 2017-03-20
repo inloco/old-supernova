@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 const Section = props => {
   return (
@@ -6,6 +6,10 @@ const Section = props => {
       {props.title}
     </div>
   )
+}
+
+Section.propTypes = {
+  title: PropTypes.string
 }
 
 export default Section

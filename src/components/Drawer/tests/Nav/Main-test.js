@@ -1,6 +1,6 @@
 import React from 'react'
-import DrawerNav from "../../../../src/components/Drawer/Nav/Main"
-import DrawerNavLink from "../../../../src/components/Drawer/Nav/Link"
+import DrawerNav from "./../../Nav/Main"
+import DrawerNavLink from "./../../Nav/Link"
 import { shallow } from 'enzyme'
 
 describe('DrawerNav', () => {
