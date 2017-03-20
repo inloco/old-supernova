@@ -32,4 +32,11 @@ const Profile = props => {
   )
 }
 
+Profile.propTypes = {
+  avatarSrc: PropTypes.string,
+  name: PropTypes.string,
+  email: PropTypes.string,
+  onSignOut: PropTypes.func
+}
+
 export default Profile
