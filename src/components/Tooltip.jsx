@@ -8,15 +8,28 @@ class Tooltip extends React.Component {
   }
 
   static defaultProps = {
-    position: "top"
+    position: "top",
+    size: "md"
   }
 
   getPositionClassName() {
     return `sn-tooltips--${this.props.position}`
   }
 
+  getSizeClassName() {
+    return `sn-tooltips--${this.props.size}`
+  }
+
   getClassName() {
-    return `sn-tooltips ${this.getPositionClassName()}`
+    return `
+      sn-tooltips
+      ${this.getPositionClassName()}
+      ${this.getSizeClassName()}
+    `
+  }
+
+  get() {
+    return `sdsad`
   }
 
   render() {

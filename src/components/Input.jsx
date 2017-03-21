@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
 import Label from './Label'
 import Meter from './Meter'
+import Tooltip from './Tooltip'
+import Icon from './Icon'
 
 class Input extends React.Component {
   static propTypes = {
@@ -11,7 +13,8 @@ class Input extends React.Component {
     name: PropTypes.string,
     type: PropTypes.string,
     tabIndex: PropTypes.number,
-    meter: PropTypes.bool
+    meter: PropTypes.bool,
+    info: PropTypes.string
   }
 
   static defaultProps = {
@@ -64,6 +67,7 @@ class Input extends React.Component {
       label,
       type,
       meter,
+      info,
       ...validProps
     } = this.props
 
@@ -77,60 +81,79 @@ class Input extends React.Component {
   }
 
   handleChange(event) {
+    const { onChange } = this.props
+
     event.persist()
 
-    this.setState({
-      value: event.target.value
-    }, () => {
-      if (typeof this.props.onChange === 'function') {
-        this.props.onChange(event)
-      }
-    })
+    this.setState(
+      { value: event.target.value },
+      () => onChange && onChange(event)
+    )
   }
 
   renderLabel() {
-    const { id, label } = this.props
-
-    if (label) {
-      return <Label value={label} htmlFor={id} fixed={this.props.fixed} />
-    }
+    return (
+      <Label
+        value={this.props.label}
+        htmlFor={this.props.id}
+        fixed={this.props.fixed}
+      />
+    )
   }
 
   renderRightAddon() {
-    const { rightAddon } = this.props
-
-    if (rightAddon) {
-      return <span className="sn-field__addon">{rightAddon}</span>
-    }
+    return (
+      <span className="sn-field__addon">
+        {this.props.rightAddon}
+      </span>
+    )
   }
 
   renderLeftAddon() {
-    const { leftAddon } = this.props
-
-    if (leftAddon) {
-      return <span className="sn-field__addon">{leftAddon}</span>
-    }
+    return (
+      <span className="sn-field__addon">
+        {this.props.leftAddon}
+      </span>
+    )
   }
 
-  renderLeftAddon() {
-    const { leftAddon } = this.props
+  renderInfo() {
+    return (
+      <Tooltip
+        message={this.props.info}
+        position="bottom-left"
+      >
+        <Icon code="info" />
+      </Tooltip>
+    )
+  }
 
-    if (leftAddon) {
-      return <span className="sn-field__addon">{leftAddon}</span>
-    }
+  getWrapperClassName() {
+    return `
+      sn-input
+      ${this.getErrorClassName()}
+      ${this.getAddonClassName()}
+    `
   }
 
   render() {
     return (
-      <div className={`sn-input ${this.getErrorClassName()} ${this.getAddonClassName()}`}>
-        {this.renderLeftAddon()}
+      <div className={this.getWrapperClassName()}>
+        {this.props.leftAddon && this.renderLeftAddon()}
+
         <input {...this.getInputProps()}/>
-        {this.renderLabel()}
-        {this.renderRightAddon()}
+
+        {this.props.label && this.renderLabel()}
+        {this.props.rightAddon && this.renderRightAddon()}
+
         <i className="sn-field__bar"></i>
+
+        {this.props.info && this.renderInfo()}
+
         <span className="sn-form-group__message">
           {this.props.error}
         </span>
+
         {this.props.meter && <Meter value={this.state.value} />}
       </div>
     )
