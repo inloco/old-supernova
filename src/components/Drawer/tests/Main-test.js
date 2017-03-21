@@ -25,31 +25,29 @@ describe("Drawer", () => {
     </Drawer>
   )
 
-  describe("drawer", () => {
+  it("has drawer element", () => {
     const drawer = wrapper.find(".sn-layout__drawer")
 
-    it("exists", () => {
-      expect(drawer).not.toBeNull()
-    })
+    expect(drawer).not.toBeNull()
+  })
+  
+  it("has a title", () => {
+    const title = wrapper.find(".sn-layout__drawer-title")
 
-    it("has a title", () => {
-      const title = wrapper.find(".sn-layout__drawer-title")
+    expect(title).not.toBeNull()
+  })
 
-      expect(title).not.toBeNull()
-    })
+  it("has a navigation", () => {
+    const nav = wrapper.find(".sn-layout__drawer-navigation")
 
-    it("has a navigation", () => {
-      const nav = wrapper.find(".sn-layout__drawer-navigation")
+    expect(nav).not.toBeNull()
+  })
 
-      expect(nav).not.toBeNull()
-    })
+  it("has a nav link", () => {
+    expect(wrapper.find("Link").length).toEqual(1)
+  })
 
-    it("has a nav link", () => {
-      expect(wrapper.find("Link").length).toEqual(1)
-    })
-
-    it("has a nav section", () => {
-      expect(wrapper.find("Section").length).toEqual(1)
-    })
+  it("has a nav section", () => {
+    expect(wrapper.find("Section").length).toEqual(1)
   })
 })

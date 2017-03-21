@@ -9,6 +9,10 @@ describe("Header", () => {
                           subtitle="Second section"
                           rightElement={<Button label="teste" />} />)
 
+  beforeAll(() => {
+    window.dispatchEvent = jest.fn()
+  })
+
   it("has header class", () => {
     const currentHeader = wrapper.find(".sn-layout__header")
 
@@ -37,5 +41,15 @@ describe("Header", () => {
     const currentRigthElement = wrapper.find(".sn-layout__navigation").find(Button)
 
     expect(currentRigthElement.length).toEqual(1)
+  })
+
+  describe("when click in burguer buton", () => {
+    it("dispatchs custom click event", () => {
+      const button = wrapper.find(".sn-layout__drawer-button")
+
+      button.simulate('click')
+
+      expect(window.dispatchEvent).toBeCalled()
+    })
   })
 })
