@@ -11,9 +11,25 @@ class Header extends React.Component {
     drawerButton: true
   }
 
+  constructor(props) {
+    super(props)
+
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick() {
+    const event = new Event('supernova.drawer_button.click')
+
+    window.dispatchEvent(event)
+  }
+
   renderDrawerButton() {
     return (
-      <div className="sn-layout__drawer-button" aria-expanded="false">
+      <div
+        onClick={this.handleClick}
+        className="sn-layout__drawer-button"
+        aria-expanded="false"
+      >
         <i className="material-icons">menu</i>
       </div>
     )
