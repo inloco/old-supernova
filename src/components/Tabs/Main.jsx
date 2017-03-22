@@ -24,8 +24,8 @@ class Main extends React.PureComponent {
   }
 
   getTabsLabel() {
-    return this.props.children.map(tab => {
-      return tab.props.label
+    return React.Children.map(this.props.children, child => {
+      return child.props.label
     })
   }
 
@@ -36,7 +36,9 @@ class Main extends React.PureComponent {
   }
 
   renderTabsItems() {
-    return this.getTabsLabel().map((label, index) => {
+    const tabLabels = this.getTabsLabel()
+
+    return tabLabels.map((label, index) => {
       return (
         <li className={this.getTabItemClassName(index)} key={index}>
           <a href="#" onClick={() => this.handleTabClick(index)}>
@@ -50,8 +52,8 @@ class Main extends React.PureComponent {
   renderTabsContent() {
     const nextActiveTab = this.getNextActiveTab()
 
-    return this.props.children.map((tab, index) => {
-      return React.cloneElement(tab, {
+    return React.Children.map(this.props.children, (child, index) => {
+      return React.cloneElement(child, {
         active: nextActiveTab === index,
         key: index
       })
