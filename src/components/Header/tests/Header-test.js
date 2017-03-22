@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import Header from './../../src/components/Header'
-import Button from './../../src/components/Button'
+import Header from './../Main'
+import Button from './../../Button'
 
 describe("Header", () => {
   const wrapper = shallow(<Header
