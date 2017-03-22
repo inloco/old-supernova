@@ -1,6 +1,23 @@
 import React, { PropTypes } from 'react'
+import Icon from './../Icon'
 
 const Profile = props => {
+  const accountLink = (
+    <li>
+      <a onClick={props.onAccount}>
+        <Icon code="person"/> {props.accountLabel || 'account'}
+      </a>
+    </li>
+  )
+
+  const signOutLink = (
+    <li>
+      <a onClick={props.onSignOut}>
+        <Icon code="power_settings_new"/> {props.signOutLabel || 'logout'}
+      </a>
+    </li>
+  )
+
   return(
     <div className="sn-layout__drawer-user">
       <div className="sn-layout__drawer-user__avatar">
@@ -18,14 +35,8 @@ const Profile = props => {
         <span className="sn-layout__drawer-user__info-name">{props.name}</span>
         <span className="sn-layout__drawer-user__info-contact">{props.email}</span>
         <ul className="sn-layout__drawer-user__info-actions">
-          <li>
-            {props.accountElement}
-          </li>
-          <li>
-            <a href="#" onClick={props.onSignOut}>
-              <i className="material-icons"></i>Sair
-            </a>
-          </li>
+          {props.onAccount && accountLink}
+          {props.onSignOut && signOutLink}
         </ul>
       </div>
     </div>

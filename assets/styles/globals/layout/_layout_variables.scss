@@ -93,7 +93,7 @@ $default-layout-drawer-user-info-contact-line-height  : $default-layout-drawer-u
 $default-layout-drawer-user-info-actions-min-height   : $vm * 4; // ~ 16px
 $default-layout-drawer-user-info-actions-margin       : $vm 0; // ~ 4px 0
 $default-layout-drawer-user-info-actions-font-size    : $dfs * 0.9285714286; // ~13px
-$default-layout-drawer-user-info-actions-li-margin    : 0 ($hm * 4) 0 0; // ~ 0 16px 0 0
+$default-layout-drawer-user-info-actions-li-margin    : 0 ($hm * 2) 0 0; // ~ 0 8px 0 0
 $default-layout-drawer-user-info-actions-link-height  : $vm * 5; // ~ 20px
 $default-layout-drawer-user-info-actions-link-padding : 0 0 0 ($hm * 5); // ~ 0 0 0 20px
 $default-layout-drawer-user-info-actions-icon-top     : $vm * 0.25 !default; // ~ 1px
