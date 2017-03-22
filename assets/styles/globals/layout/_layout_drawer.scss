@@ -276,8 +276,8 @@
         vertical-align: middle;
         margin: $default-layout-drawer-navigation-link-margin;
       }
-      &.active {
-        color: $default-brand-color;
+      &.sn-layout__drawer-navigation__link--current {
+        color: $default-layout-drawer-user-link-color-hover;
         background-color: $default-layout-drawer-navigation-link-active-background;
       }
     }
