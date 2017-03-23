@@ -17,6 +17,9 @@
 
 // PRIMARY COLOR CLASSES
 
+// Brand colors
+.sn-color--accent                   { color: $default-accent-color };
+.sn-color--primary                   { color: $default-primary-color };
 
 // System colors
 .sn-color--success                  { color: $default-success-color;  }
@@ -667,4 +670,3 @@
 .sn-background-color--palette-blue-grey-700     { background-color: $palette-blue-grey-700 !important; }
 .sn-background-color--palette-blue-grey-800     { background-color: $palette-blue-grey-800 !important; }
 .sn-background-color--palette-blue-grey-900     { background-color: $palette-blue-grey-900 !important; }
-
