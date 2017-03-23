@@ -1,5 +1,4 @@
 import React from 'react'
-import onClickOutside from 'react-onclickoutside'
 import Icon from './Icon'
 
 class DropdownMenu extends React.Component {
