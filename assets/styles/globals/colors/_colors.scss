@@ -17,12 +17,15 @@
 
 // PRIMARY COLOR CLASSES
 
+// Brand colors
+.sn-color--accent                   { color: $default-accent-color };
+.sn-color--primary                   { color: $default-primary-color };
+
 // System colors
 .sn-color--success                  { color: $default-success-color;  }
 .sn-color--info                     { color: $default-info-color; }
 .sn-color--warning                  { color: $default-warning-color; }
 .sn-color--danger                   { color: $default-danger-color; }
-.sn-color--accent                   { color: $default-brand-accent-color };
 .sn-background-color--success       { background-color: $default-success-color;  }
 .sn-background-color--info          { background-color: $default-info-color;  }
 .sn-background-color--warning       { background-color: $default-warning-color;  }
