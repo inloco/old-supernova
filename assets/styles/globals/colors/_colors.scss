@@ -17,12 +17,12 @@
 
 // PRIMARY COLOR CLASSES
 
-
 // System colors
 .sn-color--success                  { color: $default-success-color;  }
 .sn-color--info                     { color: $default-info-color; }
 .sn-color--warning                  { color: $default-warning-color; }
 .sn-color--danger                   { color: $default-danger-color; }
+.sn-color--accent                   { color: $default-brand-accent-color };
 .sn-background-color--success       { background-color: $default-success-color;  }
 .sn-background-color--info          { background-color: $default-info-color;  }
 .sn-background-color--warning       { background-color: $default-warning-color;  }
@@ -667,4 +667,3 @@
 .sn-background-color--palette-blue-grey-700     { background-color: $palette-blue-grey-700 !important; }
 .sn-background-color--palette-blue-grey-800     { background-color: $palette-blue-grey-800 !important; }
 .sn-background-color--palette-blue-grey-900     { background-color: $palette-blue-grey-900 !important; }
-
