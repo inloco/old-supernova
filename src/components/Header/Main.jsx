@@ -4,7 +4,8 @@ class Header extends React.Component {
   static propTypes = {
     title: PropTypes.any.isRequired,
     subtitle: PropTypes.string,
-    drawerButton: PropTypes.bool
+    drawerButton: PropTypes.bool,
+    rightElement: PropTypes.any
   }
 
   static defaultProps = {
