@@ -20,6 +20,7 @@ import DrawerTitle from "./components/Drawer/Title"
 import DrawerProfile from "./components/Drawer/Profile"
 import DrawerFooter from "./components/Drawer/Footer"
 import Dropdown from "./components/Dropdown/Main"
+import DropdownMenu from "./components/DropdownMenu"
 import FormGroup from "./components/Form/Group"
 import Grid from "./components/Grid/Main"
 import Cell from "./components/Grid/Cell"
@@ -88,6 +89,7 @@ export {
   DrawerProfile,
   DrawerFooter,
   Dropdown,
+  DropdownMenu,
   FormGroup,
   Grid,
   Header,

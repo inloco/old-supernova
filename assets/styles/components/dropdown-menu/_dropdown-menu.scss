@@ -1,0 +1,30 @@
+@import "dropdown-menu_variables";
+
+.sn-dropdown-menu {
+  position: relative;
+  display: inline-block;
+
+  i {
+    cursor: pointer;
+  }
+
+  .sn-dropdown-menu__options {
+    top: 0;
+    right: 0;
+    position: absolute;
+    background: $default-dropdown-menu-background-color;
+    z-index: 1;
+    min-width: 140px;
+    @include shadow-3dp();
+
+    a {
+      padding: 15px 20px;
+      color: $default-dropdown-menu-link-color;
+      display: block;
+
+      &:hover {
+        background-color: $default-dropdown-menu-link-hover-color;
+      }
+    }
+  }
+}
