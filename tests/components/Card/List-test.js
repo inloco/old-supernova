@@ -1,19 +1,35 @@
-jest.unmock("../../factories/components/card-list-factory")
+import React from 'react'
+import CardsList from './../../../src/components/Card/List'
+import Card from './../../../src/components/Card/Main'
+import { shallow } from 'enzyme'
 
-import React from "react"
-import ReactDOM from "react-dom"
-import TestUtils from "react-addons-test-utils"
-import CardListFactory from "../../factories/components/card-list-factory"
+describe('CardsList', () => {
+  const wrapper = shallow(
+    <CardsList>
+      <Card>A</Card>
+      <Card>B</Card>
+    </CardsList>
+  )
 
-describe("Card", () => {
-  const factory = new CardListFactory
-  const listNode = factory.getNode()
-
-  it("has card list class", () => {
-    expect(listNode.classList.contains("sn-card__list")).toBeTruthy()
+  it('has correct className', () => {
+    expect(wrapper.hasClass('sn-card__list')).toBeTruthy()
   })
 
-  it("has 3 cards items", () => {
-    expect(listNode.children.length).toEqual(3)
+  it('has 2 cards inside', () => {
+    const cards = wrapper.find(Card)
+
+    expect(cards.length).toEqual(2)
+  })
+
+  it('doesnt have strip class', () => {
+    expect(wrapper.hasClass('sn-card__list--strip')).toBeFalsy()
+  })
+
+  describe('when has strip option', () => {
+    beforeAll(() => wrapper.setProps({ strip: true }))
+
+    it('has strip className', () => {
+      expect(wrapper.hasClass('sn-card__list--strip')).toBeTruthy()
+    })
   })
 })
