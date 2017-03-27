@@ -5,7 +5,7 @@ import { shallow } from 'enzyme'
 
 describe('CardsList', () => {
   const wrapper = shallow(
-    <CardsList>
+    <CardsList className="app-card-list">
       <Card>A</Card>
       <Card>B</Card>
     </CardsList>
@@ -13,6 +13,10 @@ describe('CardsList', () => {
 
   it('has correct className', () => {
     expect(wrapper.hasClass('sn-card__list')).toBeTruthy()
+  })
+
+  it('has custom className', () => {
+    expect(wrapper.hasClass('app-card-list')).toBeTruthy()
   })
 
   it('has 2 cards inside', () => {
