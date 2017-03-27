@@ -1,6 +1,10 @@
 import React, { PropTypes } from 'react'
 
 class Text extends React.PureComponent {
+  constructor(props){
+    super(props)
+  }
+
   static propTypes = {
     type: PropTypes.string,
     size: PropTypes.string,
@@ -70,7 +74,7 @@ class Text extends React.PureComponent {
     return <p className={className}>{children}</p>
   }
 
-   render() {
+  render() {
     return this.getTag()
   }
 }
