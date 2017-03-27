@@ -1,5 +1,5 @@
 import React from 'react'
-import Grid from './../Main'
+import Grid from './../index'
 import { shallow } from 'enzyme'
 
 describe('Grid', () => {

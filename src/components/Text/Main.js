@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 
 class Text extends React.PureComponent {
-  constructor(props){
+  constructor(props) {
     super(props)
   }
 
