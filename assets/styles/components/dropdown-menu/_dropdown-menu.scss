@@ -21,6 +21,7 @@
       padding: 15px 20px;
       color: $default-dropdown-menu-link-color;
       display: block;
+      text-transform: capitalize;
 
       &:hover {
         background-color: $default-dropdown-menu-link-hover-color;

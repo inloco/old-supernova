@@ -16,6 +16,7 @@ class List extends React.Component {
   getCardListClassName() {
     return `
       sn-card__list
+      ${this.props.className}
       ${this.getStripClassName()}
     `
   }
