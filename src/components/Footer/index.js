@@ -6,13 +6,15 @@ class Footer extends React.PureComponent {
   }
 
   static propTypes = {
-    chilren: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired
   }
 
   render() {
-    <div className="sn-layout__footer">
-      {this.props.children}
-    </div>
+    return (
+      <div className="sn-layout__footer">
+        {this.props.children}
+      </div>
+    )
   }
 }
 
