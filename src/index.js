@@ -21,6 +21,7 @@ import DrawerProfile from "./components/Drawer/Profile"
 import DrawerFooter from "./components/Drawer/Footer"
 import Dropdown from "./components/Dropdown/Main"
 import DropdownMenu from "./components/DropdownMenu"
+import Footer from "./components/Footer"
 import FormGroup from "./components/Form/Group"
 import Grid from "./components/Grid"
 import Cell from "./components/Grid/Cell"
@@ -90,6 +91,7 @@ export {
   DrawerFooter,
   Dropdown,
   DropdownMenu,
+  Footer,
   FormGroup,
   Grid,
   Header,
