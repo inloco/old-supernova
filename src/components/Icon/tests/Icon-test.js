@@ -1,25 +1,21 @@
-jest.unmock("../factories/components/icon-factory")
+import React from 'react'
+import ReactDOM from 'react-dom'
+import TestUtils from 'react-addons-test-utils'
+import Icon from '../index'
+import { shallow } from 'enzyme'
 
-import IconFactory from "../factories/components/icon-factory"
+describe('Icon', () => {
+  const wrapper = shallow(
+    <Icon code="add"/>
+  )
 
-import React from "react"
-import ReactDOM from "react-dom"
-import TestUtils from "react-addons-test-utils"
-import Icon from "../../src/components/Icon"
+  it('has icon className', () => {
+    const icon = wrapper.find('[className="material-icons"]')
 
-describe("Icon", () => {
-  const factory = new IconFactory
-  const node = factory.getNode()
-
-  it("has icon className", () => {
-    expect(node.classList.contains("material-icons")).toBeTruthy()
+    expect(icon.length).toEqual(1)
   })
 
-  it("has icon className", () => {
-    expect(node.classList.contains("material-icons")).toBeTruthy()
-  })
-
-  it("has content", () => {
-    expect(node.textContent).not.toBeNull()
+  it('has material code', () => {
+    expect(wrapper.children().node).toEqual('add')
   })
 })
