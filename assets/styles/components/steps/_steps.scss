@@ -50,11 +50,17 @@
     }
 
     &:first-child {
+      padding-left: calc(#{$default-steps-first-item-header-left} + #{$default-layout-header-title-group-title-wrap-margin-left});
+
       &:before {
         display: none;
         border-top: 0;
         border-bottom: 0;
         border-left: 0;
+      }
+
+      .sn-steps__number-icon {
+        left: calc(#{#{$default-steps-first-item-header-left}} + 5px)
       }
     }
 
@@ -403,7 +409,3 @@
 
 }
 // ./sn-steps
-
-
-
-
