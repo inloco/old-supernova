@@ -2,6 +2,11 @@ import React, { PropTypes } from "react"
 import ReactDOM from "react-dom"
 
 class Alert extends React.Component {
+  constructor(props){
+    super(props)
+
+    this.handleCloseClick = this.handleCloseClick.bind(this)
+  }
   static propTypes = {
     message:    PropTypes.string.isRequired,
     type:       PropTypes.string,
@@ -58,7 +63,7 @@ class Alert extends React.Component {
         <button
           type="button"
           className="sn-alert--close"
-          onClick={this.handleCloseClick.bind(this)}
+          onClick={this.handleCloseClick}
         >
           <i className="material-icons">&#xE14C;</i>
         </button>
