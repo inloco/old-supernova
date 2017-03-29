@@ -21,6 +21,23 @@ class Text extends React.PureComponent {
     type: "body"
   }
 
+  render() {
+    return this.getTag()
+  }
+
+  getTag() {
+    const {type, span, children} = this.props
+    const className = this.getClassName()
+
+    if(type === 'header') return this.getHeaderTag(className)
+
+    if(span) {
+      return <span className={className}>{children}</span>
+    }
+
+    return <p className={className}>{children}</p>
+  }
+
   getClassName() {
     const {
       type,
@@ -59,23 +76,6 @@ class Text extends React.PureComponent {
       case "6":
         return <h6 className={className}>{children}</h6>
     }
-  }
-
-  getTag() {
-    const {type, span, children} = this.props
-    const className = this.getClassName()
-
-    if(type === 'header') return this.getHeaderTag(className)
-
-    if(span) {
-      return <span className={className}>{children}</span>
-    }
-
-    return <p className={className}>{children}</p>
-  }
-
-  render() {
-    return this.getTag()
   }
 }
 
