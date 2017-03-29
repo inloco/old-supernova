@@ -1,5 +1,5 @@
 import React from "react"
-import Checkbox from "./../../../src/components/Form/Checkbox"
+import Checkbox from "./../Checkbox"
 import { shallow } from "enzyme"
 
 describe("Checkbox", () => {
