@@ -1,5 +1,5 @@
 import React from 'react'
-import Alert from '../../src/components/Alert'
+import Alert from '../index'
 import { mount } from 'enzyme'
 
 jest.useRealTimers()
