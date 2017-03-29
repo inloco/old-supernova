@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react"
 
-class Subheader extends React.Component {
+class Subheader extends React.PureComponent {
   static propTypes = {
     children: PropTypes.node.isRequired
   }
