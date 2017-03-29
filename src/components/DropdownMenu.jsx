@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from './Icon'
+import Icon from './Icons'
 
 class DropdownMenu extends React.Component {
   static defaultProps = {
