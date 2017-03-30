@@ -1,6 +1,6 @@
 import React from 'react'
 import Balloon from './../../src/components/Balloon'
-import Icon from './../../src/components/Icon'
+import Icon from './../../src/components/Icons'
 import { shallow } from 'enzyme'
 
 describe('Balloon', () => {

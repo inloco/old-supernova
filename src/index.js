@@ -21,6 +21,7 @@ import DrawerProfile from "./components/Drawer/Profile"
 import DrawerFooter from "./components/Drawer/Footer"
 import Dropdown from "./components/Dropdown/Main"
 import DropdownMenu from "./components/DropdownMenu"
+import Footer from "./components/Footer"
 import FormGroup from "./components/Form/Group"
 import Grid from "./components/Grid"
 import Cell from "./components/Grid/Cell"
@@ -57,7 +58,7 @@ import Input from "./components/Input"
 import Button from "./components/Button"
 import TextArea from "./components/TextArea"
 import Label from "./components/Label"
-import Icon from "./components/Icon"
+import Icon from "./components/Icons"
 import Well from "./components/Well"
 import Wizard from "./components/Wizard/Main"
 import WizardStep from "./components/Wizard/Step"
@@ -90,6 +91,7 @@ export {
   DrawerFooter,
   Dropdown,
   DropdownMenu,
+  Footer,
   FormGroup,
   Grid,
   Header,
