@@ -40,7 +40,7 @@ import PaginatorPrevious from "./components/Paginator/Previous"
 import Pills from "./components/Pills/Main"
 import Pill from "./components/Pills/Pill"
 import Radio from "./components/Radio"
-import SearchBox from "./components/SearchBox"
+import Searchbox from "./components/Searchbox"
 import Select from "./components/Form/Select"
 import Subheader from "./components/Subheader"
 import Table from "./components/Table"
@@ -109,7 +109,7 @@ export {
   Pills,
   Pill,
   Radio,
-  SearchBox,
+  Searchbox,
   Select,
   Subheader,
   Table,

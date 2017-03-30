@@ -1,5 +1,6 @@
 import React from 'react'
-import spinner from './../../assets/images/spinner.svg'
+import ResultCard from './ResultCard'
+import spinner from './../../../assets/images/spinner.svg'
 
 class Searchbox extends React.Component {
   static propTypes = {
@@ -9,7 +10,7 @@ class Searchbox extends React.Component {
     debounce: React.PropTypes.number,
     minLength: React.PropTypes.number,
     visibleResults: React.PropTypes.number,
-    loading: React.PropTypes.boolean
+    loading: React.PropTypes.any
   }
 
   static defaultProps = {
@@ -24,6 +25,7 @@ class Searchbox extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleInputBlur = this.handleInputBlur.bind(this)
     this.handleInputFocus = this.handleInputFocus.bind(this)
+    this.handleOnSelectResult = this.handleOnSelectResult.bind(this)
 
     this.state = {
       inputValue: '',
@@ -71,13 +73,13 @@ class Searchbox extends React.Component {
         <button
           type="button"
           className="sn-search-box__item-button"
-          onClick={this.handleCloseButtonClick.bind(this, selectedResult)}>
+          onClick={this.handleCloseClick.bind(this, selectedResult)}>
         </button>
       </div>
     )
   }
 
-  handleCloseButtonClick(selectedResult) {
+  handleCloseClick(selectedResult) {
     this.unselectResult(selectedResult)
   }
 
@@ -144,7 +146,10 @@ class Searchbox extends React.Component {
       <ul className="sn-search-box__results">
         {this.getVisibleResults().map(result => (
           <li key={result.id}>
-            {this.renderResultCard(result)}
+            <ResultCard
+              result={result}
+              onSelectResult={this.handleOnSelectResult}
+            />
           </li>
         ))}
       </ul>
@@ -163,31 +168,7 @@ class Searchbox extends React.Component {
     )
   }
 
-  renderResultCard(result) {
-    return (
-      <div onMouseDown={this.handleResultCardMouseDown.bind(this, result)}>
-        <div className="sn-search-box__item-content">
-          <div className="sn-grid sn-grid--responsive-mobile-lg sn-grid--cell-gutter">
-            <div className="sn-cell--1">
-              <span className="sn-typo--font-bold">{result.title}</span>
-            </div>
-            <div className="sn-cell--auto sn-cell--text-right">
-              <span className="sn-typo--caption sn-color--secondary-text">{result.info}</span>
-            </div>
-          </div>
-          <div className="sn-grid sn-grid--responsive-mobile-lg">
-            <div className="sn-cell--1">
-              <span className="sn-typo--caption sn-color--secondary-text">{result.subtitle}</span>
-            </div>
-          </div>
-        </div>
-
-        <button type="button" className="sn-search-box__item-button"></button>
-      </div>
-    )
-  }
-
-  handleResultCardMouseDown(result) {
+  handleOnSelectResult(result) {
     this.selectResult(result)
     this.input.focus()
   }
