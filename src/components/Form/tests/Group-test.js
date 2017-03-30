@@ -1,12 +1,16 @@
 import React from "react"
-import FormGroup from './../../../src/components/Form/Group'
-import Checkbox from './../../../src/components/Form/Checkbox'
+import FormGroup from './../Group'
+import Checkbox from './../Checkbox'
 import { shallow } from 'enzyme'
-
 
 describe("Form Group", () => {
   const wrapper = shallow(
-    <FormGroup label="Form Group Label" id="form-group-factory" name="foo">
+    <FormGroup
+      label="Form Group Label"
+      id="form-group-factory"
+      name="foo"
+      className="class-here"
+    >
       <Checkbox label="Texto do Checkbox" id="checkbox-factory"/>
       <Checkbox label="Texto do Checkbox"/>
     </FormGroup>
@@ -26,6 +30,24 @@ describe("Form Group", () => {
     const checkboxes = wrapper.find(Checkbox)
 
     expect(checkboxes.length).toEqual(2)
+  })
+
+  it("has children with name", () => {
+    const expectedName = wrapper.find(Checkbox).first().props().name
+    const currentName = "foo"
+
+    expect(currentName).toEqual(expectedName)
+  })
+
+  it("has className", () => {
+    expect(wrapper.hasClass("class-here")).toBeTruthy()
+  })
+
+  it("has id", () => {
+    const expectedId = "form-group-factory"
+    const currentId = wrapper.props().id
+
+    expect(currentId).toEqual(expectedId)
   })
 
   describe('when has errors', () => {
