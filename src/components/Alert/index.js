@@ -1,5 +1,6 @@
-import React, { PropTypes } from "react"
-import ReactDOM from "react-dom"
+import React, { PropTypes } from 'react'
+import ReactDOM from 'react-dom'
+import Icon from './../Icons'
 
 class Alert extends React.Component {
   constructor(props){
@@ -34,7 +35,7 @@ class Alert extends React.Component {
             className="sn-alert--close"
             onClick={this.handleCloseClick}
           >
-            <i className="material-icons">&#xE14C;</i>
+            <Icon code="&#xE14C;"/>
           </button>
 
           <div className="sn-alert--message">{this.props.message}</div>
