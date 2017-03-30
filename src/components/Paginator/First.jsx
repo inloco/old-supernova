@@ -1,5 +1,5 @@
 import React from "react"
-import Icon from "./../Icon"
+import Icon from "./../Icons"
 
 class First extends React.Component {
   render() {

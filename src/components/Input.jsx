@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import Label from './Label'
 import Meter from './Meter'
 import Tooltip from './Tooltip'
-import Icon from './Icon'
+import Icon from './Icons'
 
 class Input extends React.Component {
   static propTypes = {

@@ -1,6 +1,6 @@
 import React from 'react'
 import DropdownMenu from './../../src/components/DropdownMenu'
-import Icon from './../../src/components/Icon'
+import Icon from './../../src/components/Icons'
 import { shallow } from 'enzyme'
 
 describe('DropdownMenu', () => {
