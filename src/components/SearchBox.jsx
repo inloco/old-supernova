@@ -1,253 +1,171 @@
-import React, { PropTypes } from "react"
-import Button from "./Button"
-import Icon from "./Icon"
-import _ from "lodash"
+import React from 'react'
+import spinner from './../../assets/images/spinner.svg'
 
-class SearchBox extends React.Component {
+class Searchbox extends React.Component {
+  static propTypes = {
+    onSearch: React.PropTypes.func.isRequired,
+    onSelect: React.PropTypes.func.isRequired,
+    onUnselect: React.PropTypes.func.isRequired,
+    debounce: React.PropTypes.number,
+    minLength: React.PropTypes.number,
+    visibleResults: React.PropTypes.number,
+    loading: React.PropTypes.boolean
+  }
+
+  static defaultProps = {
+    debounce: 500,
+    minLength: 3,
+    visibleResults: 5
+  }
+
   constructor(props) {
     super(props)
 
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleInputBlur = this.handleInputBlur.bind(this)
+    this.handleInputFocus = this.handleInputFocus.bind(this)
+
     this.state = {
-      results: props.results,
-      selectedResultsIds: [],
-      latestResultsIds: props.results.map(result => result.id),
-      expandedResults: false
+      inputValue: '',
+      expandedResults: false,
+      selectedResults: []
     }
   }
-
-  componentDidMount() {
-    const body = document.querySelector('body')
-
-    body.onclick = this.handleOutsideClick.bind(this)
-  }
-
-  handleOutsideClick(event) {
-    if(event.target !== this.input) {
-      this.setState({ expandedResults: false })
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.updateResultsIfIsNeeded(nextProps)
-    this.selectNewResultIfIsNeeded(nextProps)
-  }
-
-  updateResultsIfIsNeeded(nextProps) {
-    if(nextProps.results !== this.props.results) {
-      this.setState({
-        latestResultsIds: nextProps.results.map(result => result.id),
-        results: _.unionBy(nextProps.results, this.state.results, "id")
-      })
-    }
-  }
-
-  selectNewResultIfIsNeeded(nextProps) {
-    const nextSelectedResult = nextProps.selectedResult
-
-    if(!nextSelectedResult) return undefined
-
-    const existentResult = this.state.results.find(result => result.id === nextSelectedResult.id)
-
-    if(existentResult) {
-      return this.updateSelectedResult(nextSelectedResult)
-    }
-
-    if(nextSelectedResult !== this.props.selectedResult) {
-      this.setState({
-        results: [...this.state.results, nextSelectedResult],
-        selectedResultsIds: [nextSelectedResult.id]
-      })
-    }
-  }
-
-  updateSelectedResult(updatedResult) {
-    this.setState({
-      results: this.state.results.map(result =>
-        result.id === updatedResult.id ? updatedResult : result
-      )
-    })
-  } 
 
   render() {
-    const haveSelectedResults = this.getSelectedResults().length > 0
-    const shouldShowInput = !(this.props.single && haveSelectedResults)
-
     return (
       <div className="sn-search-box">
-        {this.renderSelectedResults()}
-        {shouldShowInput && this.renderInput()}
+        {this.hasSelectedResults() && this.renderSelectedResults()}
+        {this.renderInput()}
+        {this.shouldRenderResults() && this.renderResults()}
       </div>
     )
   }
 
+  hasSelectedResults() {
+    return this.state.selectedResults.length > 0
+  }
+
+  shouldRenderResults() {
+    return this.props.results
+            && this.state.expandedResults
+            && this.inputHasMinLength()
+  }
+
   renderSelectedResults() {
-    const selectedResults = this.getSelectedResults()
-
-    if(selectedResults.length === 0) return null
-
     return (
       <ul className="sn-search-box__selected">
-        {selectedResults.map(result => <li key={result.id}>{this.renderSelectedResultCard(result)}</li>)}
+        {this.state.selectedResults.map(selectedResult => (
+          <li key={selectedResult.id}>
+            {this.renderSelectedResultCard(selectedResult)}
+          </li>
+        ))}
       </ul>
     )
   }
 
-  renderInput() {
-    return (
-      <div>
-        <input
-          ref={input => this.input = input}
-          type="text"
-          className="sn-search-box__input"
-          placeholder={this.props.label}
-          autoComplete="off"
-          onFocus={this.handleInputFocus.bind(this)}
-          onChange={this.handleInputChange.bind(this)}/>
-
-        <span className="sn-search-box__input--icon"></span>
-
-        {this.hasMinimumInputLength() && this.renderResults()}
-        {this.renderHelpMessage()}
-      </div>
-    )
-  }
-
-  getSelectedResults() {
-    const { results, selectedResultsIds } = this.state
-
-    return results.filter(result => this.resultIsSelected(result))
-  }
-
-  resultIsSelected(result) {
-    return this.state.selectedResultsIds.includes(result.id)
-  }
-
   renderSelectedResultCard(selectedResult) {
-    const CustomComponent = this.props.component
-
-    if(CustomComponent) {
-      return <div>
-        <CustomComponent result={selectedResult}/>
-        <button
-          type="button"
-          className="sn-search-box__item-button sn-search-box__item-button--top"
-          onClick={this.handleUnselectClick.bind(this, selectedResult)}>
-        </button>
-      </div>
-    }
-
     return (
       <div>
         <div className="sn-search-box__item-content">{selectedResult.title}</div>
         <button
           type="button"
           className="sn-search-box__item-button"
-          onClick={this.handleUnselectClick.bind(this, selectedResult)}>
+          onClick={this.handleCloseButtonClick.bind(this, selectedResult)}>
         </button>
       </div>
     )
   }
 
-  handleInputFocus() {
-    this.setState({ expandedResults: true })
+  handleCloseButtonClick(selectedResult) {
+    this.unselectResult(selectedResult)
   }
 
-  handleUnselectClick(unselectedResult) {
-    this.unselectResult(unselectedResult)
-
-    this.input && this.input.focus()
-  }
-
-  unselectResult(unselectedResult) {
-    const { selectedResultsIds } = this.state
-
-    if(this.props.shouldUnselectResult()) {
-      this.setState({
-        selectedResultsIds: selectedResultsIds.filter(resultId => unselectedResult.id !== resultId)
-      }, () => this.props.onUnselectResult(unselectedResult))
-    }    
-  }
-
-  handleInputChange(event) {
-    if(typeof this.props.onChange === "function") {
-      this.props.onChange(event)
-    }
-
-    this.setState({
-      results: this.state.results.map(result => {
-        const matched = result.title.toLowerCase().includes(event.target.value.toLowerCase())
-
-        return { ...result, matched }
-      })
+  unselectResult(selectedResult) {
+    this.setState(prevState => ({
+      selectedResults: prevState.selectedResults.filter(
+        iteratedSelectedResult => iteratedSelectedResult.id !== selectedResult.id
+      )
+    }), () => {
+      this.props.onUnselect(selectedResult, this.state.selectedResults)
     })
   }
 
-  hasMinimumInputLength() {
-    return this.input && this.input.value.length > 1
+  renderInput() {
+    return (
+      <div>
+        <input
+          type="text"
+          className="sn-search-box__input"
+          autoComplete="off"
+          ref={input => this.input = input}
+          placeholder={this.props.placeholder}
+          value={this.state.inputValue}
+          onChange={this.handleInputChange}
+          onFocus={this.handleInputFocus}
+          onBlur={this.handleInputBlur}
+        />
+
+        {
+          this.props.loading
+            ? <img src={spinner} className="sn-search-box__input--spinner" alt="spinner" />
+            : <span className="sn-search-box__input--icon" />
+        }
+      </div>
+    )
+  }
+
+  handleInputChange(event) {
+    const { onSearch, debounce } = this.props
+
+    this.setState({ inputValue: event.target.value }, () => {
+      clearTimeout(this.onSearchTimeout)
+
+      this.onSearchTimeout = setTimeout(() => {
+        this.inputHasMinLength() && onSearch(this.state.inputValue)
+      }, debounce)
+    })
+  }
+
+  inputHasMinLength() {
+    return this.state.inputValue.length >= this.props.minLength
+  }
+
+  handleInputFocus(event) {
+    this.setState({ expandedResults: true })
+  }
+
+  handleInputBlur(event) {
+    this.setState({ expandedResults: false })
   }
 
   renderResults() {
-    const visibleResults = this.getVisibleResults()
-    const isEmpty = visibleResults.length === 0
-    const hasAddButton = this.props.addButton
-
     return (
-      <ul
-        className="sn-search-box__results"
-        style={{ display: this.state.expandedResults ? 'block' : 'none' }}>
-        {isEmpty && this.renderEmptyMessage()}
-        
-        {!isEmpty && visibleResults.map(result =>
-          <li key={result.id}>{this.renderResultCard(result)}</li>
-        )}
-        
-        {hasAddButton && this.renderAddButton()}
+      <ul className="sn-search-box__results">
+        {this.getVisibleResults().map(result => (
+          <li key={result.id}>
+            {this.renderResultCard(result)}
+          </li>
+        ))}
       </ul>
     )
   }
 
-  renderAddButton() {
-    return (
-      <li className="sn-search-box__results--action">
-        <div className="sn-search-box__item-content">
-          <Button size="xs" onClick={this.props.addButton.onClick}>
-            <Icon code="add"/>
-            <span className="is-hidden--tablet-threshold">
-              {this.props.addButton.label}
-            </span>
-          </Button>
-        </div>
-      </li>
-    )
-  }
-
   getVisibleResults() {
-    const currentResults = this.getCurrentResults()
-
-    return this.props.ajax
-            ? currentResults.filter(result => !this.resultIsSelected(result))
-            : currentResults.filter(result => !this.resultIsSelected(result) && result.matched)
+    return this.getNotSelectedResults().slice(0, this.props.visibleResults)
   }
 
-  getCurrentResults() {
-    const { latestResultsIds, results } = this.state
-
-    return results.filter(result => latestResultsIds.includes(result.id))
-  }
-
-  renderEmptyMessage() {
-    return (
-      <li className="sn-search-box__results--no-results">
-        <div className="sn-search-box__item-content">
-          Nenhum resultado encontrado.
-        </div>
-      </li>
+  getNotSelectedResults() {
+    return this.props.results.filter(result =>
+      !this.state.selectedResults.some(selectedResult =>
+        selectedResult.id === result.id
+      )
     )
   }
 
   renderResultCard(result) {
     return (
-      <div onClick={this.handleResultCardMouseDown.bind(this, result)}>
+      <div onMouseDown={this.handleResultCardMouseDown.bind(this, result)}>
         <div className="sn-search-box__item-content">
           <div className="sn-grid sn-grid--responsive-mobile-lg sn-grid--cell-gutter">
             <div className="sn-cell--1">
@@ -269,43 +187,19 @@ class SearchBox extends React.Component {
     )
   }
 
-  handleResultCardMouseDown(result, event) {
+  handleResultCardMouseDown(result) {
     this.selectResult(result)
-
     this.input.focus()
-    this.input.value = ""
   }
 
-  selectResult(selectedResult) {
-    const { selectedResultsIds } = this.state
-
-    this.setState({
-      selectedResultsIds: selectedResultsIds.concat(selectedResult.id)
-    }, () => this.props.onSelectResult(selectedResult))
-  }
-
-  renderHelpMessage() {
-    return (
-      <span className={this.getHelpMessageClassName()}>
-        {this.props.helpMessage}
-      </span>
-    )
-  }
-
-  getHelpMessageClassName() {
-    return `sn-search-box__message ${this.getTypeMessageClassName()}`
-  }
-
-  getTypeMessageClassName() {
-    const { typeMessage } = this.props
-
-    return typeMessage ? `sn-search-box__message--${typeMessage}` : ""
+  selectResult(result) {
+    this.setState(prevState => ({
+      selectedResults: prevState.selectedResults.concat(result),
+      inputValue: ''
+    }), () => {
+      this.props.onSelect(result, this.state.selectedResults)
+    })
   }
 }
 
-SearchBox.defaultProps = {
-  results: [],
-  shouldUnselectResult: () => true
-}
-
-export default SearchBox
+export default Searchbox
