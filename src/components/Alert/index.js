@@ -41,9 +41,9 @@ class Alert extends React.Component {
           <div className="sn-alert--message">{this.props.message}</div>
         </div>
       )
-    } else {
-      return (<div className="sn-alert-hidden"></div>)
     }
+
+    return (<div className="sn-alert-hidden"></div>)
   }
 
   componentWillReceiveProps(nextProps){
