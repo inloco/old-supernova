@@ -21,6 +21,30 @@ class Alert extends React.Component {
     active: false
   }
 
+  render() {
+    const { active } = this.props 
+
+    if(active) {
+      return (
+        <div className={this.getClassName()}>
+          {this.getIcon()}
+
+          <button
+            type="button"
+            className="sn-alert--close"
+            onClick={this.handleCloseClick}
+          >
+            <i className="material-icons">&#xE14C;</i>
+          </button>
+
+          <div className="sn-alert--message">{this.props.message}</div>
+        </div>
+      )
+    } else {
+      return (<div className="sn-alert-hidden"></div>)
+    }
+  }
+
   componentDidMount() {
     this.closeAfter(this.props.closeAfter)
   }
@@ -53,24 +77,6 @@ class Alert extends React.Component {
         </div>
       )
     }
-  }
-
-  render() {
-    return (
-      <div className={this.getClassName()}>
-        {this.getIcon()}
-
-        <button
-          type="button"
-          className="sn-alert--close"
-          onClick={this.handleCloseClick}
-        >
-          <i className="material-icons">&#xE14C;</i>
-        </button>
-
-        <div className="sn-alert--message">{this.props.message}</div>
-      </div>
-    )
   }
 }
 
