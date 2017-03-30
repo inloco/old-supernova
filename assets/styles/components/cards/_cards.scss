@@ -13,7 +13,6 @@
 
 @import "cards_variables";
 
-
 // Cards
 
 .sn-card {
@@ -24,7 +23,6 @@
   padding: 0;
   border-radius: $default-border-radius;
   @include shadow-2dp();
-
 
   // Bordered
   &.sn-card--bordered {
@@ -37,7 +35,6 @@
     -webkit-box-shadow: none;
   }
 
-
   // Card Bleeds, Margins, Paddings and Gutters
 
   &.sn-card--bleed {
@@ -46,99 +43,8 @@
   &.sn-card--padding {
     padding: $default-card-padding;
   }
-  &.sn-card--col-gutter {
-    .sn-card__col,
-    .sn-card__col--group {
-      padding: 0 $default-card-col-gutter;
-      &:first-child {
-        padding-left:0;
-      }
-      &:last-child {
-        padding-right:0;
-      }
-    }
-  }
-
-  &.sn-card--row-gutter {
-    .sn-card__row,
-    .sn-card__row--group {
-      padding: $default-card-col-gutter 0;
-      &:first-child {
-        padding-top:0;
-      }
-      &:last-child {
-        padding-bottom:0;
-      }
-    }
-  }
-
-  .sn-card__row,
-  .sn-card__row--group {
-    &.sn-card__row--padding {
-      padding: $default-card-row-padding !important;
-      width: auto;
-    }
-  }
-
-  .sn-card__col,
-  .sn-card__col--group {
-    &.sn-card__col--padding {
-      padding: $default-card-col-padding !important;
-    }
-  }
-
-
-  // Card Row
-
-  .sn-card__row {
-    display: block;
-    width:100%;
-    &.sn-card__row--title {
-      font-weight: bold;
-    }
-  }
-
-
-  // Card Col
-
-  .sn-card__col {
-    @include flex(1);
-    &.sn-card__col--1    { @include flex(1); }
-    &.sn-card__col--2    { @include flex(2); }
-    &.sn-card__col--3    { @include flex(3); }
-    &.sn-card__col--4    { @include flex(4); }
-    &.sn-card__col--5    { @include flex(5); }
-    &.sn-card__col--6    { @include flex(6); }
-    &.sn-card__col--7    { @include flex(7); }
-    &.sn-card__col--8    { @include flex(8); }
-    &.sn-card__col--9    { @include flex(9); }
-    &.sn-card__col--10   { @include flex(10); }
-    &.sn-card__col--11   { @include flex(11); }
-    &.sn-card__col--12   { @include flex(12); }
-    &.sn-card__col--auto { @include flexitem(0,0,auto); }
-  }
-
-  &.sn-card__col--padding {
-    padding: $default-card-col-padding;
-  }
-
-  .sn-card__col--group {
-    @include flexbox();
-  }
-  .sn-card__row--group {
-    display: block;
-    width: 100%;
-  }
-
-  button {
-    cursor: pointer;
-    outline: none;
-  }
-
 }
 // ./sn-cards
-
-
 
 // Card List (ul)
 
@@ -170,7 +76,6 @@
     border-bottom: $default-card-list-card-border solid $default-card-border-color;
   }
 
-
   li {
     position: relative;
     list-style: none;
@@ -196,8 +101,6 @@
 }
 // ./card-list
 
-
-
 // Align classes (for all)
 
 .sn-card--center {
@@ -206,8 +109,6 @@
   -webkit-align-self: center;
   align-self: center;
 }
-
-
 
 // Card Icon Button
 

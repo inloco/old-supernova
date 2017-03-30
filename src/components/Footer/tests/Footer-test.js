@@ -20,17 +20,4 @@ describe('Footer', () => {
 
     expect(content.text()).toEqual('I am the content.')
   })
-
-  describe('No children', () => {
-    const emptyWrapper = shallow(
-      <Footer>
-      </Footer>
-    )
-
-    it('render no children', () => {
-      const content = emptyWrapper.children()
-
-      expect(content.length).toEqual(0)
-    })
-  })
 })
