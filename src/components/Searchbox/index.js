@@ -170,7 +170,7 @@ class Searchbox extends React.Component {
 
   handleOnSelectResult(result) {
     this.selectResult(result)
-    this.input.focus()
+    this.input && this.input.focus()
   }
 
   selectResult(result) {
