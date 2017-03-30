@@ -22,7 +22,7 @@ class Alert extends React.Component {
   }
 
   render() {
-    const { active } = this.props 
+    const { active } = this.props
 
     if(active) {
       return (
@@ -45,8 +45,13 @@ class Alert extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.closeAfter(this.props.closeAfter)
+  componentWillReceiveProps(nextProps){
+    const { active } = nextProps
+    const { closeAfter } = nextProps
+
+    if(active && closeAfter){
+      this.closeAfter(closeAfter)
+    }
   }
 
   handleCloseClick() {

@@ -18,6 +18,7 @@ describe('Alert', () => {
   beforeEach(() => onClose.mockClear())
 
   it('will be close after 2 seconds', (done) => {
+    wrapper.setProps({active: true})
     setTimeout(() => {
       expect(onClose).toBeCalled()
       done()
