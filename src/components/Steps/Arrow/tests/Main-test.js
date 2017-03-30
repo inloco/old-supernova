@@ -1,20 +1,26 @@
-jest.unmock("../../../factories/components/Steps/arrow-factory")
-
-import StepsFactory from "../../../factories/components/Steps/arrow-factory"
+import React from 'react'
+import Steps from './../index'
+import Step from './../Step'
+import { shallow } from 'enzyme'
 
 describe("Steps Arrow", () => {
-  const factory = new StepsFactory
-  const node = factory.getNode()
+  const wrapper = shallow(
+    <Steps activeStep={1}>
+      <Step label="Informações Gerais"/>
+      <Step label="Endereço" />
+    </Steps>
+  )
 
   it("has steps class", () => {
-    expect(node.getAttribute("class").includes("sn-steps")).toBeTruthy
+    expect(wrapper.props().className.includes("sn-steps")).toBeTruthy
   })
 
   it("has children", () => {
-    expect(node.children.length).toBeGreaterThan(0)
+    expect(wrapper.children().length).toBeGreaterThan(0)
   })
 
   it("is raised", () => {
-    expect(node.getAttribute("class").includes("sn-steps--raised")).toBeTruthy
+    wrapper.setProps({raised: true})
+    expect(wrapper.props().className.includes("sn-steps sn-steps--raised")).toBeTruthy
   })
 })

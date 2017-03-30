@@ -1,31 +1,38 @@
-jest.unmock("../../../factories/components/Steps/arrow-factory")
+import React from 'react'
+import Step from './../Step'
+import Steps from './../index'
+import { mount } from 'enzyme'
 
-import StepsFactory from "../../../factories/components/Steps/arrow-factory"
+describe('Steps Arrow Item', () => {
+  const wrapper = mount (
+    <Steps activeStep={1}>
+      <Step label="Informações Gerais"/>
+      <Step label="Endereço" />
+    </Steps>
+  )
 
-describe("Steps Arrow Item", () => {
-  const factory = new StepsFactory
-  const node = factory.getNode().querySelector("div")
-  const activeNode = factory.getNode().querySelectorAll("div")[1]
+  it('has steps done item class', () => {
+    const item = wrapper.find('[className="sn-steps__item is-done"]')
 
-  it("has steps item class", () => {
-    expect(node.getAttribute("class").includes("sn-steps__item")).toBeTruthy
+    expect(item.children().length).toEqual(1)
+  })
+
+  it('has setps active item class', () => {
+    const item = wrapper.find('[className="sn-steps__item is-active"]')
+    
+    expect(item.children().length).toEqual(1)
   })
 
   it("has icon with correct number", () => {
-    var icon = node.querySelector("i")
+    const item = wrapper.find('[className="sn-steps__item is-done"]')
+    const i = item.find('i')
 
-    expect(icon.textContent).toEqual("done")
+    expect(i.text()).toEqual("done")
   })
 
   it("has label", () => {
-    expect(node.textContent.includes("Informações Gerais")).toBeTruthy()
-  })
+    const item = wrapper.find('[className="sn-steps__item is-done"]')
 
-  it("is done", () => {
-    expect(node.getAttribute("class").includes("is-done")).toBeTruthy
-  })
-
-  it("active node has active class", () => {
-    expect(activeNode.getAttribute("class").includes("is-active")).toBeTruthy
+    expect(item.text().includes("Informações Gerais")).toBeTruthy()
   })
 })
