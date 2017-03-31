@@ -1,5 +1,5 @@
 import Alert from "./components/Alert"
-import ArrowSteps from "./components/Steps/Arrow/Main"
+import ArrowSteps from "./components/Steps/Arrow"
 import ArrowStep from "./components/Steps/Arrow/Step"
 import Board from "./components/Board/Main"
 import BubbleSteps from "./components/Steps/Bubble/Main"
