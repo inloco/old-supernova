@@ -43,12 +43,11 @@ class Alert extends React.Component {
       )
     }
 
-    return (<div className="sn-alert-hidden"></div>)
+    return (<div className="sn-alert-hidden" />)
   }
 
   componentWillReceiveProps(nextProps){
-    const { active } = nextProps
-    const { closeAfter } = nextProps
+    const { active, closeAfter } = nextProps
 
     if(active && closeAfter){
       this.closeAfter(closeAfter)
