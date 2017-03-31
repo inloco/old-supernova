@@ -40,6 +40,11 @@
     margin: 0 $default-alert-margin-mobile;
   }
 
+  .sn-alert--hidden {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  
   .sn-alert--icon {
     left: $default-alert-message-position;
     i {

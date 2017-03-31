@@ -1,7 +1,13 @@
-import React, { PropTypes } from "react"
-import ReactDOM from "react-dom"
+import React, { PropTypes } from 'react'
+import ReactDOM from 'react-dom'
+import Icon from './../Icons'
 
 class Alert extends React.Component {
+  constructor(props){
+    super(props)
+
+    this.handleCloseClick = this.handleCloseClick.bind(this)
+  }
   static propTypes = {
     message:    PropTypes.string.isRequired,
     type:       PropTypes.string,
@@ -16,8 +22,36 @@ class Alert extends React.Component {
     active: false
   }
 
-  componentDidMount() {
-    this.closeAfter(this.props.closeAfter)
+  render() {
+    const { active } = this.props
+
+    if(active) {
+      return (
+        <div className={this.getClassName()}>
+          {this.getIcon()}
+
+          <button
+            type="button"
+            className="sn-alert--close"
+            onClick={this.handleCloseClick}
+          >
+            <Icon code="&#xE14C;"/>
+          </button>
+
+          <div className="sn-alert--message">{this.props.message}</div>
+        </div>
+      )
+    }
+
+    return (<div className="sn-alert-hidden" />)
+  }
+
+  componentWillReceiveProps(nextProps){
+    const { active, closeAfter } = nextProps
+
+    if(active && closeAfter){
+      this.closeAfter(closeAfter)
+    }
   }
 
   handleCloseClick() {
@@ -48,24 +82,6 @@ class Alert extends React.Component {
         </div>
       )
     }
-  }
-
-  render() {
-    return (
-      <div className={this.getClassName()}>
-        {this.getIcon()}
-
-        <button
-          type="button"
-          className="sn-alert--close"
-          onClick={this.handleCloseClick.bind(this)}
-        >
-          <i className="material-icons">&#xE14C;</i>
-        </button>
-
-        <div className="sn-alert--message">{this.props.message}</div>
-      </div>
-    )
   }
 }
 

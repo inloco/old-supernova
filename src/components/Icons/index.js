@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react"
 
-class Icon extends React.Component {
+class Icon extends React.PureComponent {
   static propTypes = {
     code: PropTypes.string.isRequired
   }

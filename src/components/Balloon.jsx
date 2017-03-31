@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react"
-import Icon from './Icon'
+import Icon from './Icons'
 
 class Ballon extends React.Component {
   static propTypes = {
