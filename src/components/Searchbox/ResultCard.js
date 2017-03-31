@@ -1,7 +1,7 @@
 import React from 'react'
 import Grid from './../Grid'
 import Cell from './../Grid/Cell'
-import Text from './../Text/Main'
+import Text from './../Text'
 
 class ResultCard extends React.PureComponent {
   static propTypes = {
