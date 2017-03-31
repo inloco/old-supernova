@@ -1,5 +1,5 @@
 import React from 'react'
-import Alert from '../../src/components/Alert'
+import Alert from '../index'
 import { mount } from 'enzyme'
 
 jest.useRealTimers()
@@ -18,6 +18,7 @@ describe('Alert', () => {
   beforeEach(() => onClose.mockClear())
 
   it('will be close after 2 seconds', (done) => {
+    wrapper.setProps({ active: true })
     setTimeout(() => {
       expect(onClose).toBeCalled()
       done()
