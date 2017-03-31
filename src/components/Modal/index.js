@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 
 class Modal extends React.Component {
   static defaultProps = {
-    dismiss: true
+    dismiss: true,
   }
 
   constructor(props) {
@@ -27,12 +27,13 @@ class Modal extends React.Component {
   render() {
     const openClassName = this.state.open ? 'sn-modal--open' : ''
     const sizeClassName = this.props.size ? `sn-modal--${this.props.size}` : ''
+    const typeClassName = this.props.type ? `sn-modal--${this.props.type}` : ''
 
     return(
       <div className={this.props.className}>
         <div
           id={this.props.id}
-          className={`sn-modal ${openClassName} ${sizeClassName}`}
+          className={`sn-modal ${openClassName} ${sizeClassName} ${typeClassName}`}
           onClick={this.handleBackdropClick}
         >
           <div
