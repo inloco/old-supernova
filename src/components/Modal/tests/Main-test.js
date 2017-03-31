@@ -1,5 +1,5 @@
 import React from 'react'
-import Modal from "../../../src/components/Modal/Main"
+import Modal from './../index'
 import { shallow } from 'enzyme'
 
 describe('Modal', () => {

@@ -1,8 +1,8 @@
-import React, { PropTypes } from "react"
+import React, { PropTypes } from 'react'
 
-class Main extends React.Component {
+class Modal extends React.Component {
   static defaultProps = {
-    dismiss: true
+    dismiss: true,
   }
 
   constructor(props) {
@@ -22,6 +22,31 @@ class Main extends React.Component {
         open: nextProps.open
       })
     }
+  }
+
+  render() {
+    const openClassName = this.state.open ? 'sn-modal--open' : ''
+    const sizeClassName = this.props.size ? `sn-modal--${this.props.size}` : ''
+    const typeClassName = this.props.type ? `sn-modal--${this.props.type}` : ''
+
+    return(
+      <div className={this.props.className}>
+        <div
+          id={this.props.id}
+          className={`sn-modal ${openClassName} ${sizeClassName} ${typeClassName}`}
+          onClick={this.handleBackdropClick}
+        >
+          <div
+            className="sn-modal__wrap"
+            onClick={this.handleWrapClick}
+          >
+            <div className="sn-modal__content">{this.props.children}</div>
+          </div>
+        </div>
+
+        {this.state.open && this.renderBackdrop()}
+      </div>
+    )
   }
 
   // Modal Header uses to close on click in x button
@@ -46,34 +71,10 @@ class Main extends React.Component {
       <div className="sn-modal__backdrop is-visible"></div>
     )
   }
-
-  render() {
-    const openClassName = this.state.open ? 'sn-modal--open' : ''
-    const sizeClassName = this.props.size ? `sn-modal--${this.props.size}` : ''
-
-    return(
-      <div className={this.props.className}>
-        <div
-          id={this.props.id}
-          className={`sn-modal ${openClassName} ${sizeClassName}`}
-          onClick={this.handleBackdropClick}
-        >
-          <div
-            className="sn-modal__wrap"
-            onClick={this.handleWrapClick}
-          >
-            <div className="sn-modal__content">{this.props.children}</div>
-          </div>
-        </div>
-
-        {this.state.open && this.renderBackdrop()}
-      </div>
-    )
-  }
 }
 
-Main.childContextTypes = {
+Modal.childContextTypes = {
   onClose: React.PropTypes.func
 }
 
-export default Main
+export default Modal
