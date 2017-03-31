@@ -20,17 +20,4 @@ describe('Subheader', () => {
 
     expect(content.text()).toEqual('I am the content.')
   })
-
-  describe('No children', () => {
-    const emptyWrapper = shallow(
-      <Subheader>
-      </Subheader>
-    )
-
-    it('render no children', () => {
-      const content = emptyWrapper.children()
-
-      expect(content.length).toEqual(0)
-    })
-  })
 })

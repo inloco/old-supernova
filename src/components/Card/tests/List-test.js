@@ -1,6 +1,6 @@
 import React from 'react'
-import CardsList from './../../../src/components/Card/List'
-import Card from './../../../src/components/Card/Main'
+import CardsList from './../List'
+import Card from './../index'
 import { shallow } from 'enzyme'
 
 describe('CardsList', () => {
@@ -30,9 +30,9 @@ describe('CardsList', () => {
   })
 
   describe('when has strip option', () => {
-    beforeAll(() => wrapper.setProps({ strip: true }))
-
     it('has strip className', () => {
+      wrapper.setProps({ strip: true })
+
       expect(wrapper.hasClass('sn-card__list--strip')).toBeTruthy()
     })
   })
