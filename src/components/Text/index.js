@@ -14,11 +14,29 @@ class Text extends React.PureComponent {
     wrap: PropTypes.string,
     className: PropTypes.string,
     color: PropTypes.string,
-    span: PropTypes.bool
+    span: PropTypes.bool,
+    id: PropTypes.string
   }
 
   static defaultProps = {
     type: "body"
+  }
+
+  render() {
+    return this.getTag()
+  }
+
+  getTag() {
+    const {type, span, children, id} = this.props
+    const className = this.getClassName()
+
+    if(type === 'header') return this.getHeaderTag(className)
+
+    if(span) {
+      return <span id={id} className={className}>{children}</span>
+    }
+
+    return <p id={id} className={className}>{children}</p>
   }
 
   getClassName() {
@@ -43,39 +61,22 @@ class Text extends React.PureComponent {
   }
 
   getHeaderTag(className) {
-    const {children} = this.props
+    const {children, id} = this.props
 
     switch (this.props.size) {
       case "1":
-        return <h1 className={className}>{children}</h1>
+        return <h1 id={id} className={className}>{children}</h1>
       case "2":
-        return <h2 className={className}>{children}</h2>
+        return <h2 id={id} className={className}>{children}</h2>
       case "3":
-        return <h3 className={className}>{children}</h3>
+        return <h3 id={id} className={className}>{children}</h3>
       case "4":
-        return <h4 className={className}>{children}</h4>
+        return <h4 id={id} className={className}>{children}</h4>
       case "5":
-        return <h5 className={className}>{children}</h5>
+        return <h5 id={id} className={className}>{children}</h5>
       case "6":
-        return <h6 className={className}>{children}</h6>
+        return <h6 id={id} className={className}>{children}</h6>
     }
-  }
-
-  getTag() {
-    const {type, span, children} = this.props
-    const className = this.getClassName()
-
-    if(type === 'header') return this.getHeaderTag(className)
-
-    if(span) {
-      return <span className={className}>{children}</span>
-    }
-
-    return <p className={className}>{children}</p>
-  }
-
-  render() {
-    return this.getTag()
   }
 }
 

@@ -18,34 +18,34 @@
 // PRIMARY COLOR CLASSES
 
 // Brand colors
-.sn-color--accent                   { color: $default-accent-color };
-.sn-color--primary                   { color: $default-primary-color };
+.sn-color--accent                   { color: $default-accent-color !important; }
+.sn-color--primary                   { color: $default-primary-color !important; }
 
 // System colors
-.sn-color--success                  { color: $default-success-color;  }
-.sn-color--info                     { color: $default-info-color; }
-.sn-color--warning                  { color: $default-warning-color; }
-.sn-color--danger                   { color: $default-danger-color; }
-.sn-background-color--success       { background-color: $default-success-color;  }
-.sn-background-color--info          { background-color: $default-info-color;  }
-.sn-background-color--warning       { background-color: $default-warning-color;  }
-.sn-background-color--danger        { background-color: $default-danger-color;  }
+.sn-color--success                  { color: $default-success-color !important; }
+.sn-color--info                     { color: $default-info-color !important; }
+.sn-color--warning                  { color: $default-warning-color !important; }
+.sn-color--danger                   { color: $default-danger-color !important; }
+.sn-background-color--success       { background-color: $default-success-color !important; }
+.sn-background-color--info          { background-color: $default-info-color !important; }
+.sn-background-color--warning       { background-color: $default-warning-color !important; }
+.sn-background-color--danger        { background-color: $default-danger-color !important; }
 
 
 // Text Colors
-.sn-color--primary-text             { color: $default-text-color-primary; }
-.sn-color--secondary-text           { color: $default-text-color-secondary; }
-.sn-color--disabled-text            { color: $default-text-color-disabled; }
-.sn-color--contrast-text            { color: $default-text-color-contrast; }
+.sn-color--primary-text             { color: $default-text-color-primary !important; }
+.sn-color--secondary-text           { color: $default-text-color-secondary !important; }
+.sn-color--disabled-text            { color: $default-text-color-disabled !important; }
+.sn-color--contrast-text            { color: $default-text-color-contrast !important; }
 
 
 // White
 .sn-color--white                    { color: $color-white; }
-.sn-background-color--white         { background-color: $color-white; }
+.sn-background-color--white         { background-color: $color-white !important;; }
 
 // Black
 .sn-color--black                    { color: $color-black; }
-.sn-background-color--black         { background-color: $color-black; }
+.sn-background-color--black         { background-color: $color-black !important;; }
 
 
 
