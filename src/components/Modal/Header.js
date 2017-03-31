@@ -1,6 +1,6 @@
-import React, { PropTypes } from "react"
-import Button from "./../Button"
-import Icon from "./../Icons"
+import React, { PropTypes } from 'react'
+import Button from './../Button'
+import Icon from './../Icons'
 
 class Header extends React.Component {
   render() {
