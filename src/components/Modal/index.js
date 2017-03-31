@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-class Main extends React.Component {
+class Modal extends React.Component {
   static defaultProps = {
     dismiss: true
   }
@@ -22,29 +22,6 @@ class Main extends React.Component {
         open: nextProps.open
       })
     }
-  }
-
-  // Modal Header uses to close on click in x button
-  getChildContext() {
-    return {
-      onClose: this.props.onClose
-    }
-  }
-
-  handleBackdropClick(event) {
-    if(this.props.dismiss) {
-      this.props.onClose()
-    }
-  }
-
-  handleWrapClick(event) {
-    event.stopPropagation()
-  }
-
-  renderBackdrop() {
-    return (
-      <div className="sn-modal__backdrop is-visible"></div>
-    )
   }
 
   render() {
@@ -70,10 +47,33 @@ class Main extends React.Component {
       </div>
     )
   }
+
+  // Modal Header uses to close on click in x button
+  getChildContext() {
+    return {
+      onClose: this.props.onClose
+    }
+  }
+
+  handleBackdropClick(event) {
+    if(this.props.dismiss) {
+      this.props.onClose()
+    }
+  }
+
+  handleWrapClick(event) {
+    event.stopPropagation()
+  }
+
+  renderBackdrop() {
+    return (
+      <div className="sn-modal__backdrop is-visible"></div>
+    )
+  }
 }
 
-Main.childContextTypes = {
+Modal.childContextTypes = {
   onClose: React.PropTypes.func
 }
 
-export default Main
+export default Modal
