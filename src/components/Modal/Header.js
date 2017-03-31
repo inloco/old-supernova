@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import Button from './../Button'
 import Icon from './../Icons'
 
-class Header extends React.Component {
+class Header extends React.PureComponent {
   render() {
     return(
       <div className="sn-modal__header">
