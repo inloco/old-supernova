@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react"
-import BaseSteps from "./../Main"
+import BaseSteps from "./../index"
 
 class Steps extends BaseSteps {
   static propTypes = {
@@ -13,7 +13,7 @@ class Steps extends BaseSteps {
   }
 
   getRaisedClassName() {
-    return this.props.raised ? "sn-steps--raised" : ""
+    return this.props.raised ? 'sn-steps--raised' : ''
   }
 
   getClassName() {
