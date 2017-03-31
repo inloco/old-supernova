@@ -2,7 +2,7 @@ import React, { PropTypes } from "react"
 
 class Group extends React.PureComponent {
   static propTypes = {
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
     children: PropTypes.any.isRequired,
     id: PropTypes.string,
     className: PropTypes.string,

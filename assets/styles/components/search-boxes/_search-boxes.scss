@@ -199,6 +199,14 @@
     }
   }
 
+  .sn-search-box__input--spinner {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+  }
+
   .sn-search-box__message {
     position: absolute;
     display: block;

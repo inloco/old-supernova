@@ -35,7 +35,10 @@
       "js",
       "json",
       "jsx"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.(css|jpg|png|svg)$": "<rootDir>/tests/utils/empty-module.js"
+    }
   },
   "dependencies": {
     "autoprefixer": "^6.3.7",
