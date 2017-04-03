@@ -7,12 +7,12 @@ class Cell extends React.PureComponent {
     percent: PropTypes.string,
     exponential: PropTypes.string,
     dynamic: PropTypes.string,
-    padding: PropTypes.string,
+    padding: PropTypes.any,
     order: PropTypes.string,
     align: PropTypes.string,
     alignContent: PropTypes.string,
     wrap: PropTypes.string,
-    ellipsis: PropTypes.string
+    ellipsis: PropTypes.any
   }
 
   static defaultProps = {
@@ -20,7 +20,7 @@ class Cell extends React.PureComponent {
   }
 
   render() {
-    const { className, ...cellProps } = this.props
+    const { className, children } = this.props
     const sizeClassName = this.getSizeClassName()
     const percentClassName = this.getPercentClassName()
     const exponentialClassName = this.getExponentialClassName()
@@ -46,8 +46,10 @@ class Cell extends React.PureComponent {
           ${alignContentClassName}
           ${wrapClassName}
           ${ellipsisClassName}
-        `} {...cellProps}
-      />
+        `}
+      >
+       {children}
+      </div>
     )
   }
 
