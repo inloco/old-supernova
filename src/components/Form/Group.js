@@ -1,4 +1,6 @@
 import React, { PropTypes } from "react"
+import Tooltip from './../Tooltip'
+import Icon from './../Icons'
 
 class Group extends React.PureComponent {
   static propTypes = {
@@ -18,12 +20,30 @@ class Group extends React.PureComponent {
         id={id}
         className={`sn-form-group ${className || ''} ${this.errorClassName()}`}
       >
-        <span className="sn-form-group__label">
-          {label}
-        </span>
+        {label && this.renderLabel()}
         {this.renderChildren()}
         {error && this.renderError()}
       </div>
+    )
+  }
+
+  renderLabel() {
+    return (
+      <span className="sn-form-group__label">
+        {this.props.label}
+        {this.props.info && this.renderInfo()}
+      </span>
+    )
+  }
+
+  renderInfo() {
+    return (
+      <Tooltip
+        message={this.props.info}
+        position="bottom-left"
+      >
+        <Icon code="info" />
+      </Tooltip>
     )
   }
 

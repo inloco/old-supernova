@@ -1,16 +1,34 @@
-import React, { PropTypes } from "react"
+import React, { PropTypes } from 'react'
+import Tooltip from './../Tooltip'
+import Icon from './../Icons'
 
 class Select extends React.Component {
   render() {
-    const { id, label, children } = this.props
+    const { id, label, children, info } = this.props
 
     return(
       <div className="sn-select" id={id}>
-        <select>{children}</select>
+        <select onChange={this.props.onChange}>{children}</select>
+
         <label htmlFor="select" className="sn-field__label sn-field__label--fixed">{label}</label>
+
         <i className="sn-field__bar"></i>
+
+        {info && this.renderInfo()}
+
         <span className="sn-form-group__message">Error message</span>
       </div>
+    )
+  }
+
+  renderInfo() {
+    return (
+      <Tooltip
+        message={this.props.info}
+        position="bottom-left"
+      >
+        <Icon code="info" />
+      </Tooltip>
     )
   }
 }
