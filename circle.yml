@@ -13,4 +13,6 @@ test:
     - npm test -- --coverage
   post:
     - mkdir -p $CIRCLE_ARTIFACTS/coverage-test
-    - mv coverage/lcov-report $CIRCLE_ARTIFACTS/coverage-test
+    - mv coverage/lcov-report $CIRCLE_ARTIFACTS/coverage-test/index.html
+    - mv coverage/lcov-report $CIRCLE_ARTIFACTS/coverage-test/base.css
+    - mv coverage/lcov-report $CIRCLE_ARTIFACTS/coverage-test/prettify.css
