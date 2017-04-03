@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react"
 
-class Main extends React.Component {
+class Pills extends React.Component {
   static propTypes = {
     name: PropTypes.string
   }
@@ -29,4 +29,4 @@ class Main extends React.Component {
   }
 }
 
-export default Main
+export default Pills
