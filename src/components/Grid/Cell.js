@@ -1,94 +1,121 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
-function getSizeClassName(size) {
-  return size ? `sn-cell--${size}` : ''
-}
-
-function getPercentClassName(percent) {
-  return percent ? `sn-cell--${percent}perc` : ''
-}
-
-function getExponentialClassName(exponential) {
-  return exponential ? `sn-cell--${exponential}expo` : ''
-}
-
-function getDynamicClassName(dynamic) {
-  return dynamic ? `sn-cell--${dynamic}` : ''
-}
-
-function getPaddingClassName(padding) {
-  if(padding) {
-    return typeof padding === 'string'
-              ? `sn-cell--padding-${padding}`
-              : 'sn-cell--padding'
+class Cell extends React.PureComponent {
+  static propTypes = {
+    className: PropTypes.string,
+    size: PropTypes.string,
+    percent: PropTypes.string,
+    exponential: PropTypes.string,
+    dynamic: PropTypes.string,
+    padding: PropTypes.string,
+    order: PropTypes.string,
+    align: PropTypes.string,
+    alignContent: PropTypes.string,
+    wrap: PropTypes.string,
+    ellipsis: PropTypes.string
   }
 
-  return ''
-}
+  static defaultProps = {
+    className: ''
+  }
 
-function getOrderClassName(order) {
-  return order ? `sn-cell--order-${order}` : ''
-}
+  render() {
+    const { className, ...cellProps } = this.props
+    const sizeClassName = this.getSizeClassName()
+    const percentClassName = this.getPercentClassName()
+    const exponentialClassName = this.getExponentialClassName()
+    const dynamicClassName = this.getDynamicClassName()
+    const paddingClassName = this.getPaddingClassName()
+    const orderClassName = this.getOrderClassName()
+    const alignClassName = this.getAlignClassName()
+    const alignContentClassName = this.getAlignContentClassName()
+    const wrapClassName = this.getWrapClassName()
+    const ellipsisClassName = this.getEllipsisClassName()
 
-function getAlignClassName(align) {
-  return align ? `sn-cell--item-${align}` : ''
-}
+    return (
+      <div
+        className={`
+          ${sizeClassName}
+          ${className}
+          ${percentClassName}
+          ${exponentialClassName}
+          ${dynamicClassName}
+          ${paddingClassName}
+          ${orderClassName}
+          ${alignClassName}
+          ${alignContentClassName}
+          ${wrapClassName}
+          ${ellipsisClassName}
+        `} {...cellProps}
+      />
+    )
+  }
 
-function getAlignContentClassName(alignContent) {
-  return alignContent ? `sn-cell--text-${alignContent}` : ''
-}
+  getSizeClassName() {
+    const { size } = this.props
 
-function getWrapClassName(wrap) {
-  return wrap ? `sn-cell--${wrap}` : ''
-}
+    return size ? `sn-cell--${size}` : ''
+  }
 
-function getEllipsisClassName(ellipsis) {
-  return ellipsis ? 'sn-cell--ellipsis' : ''
-}
+  getPercentClassName() {
+    const { percent } = this.props
 
-const Cell = props => {
-  const {
-    size,
-    percent,
-    exponential,
-    dynamic,
-    padding,
-    order,
-    align,
-    alignContent,
-    wrap,
-    ellipsis,
-    className,
-    ...cellProps
-  } = props
-  const sizeClassName = getSizeClassName(size)
-  const percentClassName = getPercentClassName(percent)
-  const exponentialClassName = getExponentialClassName(exponential)
-  const dynamicClassName = getDynamicClassName(dynamic)
-  const paddingClassName = getPaddingClassName(padding)
-  const orderClassName = getOrderClassName(order)
-  const alignClassName = getAlignClassName(align)
-  const alignContentClassName = getAlignContentClassName(alignContent)
-  const wrapClassName = getWrapClassName(wrap)
-  const ellipsisClassName = getEllipsisClassName(ellipsis)
+    return percent ? `sn-cell--${percent}perc` : ''
+  }
 
-  return (
-    <div
-      className={`
-        ${sizeClassName}
-        ${className}
-        ${percentClassName}
-        ${exponentialClassName}
-        ${dynamicClassName}
-        ${paddingClassName}
-        ${orderClassName}
-        ${alignClassName}
-        ${alignContentClassName}
-        ${wrapClassName}
-        ${ellipsisClassName}
-      `} {...cellProps}
-    />
-  )
+  getExponentialClassName() {
+    const { exponential } = this.props
+
+    return exponential ? `sn-cell--${exponential}expo` : ''
+  }
+
+  getDynamicClassName() {
+    const { dynamic } = this.props
+
+    return dynamic ? `sn-cell--${dynamic}` : ''
+  }
+
+  getPaddingClassName() {
+    const { padding } = this.props
+
+    if(padding) {
+      return typeof padding === 'string'
+                ? `sn-cell--padding-${padding}`
+                : 'sn-cell--padding'
+    }
+
+    return ''
+  }
+
+  getOrderClassName() {
+    const { order } = this.props
+
+    return order ? `sn-cell--order-${order}` : ''
+  }
+
+  getAlignClassName() {
+    const { align } = this.props
+
+    return align ? `sn-cell--item-${align}` : ''
+  }
+
+  getAlignContentClassName() {
+    const { alignContent } = this.props
+
+    return alignContent ? `sn-cell--text-${alignContent}` : ''
+  }
+
+  getWrapClassName() {
+    const { wrap } = this.props
+
+    return wrap ? `sn-cell--${wrap}` : ''
+  }
+
+  getEllipsisClassName() {
+    const { ellipsis } = this.props
+
+    return ellipsis ? 'sn-cell--ellipsis' : ''
+  }
 }
 
 export default Cell
