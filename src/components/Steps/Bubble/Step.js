@@ -1,5 +1,5 @@
-import React, { PropTypes } from "react"
-import BaseStep from "./../Step"
+import React, { PropTypes } from 'react'
+import BaseStep from './../Step'
 
 class Step extends BaseStep {
   render() {

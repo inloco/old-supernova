@@ -1,16 +1,12 @@
-import React, { PropTypes } from "react"
-import BaseStep from "./../Step"
+import React, { PropTypes } from 'react'
+import BaseStep from './../Step'
 
-const IS_DONE = "is-done"
+const IS_DONE = 'is-done'
 
 class Step extends BaseStep {
   static propTypes = {
     ...BaseStep.propTypes,
-    index:  PropTypes.number
-  }
-
-  static defaultProps = {
-    active: false
+    index: PropTypes.number
   }
 
   getClassName() {

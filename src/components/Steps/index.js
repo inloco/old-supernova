@@ -1,8 +1,8 @@
-import React, { PropTypes } from "react"
+import React, { PropTypes } from 'react'
 
 class Steps extends React.Component {
   static propTypes = {
-    children:    PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
     activeStep: PropTypes.number
   }
 
@@ -14,9 +14,9 @@ class Steps extends React.Component {
     const { activeStep } = this.props
 
     if(index < activeStep) {
-      return "done"
+      return 'done'
     } else if (index === activeStep) {
-      return "active"
+      return 'active'
     }
   }
 
@@ -25,7 +25,7 @@ class Steps extends React.Component {
       return React.cloneElement(step, {
         index,
         status: this.getStatusByIndex(index),
-        key:    index
+        key: index
       })
     })
   }

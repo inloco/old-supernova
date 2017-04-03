@@ -1,38 +1,55 @@
 import React from 'react'
 import Step from './../Step'
-import Steps from './../index'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
 
 describe('Steps Arrow Item', () => {
-  const wrapper = mount (
-    <Steps activeStep={1}>
-      <Step label="Informações Gerais"/>
-      <Step label="Endereço" />
-    </Steps>
+  const wrapper = shallow (
+    <Step label="Informações Gerais" index={0} />
   )
 
-  it('has steps done item class', () => {
-    const item = wrapper.find('[className="sn-steps__item is-done"]')
+  it('has label', () => {
+    const expectedLabel = 'Informações Gerais'
 
-    expect(item.children().length).toEqual(1)
+   expect(wrapper.contains(expectedLabel)).toBeTruthy()
   })
 
-  it('has setps active item class', () => {
-    const item = wrapper.find('[className="sn-steps__item is-active"]')
-    
-    expect(item.children().length).toEqual(1)
+  it('has not status class', () => {
+    expect(wrapper.hasClass('is-active')).toBeFalsy()
+  })
+
+  it('has active class', () => {
+    wrapper.setProps({ status: 'active' })
+
+    expect(wrapper.hasClass('is-active')).toBeTruthy()
+  })
+
+  it('has sn-steps__item class', () => {
+    expect(wrapper.hasClass('sn-steps__item')).toBeTruthy()
   })
 
   it("has icon with correct number", () => {
-    const item = wrapper.find('[className="sn-steps__item is-done"]')
-    const i = item.find('i')
+    const expectedIconNumber = '1'
+    const currentIconNumber = wrapper.find('i').text()
 
-    expect(i.text()).toEqual("done")
+    expect(currentIconNumber).toEqual(expectedIconNumber)
   })
 
-  it("has label", () => {
-    const item = wrapper.find('[className="sn-steps__item is-done"]')
+  describe('the step is done', () => {
+    it('has done class', () => {
+      wrapper.setProps({ status: 'done' })
 
-    expect(item.text().includes("Informações Gerais")).toBeTruthy()
+      expect(wrapper.hasClass('is-done')).toBeTruthy()
+    })
+  
+    it("has material icons class", () => {
+      expect(wrapper.find('i').hasClass('material-icons')).toBeTruthy()
+    })
+
+    it("has icon with correct number", () => {
+      const expectedIconNumber = 'done'
+      const currentIconNumber = wrapper.find('i').text()
+
+      expect(currentIconNumber).toEqual(expectedIconNumber)
+    })
   })
 })
