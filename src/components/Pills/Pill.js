@@ -1,11 +1,12 @@
-import React, { PropTypes } from "react"
+import React, { PropTypes } from 'react'
 
-class Pill extends React.Component {
+class Pill extends React.PureComponent {
   constructor(props) {
     super(props)
 
     this.handleClick = this.handleClick.bind(this)
   }
+
   static propTypes = {
     name:           PropTypes.string,
     value:          PropTypes.string,
@@ -15,6 +16,17 @@ class Pill extends React.Component {
 
   static defaultProps = {
     defaultChecked: false
+  }
+
+  render() {
+    return (
+      <label className="sn-pills__label" onClick={this.handleClick}>
+        <input type="radio" {...this.getRadioProps()} />
+        <span className={`sn-pills__label--content ${this.getActiveClass()}`}>
+          {this.props.label}
+        </span>
+      </label>
+    )
   }
 
   getRadioProps() {
@@ -32,17 +44,6 @@ class Pill extends React.Component {
 
   getActiveClass() {
     return this.props.defaultChecked ? 'active' : ''
-  }
-
-  render() {
-    return (
-      <label className="sn-pills__label" onClick={this.handleClick}>
-        <input type="radio" {...this.getRadioProps()} />
-        <span className={`sn-pills__label--content ${this.getActiveClass()}`}>
-          {this.props.label}
-        </span>
-      </label>
-    )
   }
 }
 

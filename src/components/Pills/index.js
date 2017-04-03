@@ -1,12 +1,23 @@
-import React, { PropTypes } from "react"
+import React, { PropTypes } from 'react'
 
-class Pills extends React.Component {
+class Pills extends React.PureComponent {
   static propTypes = {
-    name: PropTypes.string
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    defaultChecked: PropTypes.number
   }
 
   static defaultProps = {
+    name: '',
     defaultChecked: 0
+  }
+
+  render() {
+    return (
+      <div className="sn-pills">
+        {this.renderChildren()}
+      </div>
+    )
   }
 
   renderChildren() {
@@ -18,14 +29,6 @@ class Pills extends React.Component {
         onChange: this.props.onChange
       })
     })
-  }
-
-  render() {
-    return (
-      <div className="sn-pills">
-        {this.renderChildren()}
-      </div>
-    )
   }
 }
 
