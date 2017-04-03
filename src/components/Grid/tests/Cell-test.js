@@ -17,7 +17,7 @@ describe('Cell', () => {
 
   describe('proportional size', () => {
     it('is 2 of size', () => {
-      wrapper.setProps({ size: 2 })
+      wrapper.setProps({ size: "2" })
       const cell = wrapper.find('.sn-cell--2')
 
       expect(cell.length).toEqual(1)
@@ -26,7 +26,7 @@ describe('Cell', () => {
 
   describe('percentage size', () => {
     it('is 10 percent', () => {
-      wrapper.setProps({ percent: 10 })
+      wrapper.setProps({ percent: "10" })
       const cell = wrapper.find('.sn-cell--10perc')
 
       expect(cell.length).toEqual(1)
@@ -35,7 +35,7 @@ describe('Cell', () => {
 
   describe('exponential size', () => {
     it('is 1 exponential', () => {
-      wrapper.setProps({ exponential: 1 })
+      wrapper.setProps({ exponential: "1" })
       const cell = wrapper.find('.sn-cell--1expo')
 
       expect(cell.length).toEqual(1)

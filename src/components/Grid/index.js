@@ -19,6 +19,10 @@ class Grid extends React.PureComponent {
     className: PropTypes.string
   }
 
+  static defaultProps = {
+    className: ''
+  }
+
   render() {
     const { className, children } = this.props
     const gridTypeClassName = this.getGridTypeClassName()
