@@ -22,7 +22,7 @@ class ResultCard extends React.PureComponent {
       <div onMouseDown={this.handleMouseDown}>
         <div className="sn-search-box__item-content">
           <Grid responsive="mobile-lg" gutter>
-            <Cell size={1}>
+            <Cell size="1">
               <Text span fontWeight="bold">
                 {result.title}
               </Text>
@@ -36,7 +36,7 @@ class ResultCard extends React.PureComponent {
           </Grid>
 
           <Grid responsive="mobile-lg">
-            <Cell size={1}>
+            <Cell size="1">
               <Text span color="sn-color--secondary-text" wrap="caption">
                 {result.subtitle}
               </Text>

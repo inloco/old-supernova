@@ -7,3 +7,5 @@ build
 # OS files
 .DS_STORE
 .vscode/
+
+coverage
