@@ -23,11 +23,11 @@ describe('Pills', () => {
 
   it('has the first pill input checked', () => {
     const first = wrapper.find('[className="sn-pills__label"]').first()
-    const input = first.find('input')
+    const span = first.find('span')
 
-    expect(input.props().defaultChecked).toBeTruthy()
+    expect(span.props().className).toEqual('sn-pills__label--content active')
   })
-  
+
   it('has pills inputs with the same name', () => {
     const inputs = wrapper.find('input')
 

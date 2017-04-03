@@ -11,11 +11,11 @@ class Pill extends React.PureComponent {
     name:           PropTypes.string,
     value:          PropTypes.string,
     label:          PropTypes.string,
-    defaultChecked: PropTypes.bool
+    active: PropTypes.bool
   }
 
   static defaultProps = {
-    defaultChecked: false
+    active: false
   }
 
   render() {
@@ -30,9 +30,9 @@ class Pill extends React.PureComponent {
   }
 
   getRadioProps() {
-    const { name, value, defaultChecked } = this.props
+    const { name, value } = this.props
 
-    return { name, value, defaultChecked }
+    return { name, value }
   }
 
   handleClick() {
@@ -43,7 +43,7 @@ class Pill extends React.PureComponent {
   }
 
   getActiveClass() {
-    return this.props.defaultChecked ? 'active' : ''
+    return this.props.active ? 'active' : ''
   }
 }
 

@@ -13,11 +13,11 @@ describe('Pills items', () => {
 
   it('has content', () => {
     const label = wrapper.find('label').find('span')
-  
+
     expect(label.text()).toEqual('Item 1')
   })
 
-  
+
   describe('Input', () => {
     const inputWrapper = wrapper.find('input[type="radio"]')
 
@@ -25,12 +25,8 @@ describe('Pills items', () => {
       expect(inputWrapper.props().value).toEqual('zoombie')
     })
 
-    it('has lala name', () => {
+    it('has no lala name', () => {
       expect(inputWrapper.props().name).toEqual(undefined)
-    })
-
-    it('is checked', () => {
-      expect(inputWrapper.props().defaultChecked).toBeFalsy()
     })
   })
 })

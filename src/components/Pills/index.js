@@ -4,12 +4,12 @@ class Pills extends React.PureComponent {
   static propTypes = {
     name: PropTypes.string,
     onChange: PropTypes.func,
-    defaultChecked: PropTypes.number
+    active: PropTypes.number
   }
 
   static defaultProps = {
     name: '',
-    defaultChecked: 0
+    active: 0
   }
 
   render() {
@@ -25,7 +25,7 @@ class Pills extends React.PureComponent {
       return React.cloneElement(child, {
         name: this.props.name,
         key: index,
-        defaultChecked: index === this.props.defaultChecked,
+        active: index === this.props.active,
         onChange: this.props.onChange
       })
     })
