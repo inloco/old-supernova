@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 class Cell extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    size: PropTypes.string,
+    size: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
     percent: PropTypes.string,
     exponential: PropTypes.string,
     dynamic: PropTypes.string,
