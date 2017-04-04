@@ -3,17 +3,18 @@ import Label from "./Label"
 
 class TextArea extends React.Component {
   static propTypes = {
-    id:              PropTypes.string,
-    name:            PropTypes.string,
-    rows:            PropTypes.number,
-    tabIndex:        PropTypes.number,
-    required:        PropTypes.bool,
-    label:           PropTypes.string
+    id: PropTypes.string,
+    name: PropTypes.string,
+    rows: PropTypes.number,
+    tabIndex: PropTypes.number,
+    required: PropTypes.bool,
+    label: PropTypes.string,
+    limit: PropTypes.number
   }
 
   static defaultProps = {
     tabIndex: 0,
-    value: ""
+    value: ''
   }
 
   constructor(props) {
@@ -33,13 +34,13 @@ class TextArea extends React.Component {
   handleChange(event) {
     event.persist()
 
-    this.setState({
-      value: event.target.value
-    }, () => {
-      if(typeof this.props.onChange === "function") {
-        this.props.onChange(event)
-      }
-    })
+    const { onChange, limit } = this.props
+    const value = event.target.value
+    const haveLimitSize = limit ? value.length <= limit : true
+
+    if(!haveLimitSize) return undefined
+
+    this.setState({ value }, () => onChange && onChange(event))
   }
 
   getTextAreaClassName() {
@@ -47,7 +48,7 @@ class TextArea extends React.Component {
   }
 
   getTextAreaProps() {
-    const { value, error, fixed, label, ...validProps } = this.props
+    const { value, error, fixed, label, limit, ...validProps } = this.props
 
     return {
       ...validProps,
@@ -58,18 +59,45 @@ class TextArea extends React.Component {
   }
 
   render() {
-    const { id, label } = this.props
+    const { id, label, fixed, error, limit } = this.props
 
     return (
-      <div className={`sn-input ${this.props.error ? 'has-error' : ''}`}>
+      <div className={this.getWrapperClassName()}>
         <textarea {...this.getTextAreaProps()}/>
-        <Label value={label} htmlFor={id} />
-        <i className="sn-field__bar"></i>
 
-        <span className="sn-form-group__message">
-          {this.props.error}
-        </span>
+        <Label value={label} htmlFor={id} fixed={fixed} />
+
+        <i className="sn-field__bar" />
+
+        {limit && this.renderCounter()}
+        {error && this.renderError()}
       </div>
+    )
+  }
+
+  getWrapperClassName() {
+    return `
+      sn-input
+      ${this.props.error ? 'has-error' : ''}
+    `
+  }
+
+  renderCounter() {
+    const { limit } = this.props
+    const currentLength = this.state.value.length
+
+    return (
+      <span className="sn-field__counter sn-color--primary">
+        {`${currentLength}\/${limit}`}
+      </span>
+    )
+  }
+
+  renderError() {
+    return (
+      <span className="sn-form-group__message">
+        {error}
+      </span>
     )
   }
 }

@@ -16,7 +16,7 @@
 
 // Form group
 $default-form-group-container-paddings                  : (($vm*4) * 1.5) (($hm*4) * 1.5);
-$default-form-group-margin                              : $vm 0 $vm*2 0;
+$default-form-group-margin                              : $vm 0 $vm*4 0;
 
 // Form & Field labels
 $default-form-label-font-size                           : $dfs * .9;
@@ -29,7 +29,7 @@ $default-form-label-font-size-floating-focus            : $default-form-label-fo
 $default-form-label-font-size-floating-position-top     : $default-form-label-fixed-position-top;
 
 // Input & Select
-$default-input-select-margin            : ($vm*6) 0 ($vm*4) 0;
+$default-input-select-margin            : ($vm*6) 0 ($vm*2) 0;
 
 // Select
 $default-select-height                  : ($vm*8.5);
@@ -83,7 +83,7 @@ $default-input-icon-margin                          : $hm;
 // Tooltips for Input, Select & Form Group
 $default-input-tooltip-top-position                 : -($vm * 4);
 $default-input-tooltip-group-label-top-position     : $vm * 4;
-$default-input-tooltip-icon-font-size               : $dfs * 1.4285714286; // ~20px
+$default-input-tooltip-icon-font-size               : $vm * 4; // 16px
 
 // Transitions
 $default-form-animation-transition                  : 0.28s !default;

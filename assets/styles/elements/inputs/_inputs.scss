@@ -30,9 +30,10 @@
 // Form Group
 
 .sn-form-group {
-  // scss-lint:disable QualifyingElement, NestingDepth
+  @include clearfix();
   position: relative;
   margin: $default-form-group-margin;
+
   .sn-form-group__label {
     display: block;
     font-size: $default-form-label-font-size;
@@ -40,6 +41,10 @@
     padding: $default-form-label-padding;
     top: -$default-form-label-padding;
     left: 0;
+  }
+
+  .sn-input {
+    margin-bottom: 0;
   }
 }
 
@@ -417,11 +422,16 @@
 // ERROR MESSAGES
 
 
-.sn-form-group__message {
+.sn-form-group__message,
+.sn-field__counter {
   display: none;
   padding: $default-form-group-message-padding;
   font-size: $default-form-group-message-font-size;
   line-height: $default-form-group-line-height;
+}
+
+.sn-field__counter {
+  display: block;
 }
 
 .sn-form-group__message + .sn-form-group__message {

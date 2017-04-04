@@ -1,29 +1,77 @@
-jest.unmock("../factories/components/textArea-factory")
+import React from 'react'
+import TextArea from '../../src/components/TextArea'
+import Label from '../../src/components/Label'
+import { shallow } from 'enzyme'
 
-import TextAreaFactory from "../factories/components/textArea-factory"
+describe('TextArea', () => {
+  const onChange = jest.fn()
+  const wrapper = shallow(
+    <TextArea
+      id="targeting_geo_locations"
+      name="targeting[geo_locations]"
+      rows={5}
+      tabIndex={3}
+      label="some label"
+      onChange={onChange}
+    />
+  )
 
-import React from "react"
-import ReactDOM from "react-dom"
-import TestUtils from "react-addons-test-utils"
-import TextArea from "../../src/components/TextArea"
+  const textArea = wrapper.find('textarea')
 
-describe("TextArea", () => {
-  const factory = new TextAreaFactory
-  const node = factory.getNode().querySelector("textarea")
-
-  it("has id", () => {
-    expect(node.getAttribute("id")).toEqual("targeting_geo_locations")
+  beforeEach(() => {
+    onChange.mockClear()
   })
 
-  it("has name", () => {
-    expect(node.getAttribute("name")).toEqual("targeting[geo_locations]")
+  it('has id', () => {
+    expect(textArea.props().id).toEqual('targeting_geo_locations')
   })
 
-  it("has rows", () => {
-    expect(node.getAttribute("rows")).toEqual("5")
+  it('has name', () => {
+    expect(textArea.props().name).toEqual('targeting[geo_locations]')
   })
 
-  it("has tabindex", () => {
-    expect(node.tabIndex).toEqual(3)
+  it('has rows', () => {
+    expect(textArea.props().rows).toEqual(5)
+  })
+
+  it('has label', () => {
+    expect(wrapper.find(Label).props().value).toEqual('some label')
+  })
+
+  it('has tabindex', () => {
+    expect(textArea.props().tabIndex).toEqual(3)
+  })
+
+  describe('when change value', () => {
+    const mockEvent = {
+      persist: () => {},
+      target: {
+        value: 'sometest'
+      }
+    }
+
+    it('calls onChange', () => {
+      textArea.simulate('change', mockEvent)
+
+      expect(onChange).toBeCalled()
+    })
+
+    describe('when limit the number of characters', () => {
+      beforeEach(() => {
+        wrapper.setProps({ limit: 5 })
+      })
+
+      it('not calls onChange', () => {
+        wrapper.find('textarea').simulate('change', mockEvent)
+
+        expect(onChange).not.toBeCalled()
+      })
+
+      it('has counter', () => {
+        const counter = wrapper.find('.sn-field__counter')
+
+        expect(counter.text()).toEqual('0/5')
+      })
+    })
   })
 })
