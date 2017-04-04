@@ -20,4 +20,34 @@ describe('Table', () => {
 
     expect(children).not.toBe(undefined)
   })
+
+  describe('styled table', () => {
+    it('has sn-table--stripped class', () => {
+      wrapper.setProps({ stripped: true })
+      const table = wrapper.find('table')
+
+      expect(table.props().className.includes('sn-table--stripped')).toBeTruthy()
+    })
+
+    it('has sn-table--bordered class', () => {
+      wrapper.setProps({ bordered: true })
+      const table = wrapper.find('table')
+
+      expect(table.props().className.includes('sn-table--bordered')).toBeTruthy()
+    })
+
+    it('has sn-table--flat class', () => {
+      wrapper.setProps({ flat: true })
+      const table = wrapper.find('table')
+
+      expect(table.props().className.includes('sn-table--flat')).toBeTruthy()
+    })
+
+    it('has sn-table--only-content class', () => {
+      wrapper.setProps({ onlyContent: true })
+      const table = wrapper.find('table')
+
+      expect(table.props().className.includes('sn-table--only-content')).toBeTruthy()
+    })
+  })
 })
