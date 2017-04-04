@@ -122,5 +122,38 @@ describe('Searchbox', () => {
         })
       })
     })
+
+    describe('when has filter prop', () => {
+      beforeEach(() => {
+        wrapper.setProps({ filter: true })
+      })
+
+      it('displays only Shoppings when type shop', () => {
+        input.simulate('change', { target: { value: 'shop' }})
+
+        expect(wrapper.find(ResultCard)).toHaveLength(1)
+      })
+
+      it('doesnt display any results when type not matched value', () => {
+        input.simulate('change', { target: { value: '----some-random-value---' }})
+
+        expect(wrapper.find(ResultCard)).toHaveLength(0)
+      })
+    })
+
+    describe('when has single props', () => {
+      beforeEach(() => {
+        wrapper.setProps({ single: true })
+        wrapper.setState({ selectedResults: [{ id: '1' }]})
+      })
+
+      it('displays only one result', () => {
+        expect(wrapper.find('.sn-search-box__item-content')).toHaveLength(1)
+      })
+
+      it('doesnt display input', () => {
+        expect(wrapper.find('input')).toHaveLength(0)
+      })
+    })
   })
 })
