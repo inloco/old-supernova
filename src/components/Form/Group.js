@@ -9,7 +9,8 @@ class Group extends React.PureComponent {
     id: PropTypes.string,
     className: PropTypes.string,
     error: PropTypes.any,
-    name: PropTypes.string
+    name: PropTypes.string,
+    info: PropTypes.string
   }
 
   render() {
