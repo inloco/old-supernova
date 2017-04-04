@@ -53,11 +53,11 @@ class Text extends React.PureComponent {
       bold
     } = this.props
 
-    const isDisplayOrSubhead = (type === 'display' || type === 'subhead')
+    const isBodyOrSubhead = (type === 'body' || type === 'subhead')
     const boldSizeClassName = bold ? '-2' : '-1'
     const sizeClassName = size ? `-${size}` : ''
 
-    const sizeClass = isDisplayOrSubhead ? boldSizeClassName : sizeClassName
+    const sizeClass = isBodyOrSubhead ? boldSizeClassName : sizeClassName
     const fontWeightClass = fontWeight ? `sn-typo--font-${fontWeight}` : ''
     const alignClass = align ? `sn-typo--text-${align}` : ''
     const capsClass = caps ? `sn-typo--text-${caps}` : ''
