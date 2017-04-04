@@ -42,7 +42,7 @@ function setupBranchAndUp() {
     .then(getCoverageValues)
     .then(checkCoverageValues)
     .then(() => { process.exit(); })
-    .catch(() => { return -1; })
+    .catch(() => { console.log('entrei aqui'); return 1; })
 }
 
 function gitClone() {
