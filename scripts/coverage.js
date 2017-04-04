@@ -41,7 +41,8 @@ function setupBranchAndUp() {
     .then(jestCoverage)
     .then(getCoverageValues)
     .then(checkCoverageValues)
-    .then(() => { process.exit(); });
+    .then(() => { process.exit(); })
+    .catch(() => { return -1; })
 }
 
 function gitClone() {
