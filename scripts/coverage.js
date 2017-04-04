@@ -147,7 +147,10 @@ function checkCoverageValues() {
 
     if(statements || branches || functions || lines) {
       console.log('The current coverage is smaller than the master coverage');
-      return -1;
+
+      throw ':('
+
+      return reject();
     }
 
     console.log();
