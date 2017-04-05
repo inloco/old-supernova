@@ -9,8 +9,10 @@ class Searchbox extends React.Component {
     onUnselect: React.PropTypes.func.isRequired,
     debounce: React.PropTypes.number,
     minLength: React.PropTypes.number,
-    visibleResults: React.PropTypes.number,
-    loading: React.PropTypes.any
+    limit: React.PropTypes.number,
+    loading: React.PropTypes.any,
+    single: React.PropTypes.any,
+    filter: React.PropTypes.any
   }
 
   static defaultProps = {
@@ -38,10 +40,14 @@ class Searchbox extends React.Component {
     return (
       <div className="sn-search-box">
         {this.hasSelectedResults() && this.renderSelectedResults()}
-        {this.renderInput()}
+        {this.shouldRenderInput() && this.renderInput()}
         {this.shouldRenderResults() && this.renderResults()}
       </div>
     )
+  }
+
+  shouldRenderInput() {
+    return !(this.props.single && this.hasSelectedResults())
   }
 
   hasSelectedResults() {
@@ -52,6 +58,7 @@ class Searchbox extends React.Component {
     return this.props.results
             && this.state.expandedResults
             && this.inputHasMinLength()
+            && this.getVisibleResults().length > 0
   }
 
   renderSelectedResults() {
@@ -157,15 +164,34 @@ class Searchbox extends React.Component {
   }
 
   getVisibleResults() {
-    return this.getNotSelectedResults().slice(0, this.props.visibleResults)
+    const { results, limit, filter } = this.props
+    const notSelectedResults = this.getNotSelectedResults(results)
+    const limitedResults = this.limitResults(limit, notSelectedResults)
+
+    return filter
+            ? this.filterResults(limitedResults)
+            : limitedResults
   }
 
-  getNotSelectedResults() {
-    return this.props.results.filter(result =>
+  getNotSelectedResults(results) {
+    return results.filter(result =>
       !this.state.selectedResults.some(selectedResult =>
         selectedResult.id === result.id
       )
     )
+  }
+
+  limitResults(limit, results) {
+    return results.slice(0, limit)
+  }
+
+  filterResults(results) {
+    return results.filter(result => {
+      const title = result.title.toLowerCase()
+      const inputValue = this.state.inputValue.toLowerCase()
+
+      return title.includes(inputValue)
+    })
   }
 
   handleOnSelectResult(result) {
