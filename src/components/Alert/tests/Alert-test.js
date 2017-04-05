@@ -38,4 +38,31 @@ describe('Alert', () => {
   it('has correct default type', () => {
     expect(wrapper.hasClass('sn-alert--success')).toBeTruthy()
   })
+
+  describe('false properties', () => {
+    it('active false has hidden class', () => {
+      wrapper.setProps({ active: false })
+      const div = wrapper.find('div')
+
+      expect(wrapper.hasClass('sn-alert-hidden')).toBeTruthy()
+    })
+
+    it('not call function', () => {
+      wrapper.setProps({
+        closeAfter: undefined,
+        active: true 
+      })
+     
+      setTimeout(() => {
+        expect(onClose).not.toBeCalled()
+        done()
+      }, 2000)
+    })
+
+    it('no icon rendered', () => {
+      wrapper.setProps({ icon: undefined })
+
+      expect(wrapper.find('.sn-alert--icon').length).toEqual(1)
+    })
+  })
 })

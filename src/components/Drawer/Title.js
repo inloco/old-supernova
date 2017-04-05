@@ -1,11 +1,17 @@
 import React, { PropTypes } from 'react'
 
-const Title = props => {
-  return (
-    <div className="sn-layout__drawer-title">
-      {props.children}
-    </div>
-  )
+class Title extends React.PureComponent {
+  static propsTypes = {
+    children: PropTypes.any
+  }
+
+  render() {
+    return (
+      <div className="sn-layout__drawer-title">
+        {this.props.children}
+      </div>
+    )
+  }
 }
 
 export default Title

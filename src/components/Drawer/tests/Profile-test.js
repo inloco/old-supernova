@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import TestUtils from "react-addons-test-utils"
-import Drawer from "./../Main"
+import Drawer from "./../"
 import DrawerProfile from "./../Profile"
 import { shallow } from 'enzyme'
 

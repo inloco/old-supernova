@@ -54,6 +54,24 @@ describe('Searchbox', () => {
     })
   })
 
+  describe('when provides props', () => {
+     it('has placeholder', () => {
+      wrapper.setProps({ placeholder: 'place' })
+      const input = wrapper.find('input')
+
+      expect(input.props().placeholder).toEqual('place')
+    })
+  })
+
+  describe('loading img for results', () => {
+    it('has loader spinner', () => {
+      wrapper.setProps({ loading: true })
+      const spinner = wrapper.find('.sn-search-box__input--spinner')
+
+      expect(spinner.props().alt).toEqual('spinner')
+    })
+  })
+
   describe('when starts the search', () => {
     beforeEach(() => {
       input.simulate('focus')
