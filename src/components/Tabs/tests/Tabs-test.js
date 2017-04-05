@@ -1,8 +1,8 @@
 import React from 'react'
-import Tabs from './../../src/components/Tabs/Main'
-import Tab from './../../src/components/Tabs/Tab'
+import Tabs from './../index'
+import Tab from './../Tab'
 import { mount } from 'enzyme'
-import { isShowingContent, isActive } from './../utils/tabs'
+import { isShowingContent, isActive } from './../helper'
 
 describe('Tabs', () => {
   describe('Simple behavior', () => {
@@ -16,6 +16,10 @@ describe('Tabs', () => {
         </Tab>
       </Tabs>
     )
+
+    it('has children', () => {
+      expect(wrapper.props().children).not.toBe(undefined)
+    })
 
     it('has the first tab with active class', () => {
       const currentTab = wrapper.find('.sn-tabs li').first()

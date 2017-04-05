@@ -1,17 +1,13 @@
 import React, { PropTypes } from "react"
 
-class Tab extends React.Component {
+class Tab extends React.PureComponent {
   static propTypes = {
-    label:  PropTypes.string.isRequired,
+    children: PropTypes.any.isRequired,
     active: PropTypes.bool
   }
 
-  static defaultProps = {
-    active: false
-  }
-
   render() {
-    const style = { display: this.props.active ? "block" : "none" }
+    const style = { display: this.props.active ? 'block' : 'none' }
 
     return (
       <div style={style}>
