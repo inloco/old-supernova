@@ -15,7 +15,8 @@ class Text extends React.PureComponent {
     className: PropTypes.string,
     color: PropTypes.string,
     span: PropTypes.bool,
-    id: PropTypes.string
+    id: PropTypes.string,
+    bold: PropTypes.bool
   }
 
   static defaultProps = {
@@ -48,16 +49,22 @@ class Text extends React.PureComponent {
       caps,
       wrap,
       className,
-      color
+      color,
+      bold
     } = this.props
+
+    const isBodyOrSubhead = (type === 'body' || type === 'subhead')
+    const boldSizeClassName = bold ? '-2' : '-1'
     const sizeClassName = size ? `-${size}` : ''
+
+    const sizeClass = isBodyOrSubhead ? boldSizeClassName : sizeClassName
     const fontWeightClass = fontWeight ? `sn-typo--font-${fontWeight}` : ''
     const alignClass = align ? `sn-typo--text-${align}` : ''
     const capsClass = caps ? `sn-typo--text-${caps}` : ''
     const wrapClass = wrap ? `sn-typo--${wrap}` : ''
     const configClasses = `${className || ''} ${fontWeightClass} ${alignClass} ${capsClass} ${wrapClass} ${color || ''}`
 
-    return `sn-typo--${type}${sizeClassName} ${configClasses}`
+    return `sn-typo--${type}${sizeClass} ${configClasses}`
   }
 
   getHeaderTag(className) {
