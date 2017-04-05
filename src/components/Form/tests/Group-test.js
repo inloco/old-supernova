@@ -1,6 +1,7 @@
 import React from "react"
 import FormGroup from './../Group'
 import Checkbox from './../Checkbox'
+import Tooltip from './../../Tooltip'
 import { shallow } from 'enzyme'
 
 describe("Form Group", () => {
@@ -63,6 +64,16 @@ describe("Form Group", () => {
       const message = wrapper.find('.sn-form-group__message')
 
       expect(message.text()).toEqual('Field is required')
+    })
+  })
+
+  describe('when has info', () => {
+    beforeEach(() => {
+      wrapper.setProps({ info: 'some' })
+    })
+
+    it('has tooltip with message', () => {
+      expect(wrapper.find(Tooltip).props().message).toEqual('some')
     })
   })
 })
