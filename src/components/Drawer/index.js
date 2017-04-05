@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 class Drawer extends React.Component {
   constructor(props) {
@@ -10,6 +10,32 @@ class Drawer extends React.Component {
     this.state = {
       open: false
     }
+  }
+
+  static defaultProps = {
+    open: false,
+  }
+
+  static propTypes = {
+    open: PropTypes.bool,
+    children: PropTypes.any
+  }
+
+  render() {
+    return (
+      <div>
+        <div className={this.getDrawerClassName()}>
+          <div className="sn-layout__drawer--wrap">
+            {this.props.children}
+          </div>
+        </div>
+
+        <div
+          onClick={this.handleObfuscatorClick}
+          className={this.getObfuscatorClassName()}
+        />
+      </div>
+    )
   }
 
   getDrawerClickEventName() {
@@ -60,23 +86,6 @@ class Drawer extends React.Component {
 
   handleDrawerButtonClick() {
     this.toggleDrawer()
-  }
-
-  render() {
-    return (
-      <div>
-        <div className={this.getDrawerClassName()}>
-          <div className="sn-layout__drawer--wrap">
-            {this.props.children}
-          </div>
-        </div>
-
-        <div
-          onClick={this.handleObfuscatorClick}
-          className={this.getObfuscatorClassName()}
-        />
-      </div>
-    )
   }
 }
 
