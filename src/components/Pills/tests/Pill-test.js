@@ -4,8 +4,9 @@ import Pills from './../index'
 import Pill from './../Pill'
 
 describe('Pills items', () => {
+  const onClick = jest.fn()
   const wrapper = mount(
-      <Pill label="Item 1" value="zoombie"/>)
+      <Pill onClick={onClick} label="Item 1" value="zoombie"/>)
 
   it(`has 'pills items' className`, () => {
     expect(wrapper.hasClass('sn-pills__label')).toBeTruthy()
@@ -17,6 +18,12 @@ describe('Pills items', () => {
     expect(label.text()).toEqual('Item 1')
   })
 
+  it('handle click', () => {
+    const label = wrapper.find('.sn-pills__label')
+
+    label.simulate('click')
+    expect(onClick).toBeCalled()
+  })
 
   describe('Input', () => {
     const inputWrapper = wrapper.find('input[type="radio"]')
@@ -27,6 +34,28 @@ describe('Pills items', () => {
 
     it('has no lala name', () => {
       expect(inputWrapper.props().name).toEqual(undefined)
+    })
+  })
+
+  describe('active', () => {
+    it('span has active class', () => {
+      wrapper.setProps({ active: true })
+      const span = wrapper.find('span')
+
+      expect(span.props().className).toEqual('sn-pills__label--content active')
+    })
+  })
+
+  describe('onChange', () => {
+    it('perform onChange', () => {
+      wrapper.setProps({
+        onClick: undefined,
+        onChange: onClick
+      })
+      const label = wrapper.find('.sn-pills__label')
+
+      label.simulate('click')
+      expect(onClick).toBeCalled()
     })
   })
 })

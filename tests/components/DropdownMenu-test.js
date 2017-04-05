@@ -1,14 +1,14 @@
 import React from 'react'
 import DropdownMenu from './../../src/components/DropdownMenu'
 import Icon from './../../src/components/Icons'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 
 describe('DropdownMenu', () => {
   const options = [
     { label: 'Edit', href: '/edit' },
     { label: 'Disable', href: '/disable' }
   ]
-  const wrapper = shallow(<DropdownMenu options={options} />)
+  const wrapper = mount(<DropdownMenu options={options} />)
 
   it('has correct className', () => {
     expect(wrapper.hasClass('sn-dropdown-menu')).toBeTruthy()
@@ -48,6 +48,10 @@ describe('DropdownMenu', () => {
 
       expect(links.length).toEqual(2)
     })
+  })
+
+  it('unmount with no errors', () => {
+    wrapper.unmount()
   })
 })
 
