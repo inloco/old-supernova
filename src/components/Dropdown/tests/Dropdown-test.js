@@ -104,6 +104,25 @@ describe('Dropdown', () => {
     })
   })
 
+  describe('when blur happens', () => {
+    it('performs blur without crash', () => {
+      const button = wrapper.find('button')
+      button.simulate('click')
+
+      const ul = wrapper.find('ul')
+      wrapper.simulate('blur')
+    })
+  })
+
+  describe('when use label', () => {
+    it('calls onChange', () => {
+      wrapper.setProps({ label: 'I am a label' })
+      const label = wrapper.find('label')
+
+      expect(label.props().children).toEqual('I am a label')
+    })
+  })
+
   describe('when is searchable', () =>{
     const onChange = jest.fn()
     const options = [

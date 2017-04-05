@@ -3,6 +3,18 @@ import React, { PropTypes } from 'react'
 class Modal extends React.Component {
   static defaultProps = {
     dismiss: true,
+    open: false,
+    size: 'md',
+    type: ''
+  }
+
+  static propTypes = {
+    dismiss: PropTypes.bool,
+    open: PropTypes.bool,
+    size: PropTypes.string,
+    type: PropTypes.string,
+    children: PropTypes.any,
+    onClose: PropTypes.func
   }
 
   constructor(props) {

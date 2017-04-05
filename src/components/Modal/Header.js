@@ -3,6 +3,10 @@ import Button from './../Button'
 import Icon from './../Icons'
 
 class Header extends React.PureComponent {
+  static propTypes = {
+    title: PropTypes.string
+  }
+
   render() {
     return(
       <div className="sn-modal__header">
