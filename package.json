@@ -19,7 +19,8 @@
     "eslint": "eslint ./src --ext .js --ext .jsx --cache || true",
     "eslint:table": "eslint ./src --ext .js --ext .jsx --cache --format table || true",
     "eslint:summary": "eslint ./src --ext .js --ext .jsx --cache --format ‘node_modules/eslint-friendly-formatter’ || true",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "coverage": "node scripts/coverage.js"
   },
   "peerDependencies": {
     "react": "^15.4.1",
@@ -38,6 +39,14 @@
     ],
     "moduleNameMapper": {
       "\\.(css|jpg|png|svg)$": "<rootDir>/tests/utils/empty-module.js"
+    },
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
     }
   },
   "dependencies": {
@@ -50,7 +59,10 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.9.0",
+    "chalk": "^1.1.3",
+    "child_process": "^1.0.2",
     "css-loader": "^0.23.1",
+    "dotenv": "^4.0.0",
     "enzyme": "^2.5.1",
     "eslint": "^3.10.2",
     "eslint-config-airbnb": "^13.0.0",
