@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react"
 
-class Body extends React.Component {
+class Body extends React.PureComponent {
   static propTypes = {
     children: PropTypes.node.isRequired
   }
@@ -9,7 +9,9 @@ class Body extends React.Component {
     const { children } = this.props
     
     return (
-      <tbody>{ children }</tbody>
+      <tbody>
+        { children }
+      </tbody>
     )
   }
 }
