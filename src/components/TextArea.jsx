@@ -69,7 +69,7 @@ class TextArea extends React.Component {
 
         <i className="sn-field__bar" />
 
-        {limit && this.renderCounter()}
+        {limit && !error && this.renderCounter()}
         {error && this.renderError()}
       </div>
     )
