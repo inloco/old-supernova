@@ -94,6 +94,8 @@ class TextArea extends React.Component {
   }
 
   renderError() {
+    const { error } = this.props
+
     return (
       <span className="sn-form-group__message">
         {error}

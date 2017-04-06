@@ -74,4 +74,12 @@ describe('TextArea', () => {
       })
     })
   })
+
+  describe('when has error', () => {
+    it('render error', () => {
+      wrapper.setProps({ error: 'Error Message!' })
+      
+      expect(wrapper.find('.sn-form-group__message').text()).toEqual('Error Message!')
+    })
+  })
 })
