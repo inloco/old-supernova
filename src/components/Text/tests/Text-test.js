@@ -78,10 +78,10 @@ describe('Balloon', () => {
       expect(currentClassName).toEqual(expectedClassName)
     })
 
-    it('is a p tag with subhead 1', () => {
+    it('is a p tag with subhead', () => {
       wrapper.setProps({ type: 'subhead' })
 
-      const expectedClassName = 'sn-typo--subhead-1'
+      const expectedClassName = 'sn-typo--subhead'
       const currentClassName = wrapper.find('p').props().className.trim()
 
       expect(currentClassName).toEqual(expectedClassName)
@@ -105,10 +105,10 @@ describe('Balloon', () => {
       expect(currentClassName).toEqual(expectedClassName)
     })
 
-    it('is a p tag with body 1', () => {
+    it('is a p tag with body', () => {
       wrapper.setProps({ bold: false })
 
-      const expectedClassName = 'sn-typo--body-1'
+      const expectedClassName = 'sn-typo--body'
       const currentClassName = wrapper.find('p').props().className.trim()
 
       expect(currentClassName).toEqual(expectedClassName)
@@ -142,7 +142,7 @@ describe('Balloon', () => {
     it('is a span tag with subhead 1', () => {
       wrapper.setProps({ type: 'subhead' })
 
-      const expectedClassName = 'sn-typo--subhead-1'
+      const expectedClassName = 'sn-typo--subhead'
       const currentClassName = wrapper.find('span').props().className.trim()
 
       expect(currentClassName).toEqual(expectedClassName)
@@ -166,10 +166,10 @@ describe('Balloon', () => {
       expect(currentClassName).toEqual(expectedClassName)
     })
 
-    it('is a span tag with body 1', () => {
+    it('is a span tag with body', () => {
       wrapper.setProps({ bold: false })
 
-      const expectedClassName = 'sn-typo--body-1'
+      const expectedClassName = 'sn-typo--body'
       const currentClassName = wrapper.find('span').props().className.trim()
 
       expect(currentClassName).toEqual(expectedClassName)
