@@ -64,7 +64,7 @@ class Text extends React.PureComponent {
     const wrapClass = wrap ? `sn-typo--${wrap}` : ''
     const configClasses = `${className || ''} ${fontWeightClass} ${alignClass} ${capsClass} ${wrapClass} ${color || ''}`
 
-    return `sn-typo--${type}${sizeClass} ${configClasses}`
+    return `sn-typo--${type} ${sizeClass} ${configClasses}`
   }
 
   getHeaderTag(className) {
