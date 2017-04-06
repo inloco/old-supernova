@@ -46,8 +46,8 @@ class Alert extends React.Component {
     return (<div className="sn-alert-hidden" />)
   }
 
-  componentWillReceiveProps(nextProps){
-    const { active, closeAfter } = nextProps
+  componentDidMount(){
+    const { active, closeAfter } = this.props
 
     if(active && closeAfter){
       this.closeAfter(closeAfter)
@@ -55,12 +55,13 @@ class Alert extends React.Component {
   }
 
   handleCloseClick() {
+    clearTimeout(this.timeout)
     this.props.onClose()
   }
 
   closeAfter(time) {
     if(time) {
-      setTimeout(this.props.onClose, time)
+      this.timeout = setTimeout(this.handleCloseClick, time)
     }
   }
 
