@@ -5,7 +5,7 @@ class Cell extends React.PureComponent {
     className: PropTypes.string,
     size: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
     percent: PropTypes.string,
-    exponential: PropTypes.string,
+    fixed: PropTypes.string,
     dynamic: PropTypes.string,
     padding: PropTypes.any,
     order: PropTypes.string,
@@ -23,7 +23,7 @@ class Cell extends React.PureComponent {
     const { className, children } = this.props
     const sizeClassName = this.getSizeClassName()
     const percentClassName = this.getPercentClassName()
-    const exponentialClassName = this.getExponentialClassName()
+    const fixedClassName = this.getfixedClassName()
     const dynamicClassName = this.getDynamicClassName()
     const paddingClassName = this.getPaddingClassName()
     const orderClassName = this.getOrderClassName()
@@ -38,7 +38,7 @@ class Cell extends React.PureComponent {
           ${sizeClassName}
           ${className}
           ${percentClassName}
-          ${exponentialClassName}
+          ${fixedClassName}
           ${dynamicClassName}
           ${paddingClassName}
           ${orderClassName}
@@ -65,10 +65,10 @@ class Cell extends React.PureComponent {
     return percent ? `sn-cell--${percent}perc` : ''
   }
 
-  getExponentialClassName() {
-    const { exponential } = this.props
+  getfixedClassName() {
+    const { fixed } = this.props
 
-    return exponential ? `sn-cell--${exponential}expo` : ''
+    return fixed ? `sn-cell--${fixed}expo` : ''
   }
 
   getDynamicClassName() {

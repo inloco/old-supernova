@@ -210,17 +210,17 @@ $activate-material-breakpoints      : true;   // 480, 600, 840, 960, 1280, 1440,
     margin: $margin 0;
   }
   .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-xs:last-child,
-  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-xs > *, ,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-xs > *,
   .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-xs > *:last-child {
     margin: $margin-xs 0;
   }
   .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-sm:last-child,
-  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-sm > *, ,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-sm > *,
   .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-sm > *:last-child {
     margin: $margin-sm 0;
   }
   .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-lg:last-child,
-  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-lg > *, ,
+  .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-lg > *,
   .sn-grid--responsive-#{$responsive-breakpoint}.sn-grid--cell-gutter-lg > *:last-child {
     margin: $margin-lg 0;
   }

@@ -33,9 +33,9 @@ describe('Cell', () => {
     })
   })
 
-  describe('exponential size', () => {
-    it('is 1 exponential', () => {
-      wrapper.setProps({ exponential: "1" })
+  describe('fixed size', () => {
+    it('is 1 fixed', () => {
+      wrapper.setProps({ fixed: "1" })
       const cell = wrapper.find('.sn-cell--1expo')
 
       expect(cell.length).toEqual(1)
