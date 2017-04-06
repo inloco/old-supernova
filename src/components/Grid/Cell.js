@@ -68,7 +68,7 @@ class Cell extends React.PureComponent {
   getfixedClassName() {
     const { fixed } = this.props
 
-    return fixed ? `sn-cell--${fixed}expo` : ''
+    return fixed ? `sn-cell--fixed-${fixed}` : ''
   }
 
   getDynamicClassName() {

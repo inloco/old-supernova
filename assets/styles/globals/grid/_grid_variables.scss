@@ -42,17 +42,17 @@ $box-col-padding-vm                 : $vm * 2;   // ~8px
 $box-col-padding-sm-hm              : $hm * 2;   // ~8px
 $box-col-padding-sm-vm              : $vm;       // ~4px
 
-// Cell Scale Flexitem base margin
-$cell-scale-flexitem-multiplier     : $hm;       // ~4px
-$cell-scale-flexitem-scale-1        : $cell-scale-flexitem-multiplier * 12; // 48px;           
-$cell-scale-flexitem-scale-2        : $cell-scale-flexitem-multiplier * 24; // 96px;           
-$cell-scale-flexitem-scale-3        : $cell-scale-flexitem-multiplier * 36; // 144px;           
-$cell-scale-flexitem-scale-4        : $cell-scale-flexitem-multiplier * 48; // 192px;           
-$cell-scale-flexitem-scale-5        : $cell-scale-flexitem-multiplier * 60; // 240px;           
-$cell-scale-flexitem-scale-6        : $cell-scale-flexitem-multiplier * 72; // 288px;           
-$cell-scale-flexitem-scale-7        : $cell-scale-flexitem-multiplier * 84; // 336px;           
-$cell-scale-flexitem-scale-8        : $cell-scale-flexitem-multiplier * 96; // 384px;           
-$cell-scale-flexitem-scale-9        : $cell-scale-flexitem-multiplier * 108; // 432px;           
+// Cell Fixed sizes
+$cell-fixed-flexitem-multiplier     : $hm;       // ~4px
+$cell-fixed-flexitem-fixed-1        : $cell-fixed-flexitem-multiplier * 12; // 48px;           
+$cell-fixed-flexitem-fixed-2        : $cell-fixed-flexitem-multiplier * 24; // 96px;           
+$cell-fixed-flexitem-fixed-3        : $cell-fixed-flexitem-multiplier * 36; // 144px;           
+$cell-fixed-flexitem-fixed-4        : $cell-fixed-flexitem-multiplier * 48; // 192px;           
+$cell-fixed-flexitem-fixed-5        : $cell-fixed-flexitem-multiplier * 60; // 240px;           
+$cell-fixed-flexitem-fixed-6        : $cell-fixed-flexitem-multiplier * 72; // 288px;           
+$cell-fixed-flexitem-fixed-7        : $cell-fixed-flexitem-multiplier * 84; // 336px;           
+$cell-fixed-flexitem-fixed-8        : $cell-fixed-flexitem-multiplier * 96; // 384px;           
+$cell-fixed-flexitem-fixed-9        : $cell-fixed-flexitem-multiplier * 108; // 432px;           
 
 
 // Cell Padding

@@ -450,15 +450,15 @@
 .sn-cell--80perc              { @include flexitem(0,0,80%); }
 .sn-cell--90perc              { @include flexitem(0,0,90%); }
 
-.sn-cell--1expo               { @include flexitem(0,0,$cell-scale-flexitem-scale-1); }
-.sn-cell--2expo               { @include flexitem(0,0,$cell-scale-flexitem-scale-2); }
-.sn-cell--3expo               { @include flexitem(0,0,$cell-scale-flexitem-scale-3); }
-.sn-cell--4expo               { @include flexitem(0,0,$cell-scale-flexitem-scale-4); }
-.sn-cell--5expo               { @include flexitem(0,0,$cell-scale-flexitem-scale-5); }
-.sn-cell--6expo               { @include flexitem(0,0,$cell-scale-flexitem-scale-6); }
-.sn-cell--7expo               { @include flexitem(0,0,$cell-scale-flexitem-scale-7); }
-.sn-cell--8expo               { @include flexitem(0,0,$cell-scale-flexitem-scale-8); }
-.sn-cell--9expo               { @include flexitem(0,0,$cell-scale-flexitem-scale-9); }
+.sn-cell--fixed-1             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-1); }
+.sn-cell--fixed-2             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-2); }
+.sn-cell--fixed-3             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-3); }
+.sn-cell--fixed-4             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-4); }
+.sn-cell--fixed-5             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-5); }
+.sn-cell--fixed-6             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-6); }
+.sn-cell--fixed-7             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-7); }
+.sn-cell--fixed-8             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-8); }
+.sn-cell--fixed-9             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-9); }
 
 .sn-cell--order-1             { @include flexorder(1); }
 .sn-cell--order-2             { @include flexorder(2); }
