@@ -36,7 +36,7 @@ describe('Cell', () => {
   describe('fixed size', () => {
     it('is 1 fixed', () => {
       wrapper.setProps({ fixed: "1" })
-      const cell = wrapper.find('.sn-cell--1expo')
+      const cell = wrapper.find('.sn-cell--fixed-1')
 
       expect(cell.length).toEqual(1)
     })
