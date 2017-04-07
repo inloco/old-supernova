@@ -1,5 +1,5 @@
 import React from 'react'
-import Cell from './../../../src/components/Table/Cell'
+import Cell from './../Cell'
 import { shallow } from 'enzyme'
 
 describe('Cell', () => {
