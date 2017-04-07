@@ -1,17 +1,38 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 class Main extends React.PureComponent {
-  static defaultProps = {
-    active: 0,
-    customBehavior: false
-  }
-
   constructor(props) {
     super(props)
 
     this.handleTabClick = this.handleTabClick.bind(this)
 
     this.state = { activeTab: props.active }
+  }
+
+  static propTypes = {
+    children: PropTypes.any.isRequired,
+    active: PropTypes.number,
+    customBehavior: PropTypes.bool,
+    onClick: PropTypes.func
+  }
+
+  static defaultProps = {
+    active: 0
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="sn-tabs">
+          <ul>
+            {this.renderTabsItems()}
+          </ul>
+        </div>
+        <div className="sn-tabs__content">
+          {this.renderTabsContent()}
+        </div>
+      </div>
+    )
   }
 
   handleTabClick(index) {
@@ -65,19 +86,6 @@ class Main extends React.PureComponent {
     const { activeTab } = this.state
 
     return customBehavior ? active : activeTab
-  }
-
-  render() {
-    return (
-      <div>
-        <div className="sn-tabs">
-          <ul>{this.renderTabsItems()}</ul>
-        </div>
-        <div className="sn-tabs__content">
-          {this.renderTabsContent()}
-        </div>
-      </div>
-    )
   }
 }
 

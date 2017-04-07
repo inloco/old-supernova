@@ -1,5 +1,5 @@
 import React from 'react'
-import BalloonBox from './../../src/components/BalloonBox'
+import BalloonBox from './../BalloonBox'
 import { shallow } from 'enzyme'
 
 describe('BalloonBox', () => {

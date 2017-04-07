@@ -1,5 +1,5 @@
 import React from 'react'
-import TableHead from './../../../src/components/Table/Head'
+import TableHead from './../Head'
 import { shallow } from 'enzyme'
 
 describe('TableHead', () => {
@@ -9,8 +9,8 @@ describe('TableHead', () => {
     </TableHead>
   )
 
-  it('is a th', () => {
-    const th = wrapper.find('th')
+  it('is a thead', () => {
+    const th = wrapper.find('thead')
 
     expect(th.length).toEqual(1)
   })
