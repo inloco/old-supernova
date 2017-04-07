@@ -10,10 +10,6 @@ class Balloon extends React.PureComponent {
     addon: PropTypes.string
   }
 
-  static defaultProps = {
-    icon: ''
-  }
-
   render() {
     const { value, icon, label, addon, graphic } = this.props
     const title = icon ? this.renderLabelWithIcon() : label
