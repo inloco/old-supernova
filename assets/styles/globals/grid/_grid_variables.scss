@@ -42,13 +42,25 @@ $box-col-padding-vm                 : $vm * 2;   // ~8px
 $box-col-padding-sm-hm              : $hm * 2;   // ~8px
 $box-col-padding-sm-vm              : $vm;       // ~4px
 
-// Box Cell Expo Flexitem base margin
-$cell-expo-flexitem-hm              : $hm;       // ~4px
+// Cell Fixed sizes
+$cell-fixed-flexitem-multiplier     : $hm;       // ~4px
+$cell-fixed-flexitem-fixed-1        : $cell-fixed-flexitem-multiplier * 12; // 48px;           
+$cell-fixed-flexitem-fixed-2        : $cell-fixed-flexitem-multiplier * 24; // 96px;           
+$cell-fixed-flexitem-fixed-3        : $cell-fixed-flexitem-multiplier * 36; // 144px;           
+$cell-fixed-flexitem-fixed-4        : $cell-fixed-flexitem-multiplier * 48; // 192px;           
+$cell-fixed-flexitem-fixed-5        : $cell-fixed-flexitem-multiplier * 60; // 240px;           
+$cell-fixed-flexitem-fixed-6        : $cell-fixed-flexitem-multiplier * 72; // 288px;           
+$cell-fixed-flexitem-fixed-7        : $cell-fixed-flexitem-multiplier * 84; // 336px;           
+$cell-fixed-flexitem-fixed-8        : $cell-fixed-flexitem-multiplier * 96; // 384px;           
+$cell-fixed-flexitem-fixed-9        : $cell-fixed-flexitem-multiplier * 108; // 432px;           
+
 
 // Cell Padding
+$cell-padding-vertical              : $vm * 2;   // 8px;
 $cell-padding-vertical-lg           : $vm * 4;   // 16px;
-$cell-padding-vertical-md           : $vm * 2;   // 8px;
+$cell-padding-vertical-md           : $vm * 3;   // 8px;
 $cell-padding-vertical-sm           : $vm;       // 4px;
+$cell-padding-horizontal            : $hm * 2;   // 8px;
 $cell-padding-horizontal-lg         : $hm * 4;   // 16px;
-$cell-padding-horizontal-md         : $hm * 2;   // 8px;
+$cell-padding-horizontal-md         : $hm * 3;   // 8px;
 $cell-padding-horizontal-sm         : $hm;       // 4px;

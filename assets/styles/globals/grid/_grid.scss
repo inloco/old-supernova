@@ -450,15 +450,15 @@
 .sn-cell--80perc              { @include flexitem(0,0,80%); }
 .sn-cell--90perc              { @include flexitem(0,0,90%); }
 
-.sn-cell--1expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*12); }
-.sn-cell--2expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*24); }
-.sn-cell--3expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*36); }
-.sn-cell--4expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*48); }
-.sn-cell--5expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*60); }
-.sn-cell--6expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*72); }
-.sn-cell--7expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*84); }
-.sn-cell--8expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*96); }
-.sn-cell--9expo               { @include flexitem(0,0,$cell-expo-flexitem-hm*108); }
+.sn-cell--fixed-1             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-1); }
+.sn-cell--fixed-2             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-2); }
+.sn-cell--fixed-3             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-3); }
+.sn-cell--fixed-4             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-4); }
+.sn-cell--fixed-5             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-5); }
+.sn-cell--fixed-6             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-6); }
+.sn-cell--fixed-7             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-7); }
+.sn-cell--fixed-8             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-8); }
+.sn-cell--fixed-9             { @include flexitem(0,0,$cell-fixed-flexitem-fixed-9); }
 
 .sn-cell--order-1             { @include flexorder(1); }
 .sn-cell--order-2             { @include flexorder(2); }
@@ -599,13 +599,18 @@
 
 // Wrap & White Spaces
 
-.sn-cell--break-word { word-wrap: break-word; }
-.sn-cell--break-all { word-break: break-all; }
-.sn-cell--white-space { white-space: pre-wrap; }
+.sn-cell--break-word  { word-wrap: break-word; }
+.sn-cell--break-all   { word-break: break-all; }
+.sn-cell--no-wrap     { white-space: nowrap; }
+.sn-cell--pre-space   { white-space: pre-wrap; }
+.sn-cell--line-space  { white-space: pre-line; }
 .sn-cell--ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  min-width:0;
+  > {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 
@@ -668,7 +673,6 @@
     @include responsive-cell(screen-xmd, $gutter-vm, $gutter-xs-vm, $gutter-sm-vm, $gutter-lg-vm);
   }
 }
-
 
 // Threshold Breakpoints
 
