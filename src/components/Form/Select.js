@@ -4,11 +4,11 @@ import Icon from './../Icons'
 
 class Select extends React.Component {
   render() {
-    const { id, label, children, info } = this.props
+    const { id, label, children, info, ...selectProps } = this.props
 
     return(
       <div className="sn-select" id={id}>
-        <select onChange={this.props.onChange}>{children}</select>
+        <select {...selectProps}>{children}</select>
 
         <label htmlFor="select" className="sn-field__label sn-field__label--fixed">{label}</label>
 
@@ -16,7 +16,9 @@ class Select extends React.Component {
 
         {info && this.renderInfo()}
 
-        <span className="sn-form-group__message">Error message</span>
+        <span className="sn-form-group__message">
+          Error message
+        </span>
       </div>
     )
   }

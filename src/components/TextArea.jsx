@@ -9,7 +9,8 @@ class TextArea extends React.Component {
     tabIndex: PropTypes.number,
     required: PropTypes.bool,
     label: PropTypes.string,
-    limit: PropTypes.number
+    limit: PropTypes.number,
+    error: PropTypes.any
   }
 
   static defaultProps = {
@@ -69,7 +70,7 @@ class TextArea extends React.Component {
 
         <i className="sn-field__bar" />
 
-        {limit && this.renderCounter()}
+        {limit && !error && this.renderCounter()}
         {error && this.renderError()}
       </div>
     )
@@ -94,6 +95,8 @@ class TextArea extends React.Component {
   }
 
   renderError() {
+    const { error } = this.props
+
     return (
       <span className="sn-form-group__message">
         {error}

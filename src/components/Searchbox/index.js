@@ -12,7 +12,8 @@ class Searchbox extends React.Component {
     limit: React.PropTypes.number,
     loading: React.PropTypes.any,
     single: React.PropTypes.any,
-    filter: React.PropTypes.any
+    filter: React.PropTypes.any,
+    error: React.PropTypes.any
   }
 
   static defaultProps = {
@@ -42,6 +43,7 @@ class Searchbox extends React.Component {
         {this.hasSelectedResults() && this.renderSelectedResults()}
         {this.shouldRenderInput() && this.renderInput()}
         {this.shouldRenderResults() && this.renderResults()}
+        {this.props.error && this.renderError()}
       </div>
     )
   }
@@ -206,6 +208,14 @@ class Searchbox extends React.Component {
     }), () => {
       this.props.onSelect(result, this.state.selectedResults)
     })
+  }
+
+  renderError() {
+    return (
+      <div className="sn-search-box__message sn-search-box__message--danger">
+        {this.props.error}
+      </div>
+    )
   }
 }
 
