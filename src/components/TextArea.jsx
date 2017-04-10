@@ -9,7 +9,8 @@ class TextArea extends React.Component {
     tabIndex: PropTypes.number,
     required: PropTypes.bool,
     label: PropTypes.string,
-    limit: PropTypes.number
+    limit: PropTypes.number,
+    error: PropTypes.any
   }
 
   static defaultProps = {

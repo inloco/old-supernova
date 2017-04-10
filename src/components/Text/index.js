@@ -54,7 +54,7 @@ class Text extends React.PureComponent {
     } = this.props
 
     const isBodyOrSubhead = (type === 'body' || type === 'subhead')
-    const boldSizeClassName = bold ? '-2' : ''
+    const boldSizeClassName = bold ? '-2' : '-1'
     const sizeClassName = size ? `-${size}` : ''
 
     const sizeClass = isBodyOrSubhead ? boldSizeClassName : sizeClassName
