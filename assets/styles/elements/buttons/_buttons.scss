@@ -196,3 +196,17 @@
   }
 }
 
+.sn-button--toggle {
+  border-radius: $default-button-border-radius * 6;
+  background: $default-body-background-color;
+  color: $default-button-disabled-color-text;
+
+  &:hover {
+    box-shadow: 0 0 0 0;
+  }
+
+  &.sn-button--toggle--active {
+    background-color: $button-primary-accent-alt;
+    color: $button-primary-accent-text;
+  }
+}

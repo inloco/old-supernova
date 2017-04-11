@@ -47,6 +47,7 @@ import TableCell from "./components/Table/Cell"
 import Tabs from "./components/Tabs"
 import Tab from "./components/Tabs/Tab"
 import Tooltip from "./components/Tooltip"
+import ToggleButton from "./components/ToggleButton"
 import Balloon from "./components/Balloon"
 import BalloonBox from "./components/Balloon/BalloonBox"
 import Info from "./components/Info"
@@ -112,6 +113,7 @@ export {
   Tabs,
   Tab,
   Tooltip,
+  ToggleButton,
   Balloon,
   BalloonBox,
   Info,
