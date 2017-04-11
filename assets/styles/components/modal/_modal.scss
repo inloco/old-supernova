@@ -174,3 +174,7 @@
 @media (min-width: $screen-small) { // ~1024px
   .sn-modal--xl .sn-modal__wrap { width: $default-modal-width-xl; }
 }
+
+@media (min-width: $screen-small) { // ~1024px
+  .sn-modal--xxl .sn-modal__wrap { width: $default-modal-width-xxl; }
+}
