@@ -6,6 +6,7 @@ import { shallow } from 'enzyme'
 
 describe("Input", () => {
   const wrapper = shallow(<Input
+                            className="foo"
                             info="Some message"
                             label="E-mail"
                             type="email"
@@ -49,11 +50,25 @@ describe("Input", () => {
     expect(wrapper.find(Meter).length).toEqual(1)
   })
 
+  it('has className', () => {
+    expect(wrapper.hasClass('foo')).toBeTruthy()
+  })
+
   describe("not required", () => {
     const wrapperNotRequired = shallow(<Input label="E-mail" />)
 
     it("is not required", () => {
       expect(wrapperNotRequired.find('input').props().required).toBeFalsy()
+    })
+  })
+
+  describe('when has some addon', () => {
+    beforeEach(() => {
+      wrapper.setProps({ leftAddon: 'R$' })
+    })
+
+    it('has sn-input__addon', () => {
+      expect(wrapper.find('.sn-input__addon').exists()).toBeTruthy()
     })
   })
 })
