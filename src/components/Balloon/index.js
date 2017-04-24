@@ -11,7 +11,7 @@ class Balloon extends React.PureComponent {
   }
 
   render() {
-    const { value, icon, label, addon, graphic } = this.props
+    const { icon, label, addon, graphic } = this.props
     const title = icon ? this.renderLabelWithIcon() : label
 
     return (
@@ -20,7 +20,7 @@ class Balloon extends React.PureComponent {
           {title}
         </div>
         <div className="sn-balloon__value">
-          {addon && this.renderAddon()}{value}
+          {addon && this.renderAddon()}{this.renderValue()}
         </div>
         {graphic && this.renderGraphic()}
       </div>
@@ -49,6 +49,12 @@ class Balloon extends React.PureComponent {
         {this.props.addon}
       </span>
     )
+  }
+
+  renderValue() {
+    const { value } = this.props
+
+    return value === 'NaN' ? 0 : value
   }
 }
 
