@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
-import Label from './Label'
-import Meter from './Meter'
-import Tooltip from './Tooltip'
-import Icon from './Icons'
+import Label from './../Label'
+import Meter from './../Meter'
+import Tooltip from './../Tooltip'
+import Icon from './../Icons'
 
 class Input extends React.Component {
   static propTypes = {
@@ -14,7 +14,14 @@ class Input extends React.Component {
     type: PropTypes.string,
     tabIndex: PropTypes.number,
     meter: PropTypes.bool,
-    info: PropTypes.string
+    info: PropTypes.string,
+    leftAddon: PropTypes.any,
+    rightAddon: PropTypes.any,
+    value: PropTypes.any,
+    error: PropTypes.any,
+    fixed: PropTypes.bool,
+    onChange: PropTypes.func,
+    className: PropTypes.string
   }
 
   static defaultProps = {
@@ -24,7 +31,8 @@ class Input extends React.Component {
     type: 'text',
     tabIndex: 0,
     value: '',
-    meter: false
+    meter: false,
+    className: ''
   }
 
   constructor(props) {
@@ -33,6 +41,8 @@ class Input extends React.Component {
     this.state = {
       value: props.value
     }
+
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -41,20 +51,31 @@ class Input extends React.Component {
     })
   }
 
+  render() {
+    return (
+      <div className={this.getWrapperClassName()}>
+        {this.props.leftAddon && this.renderLeftAddon()}
+
+        <input {...this.getInputProps()}/>
+
+        {this.props.label && this.renderLabel()}
+        {this.props.rightAddon && this.renderRightAddon()}
+
+        <i className="sn-field__bar"></i>
+
+        {this.props.info && this.renderInfo()}
+
+        <span className="sn-form-group__message">
+          {this.props.error}
+        </span>
+
+        {this.props.meter && <Meter value={this.state.value} />}
+      </div>
+    )
+  }
+
   getInputClassName() {
     return this.state.value ? 'has-value' : ''
-  }
-
-  getErrorClassName() {
-    return this.props.error ? 'has-error' : ''
-  }
-
-  getAddonClassName() {
-    if (this.props.rightAddon) {
-      return 'sn-input__addon sn-input__addon--right'
-    }
-
-    return this.props.leftAddon ? 'sn-input__addon sn-input__addon--left' : ''
   }
 
   getInputProps() {
@@ -74,7 +95,7 @@ class Input extends React.Component {
     return {
       type,
       ...validProps,
-      onChange: this.handleChange.bind(this),
+      onChange: this.handleChange,
       className: this.getInputClassName(),
       value: this.state.value
     }
@@ -143,27 +164,16 @@ class Input extends React.Component {
     `
   }
 
-  render() {
-    return (
-      <div className={this.getWrapperClassName()}>
-        {this.props.leftAddon && this.renderLeftAddon()}
+  getErrorClassName() {
+    return this.props.error ? 'has-error' : ''
+  }
 
-        <input {...this.getInputProps()}/>
+  getAddonClassName() {
+    if (this.props.rightAddon) {
+      return 'sn-input__addon sn-input__addon--right'
+    }
 
-        {this.props.label && this.renderLabel()}
-        {this.props.rightAddon && this.renderRightAddon()}
-
-        <i className="sn-field__bar"></i>
-
-        {this.props.info && this.renderInfo()}
-
-        <span className="sn-form-group__message">
-          {this.props.error}
-        </span>
-
-        {this.props.meter && <Meter value={this.state.value} />}
-      </div>
-    )
+    return this.props.leftAddon ? 'sn-input__addon sn-input__addon--left' : ''
   }
 }
 
