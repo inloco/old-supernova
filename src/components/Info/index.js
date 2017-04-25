@@ -1,6 +1,6 @@
-import React, { PropTypes } from "react"
+import React, { PropTypes } from 'react'
 
-class Info extends React.Component {
+class Info extends React.PureComponent {
   static propTypes = {
     text: PropTypes.string.isRequired
   }
@@ -8,9 +8,9 @@ class Info extends React.Component {
   render() {
     const{ text } = this.props
 
-    return (      
+    return (
       <span className="helper-bottom-left" title={ text }>
-         <span className="icon-16 icon-info"></span>
+        <span className="icon-16 icon-info"></span>
       </span>
     )
   }
