@@ -55,14 +55,14 @@ describe('Input', () => {
     expect(wrapper.find('input').props().required).toBeTruthy()
   })
 
-  it('is not readonly', () => {
-    expect(wrapper.props().readonly).toBeFalsy()
+  it('is not readOnly', () => {
+    expect(wrapper.props().readOnly).toBeFalsy()
   })
 
-  it('is readonly', () => {
-    wrapper.setProps({ readonly: true })
+  it('is readOnly', () => {
+    wrapper.setProps({ readOnly: true })
 
-    expect(wrapper.find('input').props().readonly).toBeTruthy()
+    expect(wrapper.find('input').props().readOnly).toBeTruthy()
   })
 
   it('is not disabled', () => {

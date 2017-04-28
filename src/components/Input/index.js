@@ -9,7 +9,7 @@ class Input extends React.Component {
     label: PropTypes.string,
     required: PropTypes.bool,
     autoFocus: PropTypes.bool,
-    readonly: PropTypes.bool,
+    readOnly: PropTypes.bool,
     disabled: PropTypes.bool,
     id: PropTypes.string,
     name: PropTypes.string,
