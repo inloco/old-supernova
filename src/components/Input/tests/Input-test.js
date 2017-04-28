@@ -55,6 +55,26 @@ describe('Input', () => {
     expect(wrapper.find('input').props().required).toBeTruthy()
   })
 
+  it('is not readonly', () => {
+    expect(wrapper.props().readonly).toBeFalsy()
+  })
+
+  it('is readonly', () => {
+    wrapper.setProps({ readonly: true })
+
+    expect(wrapper.find('input').props().readonly).toBeTruthy()
+  })
+
+  it('is not disabled', () => {
+    expect(wrapper.props().disabled).toBeFalsy()
+  })
+
+  it('is disabled', () => {
+    wrapper.setProps({ disabled: true })
+
+    expect(wrapper.find('input').props().disabled).toBeTruthy()
+  })
+
   it('is autoFocus', () => {
     wrapper.setProps({ autoFocus: true })
 
