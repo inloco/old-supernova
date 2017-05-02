@@ -4,11 +4,17 @@ import Icon from './../../src/components/Icons'
 import { mount } from 'enzyme'
 
 describe('DropdownMenu', () => {
+  const onOptionClick = jest.fn()
   const options = [
     { label: 'Edit', href: '/edit' },
     { label: 'Disable', href: '/disable' }
   ]
-  const wrapper = mount(<DropdownMenu options={options} />)
+  const wrapper = mount(
+    <DropdownMenu
+      onOptionClick={onOptionClick}
+      options={options}
+    />
+  )
 
   it('has correct className', () => {
     expect(wrapper.hasClass('sn-dropdown-menu')).toBeTruthy()
@@ -47,6 +53,18 @@ describe('DropdownMenu', () => {
       const links = getOptionsWrapper(wrapper).find('a')
 
       expect(links.length).toEqual(2)
+    })
+  })
+
+  describe('when click in dropdown option', () => {
+    beforeEach(() => {
+      wrapper.simulate('click')
+
+      getOptionsWrapper(wrapper).find('a').first().simulate('click')
+    })
+
+    it('calls on change event with event and option object', () => {
+      expect(onOptionClick.mock.calls[0][0]).toEqual({ label: 'Edit', href: '/edit' })
     })
   })
 
