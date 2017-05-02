@@ -50,7 +50,7 @@ describe('DropdownMenu', () => {
     })
 
     it('display 2 links', () => {
-      const links = getOptionsWrapper(wrapper).find('a')
+      const links = getOptionsWrapper(wrapper).find('span')
 
       expect(links.length).toEqual(2)
     })
@@ -60,7 +60,7 @@ describe('DropdownMenu', () => {
     beforeEach(() => {
       wrapper.simulate('click')
 
-      getOptionsWrapper(wrapper).find('a').first().simulate('click')
+      getOptionsWrapper(wrapper).find('span').first().simulate('click')
     })
 
     it('calls on change event with event and option object', () => {
