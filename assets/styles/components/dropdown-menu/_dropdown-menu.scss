@@ -17,11 +17,12 @@
     min-width: 140px;
     @include shadow-3dp();
 
-    a {
+    > span {
       padding: 15px 20px;
       color: $default-dropdown-menu-link-color;
       display: block;
       text-transform: capitalize;
+      cursor: pointer;
 
       &:hover {
         background-color: $default-dropdown-menu-link-hover-color;

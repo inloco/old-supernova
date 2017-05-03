@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import Icon from './Icons'
 
 class DropdownMenu extends React.Component {
+  static propTypes = {
+    options: PropTypes.arrayOf(PropTypes.shape({
+      href: PropTypes.string,
+      label: PropTypes.string.isRequired
+    }))
+  }
+
   static defaultProps = {
     options: []
   }
@@ -53,10 +60,21 @@ class DropdownMenu extends React.Component {
     return (
       <div className="sn-dropdown-menu__options">
         {this.props.options.map(option => (
-          <a key={option.href} href={option.href}>{option.label}</a>
+          <span
+            onClick={this.handleOptionClick.bind(this, option)}
+            key={option.href}
+          >
+            {option.label}
+          </span>
         ))}
       </div>
     )
+  }
+
+  handleOptionClick(event, option) {
+    const { onOptionClick } = this.props
+
+    onOptionClick && onOptionClick(event, option)
   }
 }
 
