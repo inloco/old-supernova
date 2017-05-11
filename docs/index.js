@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var engine = require('ejs-locals');
 
-app.use(express.static('./../build'));
+app.use(express.static('./../lib'));
 app.use(express.static('./node_modules'));
 app.use(express.static('./scripts'));
 
@@ -35,4 +35,4 @@ app.listen(8282, function () {
 
 livereload = require('livereload');
 server = livereload.createServer({exts: ['css', 'js', 'ejs']});
-server.watch(['./../build', './views']);
+server.watch(['./../lib', './views']);
