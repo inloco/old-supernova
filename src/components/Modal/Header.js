@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Button from './../Button'
 import Icon from './../Icons'
 
@@ -24,7 +25,7 @@ class Header extends React.PureComponent {
 }
 
 Header.contextTypes = {
-  onClose: React.PropTypes.func
+  onClose: PropTypes.func
 }
 
 export default Header

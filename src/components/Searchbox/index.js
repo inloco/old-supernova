@@ -1,23 +1,24 @@
 import React from 'react'
 import ResultCard from './ResultCard'
-import spinner from './../../../assets/images/spinner.svg'
+import PropTypes from 'prop-types'
 
 class Searchbox extends React.Component {
   static propTypes = {
-    onSearch: React.PropTypes.func.isRequired,
-    onSelect: React.PropTypes.func.isRequired,
-    onUnselect: React.PropTypes.func.isRequired,
-    debounce: React.PropTypes.number,
-    minLength: React.PropTypes.number,
-    limit: React.PropTypes.number,
-    loading: React.PropTypes.any,
-    single: React.PropTypes.any,
-    filter: React.PropTypes.any,
-    error: React.PropTypes.any,
-    initialSelectedResults: React.PropTypes.arrayOf(
-      React.PropTypes.shape({
-        id: React.PropTypes.any.isRequired,
-        title: React.PropTypes.string.isRequired
+    onSearch: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
+    onUnselect: PropTypes.func.isRequired,
+    debounce: PropTypes.number,
+    minLength: PropTypes.number,
+    limit: PropTypes.number,
+    loading: PropTypes.any,
+    single: PropTypes.any,
+    filter: PropTypes.any,
+    error: PropTypes.any,
+    spinner: PropTypes.any,
+    initialSelectedResults: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.any.isRequired,
+        title: PropTypes.string.isRequired
       })
     )
   }
@@ -144,7 +145,7 @@ class Searchbox extends React.Component {
 
         {
           this.props.loading
-            ? <img src={spinner} className="sn-search-box__input--spinner" alt="spinner" />
+            ? <img src={this.props.spinner} className="sn-search-box__input--spinner" alt="spinner" />
             : <span className="sn-search-box__input--icon" />
         }
       </div>

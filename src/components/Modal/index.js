@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 class Modal extends React.Component {
   static defaultProps = {
@@ -86,7 +87,7 @@ class Modal extends React.Component {
 }
 
 Modal.childContextTypes = {
-  onClose: React.PropTypes.func
+  onClose: PropTypes.func
 }
 
 export default Modal

@@ -61,7 +61,6 @@ import Wizard from "./components/Wizard/Main"
 import WizardStep from "./components/Wizard/Step"
 import Meter from "./components/Meter"
 import Text from "./components/Text"
-import styles from "./../assets/styles/supernova.scss"
 
 export {
   Alert,

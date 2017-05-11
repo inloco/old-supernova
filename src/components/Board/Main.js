@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const Board = props => {
   const bleedClassName = props.bleed ? 'sn-board--bleed' : ''

@@ -4,7 +4,7 @@ import LabelFactory from "../factories/components/label-factory"
 
 import React from "react"
 import ReactDOM from "react-dom"
-import TestUtils from "react-addons-test-utils"
+import TestUtils from "react-dom/test-utils"
 import Label from "../../src/components/Label"
 
 describe("Label", () => {
