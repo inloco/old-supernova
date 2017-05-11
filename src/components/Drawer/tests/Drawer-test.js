@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import TestUtils from 'react-addons-test-utils'
 import Drawer from './../'
 import DrawerTitle from './../Title'
 import DrawerNav from './../Nav/Main'
@@ -30,7 +29,7 @@ describe('Drawer', () => {
 
     expect(drawer).not.toBeNull()
   })
-  
+
   it('has a title', () => {
     const title = wrapper.find('.sn-layout__drawer-title')
 

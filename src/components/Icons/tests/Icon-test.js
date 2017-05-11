@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import TestUtils from 'react-addons-test-utils'
 import Icon from '../index'
 import { shallow } from 'enzyme'
 

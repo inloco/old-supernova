@@ -2,11 +2,12 @@ import React from 'react'
 import Grid from './../Grid'
 import Cell from './../Grid/Cell'
 import Text from './../Text'
+import PropTypes from 'prop-types'
 
 class ResultCard extends React.PureComponent {
   static propTypes = {
-    onSelectResult: React.PropTypes.func.isRequired,
-    result: React.PropTypes.object.isRequired
+    onSelectResult: PropTypes.func.isRequired,
+    result: PropTypes.object.isRequired
   }
 
   constructor(props) {
