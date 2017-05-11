@@ -13,13 +13,38 @@ class Searchbox extends React.Component {
     loading: React.PropTypes.any,
     single: React.PropTypes.any,
     filter: React.PropTypes.any,
-    error: React.PropTypes.any
+    error: React.PropTypes.any,
+    initialSelectedResults: React.PropTypes.arrayOf(
+      React.PropTypes.shape({
+        id: React.PropTypes.any.isRequired,
+        title: React.PropTypes.string.isRequired
+      })
+    )
   }
 
   static defaultProps = {
     debounce: 500,
     minLength: 3,
     visibleResults: 5
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.updateSelectedResultsIfNeeded(nextProps)
+  }
+
+  updateSelectedResultsIfNeeded(nextProps) {
+    if(this.initialSelectedResultsHasChange(nextProps)) {
+      this.setState({ selectedResults: nextProps.initialSelectedResults })
+    }
+  }
+
+  initialSelectedResultsHasChange(nextProps) {
+    const currentValue = this.props.initialSelectedResults
+    const newValue = nextProps.initialSelectedResults
+    const existsNewAndCurrentValues = currentValue && newValue
+    const currentValueIsBeingFilled = existsNewAndCurrentValues && currentValue.length === 0 && newValue.length > 0
+
+    return currentValueIsBeingFilled
   }
 
   constructor(props) {
@@ -33,7 +58,7 @@ class Searchbox extends React.Component {
     this.state = {
       inputValue: '',
       expandedResults: false,
-      selectedResults: []
+      selectedResults: this.props.initialSelectedResults || []
     }
   }
 

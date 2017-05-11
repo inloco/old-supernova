@@ -182,4 +182,49 @@ describe('Searchbox', () => {
       expect(wrapper.find('.sn-search-box__message--danger').text()).toEqual('Some Erro!')
     })
   })
+
+  describe('initialSelectedResults', () => {
+    const initialSelectedResults = [
+      { id: 'a', title: 'A' },
+      { id: 'b', title: 'B' }
+    ]
+
+    describe('when has initial selected results', () => {
+      beforeEach(() => {
+        wrapper = shallow(
+          <Searchbox
+            onSearch={() => {}}
+            onSelect={() => {}}
+            onUnselect={() => {}}
+            results={[]}
+            initialSelectedResults={initialSelectedResults}
+          />
+        )
+      })
+
+      it('sets initial selected results on state', () => {
+        expect(wrapper.state().selectedResults).toEqual(initialSelectedResults)
+      })
+    })
+
+    describe('when updates initial selected results', () => {
+      beforeEach(() => {
+        wrapper = shallow(
+          <Searchbox
+            onSearch={() => {}}
+            onSelect={() => {}}
+            onUnselect={() => {}}
+            results={[]}
+            initialSelectedResults={[]}
+          />
+        )
+
+        wrapper.setProps({ initialSelectedResults })
+      })
+
+      it('updates selected results on state', () => {
+        expect(wrapper.state().selectedResults).toEqual(initialSelectedResults)
+      })
+    })
+  })
 })
