@@ -42,8 +42,9 @@ class Searchbox extends React.Component {
     const currentValue = this.props.initialSelectedResults
     const newValue = nextProps.initialSelectedResults
     const existsNewAndCurrentValues = currentValue && newValue
+    const currentValueIsBeingFilled = currentValue.length === 0 && newValue.length > 0
 
-    return existsNewAndCurrentValues && currentValue.length === 0 && newValue.length > 0
+    return existsNewAndCurrentValues && currentValueIsBeingFilled
   }
 
   constructor(props) {
