@@ -1,6 +1,5 @@
 import React from 'react'
 import ResultCard from './ResultCard'
-import spinner from './../../../assets/images/spinner.svg'
 import PropTypes from 'prop-types'
 
 class Searchbox extends React.Component {
@@ -15,6 +14,7 @@ class Searchbox extends React.Component {
     single: PropTypes.any,
     filter: PropTypes.any,
     error: PropTypes.any,
+    spinner: PropTypes.any,
     initialSelectedResults: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.any.isRequired,
@@ -145,7 +145,7 @@ class Searchbox extends React.Component {
 
         {
           this.props.loading
-            ? <img src={spinner} className="sn-search-box__input--spinner" alt="spinner" />
+            ? <img src={this.props.spinner} className="sn-search-box__input--spinner" alt="spinner" />
             : <span className="sn-search-box__input--icon" />
         }
       </div>

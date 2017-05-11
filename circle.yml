@@ -2,14 +2,6 @@ machine:
   node:
     version: 6.2.1
 
-dependencies:
-  cache_directories:
-    - node_modules
-  override:
-    - npm install
-
 test:
-  override:
-    - npm test
   post:
     - npm run coverage $CIRCLE_BRANCH

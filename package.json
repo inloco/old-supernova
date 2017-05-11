@@ -2,7 +2,7 @@
   "name": "supernova-inloco",
   "version": "2.1.0",
   "description": "In Loco Media Front-End Packages",
-  "main": "./build/index.js",
+  "main": "./lib/index.js",
   "author": "In Loco Media Front-End Team",
   "license": "ISC",
   "private": true,
@@ -11,14 +11,10 @@
     "url": "git+ssh://git@bitbucket.org/ubeedev/supernova.git"
   },
   "scripts": {
-    "build": "rm -rf build && babel src -d build",
-    "build-dev": "rm -rf build && webpack --config webpack.dev.config.js --watch",
+    "build": "babel src -d lib -q",
     "test": "jest --runInBand",
     "test:watch": "jest --watch",
     "start-dev:doc": "cd docs && node index.js",
-    "eslint": "eslint ./src --ext .js --ext .jsx --cache || true",
-    "eslint:table": "eslint ./src --ext .js --ext .jsx --cache --format table || true",
-    "eslint:summary": "eslint ./src --ext .js --ext .jsx --cache --format ‘node_modules/eslint-friendly-formatter’ || true",
     "postinstall": "npm run build",
     "coverage": "node scripts/coverage.js"
   },
@@ -50,38 +46,22 @@
     }
   },
   "dependencies": {
-    "lodash": "^4.17.4",
     "prop-types": "^15.5.9",
     "react": "^15.5.4",
-    "react-addons-css-transition-group": "^15.4.2",
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
-    "autoprefixer": "^6.3.7",
-    "babel-cli": "^6.10.1",
-    "babel-core": "^6.10.4",
-    "babel-eslint": "^7.1.1",
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.11.1",
-    "babel-preset-stage-0": "^6.16.0",
-    "babel-register": "^6.9.0",
+    "babel-cli": "^6.24.1",
+    "babel-jest": "^20.0.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "chalk": "^1.1.3",
     "child_process": "^1.0.2",
-    "css-loader": "^0.23.1",
     "dotenv": "^4.0.0",
     "enzyme": "^2.8.2",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "^0.9.0",
-    "jest": "^17.0.0",
-    "node-sass": "^3.8.0",
+    "jest": "^17.0.3",
     "react-addons-test-utils": "^15.5.1",
-    "react-test-renderer": "^15.5.4",
-    "react-test-utils": "0.0.1",
-    "sass-loader": "^4.0.0",
-    "sinon": "^1.17.6",
-    "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7",
-    "webpack": "^1.12.14"
+    "react-test-renderer": "^15.5.4"
   }
 }
