@@ -35,7 +35,7 @@ class DropdownMenu extends React.Component {
 
   handleClickOutside() {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.setState({ open: false })
+      this.close()
     }
   }
 
@@ -54,7 +54,7 @@ class DropdownMenu extends React.Component {
   }
 
   handleDropdownClick() {
-    this.setState({ open: true })
+    this.open()
   }
 
   renderOptions() {
@@ -72,10 +72,22 @@ class DropdownMenu extends React.Component {
     )
   }
 
-  handleOptionClick(event, option) {
+  handleOptionClick(option, event) {
+    event.stopPropagation()
+
     const { onOptionClick } = this.props
 
-    onOptionClick && onOptionClick(event, option)
+    onOptionClick && onOptionClick(option, event)
+
+    this.close()
+  }
+
+  open() {
+    this.setState({ open: true })
+  }
+
+  close() {
+    this.setState({ open: false })
   }
 }
 

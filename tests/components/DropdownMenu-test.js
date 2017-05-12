@@ -66,6 +66,10 @@ describe('DropdownMenu', () => {
     it('calls on change event with event and option object', () => {
       expect(onOptionClick.mock.calls[0][0]).toEqual({ label: 'Edit', href: '/edit' })
     })
+
+    it('closes the menu', () => {
+      expect(wrapper.state().open).toBeFalsy()
+    })
   })
 
   it('unmount with no errors', () => {
