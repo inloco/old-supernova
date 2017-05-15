@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react"
+import React from "react"
+import PropTypes from "prop-types"
 import { getColumnClassByType } from "../../../helpers/table"
 
 class Head extends React.Component {

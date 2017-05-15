@@ -4,3 +4,6 @@ build
 
 # OS files
 .DS_STORE
+
+.env
+coverage

@@ -1,15 +1,16 @@
-import React, { PropTypes } from "react"
+import React from "react"
+import PropTypes from "prop-types"
 
-class Footer extends React.Component {  
+class Footer extends React.Component {
   static propTyes = {
     children: PropTypes.node,
     company: PropTypes.string.isRequired
   }
-  
+
   getCurrentYear() {
     return new Date().getFullYear()
   }
-  
+
   render() {
     const { company, children } = this.props
 
