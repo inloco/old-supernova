@@ -18,6 +18,7 @@
   "dependencies": {
     "prop-types": "^15.5.10",
     "react": "^15.3.0",
+    "react-color": "^2.11.7",
     "react-dom": "^15.3.0",
     "react-google-charts": "^1.0.0"
   },
