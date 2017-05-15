@@ -1,4 +1,4 @@
-import React, { PropTypes } from "react"
+import React from "react"
 import { Chart } from "react-google-charts"
 
 class Area extends React.Component {
@@ -6,7 +6,7 @@ class Area extends React.Component {
     const options = {
       legend: "none"
     }
-    
+
     return (
       <Chart
         chartType="AreaChart"

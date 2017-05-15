@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react"
+import React from "react"
+import PropTypes from "prop-types"
 import CellData from "./Main"
 
 class Title extends React.Component {
@@ -6,10 +7,10 @@ class Title extends React.Component {
     children: PropTypes.node.isRequired,
     href: PropTypes.string.isRequired
   }
-  
+
   render() {
     const { children, href } = this.props
-    
+
     return (
       <CellData type="title">
         <a href={ href }>

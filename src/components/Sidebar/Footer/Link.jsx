@@ -1,11 +1,12 @@
-import React, { PropTypes } from "react"
+import React from "react"
+import PropTypes from "prop-types"
 
-class Link extends React.Component {  
+class Link extends React.Component {
   static propTyes = {
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired
   }
-  
+
   render() {
     const { href, label } = this.props
 
