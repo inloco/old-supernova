@@ -227,4 +227,14 @@ describe('Searchbox', () => {
       })
     })
   })
+
+  describe('when is disabled', () => {
+    beforeEach(() => {
+      wrapper.setProps({ disabled: true })
+    })
+
+    it('has correct className', () => {
+      expect(wrapper.find('.sn-search-box--disabled').exists()).toBeTruthy()
+    })
+  })
 })

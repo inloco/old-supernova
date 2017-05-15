@@ -76,4 +76,14 @@ describe("Form Group", () => {
       expect(wrapper.find(Tooltip).props().message).toEqual('some')
     })
   })
+
+  describe('when is disabled', () => {
+    beforeEach(() => {
+      wrapper.setProps({ disabled: true })
+    })
+
+    it('has a disabled label', () => {
+      expect(wrapper.find('.sn-form-group__label--disabled').exists()).toBeTruthy()
+    })
+  })
 })

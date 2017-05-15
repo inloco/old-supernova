@@ -15,6 +15,7 @@ class Searchbox extends React.Component {
     filter: PropTypes.any,
     error: PropTypes.any,
     spinner: PropTypes.any,
+    disabled: PropTypes.bool,
     initialSelectedResults: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.any.isRequired,
@@ -65,13 +66,20 @@ class Searchbox extends React.Component {
 
   render() {
     return (
-      <div className="sn-search-box">
+      <div className={this.getClassName()}>
         {this.hasSelectedResults() && this.renderSelectedResults()}
         {this.shouldRenderInput() && this.renderInput()}
         {this.shouldRenderResults() && this.renderResults()}
         {this.props.error && this.renderError()}
       </div>
     )
+  }
+
+  getClassName() {
+    return `
+      sn-search-box
+      ${this.props.disabled ? 'sn-search-box--disabled' : ''}
+    `
   }
 
   shouldRenderInput() {
@@ -141,6 +149,7 @@ class Searchbox extends React.Component {
           onChange={this.handleInputChange}
           onFocus={this.handleInputFocus}
           onBlur={this.handleInputBlur}
+          disabled={this.props.disabled}
         />
 
         {
