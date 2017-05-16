@@ -51,6 +51,7 @@ import ToggleButton from "./components/ToggleButton"
 import Balloon from "./components/Balloon"
 import BalloonBox from "./components/Balloon/BalloonBox"
 import Info from "./components/Info"
+import InfoBox from "./components/InfoBox"
 import Input from "./components/Input"
 import Button from "./components/Button"
 import TextArea from "./components/TextArea"
@@ -116,6 +117,7 @@ export {
   Balloon,
   BalloonBox,
   Info,
+  InfoBox,
   Input,
   Button,
   TextArea,
