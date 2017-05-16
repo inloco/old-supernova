@@ -16,14 +16,5 @@
 // Search-boxes variables
 
 $default-search-box-min-height: $vm * 9;
-
-
-
-
-
-
-
-
-
-
-
+$default-search-box-disabled-background-color: $default-body-background-color;
+$default-search-box-disabled-color: darken($default-search-box-disabled-background-color, 40%);

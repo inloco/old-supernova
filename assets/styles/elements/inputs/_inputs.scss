@@ -41,6 +41,10 @@
     padding: $default-form-label-padding;
     top: -$default-form-label-padding;
     left: 0;
+
+    &.sn-form-group__label--disabled {
+      color: $default-form-group-label-disabled-color;
+    }
   }
 
   .sn-input {

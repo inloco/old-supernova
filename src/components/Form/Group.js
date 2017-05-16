@@ -31,11 +31,18 @@ class Group extends React.PureComponent {
 
   renderLabel() {
     return (
-      <span className="sn-form-group__label">
+      <span className={this.getLabelClassName()}>
         {this.props.label}
         {this.props.info && this.renderInfo()}
       </span>
     )
+  }
+
+  getLabelClassName() {
+    return `
+      sn-form-group__label
+      ${this.props.disabled ? 'sn-form-group__label--disabled' : ''}
+    `
   }
 
   renderInfo() {

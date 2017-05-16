@@ -228,4 +228,11 @@
     }
   }
 
+
+  &.sn-search-box--disabled {
+    input {
+      color: $default-search-box-disabled-color;
+      background-color: $default-search-box-disabled-background-color;
+    }
+  }
 }
