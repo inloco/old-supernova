@@ -63,7 +63,7 @@ class DropdownMenu extends React.Component {
         {this.props.options.map(option => (
           <span
             onClick={this.handleOptionClick.bind(this, option)}
-            key={option.href}
+            key={option.label}
           >
             {option.label}
           </span>
