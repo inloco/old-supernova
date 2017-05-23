@@ -12,3 +12,4 @@ lib
 coverage
 .env
 checkCoverage
+build

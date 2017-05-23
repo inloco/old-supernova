@@ -24,41 +24,40 @@ $balloon-box-footer-size: $balloon-min-size * $number-of-balloons + 14;
 
 
 .sn-balloon {
-  width: 100%;
   margin-bottom: 15px;
-  -webkit-border-radius: 2px; 
-  border-radius: 2px; 
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
   // Hack for IE10
   @media screen and (min-width:0\0) {
     box-shadow: 0px 1px 4px rgba(0,0,0,.2);
   }
 
   &.sn-balloon--squared {
-    -webkit-border-radius: 0px; 
-    border-radius: 0px;   
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
     .sn-balloon__title {
-      -webkit-border-top-left-radius: 0px; 
+      -webkit-border-top-left-radius: 0px;
       border-top-left-radius: 0px;
-      -webkit-border-top-right-radius: 0px; 
-      border-top-right-radius: 0px;       
+      -webkit-border-top-right-radius: 0px;
+      border-top-right-radius: 0px;
     }
-    margin-bottom: 0;  
-  }   
-  
+    margin-bottom: 0;
+  }
+
   .sn-balloon__title {
     position: relative;
     width: auto;
     padding: 6px 10px 2px 10px;
     // color: #bdbdbd;
     color: grey;
-    font-weight: normal; 
-    font-size: 13px;    
+    font-weight: normal;
+    font-size: 13px;
     // background-color: #92C840;
     background-color: white;
-    -webkit-border-top-left-radius: 2px; 
+    -webkit-border-top-left-radius: 2px;
     border-top-left-radius: 2px;
-    -webkit-border-top-right-radius: 2px; 
-    border-top-right-radius: 2px;          
+    -webkit-border-top-right-radius: 2px;
+    border-top-right-radius: 2px;
     .material-icons {
       float: left;
       padding: 1px;
@@ -126,8 +125,8 @@ $balloon-box-footer-size: $balloon-min-size * $number-of-balloons + 14;
   opacity: 0;
   @-moz-document url-prefix() {
     opacity: 0;
-    @media only screen 
-    and (min-width: 320px) 
+    @media only screen
+    and (min-width: 320px)
     and (max-width: $balloon-box-footer-size) {
       opacity: 1;
       background-color: #F9F9F9;
@@ -145,9 +144,9 @@ $balloon-box-footer-size: $balloon-min-size * $number-of-balloons + 14;
   width: auto;
   -ms-flex-direction: row;
   -webkit-flex-direction: row;
-  flex-direction: row;  
-  -ms-text-overflow: "..."; 
-  text-overflow: "..."; 
+  flex-direction: row;
+  -ms-text-overflow: "...";
+  text-overflow: "...";
   overflow-x: auto;
   overflow-y: hidden;
   background-color: white;
@@ -158,17 +157,17 @@ $balloon-box-footer-size: $balloon-min-size * $number-of-balloons + 14;
     @media screen and (min-width:0\0) {
       // box-shadow: 0px 1px 4px rgba(0,0,0,.2);
     }
-    
+
     .sn-balloon__title {
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;       
+      text-overflow: ellipsis;
     }
 
     .sn-balloon__value {
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;      
+      text-overflow: ellipsis;
     }
   }
 
