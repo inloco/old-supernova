@@ -1,58 +1,66 @@
-jest.unmock("../../src/components/Button")
+import React from 'react'
+import Button from '../../src/components/Button'
+import { shallow } from 'enzyme'
 
-import React from "react"
-import ReactDOM from "react-dom"
-import TestUtils from "react-dom/test-utils"
-import Button from "../../src/components/Button"
-
-describe("Button", () => {
+describe('Button', () => {
   const fooFunc = jest.fn()
 
-  const button = TestUtils.renderIntoDocument(
+  const wrapper = shallow(
     <Button
-      label="Login"
+      label='Login'
       raised
-      theme="colored"
-      type="submit"
+      theme='colored'
+      type='submit'
       onClick={fooFunc} />
   )
-  const buttonNode = ReactDOM.findDOMNode(button)
 
-  it("has style", () => {
-    expect(buttonNode.classList.contains("sn-button--colored")).toBeTruthy()
+  it('has style', () => {
+    expect(wrapper.hasClass('sn-button--colored')).toBeTruthy()
   })
 
-  it("has type", () => {
-    expect(buttonNode.type).toEqual("submit")
+  it('has type', () => {
+    expect(wrapper.props().type).toEqual('submit')
   })
 
-  it("has label", () => {
-    expect(buttonNode.textContent).toEqual("Login")
+  it('has label', () => {
+    expect(wrapper.text()).toEqual('Login')
   })
 
-  it("is raised", () => {
-    expect(buttonNode.classList.contains('sn-button--raised')).toBeTruthy()
+  it('is raised', () => {
+    expect(wrapper.hasClass('sn-button--raised')).toBeTruthy()
   })
 
-  it("is not disabled", () => {
-    expect(buttonNode.disabled).toBeFalsy
+  it('is not disabled', () => {
+    expect(wrapper.props().disabled).toBeFalsy
   })
 
-  it("executes onClick props when it is click", () => {
-    TestUtils.Simulate.click(buttonNode)
+  it('executes onClick props when it is click', () => {
+    wrapper.simulate('click')
 
-    expect(fooFunc.mock.calls.length).toBeGreaterThan(0)
+    expect(fooFunc).toBeCalled()
   })
 
-  describe("when is disabled", () => {
-    const button = TestUtils.renderIntoDocument(
-      <Button label="Login" disabled={ true } />
+  describe('when is disabled', () => {
+    const wrapper = shallow(
+      <Button label='Login' disabled />
     )
 
-    const buttonNode = ReactDOM.findDOMNode(button)
+    it('is disabled', () => {
+      expect(wrapper.props().disabled).toBeTruthy
+    })
+  })
 
-    it("is disabled", () => {
-      expect(buttonNode.disabled).toBeTruthy
+  describe('when is loading', () => {
+    const wrapper = shallow(
+      <Button label='Login' loading loadingText="Loading..." />
+    )
+
+    it('is disabled', () => {
+      expect(wrapper.props().disabled).toBeTruthy
+    })
+
+    it('has loading text', () => {
+      expect(wrapper.text()).toEqual('Loading...')
     })
   })
 })
