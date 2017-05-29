@@ -13,13 +13,16 @@ class Button extends React.Component {
     tabIndex:    PropTypes.number,
     className:   PropTypes.string,
     name:        PropTypes.string,
-    size:        PropTypes.string
+    size:        PropTypes.string,
+    loading: PropTypes.bool,
+    loadingText: PropTypes.string
   }
 
   static defaultProps = {
     disabled:    false,
     raised:      false,
     fullWidth:   false,
+    loading: false,
     type:        "button",
     theme: null
   }
@@ -56,10 +59,10 @@ class Button extends React.Component {
   }
 
   getProps() {
-    const { disabled, type, tabIndex, onClick, name } = this.props
+    const { disabled, type, tabIndex, onClick, name, loading } = this.props
 
     return {
-      disabled,
+      disabled: disabled || loading,
       type,
       tabIndex,
       onClick,
@@ -69,13 +72,19 @@ class Button extends React.Component {
   }
 
   render() {
-    const { label, children } = this.props
-
     return(
       <button {...this.getProps()}>
-        { label || children }
+        {this.renderContent()}
       </button>
     )
+  }
+
+  renderContent() {
+    const { label, children, loading, loadingText } = this.props
+
+    return loading
+            ? loadingText
+            : (label || children)
   }
 }
 
