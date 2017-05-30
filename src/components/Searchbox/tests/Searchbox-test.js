@@ -176,9 +176,15 @@ describe('Searchbox', () => {
   })
 
   describe('when has error', () => {
-    it('displays the error', () => {
+    beforeEach(() => {
       wrapper.setProps({ error: 'Some Erro!' })
+    })
 
+    it('has error class', () => {
+      expect(wrapper.hasClass('sn-search-box--error'))
+    })
+
+    it('displays the error', () => {
       expect(wrapper.find('.sn-search-box__message--danger').text()).toEqual('Some Erro!')
     })
   })

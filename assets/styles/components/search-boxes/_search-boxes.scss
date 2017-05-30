@@ -235,4 +235,8 @@
       background-color: $default-search-box-disabled-background-color;
     }
   }
+
+  &.sn-search-box--error {
+    margin-bottom: $default-search-box-error-margin-bottom;
+  }
 }
