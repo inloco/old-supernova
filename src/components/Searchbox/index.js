@@ -79,6 +79,7 @@ class Searchbox extends React.Component {
     return `
       sn-search-box
       ${this.props.disabled ? 'sn-search-box--disabled' : ''}
+      ${this.props.error ? 'sn-search-box--error': ''}
     `
   }
 
