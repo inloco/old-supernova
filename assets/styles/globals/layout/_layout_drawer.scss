@@ -118,32 +118,32 @@
         border-radius: 50%;
         overflow: hidden;
         @include transition(all .2s linear);
-        &:hover {
-          cursor: pointer;
-          opacity: 1;
-          background-color: #FFF;
-          @include shadow-3dp();
-          &:before {
-            position: absolute;
-            top: $default-layout-drawer-user-avatar-mask-hover-top;
-            left: $default-layout-drawer-user-avatar-mask-hover-left;
-            display: inline-block;
-            font-family: 'Material Icons';
-            font-style: normal;
-            font-weight: normal;
-            content: "\e3C9";
-            line-height: 1;
-            outline: none;
-            color: #000;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            width: $default-layout-drawer-user-avatar-mask-hover-width;
-            height: $default-layout-drawer-user-avatar-mask-hover-height;
-            padding: $default-layout-drawer-user-avatar-mask-hover-padding;
-            border: 0;
-            font-size: $default-layout-drawer-user-avatar-mask-hover-font-size;
-          }
-        }
+        // &:hover {
+        //   cursor: pointer;
+        //   opacity: 1;
+        //   background-color: #FFF;
+        //   @include shadow-3dp();
+        //   &:before {
+        //     position: absolute;
+        //     top: $default-layout-drawer-user-avatar-mask-hover-top;
+        //     left: $default-layout-drawer-user-avatar-mask-hover-left;
+        //     display: inline-block;
+        //     font-family: 'Material Icons';
+        //     font-style: normal;
+        //     font-weight: normal;
+        //     content: "\e3C9";
+        //     line-height: 1;
+        //     outline: none;
+        //     color: #000;
+        //     -webkit-font-smoothing: antialiased;
+        //     -moz-osx-font-smoothing: grayscale;
+        //     width: $default-layout-drawer-user-avatar-mask-hover-width;
+        //     height: $default-layout-drawer-user-avatar-mask-hover-height;
+        //     padding: $default-layout-drawer-user-avatar-mask-hover-padding;
+        //     border: 0;
+        //     font-size: $default-layout-drawer-user-avatar-mask-hover-font-size;
+        //   }
+        // }
 
         .sn-layout__drawer-user__avatar-image {
           image-rendering: auto;
@@ -162,9 +162,10 @@
           border-color: transparent;
           background-color: transparent;
           @include transition(all .2s linear);
-          &:hover {
-            opacity: 0.2;
-          }
+          cursor: default;
+          // &:hover {
+          //   opacity: 0.2;
+          // }
         }
       }
     }
