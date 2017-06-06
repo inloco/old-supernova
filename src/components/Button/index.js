@@ -3,30 +3,46 @@ import PropTypes from 'prop-types'
 
 class Button extends React.Component {
   static propTypes = {
-    label:       PropTypes.string,
-    disabled:    PropTypes.bool,
-    raised:      PropTypes.bool,
-    fullWidth:   PropTypes.bool,
-    type:        PropTypes.string,
+    label: PropTypes.string,
+    disabled: PropTypes.bool,
+    raised: PropTypes.bool,
+    fullWidth: PropTypes.bool,
+    type: PropTypes.string,
     theme: PropTypes.string,
-    onClick:     PropTypes.func,
-    tabIndex:    PropTypes.number,
-    className:   PropTypes.string,
-    name:        PropTypes.string,
-    size:        PropTypes.string,
+    onClick: PropTypes.func,
+    tabIndex: PropTypes.number,
+    className: PropTypes.string,
+    name: PropTypes.string,
+    size: PropTypes.string,
     loading: PropTypes.bool,
-    loadingText: PropTypes.string
+    loadingText: PropTypes.string,
+    children: PropTypes.any
   }
 
   static defaultProps = {
-    disabled:    false,
-    raised:      false,
-    fullWidth:   false,
+    disabled: false,
+    raised: false,
+    fullWidth: false,
     loading: false,
-    type:        "button",
+    type: "button",
     theme: null
   }
 
+  render() {
+    return(
+      <button {...this.getProps()}>
+        {this.renderContent()}
+      </button>
+    )
+  }
+
+  renderContent() {
+    const { label, children, loading, loadingText } = this.props
+
+    return loading
+            ? loadingText
+            : (label || children)
+  }
 
   getRaisedClassName() {
     return this.props.raised ? `sn-button--raised` : null
@@ -69,22 +85,6 @@ class Button extends React.Component {
       name,
       className: this.getClassName()
     }
-  }
-
-  render() {
-    return(
-      <button {...this.getProps()}>
-        {this.renderContent()}
-      </button>
-    )
-  }
-
-  renderContent() {
-    const { label, children, loading, loadingText } = this.props
-
-    return loading
-            ? loadingText
-            : (label || children)
   }
 }
 
