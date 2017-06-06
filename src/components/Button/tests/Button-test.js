@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../../src/components/Button'
+import Button from './../index'
 import { shallow } from 'enzyme'
 
 describe('Button', () => {
@@ -11,7 +11,10 @@ describe('Button', () => {
       raised
       theme='colored'
       type='submit'
-      onClick={fooFunc} />
+      fullWidth
+      onClick={fooFunc}
+      size='1'
+    />
   )
 
   it('has style', () => {
@@ -28,6 +31,14 @@ describe('Button', () => {
 
   it('is raised', () => {
     expect(wrapper.hasClass('sn-button--raised')).toBeTruthy()
+  })
+
+  it('is fullWidth', () => {
+    expect(wrapper.hasClass('sn-button--full-width')).toBeTruthy()
+  })
+
+  it('has size', () => {
+    expect(wrapper.hasClass('sn-button--1')).toBeTruthy()
   })
 
   it('is not disabled', () => {
@@ -61,6 +72,19 @@ describe('Button', () => {
 
     it('has loading text', () => {
       expect(wrapper.text()).toEqual('Loading...')
+    })
+  })
+
+  describe('children', () => {
+    const current = 'Something'
+    const wrapper = shallow(
+      <Button>
+        {current}
+      </Button>
+    )
+
+    it('has children', () => {
+      expect(wrapper.text()).toEqual(current)
     })
   })
 })
