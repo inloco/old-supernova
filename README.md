@@ -14,7 +14,7 @@ npm install && cd docs && npm install & cd ..
 ```
 ## Running the project
 ```sh
-webpack --config webpack.dev.config.js --watch
+npm run build -- --watch
 ```
 And, in another tab you run
 ```sh
