@@ -257,6 +257,15 @@
   &.sn-grid--cell-gutter > *:last-child {
     margin: $gutter-vm 0 0 0;
   }
+  &.sn-grid--vertical-reverse.sn-grid--cell-gutter > * {
+    margin: $gutter-reverse-vm 0 $gutter-reverse-vm 0;
+  }
+  &.sn-grid--vertical-reverse.sn-grid--cell-gutter > *:last-child {
+    margin: 0 0 $gutter-reverse-vm 0;
+  }
+  &.sn-grid--vertical-reverse.sn-grid--cell-gutter > *:first-child {
+    margin: $gutter-reverse-vm 0 0 0;
+  }
   &.sn-grid--cell-gutter > *.sn-cell--order-1,
   &.sn-grid--cell-gutter > *.sn-cell--order-2,
   &.sn-grid--cell-gutter > *.sn-cell--order-3,
@@ -271,15 +280,56 @@
   &.sn-grid--cell-gutter > *.sn-cell--order-12 {
     margin: $gutter-vm 0 $gutter-vm 0;
   }
-  &.sn-grid--vertical-reverse.sn-grid--cell-gutter > * {
-    margin: $gutter-reverse-vm 0 $gutter-reverse-vm 0;
+
+  &.sn-grid--cell-gutter__left {
+    margin-left: 0;
   }
-  &.sn-grid--vertical-reverse.sn-grid--cell-gutter > *:last-child {
-    margin: 0 0 $gutter-reverse-vm 0;
+  &.sn-grid--cell-gutter__right {
+    margin-right: 0;
   }
-  &.sn-grid--vertical-reverse.sn-grid--cell-gutter > *:first-child {
-    margin: $gutter-reverse-vm 0 0 0;
+  &.sn-grid--cell-gutter-sm > * {
+    margin: $gutter-sm-vm 0;
   }
+  &.sn-grid--cell-gutter-sm > *:first-child {
+    margin: $gutter-sm-vm 0 0 0;
+  }
+  &.sn-grid--cell-gutter-sm > *:last-child {
+    margin: 0 0 $gutter-sm-vm 0;
+  }
+  &.sn-grid--cell-gutter-xs > * {
+    margin: $gutter-xs-vm 0;
+  }
+  &.sn-grid--cell-gutter-xs > *:first-child {
+    margin: $gutter-xs-vm 0 0 0;
+  }
+  &.sn-grid--cell-gutter-xs > *:last-child {
+    margin: 0 0 $gutter-xs-vm 0;
+  }
+  &.sn-grid--cell-gutter-lg > * {
+    margin: $gutter-lg-vm 0;
+  }
+  &.sn-grid--cell-gutter-lg > *:first-child {
+    margin: $gutter-lg-vm 0 0 0;
+  }
+  &.sn-grid--cell-gutter-lg > *:last-child {
+    margin: 0 0 $gutter-lg-vm 0;
+  }
+
+  @media (max-width: $screen-xsmall) {
+    &.sn-grid--cell-gutter-lg > * {
+      margin: $gutter-lg-screen-xsmall 0;
+    }
+    &.sn-grid--cell-gutter-lg > *:first-child {
+      margin: $gutter-lg-screen-xsmall 0;
+    }
+    &.sn-grid--cell-gutter-lg > *:last-child {
+      margin: $gutter-lg-screen-xsmall 0;
+    }
+  }
+  
+
+
+
 }
 
 
