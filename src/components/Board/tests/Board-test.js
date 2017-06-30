@@ -1,5 +1,5 @@
 import React from 'react'
-import Board from './../Main'
+import Board from './../index.js'
 import { shallow } from 'enzyme'
 
 describe('Board', () => {
@@ -35,6 +35,14 @@ describe('Board', () => {
     const boardWithoutBleed = wrapper.find('.sn-board--bleed')
 
     expect(boardWithoutBleed.length).toEqual(0)
+  })
+
+  it('has bleed all', () => {
+    wrapper.setProps({ bleed: 'all' })
+
+    const boardWithBleedAll = wrapper.find('sn-board sn-board--bleed-all')
+
+    expect(boardWithBleedAll.length).toEqual(0)
   })
 
   describe('Board with no content', () => {
