@@ -123,6 +123,7 @@
     position: absolute;
     top: $default-input-field-addon-top-position;
     color: $default-form-input-addon-color;
+    pointer-events: none;
   }
   &.sn-input__addon,
   &.sn-input__addon--left {
