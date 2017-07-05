@@ -10,6 +10,13 @@ class Profile extends React.PureComponent {
     onSignOut: PropTypes.func
   }
 
+  getUserInfoClassName() {
+    if (this.props.avatarSrc) {
+      return "sn-layout__drawer-user__info"
+    }
+    return "sn-layout__drawer-user__info sn-layout__drawer-user__info-only"
+  }
+
   renderAccountLink() {
     return (
       <li>
@@ -30,21 +37,27 @@ class Profile extends React.PureComponent {
     )
   }
 
+  renderUserAvatar() {
+    return (
+      <div className="sn-layout__drawer-user__avatar">
+        <div className="sn-layout__drawer-user__avatar-mask">
+          <a href="" data-toggle="modal" data-target="#modal-avatar" title="Editar imagem de avatar">
+            <img
+              className="sn-layout__drawer-user__avatar-image"
+              src={this.props.avatarSrc}
+              alt=""
+            />
+          </a>
+        </div>
+      </div>
+    )
+  }
+
   render() {
     return (
       <div className="sn-layout__drawer-user">
-        <div className="sn-layout__drawer-user__avatar">
-          <div className="sn-layout__drawer-user__avatar-mask">
-            <a href="" data-toggle="modal" data-target="#modal-avatar" title="Editar imagem de avatar">
-              <img
-                className="sn-layout__drawer-user__avatar-image"
-                src={this.props.avatarSrc}
-                alt=""
-              />
-            </a>
-          </div>
-        </div>
-        <div className="sn-layout__drawer-user__info">
+        {this.props.avatarSrc && this.renderUserAvatar()}
+        <div className={this.getUserInfoClassName()}>
           <span className="sn-layout__drawer-user__info-name">{this.props.name}</span>
           <span className="sn-layout__drawer-user__info-contact">{this.props.email}</span>
           <ul className="sn-layout__drawer-user__info-actions">
