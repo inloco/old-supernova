@@ -387,6 +387,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  pointer-events: none;
 
   &.sn-field__label--fixed {
     display: block;
