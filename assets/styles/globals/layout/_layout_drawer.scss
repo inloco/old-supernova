@@ -173,6 +173,9 @@
       float: left;
       width: $default-layout-drawer-user-info-width;
       padding: $default-layout-drawer-user-info-padding;
+      &.sn-layout__drawer-user__info-only{
+        padding-left: $default-layout-drawer-user-info-extra-padding;
+      }
       .sn-layout__drawer-user__info-name {
         display: inline-block;
         width: $default-layout-drawer-user-info-name-width;
