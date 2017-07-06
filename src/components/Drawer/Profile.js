@@ -7,7 +7,20 @@ class Profile extends React.PureComponent {
     avatarSrc: PropTypes.string,
     name: PropTypes.string,
     email: PropTypes.string,
-    onSignOut: PropTypes.func
+    onSignOut: PropTypes.func,
+    avatarHoverTitle: PropTypes.string
+  }
+
+  getAvatarHoverTitle() {
+    return this.props.avatarHoverTitle || "Editar imagem de avatar"
+  }
+
+  getUserInfoClasses() {
+    const userInfoBaseClass = "sn-layout__drawer-user__info"
+    if (this.props.avatarSrc) {
+      return userInfoBaseClass
+    }
+    return `${userInfoBaseClass} sn-layout__drawer-user__info-only`
   }
 
   renderAccountLink() {
@@ -30,21 +43,27 @@ class Profile extends React.PureComponent {
     )
   }
 
+  renderUserAvatar() {
+    return (
+      <div className="sn-layout__drawer-user__avatar">
+        <div className="sn-layout__drawer-user__avatar-mask">
+          <a href="" data-toggle="modal" data-target="#modal-avatar" title={this.getAvatarHoverTitle()}>
+            <img
+              className="sn-layout__drawer-user__avatar-image"
+              src={this.props.avatarSrc}
+              alt=""
+            />
+          </a>
+        </div>
+      </div>
+    )
+  }
+
   render() {
     return (
       <div className="sn-layout__drawer-user">
-        <div className="sn-layout__drawer-user__avatar">
-          <div className="sn-layout__drawer-user__avatar-mask">
-            <a href="" data-toggle="modal" data-target="#modal-avatar" title="Editar imagem de avatar">
-              <img
-                className="sn-layout__drawer-user__avatar-image"
-                src={this.props.avatarSrc}
-                alt=""
-              />
-            </a>
-          </div>
-        </div>
-        <div className="sn-layout__drawer-user__info">
+        {this.props.avatarSrc && this.renderUserAvatar()}
+        <div className={this.getUserInfoClasses()}>
           <span className="sn-layout__drawer-user__info-name">{this.props.name}</span>
           <span className="sn-layout__drawer-user__info-contact">{this.props.email}</span>
           <ul className="sn-layout__drawer-user__info-actions">
