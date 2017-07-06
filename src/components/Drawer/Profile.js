@@ -10,11 +10,12 @@ class Profile extends React.PureComponent {
     onSignOut: PropTypes.func
   }
 
-  getUserInfoClassName() {
+  getUserInfoClasses() {
+    const userInfoBaseClass = "sn-layout__drawer-user__info"
     if (this.props.avatarSrc) {
-      return "sn-layout__drawer-user__info"
+      return userInfoBaseClass
     }
-    return "sn-layout__drawer-user__info sn-layout__drawer-user__info-only"
+    return `${userInfoBaseClass} sn-layout__drawer-user__info-only`
   }
 
   renderAccountLink() {
@@ -57,7 +58,7 @@ class Profile extends React.PureComponent {
     return (
       <div className="sn-layout__drawer-user">
         {this.props.avatarSrc && this.renderUserAvatar()}
-        <div className={this.getUserInfoClassName()}>
+        <div className={this.getUserInfoClasses()}>
           <span className="sn-layout__drawer-user__info-name">{this.props.name}</span>
           <span className="sn-layout__drawer-user__info-contact">{this.props.email}</span>
           <ul className="sn-layout__drawer-user__info-actions">
