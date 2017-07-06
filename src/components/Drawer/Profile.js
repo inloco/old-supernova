@@ -7,7 +7,12 @@ class Profile extends React.PureComponent {
     avatarSrc: PropTypes.string,
     name: PropTypes.string,
     email: PropTypes.string,
-    onSignOut: PropTypes.func
+    onSignOut: PropTypes.func,
+    avatarHoverTitle: PropTypes.string
+  }
+
+  getAvatarHoverTitle() {
+    return this.props.avatarHoverTitle || "Editar imagem de avatar"
   }
 
   getUserInfoClasses() {
@@ -42,7 +47,7 @@ class Profile extends React.PureComponent {
     return (
       <div className="sn-layout__drawer-user__avatar">
         <div className="sn-layout__drawer-user__avatar-mask">
-          <a href="" data-toggle="modal" data-target="#modal-avatar" title="Editar imagem de avatar">
+          <a href="" data-toggle="modal" data-target="#modal-avatar" title={this.getAvatarHoverTitle()}>
             <img
               className="sn-layout__drawer-user__avatar-image"
               src={this.props.avatarSrc}
