@@ -1,5 +1,5 @@
 import React from "react"
-import Tooltip from "../../src/components/Tooltip"
+import Tooltip from "./../index"
 import { shallow } from "enzyme"
 
 describe("Tooltip", () => {

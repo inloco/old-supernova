@@ -3,34 +3,15 @@ import PropTypes from 'prop-types'
 
 class Tooltip extends React.Component {
   static propTypes = {
+    message: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
     position: PropTypes.string,
-    message:  PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired
+    size: PropTypes.string
   }
 
   static defaultProps = {
     position: "top",
     size: "md"
-  }
-
-  getPositionClassName() {
-    return `sn-tooltips--${this.props.position}`
-  }
-
-  getSizeClassName() {
-    return `sn-tooltips--${this.props.size}`
-  }
-
-  getClassName() {
-    return `
-      sn-tooltips
-      ${this.getPositionClassName()}
-      ${this.getSizeClassName()}
-    `
-  }
-
-  get() {
-    return `sdsad`
   }
 
   render() {
@@ -41,6 +22,14 @@ class Tooltip extends React.Component {
         {children}
       </span>
     )
+  }
+
+  getClassName() {
+    return `
+      sn-tooltips
+      sn-tooltips--${this.props.position}
+      sn-tooltips--${this.props.size}
+    `
   }
 }
 
