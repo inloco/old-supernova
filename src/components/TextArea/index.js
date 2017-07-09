@@ -1,21 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Label from "./Label"
+import Label from './../Label'
 
 class TextArea extends React.Component {
   static propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
-    rows: PropTypes.number,
-    tabIndex: PropTypes.number,
     required: PropTypes.bool,
     label: PropTypes.string,
     limit: PropTypes.number,
-    error: PropTypes.any
+    error: PropTypes.any,
+    onChange: PropTypes.func,
+    value: PropTypes.string
   }
 
   static defaultProps = {
-    tabIndex: 0,
     value: ''
   }
 
@@ -33,6 +32,23 @@ class TextArea extends React.Component {
     })
   }
 
+  render() {
+    const { id, label, fixed, error, limit } = this.props
+
+    return (
+      <div className={this.getWrapperClassName()}>
+        <textarea {...this.getTextAreaProps()} />
+
+        <Label value={label} htmlFor={id} fixed={fixed} />
+
+        <i className='sn-field__bar' />
+
+        {limit && !error && this.renderCounter()}
+        {error && this.renderError()}
+      </div>
+    )
+  }
+
   handleChange(event) {
     event.persist()
 
@@ -46,7 +62,7 @@ class TextArea extends React.Component {
   }
 
   getTextAreaClassName() {
-    return this.state.value ? "has-value" : ""
+    return this.state.value ? 'has-value' : ''
   }
 
   getTextAreaProps() {
@@ -58,23 +74,6 @@ class TextArea extends React.Component {
       className: this.getTextAreaClassName(),
       value: this.state.value
     }
-  }
-
-  render() {
-    const { id, label, fixed, error, limit } = this.props
-
-    return (
-      <div className={this.getWrapperClassName()}>
-        <textarea {...this.getTextAreaProps()}/>
-
-        <Label value={label} htmlFor={id} fixed={fixed} />
-
-        <i className="sn-field__bar" />
-
-        {limit && !error && this.renderCounter()}
-        {error && this.renderError()}
-      </div>
-    )
   }
 
   getWrapperClassName() {
@@ -89,7 +88,7 @@ class TextArea extends React.Component {
     const currentLength = this.state.value.length
 
     return (
-      <span className="sn-field__counter sn-color--primary">
+      <span className='sn-field__counter sn-color--primary'>
         {`${currentLength}\/${limit}`}
       </span>
     )
@@ -99,7 +98,7 @@ class TextArea extends React.Component {
     const { error } = this.props
 
     return (
-      <span className="sn-form-group__message">
+      <span className='sn-form-group__message'>
         {error}
       </span>
     )
