@@ -57,7 +57,6 @@ import Button from "./components/Button"
 import TextArea from "./components/TextArea"
 import Label from "./components/Label"
 import Icon from "./components/Icons"
-import Well from "./components/Well"
 import Wizard from "./components/Wizard/Main"
 import WizardStep from "./components/Wizard/Step"
 import Meter from "./components/Meter"
@@ -123,7 +122,6 @@ export {
   TextArea,
   Label,
   Icon,
-  Well,
   Wizard,
   WizardStep,
   Meter,
