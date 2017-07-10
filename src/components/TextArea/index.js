@@ -6,6 +6,8 @@ class TextArea extends React.Component {
   static propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
+    rows: PropTypes.number,
+    tabIndex: PropTypes.number,
     required: PropTypes.bool,
     label: PropTypes.string,
     limit: PropTypes.number,
@@ -15,6 +17,7 @@ class TextArea extends React.Component {
   }
 
   static defaultProps = {
+    tabIndex: 0,
     value: ''
   }
 
