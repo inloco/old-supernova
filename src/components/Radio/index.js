@@ -2,16 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 class Radio extends React.Component {
+  static propTypes = {
+    label: PropTypes.string.isRequired,
+    numeric: PropTypes.bool
+  }
+
   constructor(props) {
     super(props)
 
     this.handleInputChange = this.handleInputChange.bind(this)
-  }
-
-  handleInputChange(e) {
-    const value = e.target.value
-
-    this.props.onChange(this.props.numeric ? Number(value) : value)
   }
 
   render() {
@@ -32,6 +31,12 @@ class Radio extends React.Component {
         </label>
       </div>
     )
+  }
+
+  handleInputChange(e) {
+    const value = e.target.value
+
+    this.props.onChange(this.props.numeric ? Number(value) : value)
   }
 }
 
