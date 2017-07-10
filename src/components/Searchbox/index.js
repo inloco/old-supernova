@@ -16,6 +16,13 @@ class Searchbox extends React.Component {
     error: PropTypes.any,
     spinner: PropTypes.any,
     disabled: PropTypes.bool,
+    placeholder: PropTypes.string,
+    results: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.any.isRequired,
+        title: PropTypes.string.isRequired
+      })
+    ),
     initialSelectedResults: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.any.isRequired,
