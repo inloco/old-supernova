@@ -1,5 +1,5 @@
 import React from 'react'
-import Radio from './../../src/components/Radio'
+import Radio from './../index'
 import { shallow } from 'enzyme'
 
 describe('Radio', () => {
@@ -9,11 +9,19 @@ describe('Radio', () => {
       value={1}
       onChange={onChange}
       numeric
+      label='Some value'
     />
   )
 
   it('has radio class', () => {
     expect(wrapper.hasClass('sn-radio')).toBeTruthy()
+  })
+
+  it('has label', () => {
+    const current = wrapper.find('label').text()
+    const expected = 'Some value'
+
+    expect(current).toEqual(expected)
   })
 
   describe('when has numeric prop', () => {

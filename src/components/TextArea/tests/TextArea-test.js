@@ -1,6 +1,6 @@
 import React from 'react'
-import TextArea from '../../src/components/TextArea'
-import Label from '../../src/components/Label'
+import TextArea from './../index'
+import Label from './../../Label'
 import { shallow } from 'enzyme'
 
 describe('TextArea', () => {

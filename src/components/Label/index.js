@@ -3,18 +3,19 @@ import PropTypes from 'prop-types'
 
 class Label extends React.Component {
   static propTypes = {
-    htmlFor: PropTypes.string,
-    value:   PropTypes.string.isRequired
+    value: PropTypes.string.isRequired,
+    htmlFor: PropTypes.string
   }
 
   render() {
-    const{ htmlFor, value } = this.props
+    const{htmlFor, value} = this.props
 
     return (
       <label
         className={`sn-field__label ${this.props.fixed ? "sn-field__label--fixed" : ""}`}
-        htmlFor={htmlFor}>
-        { value }
+        htmlFor={htmlFor}
+      >
+        {value}
       </label>
     )
   }
