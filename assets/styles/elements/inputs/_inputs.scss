@@ -79,6 +79,15 @@
   display: inline-block;
   width: 100%;
   min-width: 32px;
+  input {
+    height: $default-input-height;
+    &:disabled {
+      cursor: not-allowed;
+      ~ .sn-field__bar {
+        border-bottom: $default-input-field-bar-border-bottom-size dashed $default-form-bar-color-disabled;
+      }
+    }
+  }  
   input,
   textarea {
     display: block;
@@ -97,9 +106,6 @@
     margin-top: $default-textarea-margin-top;
     margin-bottom: $default-textarea-margin-bottom;
     line-height: $default-textarea-line-height;
-  }
-  input {
-    height: $default-input-height;
   }
   input[type="file"] {
     line-height: $default-input-line-height;
@@ -125,7 +131,7 @@
     color: $default-form-input-addon-color;
     pointer-events: none;
   }
-  &.sn-input__addon,
+  &.sn-input__addon.sn-input__addon--left,
   &.sn-input__addon--left {
     padding-left: $default-input-addon-padding;
     width: calc(100% - 20px);
@@ -134,6 +140,7 @@
       left: 0;
     }
   }
+  &.sn-input__addon.sn-input__addon--right,
   &.sn-input__addon--right {
     padding-right: $default-input-addon-padding;
     width: calc(100% - 20px);
@@ -615,15 +622,15 @@
 }
 
 .sn-input__meter-box {
-  line-height: 5px;
+  // line-height: 8px;
   font-size: 12px;
 }
 
-meter::-webkit-meter-bar {background: #e6e6e9;}
-meter::-webkit-meter-optimum-value {background: green;}
-meter::-webkit-meter-suboptimum-value{background:orange;}
-meter::-webkit-meter-even-less-good-value{background:red;}
+meter::-webkit-meter-bar {background: grey;}
+meter::-webkit-meter-optimum-value {background: $default-form-input-meter-color-very-strong;}
+meter::-webkit-meter-suboptimum-value{background:$default-form-input-meter-color-medium;}
+meter::-webkit-meter-even-less-good-value{background:$default-form-input-meter-color-weak;}
 
-meter::-moz-meter-bar {background: red;}
-meter::-moz-meter-optimum-value {background: lightgreen;}
-meter::-moz-meter-suboptimum-value{background:gold;}
+meter::-moz-meter-bar {background: $default-form-input-meter-color-weak;}
+meter::-moz-meter-optimum-value {background: $default-form-input-meter-color-very-strong;}
+meter::-moz-meter-suboptimum-value{background:$default-form-input-meter-color-medium;}

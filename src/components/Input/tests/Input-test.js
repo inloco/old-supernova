@@ -138,7 +138,7 @@ describe('Input', () => {
   it('has right addon', () => {
     const expected = '%'
     wrapper.setProps({ rightAddon: expected })
-    const current = wrapper.find('.sn-input__addon')
+    const current = wrapper.find('.sn-input__addon--right')
 
     expect(current.contains(expected)).toBeTruthy()
   })

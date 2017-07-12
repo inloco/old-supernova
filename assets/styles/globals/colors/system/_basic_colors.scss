@@ -127,6 +127,8 @@ $default-form-label-color-floating                        : $palette-grey-400;
 $default-form-label-color-focus                           : $default-accent-color;
 $default-form-bar-color                                   : $palette-grey-400;
 $default-form-bar-color-focus                             : $default-accent-color;
+$default-form-bar-color-disabled                          : $palette-grey-400;
+$default-form-input-tooltip-icon-color                    : lighten($default-label-color, 25%);
 $default-form-input-tooltip-icon-color                    : lighten($default-label-color, 25%);
 $default-form-input-icon-border-color                     : $palette-grey-400;
 $default-form-input-icon-color-focus                      : $default-accent-color;
@@ -139,6 +141,10 @@ $default-form-group-color-message-info                    : $default-info-color;
 $default-form-group-input-range-button-color              : $default-primary-color;
 $default-form-group-input-range-button-hover-color        : $default-accent-color;
 $default-form-group-input-range-bar                       : $palette-grey-400;
+$default-form-input-meter-color-weak                      : $default-danger-color;
+$default-form-input-meter-color-medium                    : $default-warning-color;
+$default-form-input-meter-color-strong                    : $palette-blue-500;
+$default-form-input-meter-color-very-strong               : $default-success-color;
 
 
 // Tables
