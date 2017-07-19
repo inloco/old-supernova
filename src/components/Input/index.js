@@ -173,7 +173,7 @@ class Input extends React.Component {
 
   getAddonClassName() {
     if (this.props.rightAddon) {
-      return 'sn-input__addon sn-input__addon--right'
+      return 'sn-input__addon--right'
     }
 
     return this.props.leftAddon ? 'sn-input__addon sn-input__addon--left' : ''
