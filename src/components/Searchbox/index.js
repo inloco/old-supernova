@@ -62,13 +62,18 @@ class Searchbox extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleInputBlur = this.handleInputBlur.bind(this)
     this.handleInputFocus = this.handleInputFocus.bind(this)
+    this.handleKeyDown = this.handleKeyDown.bind(this)
+    this.handleMouseEnter = this.handleMouseEnter.bind(this)
     this.handleOnSelectResult = this.handleOnSelectResult.bind(this)
 
     this.state = {
       inputValue: '',
       expandedResults: false,
-      selectedResults: this.props.initialSelectedResults || []
+      selectedResults: this.props.initialSelectedResults || [],
+      hoveredResult: undefined
     }
+
+    this.visibleResultsCount = 0
   }
 
   render() {
@@ -158,6 +163,7 @@ class Searchbox extends React.Component {
           onFocus={this.handleInputFocus}
           onBlur={this.handleInputBlur}
           disabled={this.props.disabled}
+          onKeyDown={this.handleKeyDown}
         />
 
         {
@@ -186,18 +192,84 @@ class Searchbox extends React.Component {
   }
 
   handleInputFocus(event) {
-    this.setState({ expandedResults: true })
+    this.setState({
+      expandedResults: true,
+      hoveredResult: undefined
+    })
   }
 
   handleInputBlur(event) {
     this.setState({ expandedResults: false })
   }
 
+  hoverNextResult() {
+    const hovered = this.state.hoveredResult
+    const nextHovered = hovered !== undefined ? hovered + 1 : 0
+
+    if (nextHovered < this.visibleResultsCount) {
+      this.setState({ hoveredResult: nextHovered })
+    }
+  }
+
+  hoverPreviousResult() {
+    const hovered = this.state.hoveredResult
+    const nextHovered = hovered !== undefined ? hovered - 1 : 0
+
+    if (nextHovered >= 0) {
+      this.setState({ hoveredResult: nextHovered })
+    }
+    else {
+      this.setState({ hoveredResult: undefined })
+    }
+  }
+
+  selectHoveredResult() {
+    const hovered = this.state.hoveredResult
+
+    if (hovered !== undefined) {
+      const results = this.getVisibleResults()
+      const selectedResult = results[hovered]
+
+      this.handleOnSelectResult(selectedResult)
+      this.setState({ hoveredResult: undefined })
+    }
+  }
+
+  handleKeyDown(event) {
+    event.persist()
+
+    switch (event.key) {
+      case 'ArrowDown':
+        this.hoverNextResult()
+        event.preventDefault()
+        break
+      case 'ArrowUp':
+        this.hoverPreviousResult()
+        event.preventDefault()
+        break
+      case 'Enter':
+        this.selectHoveredResult()
+        event.preventDefault()
+        break
+    }
+  }
+
+  handleMouseEnter(index) {
+    return () => {
+      this.setState({ hoveredResult: index })
+    }
+  }
+
   renderResults() {
+    const results = this.getVisibleResults()
+
     return (
       <ul className="sn-search-box__results">
-        {this.getVisibleResults().map(result => (
-          <li key={result.id}>
+        {results.map((result, i) => (
+          <li
+            onMouseEnter={this.handleMouseEnter(i)}
+            key={result.id}
+            className={i === this.state.hoveredResult ? 'hovered' : ''}>
             <ResultCard
               result={result}
               onSelectResult={this.handleOnSelectResult}
@@ -213,9 +285,11 @@ class Searchbox extends React.Component {
     const notSelectedResults = this.getNotSelectedResults(results)
     const limitedResults = this.limitResults(limit, notSelectedResults)
 
-    return filter
-            ? this.filterResults(limitedResults)
-            : limitedResults
+    const filteredResults = filter ? this.filterResults(limitedResults) : limitedResults
+
+    this.visibleResultsCount = filteredResults.length
+
+    return filteredResults
   }
 
   getNotSelectedResults(results) {

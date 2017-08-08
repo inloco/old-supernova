@@ -121,6 +121,7 @@
     li {
       padding: 4px 40px 4px 12px;
       border-top: 1px solid $default-search-box-line-divider;
+      &.hovered,
       &:hover,
       &:active  {
         cursor: pointer;
