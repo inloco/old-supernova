@@ -141,9 +141,68 @@ describe('Searchbox', () => {
       })
     })
 
+    describe('when user uses keyboard to navigate through results', () => {
+      it('responds to ArrowDown keypress when no item is hovered', () => {
+        wrapper.setState({ hoveredResult: undefined })
+        input.simulate('keyDown', {
+          key: 'ArrowDown',
+          persist: jest.fn(),
+          preventDefault: jest.fn()
+        })
+
+        expect(wrapper.state().hoveredResult).toEqual(0)
+      })
+
+      it('responds to ArrowDown keypress when last item is hovered', () => {
+        wrapper.setState({ hoveredResult: 1 })
+        input.simulate('keyDown', {
+          key: 'ArrowDown',
+          persist: jest.fn(),
+          preventDefault: jest.fn()
+        })
+
+        expect(wrapper.state().hoveredResult).toEqual(1)
+      })
+
+      it('responds to ArrowUp keypress when last item is hovered', () => {
+        wrapper.setState({ hoveredResult: 1 })
+        input.simulate('keyDown', {
+          key: 'ArrowUp',
+          persist: jest.fn(),
+          preventDefault: jest.fn()
+        })
+
+        expect(wrapper.state().hoveredResult).toEqual(0)
+      })
+
+      it('responds to ArrowUp keypress when first item is hovered', () => {
+        wrapper.setState({ hoveredResult: 0 })
+        input.simulate('keyDown', {
+          key: 'ArrowUp',
+          persist: jest.fn(),
+          preventDefault: jest.fn()
+        })
+
+        expect(wrapper.state().hoveredResult).toEqual(undefined)
+      })
+
+      it('selects hovered result when Enter is pressed', () => {
+        wrapper.setState({ hoveredResult: 0 })
+        input.simulate('keyDown', {
+          key: 'Enter',
+          persist: jest.fn(),
+          preventDefault: jest.fn()
+        })
+
+        expect(wrapper.state().hoveredResult).toEqual(undefined)
+        expect(wrapper.state().selectedResults).toHaveLength(1)
+      })
+    })
+
     describe('when has filter prop', () => {
       beforeEach(() => {
         wrapper.setProps({ filter: true })
+        wrapper.setState({ selectedResults: [] })
       })
 
       it('displays only Shoppings when type shop', () => {
