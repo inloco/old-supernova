@@ -33,6 +33,10 @@
     }
   }
 
+  &.sn-board--bleed-xs {
+    padding: $default-board-bleed-xs;
+  }
+
   &.sn-board--bleed-sm {
     padding: $default-board-bleed-sm;
   }
