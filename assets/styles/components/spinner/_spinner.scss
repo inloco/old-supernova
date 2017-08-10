@@ -15,14 +15,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.sn-spinner--rotate {
-  animation: rotate 0.75s infinite linear;
-}
+  &--rotate {
+    animation: rotate 0.75s infinite linear;
+  }
 
-.sn-spinner__icon {
-  max-width: 100%;
+  .sn-spinner__icon {
+    max-width: 100%;
+  }
 }
 
 @keyframes rotate {
