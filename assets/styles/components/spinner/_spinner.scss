@@ -21,6 +21,10 @@
   animation: rotate 0.75s infinite linear;
 }
 
+.sn-spinner__icon {
+  max-width: 100%;
+}
+
 @keyframes rotate {
   to {transform: rotate(360deg);}
 }
