@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom'
 class Spinner extends React.Component {
   static propTypes = {
     iconUrl: PropTypes.string.isRequired,
+    altText: PropTypes.string,
     forceRotation: PropTypes.bool
   }
 
@@ -16,7 +17,7 @@ class Spinner extends React.Component {
         <img
           className="sn-spinner__icon"
           src={iconUrl}
-          alt="Loading content..." />
+          alt={this.props.altText || ""} />
       </div>
     )
   }
