@@ -1,0 +1,30 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2017 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *    spinner component file
+ *  ----------- *** ------------
+ *
+ */
+
+.sn-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--rotate {
+    animation: rotate 0.75s infinite linear;
+  }
+
+  .sn-spinner__icon {
+    max-width: 100%;
+  }
+}
+
+@keyframes rotate {
+  to {transform: rotate(360deg);}
+}

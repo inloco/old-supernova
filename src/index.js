@@ -61,6 +61,7 @@ import Wizard from "./components/Wizard/Main"
 import WizardStep from "./components/Wizard/Step"
 import Meter from "./components/Meter"
 import Text from "./components/Text"
+import Spinner from "./components/Spinner"
 
 export {
   Alert,
@@ -125,5 +126,6 @@ export {
   Wizard,
   WizardStep,
   Meter,
-  Text
+  Text,
+  Spinner
 }
