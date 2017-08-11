@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Icon from './Icons'
+import Icon from './../Icons'
 
 class DropdownMenu extends React.Component {
   static propTypes = {
@@ -33,7 +33,7 @@ class DropdownMenu extends React.Component {
     document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
-  handleClickOutside() {
+  handleClickOutside(event) {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
       this.close()
     }
