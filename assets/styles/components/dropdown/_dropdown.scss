@@ -86,7 +86,7 @@
       ~.sn-field__label {
         color: $default-dropdown-warning-color;
       }
-    }    
+    }
   }
 
 
@@ -126,7 +126,7 @@
       ~.sn-field__label {
         color: $default-dropdown-warning-color;
       }
-    }      
+    }
   }
 
 
@@ -171,6 +171,7 @@
     vertical-align: middle;
     will-change: all;
     transition: $default-dropdown-transition;
+
     &:after {
       position: absolute;
       top: 0;
@@ -185,6 +186,11 @@
       line-height: 20px;
     }
 
+    &.-loading{
+      background: $palette-grey-100;
+      padding: 8px;
+      color: $palette-grey-500;
+    }
   }
 
   .sn-dropdown__results {

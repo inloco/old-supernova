@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Label from './../Label'
+import Spinner from './../Spinner'
 
 class Dropdown extends React.Component {
   constructor(props) {
@@ -53,6 +54,14 @@ class Dropdown extends React.Component {
       open: !this.state.open,
       searchValue: '',
     })
+  }
+
+  getStatusStyleClassName() {
+    return (
+      this.props.layout === 'status'
+      ? { borderLeftColor: this.props.statusColor }
+      : {}
+    )
   }
 
   getLayoutClassName() {
@@ -143,6 +152,7 @@ class Dropdown extends React.Component {
         {searchable && this.renderSearchField()}
         {filteredOptions.map((option, index) => (
             <li
+              disabled
               key={index}
               onClick={this.handleOptionClick.bind(this, option)}
             >
@@ -186,10 +196,24 @@ class Dropdown extends React.Component {
     )
   }
 
+  renderLoadingDropdownButton() {
+    const statusStyle = this.getStatusStyleClassName()
+
+    return (
+      <div onMouseLeave={this.blurDropdown}>
+        <button
+          className="sn-dropdown__button -loading"
+          type="button"
+          style={statusStyle}
+        >
+          {this.props.loadingPlaceholder}
+        </button>
+      </div>
+    )
+  }
+
   renderDropdownButton(options) {
-    const statusStyle = this.props.layout === 'status'
-                          ? { borderLeftColor: this.props.statusColor }
-                          : {}
+    const statusStyle = this.getStatusStyleClassName()
 
     return (
       <div onMouseLeave={this.blurDropdown}>
@@ -216,7 +240,11 @@ class Dropdown extends React.Component {
       <div className={this.getClassName()}>
         {label && <Label value={label} fixed={true}/>}
         {multiple && this.renderSelectedValues()}
-        {hasOptions && this.renderDropdownButton(options)}
+        {
+          hasOptions ?
+          this.renderDropdownButton(options) :
+          this.renderLoadingDropdownButton()
+        }
       </div>
     )
   }
