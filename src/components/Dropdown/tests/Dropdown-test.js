@@ -1,5 +1,5 @@
 import React from 'react'
-import Dropdown from './../Main'
+import Dropdown from './../index'
 import { mount } from 'enzyme'
 
 describe('Dropdown', () => {

@@ -37,7 +37,6 @@ class Dropdown extends React.Component {
   componentWillUpdate(nextProps, nextState) {
     if(this.props.multiple && this.state.values !== nextState.values) {
       this.props.onChange(nextState.values)
-      return
     }
 
     if(this.state.value !== nextState.value) {
@@ -48,9 +47,9 @@ class Dropdown extends React.Component {
   blurDropdown() {
     this.setState({ open: false })
   }
-  
+
   toggleList() {
-    this.setState({ 
+    this.setState({
       open: !this.state.open,
       searchValue: '',
     })
@@ -90,7 +89,6 @@ class Dropdown extends React.Component {
 
   handleRemoveOptionClick(option) {
     this.setState({
-      ...this.state,
       values: this.state.values.filter(value => value !== option.value)
     })
   }
@@ -135,7 +133,7 @@ class Dropdown extends React.Component {
     const listStyle = {
       display: this.state.open ? 'block' : 'none'
     }
-    
+
     const { searchable } = this.props
 
     const filteredOptions = searchable ? this.getFilteredOptions(options) : options

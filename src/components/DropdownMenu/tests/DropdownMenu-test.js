@@ -1,6 +1,6 @@
 import React from 'react'
-import DropdownMenu from './../../src/components/DropdownMenu'
-import Icon from './../../src/components/Icons'
+import DropdownMenu from '../index'
+import Icon from '../../Icons'
 import { mount } from 'enzyme'
 
 describe('DropdownMenu', () => {
@@ -20,9 +20,14 @@ describe('DropdownMenu', () => {
     expect(wrapper.hasClass('sn-dropdown-menu')).toBeTruthy()
   })
 
+  it('has an icon', () => {
+    expect(wrapper.find(Icon).length).toEqual(1)
+  })
+
   it('has an more_vert icon', () => {
     const icon = wrapper.find(Icon)
 
+    expect(icon.length).toEqual(1)
     expect(icon.props().code).toEqual('more_vert')
   })
 
@@ -30,7 +35,7 @@ describe('DropdownMenu', () => {
     expect(wrapper.state().open).toBeFalsy()
   })
 
-  it('dont display the options', () => {
+  it('starts not displaying the options', () => {
     const optionsWrapper = getOptionsWrapper(wrapper)
 
     expect(optionsWrapper.length).toEqual(0)
@@ -49,6 +54,13 @@ describe('DropdownMenu', () => {
       expect(optionsWrapper.length).toEqual(1)
     })
 
+    it('display the correct options', () => {
+      const optionsWrapper = getOptionsWrapper(wrapper)
+
+      expect(optionsWrapper.children().first().text()).toEqual(options[0].label)
+      expect(optionsWrapper.children().last().text()).toEqual(options[1].label)
+    })
+
     it('display 2 links', () => {
       const links = getOptionsWrapper(wrapper).find('span')
 
@@ -56,7 +68,7 @@ describe('DropdownMenu', () => {
     })
   })
 
-  describe('when click in dropdown option', () => {
+  describe('when click in a dropdown option', () => {
     beforeEach(() => {
       wrapper.simulate('click')
 
