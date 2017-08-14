@@ -259,4 +259,28 @@ describe('Dropdown', () => {
       })
     })
   })
+
+  describe('when is loading options', () => {
+    const wrapperLoading = mount(
+      <Dropdown
+        layout="box"
+        onChange={onChange}
+        loadingPlaceholder={'Loding options...'}
+        placeholder="Pick some choice..."
+        options={[]}
+      />
+    )
+
+    it('has the loading class in button', () => {
+      expect(wrapperLoading.find('.-loading').length).toEqual(1)
+    })
+
+    it('display loading placeholder', () => {
+      expect(wrapperLoading.find('button').text()).toEqual('Loding options...')
+    })
+
+    it('does not has results list', () => {
+      expect(wrapperLoading.find('.sn-dropdown__results').length).toEqual(0)
+    })
+  })
 })
