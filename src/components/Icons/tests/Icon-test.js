@@ -4,17 +4,28 @@ import Icon from '../index'
 import { shallow } from 'enzyme'
 
 describe('Icon', () => {
+  const onClick = jest.fn()
   const wrapper = shallow(
-    <Icon code="add"/>
+    <Icon code="add" className="some" onClick={onClick} />
   )
 
   it('has icon className', () => {
-    const icon = wrapper.find('[className="material-icons"]')
-
-    expect(icon.length).toEqual(1)
+    expect(wrapper.hasClass('material-icons')).toBeTruthy()
+  })
+  
+  it('has custom className', () => {
+    expect(wrapper.hasClass('some')).toBeTruthy()
   })
 
   it('has material code', () => {
     expect(wrapper.children().node).toEqual('add')
+  })
+
+  describe('when click', () => {
+    it('calls onClick', () => {
+      wrapper.simulate('click')
+
+      expect(onClick).toBeCalled()
+    })
   })
 })
