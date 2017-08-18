@@ -1,0 +1,69 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *      chip component file
+ *  ----------- *** ------------
+ *
+ */
+
+ @import "chip_variables";
+
+ .sn-chip {
+    display: inline-block;
+    padding: 0 15px;
+    max-width: 200px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+
+    .sn-chip__image {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+
+        &--left {
+            float: left;
+            margin: 0 10px 0 -15px;
+        }
+
+        &--right {
+            float: right;
+            margin: 0 -15px 0 10px;
+        }
+
+        &--clickable {
+            cursor: pointer;
+        }
+    }
+
+    .sn-chip__icon {
+        color: #999;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 40px;
+        
+        &--left {
+            float: left;
+            padding-right: 10px;
+        }
+        
+        &--right {
+            float: right;
+            padding-left: 10px;
+        }
+        
+        &--clickable {
+            cursor: pointer;
+        }
+    }
+ }
