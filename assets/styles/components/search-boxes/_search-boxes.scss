@@ -229,7 +229,6 @@
     }
   }
 
-
   &.sn-search-box--disabled {
     input {
       color: $default-search-box-disabled-color;
@@ -239,5 +238,26 @@
 
   &.sn-search-box--error {
     margin-bottom: $default-search-box-error-margin-bottom;
+  }
+
+  &.sn-search-box--chips {
+    box-shadow: none;
+
+    .sn-search-box--chips__input {
+      @include shadow-2dp();
+    }
+
+    .sn-search-box--chips__selected {
+      list-style: none;
+      padding-left: 0;
+  
+      li {
+        display: inline-block;
+  
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+      }
+    }
   }
 }

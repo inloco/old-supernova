@@ -293,6 +293,41 @@ describe('Searchbox', () => {
     })
   })
 
+  describe('when renders selected results as chips', () => {
+    const initialSelectedResults = [
+      { id: 'a', title: 'A' },
+      { id: 'b', title: 'B' }
+    ]
+    
+    beforeEach(() => {
+      wrapper = shallow(
+        <Searchbox
+          onSearch={() => {}}
+          onSelect={() => {}}
+          onUnselect={() => {}}
+          results={[]}
+          initialSelectedResults={initialSelectedResults}
+          selectedResultsType="chips"
+          chipTooltip
+        />
+      )
+
+      wrapper.setProps({ initialSelectedResults })
+    })
+
+    it('has a Tooltip', () => {
+      expect(wrapper.find('Tooltip').exists()).toBeTruthy()
+    })
+
+    it('has a Chip', () => {
+      expect(wrapper.find('Chip').exists()).toBeTruthy()
+    })
+
+    it('has chip helper className', () => {
+      expect(wrapper.find('.sn-search-box--chips').exists()).toBeTruthy()
+    })
+  })
+
   describe('when is disabled', () => {
     beforeEach(() => {
       wrapper.setProps({ disabled: true })
