@@ -70,6 +70,7 @@ class Searchbox extends React.Component {
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleMouseEnter = this.handleMouseEnter.bind(this)
     this.handleOnSelectResult = this.handleOnSelectResult.bind(this)
+    this.handleCloseClick = this.handleCloseClick.bind(this)
 
     this.state = {
       inputValue: '',
@@ -133,27 +134,33 @@ class Searchbox extends React.Component {
   }
 
   renderSelectedResults() {
-    if (this.props.selectedResultsType === 'chips') {
-      return (
-        <ul className="sn-search-box--chips__selected">
-          {this.state.selectedResults.map(selectedResult => (
-            <li key={selectedResult.id}>
-              {this.renderSelectedResultChip(selectedResult)}
-            </li>
-          ))}
-        </ul>
-      )
-    } else {
-      return (
-        <ul className="sn-search-box__selected">
-          {this.state.selectedResults.map(selectedResult => (
-            <li key={selectedResult.id}>
-              {this.renderSelectedResultCard(selectedResult)}
-            </li>
-          ))}
-        </ul>
-      )
-    }
+    if (this.props.selectedResultsType === 'chips') return this.renderChipsResults()
+      
+    return this.renderSimpleResults()
+  }
+
+  renderChipsResults() {
+    return (
+      <ul className="sn-search-box--chips__selected">
+        {this.state.selectedResults.map(selectedResult => (
+          <li key={selectedResult.id}>
+            {this.renderSelectedResultChip(selectedResult)}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  renderSimpleResults() {
+    return (
+      <ul className="sn-search-box__selected">
+        {this.state.selectedResults.map(selectedResult => (
+          <li key={selectedResult.id}>
+            {this.renderSelectedResultCard(selectedResult)}
+          </li>
+        ))}
+      </ul>
+    )
   }
 
   renderSelectedResultChip(selectedResult) {
@@ -166,8 +173,8 @@ class Searchbox extends React.Component {
         >
           <Chip
             text={selectedResult.title}
-            leftIconCode="cancel"
-            leftIconClick={this.handleCloseClick.bind(this, selectedResult)}
+            iconCode="cancel"
+            iconClick={this.handleCloseClick(selectedResult)}
           />
         </Tooltip>
       )
@@ -175,8 +182,8 @@ class Searchbox extends React.Component {
       return (
         <Chip
           text={selectedResult.title}
-          leftIconCode="cancel"
-          leftIconClick={this.handleCloseClick.bind(this, selectedResult)}
+          iconCode="cancel"
+          iconClick={this.handleCloseClick(selectedResult)}
         />
       )
     }
@@ -189,7 +196,7 @@ class Searchbox extends React.Component {
         <button
           type="button"
           className="sn-search-box__item-button"
-          onClick={this.handleCloseClick.bind(this, selectedResult)}>
+          onClick={this.handleCloseClick(selectedResult)}>
         </button>
       </div>
     )
@@ -210,13 +217,13 @@ class Searchbox extends React.Component {
   }
 
   renderInput() {
+    const chipsClass = this.props.selectedResultsType === "chips" ? " sn-search-box--chips__input" : "";
+
     return (
       <div>
         <input
           type="text"
-          className={`sn-search-box__input
-                      ${this.props.selectedResultsType === "chips" ? "sn-search-box--chips__input" : ""}`
-                    }
+          className={`sn-search-box__input${chipsClass}`}
           autoComplete="off"
           ref={input => this.input = input}
           placeholder={this.props.placeholder}
@@ -230,7 +237,11 @@ class Searchbox extends React.Component {
 
         {
           this.props.loading
-            ? <img src={this.props.spinner} className="sn-search-box__input--spinner" alt="spinner" />
+            ? <img
+                src={this.props.spinner} 
+                className="sn-search-box__input--spinner" 
+                alt="spinner"
+              />
             : <span className="sn-search-box__input--icon" />
         }
       </div>
@@ -319,6 +330,12 @@ class Searchbox extends React.Component {
   handleMouseEnter(index) {
     return () => {
       this.setState({ hoveredResult: index })
+    }
+  }
+
+  handleCloseClick(selected) {
+    return () => {
+      this.unselectResult(selected)
     }
   }
 
