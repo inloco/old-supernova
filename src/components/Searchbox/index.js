@@ -86,13 +86,15 @@ class Searchbox extends React.Component {
       <div className={this.getClassName()}>
         {this.hasSelectedResults() 
           && this.shouldRenderSelectedResultsOnTop() 
-          && this.renderSelectedResults()}
+          && this.renderSelectedResults()
+        }
         {this.shouldRenderInput() && this.renderInput()}
         {this.shouldRenderResults() && this.renderResults()}
         {this.props.error && this.renderError()}
         {this.hasSelectedResults() 
           && this.shouldRenderSelectedResultsOnBottom() 
-          && this.renderSelectedResults()}
+          && this.renderSelectedResults()
+        }
       </div>
     )
   }
