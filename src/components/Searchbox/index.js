@@ -178,15 +178,15 @@ class Searchbox extends React.Component {
           />
         </Tooltip>
       )
-    } else {
-      return (
-        <Chip
-          text={selectedResult.title}
-          iconCode="cancel"
-          iconClick={this.handleCloseClick(selectedResult)}
-        />
-      )
     }
+
+    return (
+      <Chip
+        text={selectedResult.title}
+        iconCode="cancel"
+        iconClick={this.handleCloseClick(selectedResult)}
+      />
+    )
   }
 
   renderSelectedResultCard(selectedResult) {
