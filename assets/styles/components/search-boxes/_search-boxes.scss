@@ -23,8 +23,8 @@
   background-color: $default-search-box-background-color;
   @include shadow-2dp();
 
-  .sn-search-box__selected,
-  .sn-search-box__results {
+  &__selected,
+  &__results {
     min-height: 40px;
     list-style: none;
     padding: 0;
@@ -91,7 +91,7 @@
 
   }
 
-  .sn-search-box__selected {
+  &__selected {
     width: 100%;
     li {
       padding: 4px 44px 4px 8px;
@@ -111,7 +111,7 @@
     }
   }
 
-  .sn-search-box__results {
+  &__results {
     position: absolute;
     width: 100%;
     border-top: 1px solid $default-search-box-line-divider;
@@ -162,7 +162,7 @@
     }
   }
 
-  .sn-search-box__input {
+  &__input {
     position: relative;
     display: block;
     width: calc(100% - 48px);
@@ -180,7 +180,7 @@
     }
   }
 
-  .sn-search-box__input--icon {
+  &__input--icon {
     display: block;
     position: relative;
     width: 100%;
@@ -200,7 +200,7 @@
     }
   }
 
-  .sn-search-box__input--spinner {
+  &__input--spinner {
     width: 22px;
     height: 22px;
     position: absolute;
@@ -208,7 +208,7 @@
     right: 12px;
   }
 
-  .sn-search-box__message {
+  &__message {
     position: absolute;
     display: block;
     width: 100%;
@@ -229,15 +229,35 @@
     }
   }
 
-
-  &.sn-search-box--disabled {
+  &--disabled {
     input {
       color: $default-search-box-disabled-color;
       background-color: $default-search-box-disabled-background-color;
     }
   }
 
-  &.sn-search-box--error {
+  &--error {
     margin-bottom: $default-search-box-error-margin-bottom;
+  }
+
+  &--chips {
+    box-shadow: none;
+
+    &__input {
+      @include shadow-2dp();
+    }
+
+    &__selected {
+      list-style: none;
+      padding-left: 0;
+  
+      li {
+        display: inline-block;
+  
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+      }
+    }
   }
 }

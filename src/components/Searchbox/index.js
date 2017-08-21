@@ -1,6 +1,8 @@
 import React from 'react'
-import ResultCard from './ResultCard'
 import PropTypes from 'prop-types'
+import ResultCard from './ResultCard'
+import Chip from './../Chip'
+import Tooltip from './../Tooltip'
 
 class Searchbox extends React.Component {
   static propTypes = {
@@ -17,6 +19,9 @@ class Searchbox extends React.Component {
     spinner: PropTypes.any,
     disabled: PropTypes.bool,
     placeholder: PropTypes.string,
+    selectedResultsPlacement: PropTypes.string,
+    selectedResultsType: PropTypes.string,
+    chipTooltip: PropTypes.any,
     results: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.any.isRequired,
@@ -65,6 +70,7 @@ class Searchbox extends React.Component {
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleMouseEnter = this.handleMouseEnter.bind(this)
     this.handleOnSelectResult = this.handleOnSelectResult.bind(this)
+    this.handleCloseClick = this.handleCloseClick.bind(this)
 
     this.state = {
       inputValue: '',
@@ -79,10 +85,17 @@ class Searchbox extends React.Component {
   render() {
     return (
       <div className={this.getClassName()}>
-        {this.hasSelectedResults() && this.renderSelectedResults()}
+        {this.hasSelectedResults() 
+          && this.shouldRenderSelectedResultsOnTop() 
+          && this.renderSelectedResults()
+        }
         {this.shouldRenderInput() && this.renderInput()}
         {this.shouldRenderResults() && this.renderResults()}
         {this.props.error && this.renderError()}
+        {this.hasSelectedResults() 
+          && this.shouldRenderSelectedResultsOnBottom() 
+          && this.renderSelectedResults()
+        }
       </div>
     )
   }
@@ -90,9 +103,19 @@ class Searchbox extends React.Component {
   getClassName() {
     return `
       sn-search-box
+      ${this.props.selectedResultsType === "chips" ? 'sn-search-box--chips' : ''}
       ${this.props.disabled ? 'sn-search-box--disabled' : ''}
       ${this.props.error ? 'sn-search-box--error': ''}
     `
+  }
+
+  shouldRenderSelectedResultsOnTop() {
+    return this.props.selectedResultsPlacement === 'top' 
+            || !this.props.selectedResultsPlacement
+  }
+
+  shouldRenderSelectedResultsOnBottom() {
+    return this.props.selectedResultsPlacement === 'bottom'
   }
 
   shouldRenderInput() {
@@ -111,6 +134,24 @@ class Searchbox extends React.Component {
   }
 
   renderSelectedResults() {
+    if (this.props.selectedResultsType === 'chips') return this.renderChipsResults()
+      
+    return this.renderSimpleResults()
+  }
+
+  renderChipsResults() {
+    return (
+      <ul className="sn-search-box--chips__selected">
+        {this.state.selectedResults.map(selectedResult => (
+          <li key={selectedResult.id}>
+            {this.renderSelectedResultChip(selectedResult)}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  renderSimpleResults() {
     return (
       <ul className="sn-search-box__selected">
         {this.state.selectedResults.map(selectedResult => (
@@ -122,6 +163,32 @@ class Searchbox extends React.Component {
     )
   }
 
+  renderSelectedResultChip(selectedResult) {
+    if (this.props.chipTooltip) {
+      return (
+        <Tooltip
+          message={selectedResult.title}
+          position='top'
+          size='md'
+        >
+          {this.renderSimpleResultChip(selectedResult)}
+        </Tooltip>
+      )
+    }
+
+    return this.renderSimpleResultChip(selectedResult)
+  }
+
+  renderSimpleResultChip(selectedResult) {
+    return (
+      <Chip
+        text={selectedResult.title}
+        iconCode="cancel"
+        iconClick={this.handleCloseClick(selectedResult)}
+      />
+    )
+  }
+
   renderSelectedResultCard(selectedResult) {
     return (
       <div>
@@ -129,7 +196,7 @@ class Searchbox extends React.Component {
         <button
           type="button"
           className="sn-search-box__item-button"
-          onClick={this.handleCloseClick.bind(this, selectedResult)}>
+          onClick={this.handleCloseClick(selectedResult)}>
         </button>
       </div>
     )
@@ -150,11 +217,13 @@ class Searchbox extends React.Component {
   }
 
   renderInput() {
+    const chipsClass = this.props.selectedResultsType === "chips" ? " sn-search-box--chips__input" : "";
+
     return (
       <div>
         <input
           type="text"
-          className="sn-search-box__input"
+          className={`sn-search-box__input${chipsClass}`}
           autoComplete="off"
           ref={input => this.input = input}
           placeholder={this.props.placeholder}
@@ -168,7 +237,11 @@ class Searchbox extends React.Component {
 
         {
           this.props.loading
-            ? <img src={this.props.spinner} className="sn-search-box__input--spinner" alt="spinner" />
+            ? <img
+                src={this.props.spinner} 
+                className="sn-search-box__input--spinner" 
+                alt="spinner"
+              />
             : <span className="sn-search-box__input--icon" />
         }
       </div>
@@ -257,6 +330,12 @@ class Searchbox extends React.Component {
   handleMouseEnter(index) {
     return () => {
       this.setState({ hoveredResult: index })
+    }
+  }
+
+  handleCloseClick(selected) {
+    return () => {
+      this.unselectResult(selected)
     }
   }
 

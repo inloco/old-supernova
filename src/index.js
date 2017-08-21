@@ -7,6 +7,7 @@ import BubbleStep from "./components/Steps/Bubble/Step"
 import Card from "./components/Card"
 import CardList from "./components/Card/List"
 import Checkbox from "./components/Form/Checkbox"
+import Chip from "./components/Chip"
 import Content from "./components/Content/Main"
 import Drawer from "./components/Drawer/"
 import DrawerNav from "./components/Drawer/Nav/Main"
@@ -74,6 +75,7 @@ export {
   CardList,
   Cell,
   Checkbox,
+  Chip,
   Content,
   Drawer,
   DrawerNav,
