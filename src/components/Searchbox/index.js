@@ -171,15 +171,15 @@ class Searchbox extends React.Component {
           position='top'
           size='md'
         >
-          <Chip
-            text={selectedResult.title}
-            iconCode="cancel"
-            iconClick={this.handleCloseClick(selectedResult)}
-          />
+          {this.renderSimpleResultChip(selectedResult)}
         </Tooltip>
       )
     }
 
+    return this.renderSimpleResultChip(selectedResult)
+  }
+
+  renderSimpleResultChip(selectedResult) {
     return (
       <Chip
         text={selectedResult.title}
