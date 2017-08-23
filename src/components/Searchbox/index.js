@@ -189,6 +189,7 @@ class Searchbox extends React.Component {
         text={selectedResult.title}
         iconCode="cancel"
         iconClick={this.handleCloseClick(selectedResult)}
+        reversed
       />
     )
   }
