@@ -32,9 +32,9 @@ class Chip extends React.Component {
         className='sn-chip'
         style={style}
       >
-        <div className="sn-chip__inner_wrapper">
+        <div className="sn-chip__inner-wrapper">
           {this.renderLeftIconOrImage()}
-          <span className="sn-chip__text">{text}</span>
+          <span className="sn-chip__inner-wrapper__text">{text}</span>
           {this.renderRightIconOrImage()}
         </div>
       </div>
@@ -90,11 +90,11 @@ class Chip extends React.Component {
     } = this.props
 
     let extraClasses = []
-    extraClasses.push('sn-chip__icon')
-    extraClasses.push(`sn-chip__icon--${reversed ? 'left' : 'right'}`)
+    extraClasses.push('sn-chip__inner-wrapper__icon')
+    extraClasses.push(`sn-chip__inner-wrapper__icon--${reversed ? 'left' : 'right'}`)
 
     if (iconClick) {
-      extraClasses.push('sn-chip__icon--clickable')
+      extraClasses.push('sn-chip__inner-wrapper__icon--clickable')
     }
 
     return extraClasses.join(' ')
@@ -122,8 +122,8 @@ class Chip extends React.Component {
     } = this.props
 
     let extraClasses = []
-    extraClasses.push('sn-chip__image')
-    extraClasses.push(`sn-chip__image--${reversed ? 'right' : 'left'}`)
+    extraClasses.push('sn-chip__inner-wrapper__image')
+    extraClasses.push(`sn-chip__inner-wrapper__image--${reversed ? 'right' : 'left'}`)
 
     return extraClasses.join(' ')
   }

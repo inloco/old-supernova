@@ -23,56 +23,56 @@
     border-radius: 24px;
     background-color: #f1f1f1;
     
-    &__inner_wrapper {
+    &__inner-wrapper {
         display: flex;
-    }
 
-    &__text {
-        display: inline-block;
-        max-width: 200px;
-        white-space: nowrap; 
-        overflow: hidden;
-        text-overflow: ellipsis; 
-    }
-
-    &__image {
-        height: 40px;
-        width: 40px;
-        border-radius: 50%;
-
-        &--left {
-            float: left;
-            margin: 0 12px 0 -16px;
+        &__text {
+            display: inline-block;
+            max-width: 200px;
+            white-space: nowrap; 
+            overflow: hidden;
+            text-overflow: ellipsis; 
         }
-
-        &--right {
-            float: right;
-            margin: 0 -16px 0 12px;
+    
+        &__image {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+    
+            &--left {
+                float: left;
+                margin: 0 12px 0 -16px;
+            }
+    
+            &--right {
+                float: right;
+                margin: 0 -16px 0 12px;
+            }
+    
+            &--clickable {
+                cursor: pointer;
+            }
         }
-
-        &--clickable {
-            cursor: pointer;
-        }
-    }
-
-    &__icon {
-        color: #999;
-        font-weight: bold;
-        font-size: 19px;
-        line-height: 40px;
-        
-        &--left {
-            float: left;
-            padding-right: 12px;
-        }
-        
-        &--right {
-            float: right;
-            padding-left: 12px;
-        }
-        
-        &--clickable {
-            cursor: pointer;
+    
+        &__icon {
+            color: #999;
+            font-weight: bold;
+            font-size: 19px;
+            line-height: 40px;
+            
+            &--left {
+                float: left;
+                padding-right: 12px;
+            }
+            
+            &--right {
+                float: right;
+                padding-left: 12px;
+            }
+            
+            &--clickable {
+                cursor: pointer;
+            }
         }
     }
  }
