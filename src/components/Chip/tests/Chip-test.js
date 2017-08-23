@@ -12,7 +12,11 @@ describe('Chip', () => {
   )
   
   it('has text', () => {
-    expect(wrapper.contains('Text')).toBeTruthy()
+    expect(wrapper.find('span').contains('Text')).toBeTruthy()
+  })
+
+  it('has text class', () => {
+    expect(wrapper.find('span').hasClass('sn-chip__text')).toBeTruthy()
   })
 
   it('has class', () => {
@@ -34,7 +38,11 @@ describe('Chip with image and icon', () => {
   )
   
   it('has text', () => {
-    expect(wrapper.contains('Text')).toBeTruthy()
+    expect(wrapper.find('span').contains('Text')).toBeTruthy()
+  })
+
+  it('has text class', () => {
+    expect(wrapper.find('span').hasClass('sn-chip__text')).toBeTruthy()
   })
 
   it('has class', () => {
@@ -98,7 +106,11 @@ describe('Chip with reversed image and icon', () => {
   )
   
   it('has text', () => {
-    expect(wrapper.contains('Text')).toBeTruthy()
+    expect(wrapper.find('span').contains('Text')).toBeTruthy()
+  })
+
+  it('has text class', () => {
+    expect(wrapper.find('span').hasClass('sn-chip__text')).toBeTruthy()
   })
 
   it('has class', () => {
