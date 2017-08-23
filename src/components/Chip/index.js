@@ -28,16 +28,14 @@ class Chip extends React.Component {
     }
 
     return (
-      <div>
-        <div
-          className='sn-chip'
-          style={style}
-        >
-          <div className="sn-chip__wrapper">
-            {this.renderLeftIconOrImage()}
-            <span className="sn-chip__text">{text}</span>
-            {this.renderRightIconOrImage()}
-          </div>
+      <div
+        className='sn-chip'
+        style={style}
+      >
+        <div className="sn-chip__inner_wrapper">
+          {this.renderLeftIconOrImage()}
+          <span className="sn-chip__text">{text}</span>
+          {this.renderRightIconOrImage()}
         </div>
       </div>
     )
