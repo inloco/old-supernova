@@ -165,9 +165,13 @@ class Searchbox extends React.Component {
 
   renderSelectedResultChip(selectedResult) {
     if (this.props.chipTooltip) {
+      const message = selectedResult.subtitle
+                      ? selectedResult.subtitle
+                      : selectedResult.title
+
       return (
         <Tooltip
-          message={selectedResult.title}
+          message={message}
           position='top'
           size='md'
         >
