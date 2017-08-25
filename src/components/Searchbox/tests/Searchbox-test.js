@@ -31,7 +31,7 @@ describe('Searchbox', () => {
   })
 
   it('renders a search icon', () => {
-    expect(wrapper.find('.sn-search-box__input--icon')).toHaveLength(1)
+    expect(wrapper.find('.sn-search-box__input-wrapper__input--icon')).toHaveLength(1)
   })
 
   it('doesnt display results', () => {
@@ -66,7 +66,7 @@ describe('Searchbox', () => {
   describe('loading img for results', () => {
     it('has loader spinner', () => {
       wrapper.setProps({ loading: true })
-      const spinner = wrapper.find('.sn-search-box__input--spinner')
+      const spinner = wrapper.find('.sn-search-box__input-wrapper__input--spinner')
 
       expect(spinner.props().alt).toEqual('spinner')
     })
@@ -293,7 +293,7 @@ describe('Searchbox', () => {
     })
   })
 
-  describe('when renders selected results as chips', () => {
+  describe('when renders selected results as chips with tooltips', () => {
     const initialSelectedResults = [
       { id: 'a', title: 'A' },
       { id: 'b', title: 'B' }
@@ -324,7 +324,41 @@ describe('Searchbox', () => {
     })
 
     it('has chip helper className', () => {
-      expect(wrapper.find('.sn-search-box--chips').exists()).toBeTruthy()
+      expect(wrapper.find('.sn-search-box--chips__input-wrapper__input').exists()).toBeTruthy()
+    })
+  })
+
+  describe('when renders selected results as chips without tooltips', () => {
+    const initialSelectedResults = [
+      { id: 'a', title: 'A' },
+      { id: 'b', title: 'B' }
+    ]
+    
+    beforeEach(() => {
+      wrapper = shallow(
+        <Searchbox
+          onSearch={() => {}}
+          onSelect={() => {}}
+          onUnselect={() => {}}
+          results={[]}
+          initialSelectedResults={initialSelectedResults}
+          selectedResultsType="chips"
+        />
+      )
+
+      wrapper.setProps({ initialSelectedResults })
+    })
+
+    it('has not a Tooltip', () => {
+      expect(wrapper.find('Tooltip').exists()).toBeFalsy()
+    })
+
+    it('has a Chip', () => {
+      expect(wrapper.find('Chip').exists()).toBeTruthy()
+    })
+
+    it('has chip helper className', () => {
+      expect(wrapper.find('.sn-search-box--chips__input-wrapper__input').exists()).toBeTruthy()
     })
   })
 
