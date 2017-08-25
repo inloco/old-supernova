@@ -15,6 +15,7 @@ import DrawerNavLink from "./components/Drawer/Nav/Link"
 import DrawerNavSection from "./components/Drawer/Nav/Section"
 import DrawerTitle from "./components/Drawer/Title"
 import DrawerProfile from "./components/Drawer/Profile"
+import DrawerAction from "./components/Drawer/Action"
 import DrawerFooter from "./components/Drawer/Footer"
 import Dropdown from "./components/Dropdown/"
 import DropdownMenu from "./components/DropdownMenu"
@@ -83,6 +84,7 @@ export {
   DrawerNavSection,
   DrawerTitle,
   DrawerProfile,
+  DrawerAction,
   DrawerFooter,
   Dropdown,
   DropdownMenu,
