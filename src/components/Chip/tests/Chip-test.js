@@ -12,7 +12,11 @@ describe('Chip', () => {
   )
   
   it('has text', () => {
-    expect(wrapper.contains('Text')).toBeTruthy()
+    expect(wrapper.find('span').contains('Text')).toBeTruthy()
+  })
+
+  it('has text class', () => {
+    expect(wrapper.find('span').hasClass('sn-chip__inner-wrapper__text')).toBeTruthy()
   })
 
   it('has class', () => {
@@ -34,7 +38,11 @@ describe('Chip with image and icon', () => {
   )
   
   it('has text', () => {
-    expect(wrapper.contains('Text')).toBeTruthy()
+    expect(wrapper.find('span').contains('Text')).toBeTruthy()
+  })
+
+  it('has text class', () => {
+    expect(wrapper.find('span').hasClass('sn-chip__inner-wrapper__text')).toBeTruthy()
   })
 
   it('has class', () => {
@@ -47,15 +55,15 @@ describe('Chip with image and icon', () => {
     })
 
     it('has default class', () => {
-      expect(wrapper.find("Icon").hasClass('sn-chip__icon')).toBeTruthy()
+      expect(wrapper.find("Icon").hasClass('sn-chip__inner-wrapper__icon')).toBeTruthy()
     })
 
     it('has right class', () => {
-      expect(wrapper.find("Icon").hasClass('sn-chip__icon--right')).toBeTruthy()
+      expect(wrapper.find("Icon").hasClass('sn-chip__inner-wrapper__icon--right')).toBeTruthy()
     })
 
     it('has clickable class', () => {
-      expect(wrapper.find("Icon").hasClass('sn-chip__icon--clickable')).toBeTruthy()
+      expect(wrapper.find("Icon").hasClass('sn-chip__inner-wrapper__icon--clickable')).toBeTruthy()
     })
 
     it('icon executes onClick props when it is clicked', () => {
@@ -71,11 +79,11 @@ describe('Chip with image and icon', () => {
     })
 
     it('has default class', () => {
-      expect(wrapper.find("img").hasClass('sn-chip__image')).toBeTruthy()
+      expect(wrapper.find("img").hasClass('sn-chip__inner-wrapper__image')).toBeTruthy()
     })
 
     it('has left class', () => {
-      expect(wrapper.find("img").hasClass('sn-chip__image--left')).toBeTruthy()
+      expect(wrapper.find("img").hasClass('sn-chip__inner-wrapper__image--left')).toBeTruthy()
     })
   })
 })
@@ -98,7 +106,11 @@ describe('Chip with reversed image and icon', () => {
   )
   
   it('has text', () => {
-    expect(wrapper.contains('Text')).toBeTruthy()
+    expect(wrapper.find('span').contains('Text')).toBeTruthy()
+  })
+
+  it('has text class', () => {
+    expect(wrapper.find('span').hasClass('sn-chip__inner-wrapper__text')).toBeTruthy()
   })
 
   it('has class', () => {
@@ -119,15 +131,15 @@ describe('Chip with reversed image and icon', () => {
     })
 
     it('has default class', () => {
-      expect(wrapper.find("Icon").hasClass('sn-chip__icon')).toBeTruthy()
+      expect(wrapper.find("Icon").hasClass('sn-chip__inner-wrapper__icon')).toBeTruthy()
     })
 
     it('has left class', () => {
-      expect(wrapper.find("Icon").hasClass('sn-chip__icon--left')).toBeTruthy()
+      expect(wrapper.find("Icon").hasClass('sn-chip__inner-wrapper__icon--left')).toBeTruthy()
     })
 
     it('has clickable class', () => {
-      expect(wrapper.find("Icon").hasClass('sn-chip__icon--clickable')).toBeTruthy()
+      expect(wrapper.find("Icon").hasClass('sn-chip__inner-wrapper__icon--clickable')).toBeTruthy()
     })
 
     it('icon executes onClick props when it is clicked', () => {
@@ -143,11 +155,11 @@ describe('Chip with reversed image and icon', () => {
     })
 
     it('has default class', () => {
-      expect(wrapper.find("img").hasClass('sn-chip__image')).toBeTruthy()
+      expect(wrapper.find("img").hasClass('sn-chip__inner-wrapper__image')).toBeTruthy()
     })
 
     it('has right class', () => {
-      expect(wrapper.find("img").hasClass('sn-chip__image--right')).toBeTruthy()
+      expect(wrapper.find("img").hasClass('sn-chip__inner-wrapper__image--right')).toBeTruthy()
     })
 
     it('image executes onClick props when it is clicked', () => {
