@@ -83,6 +83,20 @@ describe('Modal', () => {
     })
   })
 
+  describe('when it is vertically centered', () => {
+    beforeEach(() => {
+      wrapper.setProps({
+        id: 'centered',
+        centered: true
+      })
+    })
+
+    it('has centered class', () => {
+      const modal = wrapper.find('[id="centered"]')
+      expect(modal.hasClass('sn-modal--centered')).toBeTruthy()
+    })
+  })
+
   describe('when it has no children', () => {
     beforeEach(() => {
       wrapper.setProps({

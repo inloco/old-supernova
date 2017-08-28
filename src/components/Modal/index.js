@@ -6,7 +6,8 @@ class Modal extends React.Component {
     dismiss: true,
     open: false,
     size: 'md',
-    type: ''
+    type: '',
+    centered: false
   }
 
   static propTypes = {
@@ -14,6 +15,7 @@ class Modal extends React.Component {
     open: PropTypes.bool,
     size: PropTypes.string,
     type: PropTypes.string,
+    centered: PropTypes.bool,
     children: PropTypes.any,
     onClose: PropTypes.func
   }
@@ -41,12 +43,13 @@ class Modal extends React.Component {
     const openClassName = this.state.open ? 'sn-modal--open' : ''
     const sizeClassName = this.props.size ? `sn-modal--${this.props.size}` : ''
     const typeClassName = this.props.type ? `sn-modal--${this.props.type}` : ''
+    const centeredClassName = this.props.centered ? 'sn-modal--centered' : ''
 
     return(
       <div className={this.props.className}>
         <div
           id={this.props.id}
-          className={`sn-modal ${openClassName} ${sizeClassName} ${typeClassName}`}
+          className={`sn-modal ${openClassName} ${sizeClassName} ${typeClassName} ${centeredClassName}`}
           onClick={this.handleBackdropClick}
         >
           <div

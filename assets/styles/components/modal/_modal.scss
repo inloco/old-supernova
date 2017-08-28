@@ -140,6 +140,13 @@
   display: block;
   overflow-x: hidden;
   overflow-y: auto;
+
+  &.sn-modal--centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   ~.sn-modal__backdrop {
     display: block;
     visibility: visible;
