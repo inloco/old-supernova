@@ -355,7 +355,7 @@
   border-top: $default-layout-drawer-footer-border-width solid #E0E0E0;
   cursor: pointer;
 
-  p { font-size: 14px; }
+  &__text { font-size: 14px; }
 }
 
 
