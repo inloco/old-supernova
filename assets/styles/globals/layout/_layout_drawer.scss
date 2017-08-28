@@ -347,6 +347,17 @@
 }
 // ./ Drawer Button
 
+.sn-layout__drawer-action {
+  position: absolute;
+  width: 100%;
+  padding: 1rem 0;
+  bottom: 80px;
+  border-top: $default-layout-drawer-footer-border-width solid #E0E0E0;
+  cursor: pointer;
+
+  &__text { font-size: 14px; }
+}
+
 
 .sn-layout__drawer-footer {
   display: block;
