@@ -165,9 +165,13 @@ class Searchbox extends React.Component {
 
   renderSelectedResultChip(selectedResult) {
     if (this.props.chipTooltip) {
+      const message = selectedResult.subtitle
+                      ? selectedResult.subtitle
+                      : selectedResult.title
+
       return (
         <Tooltip
-          message={selectedResult.title}
+          message={message}
           position='top'
           size='md'
         >
@@ -185,6 +189,7 @@ class Searchbox extends React.Component {
         text={selectedResult.title}
         iconCode="cancel"
         iconClick={this.handleCloseClick(selectedResult)}
+        reversed
       />
     )
   }
@@ -217,13 +222,13 @@ class Searchbox extends React.Component {
   }
 
   renderInput() {
-    const chipsClass = this.props.selectedResultsType === "chips" ? " sn-search-box--chips__input" : "";
+    const chipsClass = this.props.selectedResultsType === "chips" ? " sn-search-box--chips__input-wrapper__input" : "";
 
     return (
-      <div>
+      <div className="sn-search-box__input-wrapper">
         <input
           type="text"
-          className={`sn-search-box__input${chipsClass}`}
+          className={`sn-search-box__input-wrapper__input${chipsClass}`}
           autoComplete="off"
           ref={input => this.input = input}
           placeholder={this.props.placeholder}
@@ -239,10 +244,10 @@ class Searchbox extends React.Component {
           this.props.loading
             ? <img
                 src={this.props.spinner} 
-                className="sn-search-box__input--spinner" 
+                className="sn-search-box__input-wrapper__input--spinner" 
                 alt="spinner"
               />
-            : <span className="sn-search-box__input--icon" />
+            : <span className="sn-search-box__input-wrapper__input--icon" />
         }
       </div>
     )
