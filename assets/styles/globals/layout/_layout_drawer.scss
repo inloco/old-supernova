@@ -349,8 +349,8 @@
 
 .sn-layout__drawer-action {
   position: absolute;
-  width: 100%;
-  padding: 1rem 0;
+  width: calc(100% - 32px);
+  padding: 16px;
   bottom: 73px;
   border-top: $default-layout-drawer-footer-border-width solid #E0E0E0;
   cursor: pointer;
