@@ -11,7 +11,7 @@ class Action extends React.PureComponent {
   render() {
     return (
       <div onClick={this.props.onClick} className="sn-layout__drawer-action">
-        <Text className="sn-layout__drawer-action__text" type="label" align="center">
+        <Text className="sn-layout__drawer-action__text" type="label">
           {this.props.text}
         </Text>
       </div>
