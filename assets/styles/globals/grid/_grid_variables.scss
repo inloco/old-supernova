@@ -25,14 +25,17 @@ $gutter-hm                          : $hm * 4;  // ~16px
 $gutter-xs-hm                       : $hm;      // ~4px
 $gutter-sm-hm                       : $hm * 2;  // ~8px
 $gutter-lg-hm                       : $hm * 6;  // ~24px
+$gutter-xl-hm                       : $hm * 8;  // ~32px
 
 // Grid Row Gutter Sizes
 $gutter-vm                          : $vm * 4;   // ~16px
 $gutter-xs-vm                       : $vm * 0.5;   // ~2px
 $gutter-sm-vm                       : $vm;       // ~4px
 $gutter-lg-vm                       : $vm * 4;   // ~16px
+$gutter-xl-vm                       : $vm * 6;   // ~24px
 $gutter-reverse-vm                  : $vm;       // ~4px
 $gutter-lg-screen-xsmall            : $hm * 2;   // ~8px
+$gutter-xl-screen-xsmall            : $hm * 3;   // ~12px
 
 // Box Col Padding
 $box-col-padding-hm                 : $hm * 4;   // ~16px
