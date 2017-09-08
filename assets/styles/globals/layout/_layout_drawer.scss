@@ -349,13 +349,22 @@
 
 .sn-layout__drawer-action {
   position: absolute;
-  width: calc(100% - 32px);
-  padding: 16px;
   bottom: 73px;
+  width: calc(100% - 32px);
+  padding: 20px 16px;
   border-top: $default-layout-drawer-footer-border-width solid #E0E0E0;
   cursor: pointer;
 
-  &__text { font-size: 14px; }
+  &__text {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  &__action-text {
+    margin-top: 8px;
+    color: #039be5;
+    text-transform: uppercase;
+    font-weight: normal;
+  }
 }
 
 
