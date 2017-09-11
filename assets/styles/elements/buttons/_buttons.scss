@@ -60,6 +60,12 @@
     background-color: $default-button-active-color;
   }
 
+  &.sn-button--no-hover {
+    &:hover, &:active {
+      box-shadow: none;
+    }
+  }
+
 
   // Button sizes
 
@@ -129,6 +135,12 @@
     &:disabled {
       background-color: $default-button-primary-color-disabled !important;
     }
+
+    &.sn-button--no-hover {
+      &:hover, &:active {
+        @include button-shadow();
+      }
+    }
   }
 
   // Button Colored
@@ -149,6 +161,12 @@
     &:disabled {
       background-color: $default-button-primary-color-disabled !important;
     }
+
+    &.sn-button--no-hover {
+      &:hover, &:active {
+        @include button-shadow();
+      }
+    }
   }
 
   // Button Accent
@@ -168,6 +186,12 @@
     }
     &:disabled {
       background-color: $default-button-primary-color-disabled !important;
+    }
+
+    &.sn-button--no-hover {
+      &:hover, &:active {
+        @include button-shadow();
+      }
     }
   }
 

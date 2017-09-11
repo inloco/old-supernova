@@ -75,6 +75,16 @@ describe('Button', () => {
     })
   })
 
+  describe('when has no hover prop', () => {
+    const wrapper = shallow(
+      <Button label='Login' noHover />
+    )
+
+    it('has no-hover class', () => {
+      expect(wrapper.hasClass('sn-button--no-hover')).toBeTruthy()
+    })
+  })
+
   describe('children', () => {
     const current = 'Something'
     const wrapper = shallow(
