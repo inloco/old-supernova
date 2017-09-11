@@ -11,6 +11,7 @@ class Button extends React.Component {
     theme: PropTypes.string,
     onClick: PropTypes.func,
     tabIndex: PropTypes.number,
+    noHover: PropTypes.bool,
     className: PropTypes.string,
     name: PropTypes.string,
     size: PropTypes.string,
@@ -25,7 +26,8 @@ class Button extends React.Component {
     fullWidth: false,
     loading: false,
     type: "button",
-    theme: null
+    theme: null,
+    noHover: false
   }
 
   render() {
@@ -64,6 +66,12 @@ class Button extends React.Component {
     return size ? `sn-button--${size}` : ""
   }
 
+  getNoHoverClassName() {
+    const { noHover } = this.props
+
+    return noHover ? 'sn-button--no-hover' : ''
+  }
+
   getClassName() {
     return `
       sn-button
@@ -71,7 +79,9 @@ class Button extends React.Component {
       ${this.getFullWidthClassName()}
       ${this.getStyleClassName()}
       ${this.props.className}
-      ${this.getSizeClassName()}`
+      ${this.getSizeClassName()}
+      ${this.getNoHoverClassName()}
+    `
   }
 
   getProps() {
