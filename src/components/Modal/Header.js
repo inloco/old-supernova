@@ -5,7 +5,8 @@ import Icon from './../Icons'
 
 class Header extends React.PureComponent {
   static propTypes = {
-    title: PropTypes.string
+    title: PropTypes.string,
+    noHover: PropTypes.bool
   }
 
   render() {
@@ -14,7 +15,9 @@ class Header extends React.PureComponent {
         <Button
           onClick={this.context.onClose}
           type="button"
-          className="sn-modal__header__close-button">
+          className="sn-modal__header__close-button"
+          noHover={this.props.noHover}
+        >
           <Icon code="&#xE5CD;"/>
         </Button>
 
