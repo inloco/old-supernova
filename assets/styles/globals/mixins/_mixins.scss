@@ -143,8 +143,7 @@ $activate-material-breakpoints      : true;   // 480, 600, 840, 960, 1280, 1440,
 }
 
 
-
-// Flexbox mixin
+// Flexbox mixins
 
 @mixin flexbox() {
   display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
@@ -157,7 +156,15 @@ $activate-material-breakpoints      : true;   // 480, 600, 840, 960, 1280, 1440,
   min-height: none;
 }
 
-// Flex Item mixin
+@mixin flexbox-inline() {
+  display: -webkit-inline-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-inline-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-inline-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-inline-flex;     /* NEW - Chrome */
+  display: inline-flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+// Flex Item mixins
 
 @mixin flex($proportion) {
   -webkit-box-flex: $proportion;    /* OLD - iOS 6-, Safari 3.1-6 */
@@ -175,8 +182,15 @@ $activate-material-breakpoints      : true;   // 480, 600, 840, 960, 1280, 1440,
   flex: $grow $shrink $size;                /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 
-// Flex Item order mixin
 
+// Flex Direction
+@mixin flexdirection($direction) {
+  -ms-flex-direction: $direction; /* TWEENER - IE 10 */
+  -webkit-flex-direction: $direction; /* Safari 6.1+ */
+  flex-direction: $direction; 
+}
+
+// Flex Item order mixin
 @mixin flexorder($order) {
   -webkit-box-order: $order;
   -moz-box-order: $order;
@@ -360,36 +374,74 @@ $shadow-focus-ambient-shadow-opacity    : .36 !default;
               0 8px 16px rgba(0,0,0, $shadow-focus-ambient-shadow-opacity);
 }
 
+// SHADOW 1
+// Switch (toggle)
+@mixin shadow-1dp() {
+  box-shadow: 0 0 2px 0 rgba(0,0,0, $shadow-key-penumbra-opacity), 
+              0 2px 2px 0 rgba(0,0,0, $shadow-ambient-shadow-opacity), 
+              0 1px 3px 0 rgba(0,0,0, $shadow-focus-umbra-shadow-opacity);
+}
+
+// SHADOW 2
+// Card (resting elevation)
+// Raised button (resting elevation)
+// Quick entry / Search bar (resting elevation)
 @mixin shadow-2dp() {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
               0 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
-              0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+              0 1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);             
 }
+
+// SHADOW 3
+// Refresh indicator
+// Quick entry / Search bar (scrolled state)
 @mixin shadow-3dp() {
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
               0 3px 3px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
               0 1px 8px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
 }
+
+// SHADOW 4
+// App Bar
 @mixin shadow-4dp() {
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
               0 1px 10px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
               0 2px 4px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
 }
+
+// SHADOW 6
+// Floating action button (FAB - resting elevation)
+// Snackbar
 @mixin shadow-6dp() {
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
               0 1px 18px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
               0 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity);
 }
+
+// SHADOW 8
+// Bottom navigation bar
+// Menu
+// Card (when picked up)
+// Raised button (pressed state)
 @mixin shadow-8dp() {
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
               0 3px 14px 2px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
               0 5px 5px -3px rgba(0, 0, 0, $shadow-key-umbra-opacity);
 }
+
+// SHADOW 16
+// Nav drawer
+// Right drawer
+// Modal bottom Sheet
 @mixin shadow-16dp() {
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
               0  6px 30px 5px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
               0  8px 10px -5px rgba(0, 0, 0, $shadow-key-umbra-opacity);
 }
+
+// SHADOW 24
+// Dialog
+// Picker
 @mixin shadow-24dp() {
   box-shadow: 0  9px 46px  8px rgba(0, 0, 0, $shadow-key-penumbra-opacity),
               0 11px 15px -7px rgba(0, 0, 0, $shadow-ambient-shadow-opacity),
