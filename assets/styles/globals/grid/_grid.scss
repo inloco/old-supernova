@@ -23,22 +23,17 @@
 }
 
 
-// Grid Parent
+// Grid Parent (block)
 
 .sn-grid {
   @include flexbox();
 }
 
-// Grid Parent - Inline
+// Grid Parent - Inline (inline)
 
 .sn-grid--inline {
-  display: -webkit-inline-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-inline-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-inline-flexbox;      /* TWEENER - IE 10 */
-  display: -webkit-inline-flex;     /* NEW - Chrome */
-  display: inline-flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  @include flexbox-inline();
 }
-
 
 
 //	Grid bleed margins
@@ -131,27 +126,19 @@
 .sn-grid--responsive-mobile-threshold,
 .sn-grid--responsive-tablet-threshold,
 .sn-grid--responsive-screen-threshold {
-  -ms-flex-direction: row;
-  -webkit-flex-direction: row;
-  flex-direction: row;
+  @include flexdirection(row);
 }
 
 .sn-grid--horizontal-reverse {
-  -ms-flex-direction: row-reverse;
-  -webkit-flex-direction: row-reverse;
-  flex-direction: row-reverse;
+  @include flexdirection(row-reverse);
 }
 
 .sn-grid--vertical {
-  -ms-flex-direction: column;
-  -webkit-flex-direction: column;
-  flex-direction: column;
+  @include flexdirection(column);
 }
 
 .sn-grid--vertical-reverse {
-  -ms-flex-direction: column-reverse;
-  -webkit-flex-direction: column-reverse;
-  flex-direction: column-reverse;
+  @include flexdirection(column-reverse);
 }
 
 .sn-grid--vertical > *[class*="sn-cell--"],
@@ -159,6 +146,7 @@
   display: block !important;
   flex: 0 1 auto !important;
 }
+
 
 
 // Col Spacing
