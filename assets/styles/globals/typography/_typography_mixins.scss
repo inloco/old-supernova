@@ -117,7 +117,7 @@
 @mixin typo-body-1($colorContrast: false) {
   font-size: $default-text-typo-body;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 20px;
   letter-spacing: 0;
   @if $colorContrast {
     opacity: 0.87;
@@ -127,7 +127,7 @@
 @mixin typo-body-2($colorContrast: false) {
   font-size: $default-text-typo-body;
   font-weight: bold;
-  line-height: 24px;
+  line-height: 20px;
   letter-spacing: 0;
   @if $colorContrast {
     opacity: 0.87;

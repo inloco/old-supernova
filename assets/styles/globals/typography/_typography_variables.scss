@@ -82,6 +82,9 @@ $h4-size    : $h3-size - 1;
 $h5-size    : $h4-size - 1;
 $h6-size    : $h5-size - 1;
 
+$default-paragraphs-line-height     : $default-line-height;
+$default-paragraphs-bottom-margin   : ($default-vertical-movement * 3);
+
 $default-headings-top-margin        : ($default-headings-line-height * 1px) * 20;
 $default-headings-bottom-margin     : ($default-headings-line-height * 1px) * 12;
 
