@@ -14,38 +14,50 @@
 @import "toggle_variables";
 
 .sn-toggle {
-  @include flexbox();
-  position: relative;
-  align-items: center;
-  justify-content: flex-start;
-  width: $toggle-width;
+  display: flex;
+  justify-content: center;
   cursor: pointer;
 
-  &__bar {
-    flex-grow: 1;
-    height: 15px;
-    background-color: $bar-color;
-    border-radius: 15px;
-  }
+  &__button {
+    display: flex;
+    position: relative;
+    align-items: center;
+    min-width: $toggle-width;
+    margin: 0 10px;
 
-  &__circle {
-    @include shadow-1dp();
-    position: absolute;
-    width: $circle-size;
-    height: $circle-size;
-    border-radius: 50%;
-    background-color: $circle-color;
-    transition: transform .25s ease, background-color .25s ease;
-
-  }
-
-  &.is-active {
-    .sn-toggle__circle {
-      left: auto;
-      transform: translate($circle-translate-length);
-      background-color: $circle-active-color;
+    &__bar {
+      flex-grow: 1;
+      height: 15px;
+      background-color: $bar-color;
+      border-radius: 15px;
     }
 
-    .sn-toggle__bar { background-color: $bar-active-color; }
+    &__circle {
+      @include shadow-1dp();
+      position: absolute;
+      width: $circle-size;
+      height: $circle-size;
+      border-radius: 50%;
+      background-color: $circle-color;
+      transition: transform .25s ease, background-color .25s ease;
+
+    }
+
+    &.is-active {
+      .sn-toggle__button__bar { background-color: $bar-active-color; }
+
+      .sn-toggle__button__circle {
+        left: auto;
+        transform: translate($circle-translate-length);
+        background-color: $circle-active-color;
+      }
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+
+    p { margin-bottom: 0; }
   }
 }

@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Text from '../Text'
 
 class Toggle extends React.Component {
   static propTypes = {
     value: PropTypes.bool,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    label: PropTypes.string
   }
 
   constructor(props) {
@@ -14,20 +16,31 @@ class Toggle extends React.Component {
   }
 
   render() {
+    const hasLabel = !!this.props.label
+
     return (
-      <div className={this.getClasses()} onClick={this.handleClick}>
-        <div className="sn-toggle__bar"></div>
-        <div className="sn-toggle__circle"></div>
+      <div className="sn-toggle" onClick={this.handleClick}>
+        <div className={this.getButtonClasses()}>
+          <div className="sn-toggle__button__bar"></div>
+          <div className="sn-toggle__button__circle"></div>
+        </div>
+        <div className="sn-toggle__label">
+          {hasLabel && this.renderLabel()}
+        </div>
       </div>
     )
+  }
+
+  renderLabel() {
+    return <Text>{this.props.label}</Text>
   }
 
   handleClick() {
     this.props.onChange()
   }
 
-  getClasses() {
-    const baseClass = 'sn-toggle'
+  getButtonClasses() {
+    const baseClass = 'sn-toggle__button'
     const activeClass = this.props.value ? 'is-active' : ''
 
     return `${baseClass} ${activeClass}`
