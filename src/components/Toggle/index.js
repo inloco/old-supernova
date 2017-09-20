@@ -19,20 +19,23 @@ class Toggle extends React.Component {
     const hasLabel = !!this.props.label
 
     return (
-      <div className="sn-toggle" onClick={this.handleClick}>
-        <div className={this.getButtonClasses()}>
+      <div className="sn-toggle">
+        <div className={this.getButtonClasses()} onClick={this.handleClick}>
           <div className="sn-toggle__button__bar"></div>
           <div className="sn-toggle__button__circle"></div>
         </div>
-        <div className="sn-toggle__label">
-          {hasLabel && this.renderLabel()}
-        </div>
+
+        {hasLabel && this.renderLabel()}
       </div>
     )
   }
 
   renderLabel() {
-    return <Text>{this.props.label}</Text>
+    return (
+      <div className="sn-toggle__label" onClick={this.handleClick}>
+        <Text>{this.props.label}</Text>
+      </div>
+    )
   }
 
   handleClick() {
