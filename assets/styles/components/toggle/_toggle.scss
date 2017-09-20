@@ -14,41 +14,42 @@
 @import "toggle_variables";
 
 .sn-toggle {
-  display: flex;
+  @include flexbox();
+  margin: $default-toggle-margin;
 
   &__button {
-    display: flex;
+    @include flexbox();
     position: relative;
     align-items: center;
-    min-width: $toggle-width;
-    margin: 0 10px;
+    min-width: $default-toggle-width;
+    margin: $default-toggle-button-margin;
     cursor: pointer;
 
     &__bar {
       flex-grow: 1;
-      height: 15px;
-      background-color: $bar-color;
-      border-radius: 15px;
+      height: $default-toggle-bar-height;
+      background-color: $default-toggle-bar-color;
+      border-radius: $default-toggle-bar-height;
     }
 
     &__circle {
       @include shadow-1dp();
       position: absolute;
-      width: $circle-size;
-      height: $circle-size;
+      width: $default-toggle-circle-size;
+      height: $default-toggle-circle-size;
       border-radius: 50%;
-      background-color: $circle-color;
+      background-color: $default-toggle-circle-color;
       transition: transform .25s ease, background-color .25s ease;
 
     }
 
-    &.is-active {
-      .sn-toggle__button__bar { background-color: $bar-active-color; }
+    &.is-active & {
+      &__bar { background-color: $default-toggle-bar-active-color; }
 
-      .sn-toggle__button__circle {
+      &__circle {
         left: auto;
-        transform: translate($circle-translate-length);
-        background-color: $circle-active-color;
+        transform: translate($default-toggle-circle-translate-length);
+        background-color: $default-toggle-circle-active-color;
       }
     }
   }

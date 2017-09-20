@@ -15,12 +15,16 @@
 
 // Toggle variables
 
-$bar-color                                      : $palette-grey-300;
-$bar-active-color                               : $palette-grey-200;
+$default-toggle-width                                   : 40px;
+$default-toggle-margin                                  : 12px 0;
 
-$circle-color                                   : $palette-grey-50;
-$circle-active-color                            : $default-accent-color;
+$default-toggle-bar-color                               : $palette-grey-300;
+$default-toggle-bar-active-color                        : $palette-grey-200;
+$default-toggle-bar-height                              : 15px;
 
-$toggle-width                                   : 40px;
-$circle-size                                    : 23px;
-$circle-translate-length                        : $toggle-width - $circle-size;
+$default-toggle-circle-size                             : 24px;
+$default-toggle-circle-translate-length                 : $default-toggle-width - $default-toggle-circle-size;
+$default-toggle-circle-color                            : $palette-grey-50;
+$default-toggle-circle-active-color                     : $default-accent-color;
+
+$default-toggle-button-margin                           : 0 12px;

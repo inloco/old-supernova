@@ -9,6 +9,10 @@ class Toggle extends React.Component {
     label: PropTypes.string
   }
 
+  static defaultProps = {
+    initialValue: false
+  }
+
   constructor(props) {
     super(props)
 
@@ -42,7 +46,8 @@ class Toggle extends React.Component {
 
   handleClick() {
     const current = this.state.value
-    this.setState({ value: !current }, () => this.props.onChange(this.state.value))
+    const { onChange } = this.props
+    this.setState({ value: !current }, () => onChange && onChange(this.state.value))
   }
 
   getButtonClasses() {
