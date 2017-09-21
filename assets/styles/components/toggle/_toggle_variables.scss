@@ -1,0 +1,30 @@
+/*
+ *
+ *  IN LOCO
+ *  www.snocomedia.com
+ *
+ *  Copyright 2017 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *     toggle variables file
+ *  ----------- *** ------------
+ *
+ */
+
+
+
+// Toggle variables
+
+$default-toggle-width                                   : 40px;
+$default-toggle-margin                                  : 12px 0;
+
+$default-toggle-bar-color                               : $palette-grey-300;
+$default-toggle-bar-active-color                        : $palette-grey-200;
+$default-toggle-bar-height                              : 15px;
+
+$default-toggle-circle-size                             : 24px;
+$default-toggle-circle-translate-length                 : $default-toggle-width - $default-toggle-circle-size;
+$default-toggle-circle-color                            : $palette-grey-50;
+$default-toggle-circle-active-color                     : $default-accent-color;
+
+$default-toggle-button-margin                           : 0 12px;

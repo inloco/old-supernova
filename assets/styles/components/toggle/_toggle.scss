@@ -1,0 +1,67 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2017 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *     toggle component file
+ *  ----------- *** ------------
+ *
+ */
+
+@import "toggle_variables";
+
+.sn-toggle {
+  @include flexbox();
+  margin: $default-toggle-margin;
+
+  &__button {
+    @include flexbox();
+    position: relative;
+    align-items: center;
+    min-width: $default-toggle-width;
+    margin: $default-toggle-button-margin;
+    cursor: pointer;
+
+    &__bar {
+      flex-grow: 1;
+      height: $default-toggle-bar-height;
+      background-color: $default-toggle-bar-color;
+      border-radius: $default-toggle-bar-height;
+    }
+
+    &__circle {
+      @include shadow-1dp();
+      position: absolute;
+      width: $default-toggle-circle-size;
+      height: $default-toggle-circle-size;
+      border-radius: 50%;
+      background-color: $default-toggle-circle-color;
+      transition: transform .25s ease, background-color .25s ease;
+    }
+
+    &.is-active & {
+      &__bar {
+        background-color: $default-toggle-bar-active-color;
+      }
+
+      &__circle {
+        left: auto;
+        transform: translate($default-toggle-circle-translate-length);
+        background-color: $default-toggle-circle-active-color;
+      }
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
