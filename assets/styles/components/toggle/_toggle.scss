@@ -40,11 +40,12 @@
       border-radius: 50%;
       background-color: $default-toggle-circle-color;
       transition: transform .25s ease, background-color .25s ease;
-
     }
 
     &.is-active & {
-      &__bar { background-color: $default-toggle-bar-active-color; }
+      &__bar {
+        background-color: $default-toggle-bar-active-color;
+      }
 
       &__circle {
         left: auto;
@@ -59,6 +60,8 @@
     align-items: center;
     cursor: pointer;
 
-    p { margin-bottom: 0; }
+    p {
+      margin-bottom: 0;
+    }
   }
 }
