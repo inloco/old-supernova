@@ -19,7 +19,7 @@ $default-toggle-width                                   : 40px;
 $default-toggle-margin                                  : 12px 0;
 
 $default-toggle-bar-color                               : $palette-grey-300;
-$default-toggle-bar-active-color                        : $palette-grey-200;
+$default-toggle-bar-active-color                        : lighten($default-accent-color, 20%);
 $default-toggle-bar-height                              : 15px;
 
 $default-toggle-circle-size                             : 24px;
