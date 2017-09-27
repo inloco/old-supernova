@@ -163,6 +163,10 @@
   margin: 0 0 0 $gutter-hm;
 }
 
+.sn-grid--cell-gutter > *:first-child:last-child {
+  margin: 0;
+}
+
 .sn-grid--horizontal-reverse.sn-grid--cell-gutter > * {
   margin: 0 $gutter-hm;
 }
