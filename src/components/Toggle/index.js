@@ -4,7 +4,7 @@ import Text from '../Text'
 
 class Toggle extends React.Component {
   static propTypes = {
-    value: PropTypes.bool,
+    value: PropTypes.string,
     onChange: PropTypes.func,
     label: PropTypes.string
   }
@@ -40,12 +40,14 @@ class Toggle extends React.Component {
 
   handleClick() {
     const { value, onChange } = this.props
-    onChange && onChange(!value)
+    const newValue = (value !== 'true').toString()
+
+    onChange && onChange(newValue)
   }
 
   getButtonClasses() {
     const baseClass = 'sn-toggle__button'
-    const activeClass = this.props.value ? 'is-active' : ''
+    const activeClass = this.props.value === 'true' ? 'is-active' : ''
 
     return `${baseClass} ${activeClass}`
   }
