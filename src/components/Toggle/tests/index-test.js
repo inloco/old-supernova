@@ -46,12 +46,12 @@ describe('Toggle component', () => {
     })
 
     it('toggles value when clicked', () => {
-      wrapper.setState({ value: false })
+      wrapper.setState({ value: 'false' })
 
       const button = wrapper.find(buttonSelector)
       button.simulate('click')
 
-      expect(onChange).toBeCalledWith(true)
+      expect(onChange).toBeCalledWith('true')
     })
 
     it('do not render label when prop isn\'t passed', () => {
