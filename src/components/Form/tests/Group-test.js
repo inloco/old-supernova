@@ -75,6 +75,16 @@ describe("Form Group", () => {
     it('has tooltip with message', () => {
       expect(wrapper.find(Tooltip).props().message).toEqual('some')
     })
+
+    describe('when has info on left', () => {
+      beforeEach(() => {
+        wrapper.setProps({ infoAlign: 'left' })
+      })
+
+      it('has tooltip on the left', () => {
+        expect(wrapper.find(".sn-form-group__label--tooltip-left")).toBeTruthy()
+      })
+    })
   })
 
   describe('when is disabled', () => {

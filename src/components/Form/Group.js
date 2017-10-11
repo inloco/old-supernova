@@ -11,7 +11,8 @@ class Group extends React.PureComponent {
     className: PropTypes.string,
     error: PropTypes.any,
     name: PropTypes.string,
-    info: PropTypes.string
+    info: PropTypes.string,
+    infoAlign: PropTypes.string
   }
 
   render() {
@@ -42,14 +43,21 @@ class Group extends React.PureComponent {
     return `
       sn-form-group__label
       ${this.props.disabled ? 'sn-form-group__label--disabled' : ''}
+      ${this.props.infoAlign === 'left' ? 'sn-form-group__label--tooltip-left' : ''}
     `
   }
 
   renderInfo() {
+    const { info, infoAlign } = this.props
+
+    const position = infoAlign === 'left'
+                    ? 'bottom-right'
+                    : 'bottom-left'
+
     return (
       <Tooltip
-        message={this.props.info}
-        position="bottom-left"
+        message={info}
+        position={position}
       >
         <Icon code="info" />
       </Tooltip>
