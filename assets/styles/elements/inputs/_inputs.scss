@@ -87,7 +87,7 @@
         border-bottom: $default-input-field-bar-border-bottom-size dashed $default-form-bar-color-disabled;
       }
     }
-  }  
+  }
   input,
   textarea {
     display: block;
@@ -618,6 +618,12 @@
 .sn-form-group__label {
   .sn-tooltips {
     top: 4px;
+  }
+  &--tooltip-left {
+    .sn-tooltips {
+      position: relative;
+      left: 8px;
+    }
   }
 }
 
