@@ -21,7 +21,8 @@
   min-height: $default-info-box-min-height;
   list-style: none;
   padding: 4px 12px;
-  border-left: 2px solid $default-info-box-default-border-color;
+  border-left-width: 2px;
+  border-left-style: solid;
   font-weight: normal;
   font-size: 12px;
   margin: 8px 0;
@@ -42,7 +43,6 @@
   }
 
   a {
-    color: $default-info-box-default-text-color;
     font-weight: bold;
     letter-spacing: 0.05em;
     margin: 0 0.2em 0 0.2em;
