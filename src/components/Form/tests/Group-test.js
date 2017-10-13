@@ -78,6 +78,7 @@ describe("Form Group", () => {
 
     it('has tooltip on the left', () => {
       expect(wrapper.find(".sn-form-group__label--tooltip-left").exists()).toBeTruthy()
+      expect(wrapper.find(".sn-form-group__label--tooltip-right").exists()).toBeFalsy()
     })
 
     describe('when has info on right', () => {
@@ -86,6 +87,7 @@ describe("Form Group", () => {
       })
 
       it('has tooltip on the right', () => {
+        expect(wrapper.find(".sn-form-group__label--tooltip-right").exists()).toBeTruthy()
         expect(wrapper.find(".sn-form-group__label--tooltip-left").exists()).toBeFalsy()
       })
     })
