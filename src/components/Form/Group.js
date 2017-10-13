@@ -56,14 +56,14 @@ class Group extends React.PureComponent {
   renderInfo() {
     const { info, infoAlign } = this.props
 
-    const tooltipAlign = infoAlign === 'left'
+    const tooltipPosition = infoAlign === 'left'
                          ? 'right'
                          : 'left'
 
     return (
       <Tooltip
         message={info}
-        position={`bottom-${tooltipAlign}`}
+        position={`bottom-${tooltipPosition}`}
       >
         <Icon code="info" />
       </Tooltip>
