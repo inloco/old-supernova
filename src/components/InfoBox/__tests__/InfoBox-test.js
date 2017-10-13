@@ -15,7 +15,7 @@ describe('InfoBox', () => {
   })
 
   it('has default type classname', () => {
-    expect(wrapper.hasClass('sn-info-box--info')).toBeTruthy()
+    expect(wrapper.hasClass('sn-info-box--default')).toBeTruthy()
   })
 
   describe('when has type', () => {
