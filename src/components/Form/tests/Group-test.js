@@ -76,17 +76,17 @@ describe("Form Group", () => {
       expect(wrapper.find(Tooltip).props().message).toEqual('some')
     })
 
-    it('has tooltip on the right', () => {
-      expect(wrapper.find(".sn-form-group__label--tooltip-left").exists()).toBeFalsy()
+    it('has tooltip on the left', () => {
+      expect(wrapper.find(".sn-form-group__label--tooltip-left").exists()).toBeTruthy()
     })
 
-    describe('when has info on left', () => {
+    describe('when has info on right', () => {
       beforeEach(() => {
-        wrapper.setProps({ infoAlign: 'left' })
+        wrapper.setProps({ infoAlign: 'right' })
       })
 
-      it('has tooltip on the left', () => {
-        expect(wrapper.find(".sn-form-group__label--tooltip-left").exists()).toBeTruthy()
+      it('has tooltip on the right', () => {
+        expect(wrapper.find(".sn-form-group__label--tooltip-left").exists()).toBeFalsy()
       })
     })
   })
