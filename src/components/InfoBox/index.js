@@ -5,11 +5,11 @@ export default class InfoBox extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.any.isRequired,
-    type: PropTypes.oneOf(['danger', 'info', 'warning'])
+    type: PropTypes.oneOf(['danger', 'info', 'warning', 'default'])
   }
 
   static defaultProps = {
-    type: 'info'
+    type: 'default'
   }
 
   render() {
