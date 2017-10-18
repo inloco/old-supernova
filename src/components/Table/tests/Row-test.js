@@ -21,6 +21,12 @@ describe('TableRow', () => {
     expect(children).not.toBe(undefined)
   })
 
+  it('accepts custom class', () => {
+    wrapper.setProps({ className: 'some-class' })
+
+    expect(wrapper.hasClass('some-class')).toBeTruthy()
+  })
+
   describe('when head', () => {
     it('is not seted it not have head className', () => {
       const element = wrapper.find('.sn-table__header')
