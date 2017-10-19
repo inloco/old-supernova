@@ -26,6 +26,17 @@ describe('Searchbox', () => {
     onSearch.mockClear()
   })
 
+  describe('when it has a custom className', () => {
+    beforeEach(() => {
+      const customClass = 'shalala'
+      wrapper.setProps({ className: customClass })
+
+      it('has custom class', () => {
+        expect(wrapper.find(`.${customClass}`)).toHaveLength(1)
+      })
+    })
+  })
+
   it('renders an input', () => {
     expect(wrapper.find('input')).toHaveLength(1)
   })
@@ -298,7 +309,7 @@ describe('Searchbox', () => {
       { id: 'a', title: 'A' },
       { id: 'b', title: 'B' }
     ]
-    
+
     beforeEach(() => {
       wrapper = shallow(
         <Searchbox
@@ -333,7 +344,7 @@ describe('Searchbox', () => {
       { id: 'a', title: 'A' },
       { id: 'b', title: 'B' }
     ]
-    
+
     beforeEach(() => {
       wrapper = shallow(
         <Searchbox
