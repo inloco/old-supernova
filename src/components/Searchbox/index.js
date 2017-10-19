@@ -38,6 +38,7 @@ class Searchbox extends React.Component {
   }
 
   static defaultProps = {
+    className: '',
     debounce: 500,
     minLength: 3,
     visibleResults: 5
