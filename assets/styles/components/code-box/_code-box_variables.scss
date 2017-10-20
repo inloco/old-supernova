@@ -1,0 +1,43 @@
+/*
+ *
+ *  IN LOCO
+ *  www.snocomedia.com
+ *
+ *  Copyright 2017 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *    component variables file
+ *  ----------- *** ------------
+ *
+ */
+
+
+// New Component variables
+/* --------------------------------------
+ *  Basic variables
+ *  - use $hm to calculate horizontal movements
+ *  - use $vm to calculate vertical movements
+ *  - use $dfs to calculate font-size values
+ *  - use $dlh to calculate line-height values
+ *  Variables default values:
+ *  - $hm = 4;
+ *  - $vm = 4;
+ *  - $dfs = 14;
+ *  - $dlh = 1.14;
+ /* ---------------
+ *  Horizontal movements:
+ *  - width, margin/padding-left/right
+ *  Vertical movements:
+ *  - height, margin/padding-top/bottom
+ * ---------------- *** -----------------
+*/
+// Examples:
+
+$default-code-box-copy-btn-size              : $vm * 8;
+$default-code-box-copy-btn-position-top      : $vm * 14;
+$default-code-box-copy-btn-position-right    : $vm * 2;
+
+$default-code-box-background-color           : $palette-grey-100;
+$default-code-box-copy-btn-color            	: $color-black;
+$default-code-box-copy-btn-background-color  : $palette-grey-100;
+$default-code-box-title-color               	: $default-text-color-secondary;
