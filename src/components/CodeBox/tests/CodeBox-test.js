@@ -21,7 +21,9 @@ describe('CodeBox', () => {
   })
 
   it('has code content', () => {
-    expect(wrapper.find('.sn-code-box__code').render().text()).toBe(content) // renders the Highlight component interior
+    const codeBoxContent = wrapper.find('.sn-code-box__code').render().text()
+
+    expect(codeBoxContent).toBe(content) // renders the Highlight component interior
   })
 
   describe('when has custom lang', () => {
