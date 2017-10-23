@@ -26,12 +26,14 @@
 .sn-code-box {
   position: relative;
   background-color: $default-code-box-background-color;
+  @include shadow-2dp();
+
   code {
     padding: 12px 16px;
     min-height: 24px;
   }
-  @include shadow-2dp();
-  .sn-code-box__title {
+
+  &__title {
     height: 48px;
     outline: 0;
     position: relative;
@@ -45,7 +47,8 @@
     color: $default-code-box-title-color;
     text-transform: uppercase;
   }
-  .sn-code-box__copy-button {
+
+  &__copy-button {
     position: absolute;
     top: $default-code-box-copy-btn-position-top;
     right: $default-code-box-copy-btn-position-right;
@@ -54,6 +57,7 @@
     border-radius: 50%;
     color: $default-code-box-copy-btn-color;
     opacity: .2;
+
     &:before {
       display: inline-block;
       font-family: "Material Icons";
@@ -65,11 +69,13 @@
       line-height: 1.2em;
       text-align: center;
     }
+
     &:hover {
-      @include shadow-2dp();
       opacity: 1;
       background-color: $default-code-box-copy-btn-background-color;
       cursor: pointer;
+      @include shadow-2dp();
+
       &:before {
         display: block;
       }
