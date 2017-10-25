@@ -24,6 +24,9 @@
 */
 
 .sn-code-box {
+  // Import Highlight JS for styling code snippets
+  @import "~highlight.js/styles/github-gist.css";
+
   position: relative;
   background-color: $default-code-box-background-color;
   @include shadow-2dp();
