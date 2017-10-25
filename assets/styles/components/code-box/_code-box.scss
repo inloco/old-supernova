@@ -31,9 +31,14 @@
   background-color: $default-code-box-background-color;
   @include shadow-2dp();
 
-  code {
-    padding: 12px 16px;
-    min-height: 24px;
+  pre {
+    margin-top: 0;
+    font-size: 13px;
+
+    code {
+      padding: 12px 16px;
+      min-height: 24px;
+    }
   }
 
   &__title {
