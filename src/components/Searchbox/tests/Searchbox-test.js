@@ -242,6 +242,10 @@ describe('Searchbox', () => {
       it('doesnt display input', () => {
         expect(wrapper.find('input')).toHaveLength(0)
       })
+
+      it('doesnt display search results', () => {
+        expect(wrapper.find('.sn-search-box__results')).toHaveLength(0)
+      })
     })
   })
 

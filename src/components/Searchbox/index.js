@@ -132,6 +132,8 @@ class Searchbox extends React.Component {
   }
 
   shouldRenderResults() {
+    if (this.props.single && this.hasSelectedResults()) return false
+
     return this.props.results
             && this.state.expandedResults
             && this.inputHasMinLength()
