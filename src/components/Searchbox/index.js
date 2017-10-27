@@ -132,12 +132,23 @@ class Searchbox extends React.Component {
   }
 
   shouldRenderResults() {
-    if (this.props.single && this.hasSelectedResults()) return false
+    const hasResultsToRender = (
+      this.state.expandedResults
+      && this.inputHasMinLength()
+      && this.getVisibleResults().length > 0
+    )
 
-    return this.props.results
-            && this.state.expandedResults
-            && this.inputHasMinLength()
-            && this.getVisibleResults().length > 0
+    const isSingleAndCanRenderResults = (
+      this.props.single
+      && !this.hasSelectedResults()
+    )
+
+    const isMultiple = !this.props.single
+
+    return hasResultsToRender && (
+      isMultiple
+      || isSingleAndCanRenderResults
+    )
   }
 
   renderSelectedResults() {
