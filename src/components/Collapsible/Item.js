@@ -5,7 +5,7 @@ class Item extends Component {
   static PropTypes = {
     key: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
+    content: PropTypes.any.isRequired,
     isActive: PropTypes.bool,
     onItemClick: PropTypes.func,
     className: PropTypes.string,
