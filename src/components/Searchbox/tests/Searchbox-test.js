@@ -26,6 +26,17 @@ describe('Searchbox', () => {
     onSearch.mockClear()
   })
 
+  describe('when it has a custom className', () => {
+    beforeEach(() => {
+      const customClass = 'shalala'
+      wrapper.setProps({ className: customClass })
+
+      it('has custom class', () => {
+        expect(wrapper.find(`.${customClass}`)).toHaveLength(1)
+      })
+    })
+  })
+
   it('renders an input', () => {
     expect(wrapper.find('input')).toHaveLength(1)
   })
@@ -231,6 +242,10 @@ describe('Searchbox', () => {
       it('doesnt display input', () => {
         expect(wrapper.find('input')).toHaveLength(0)
       })
+
+      it('doesnt display search results', () => {
+        expect(wrapper.find('.sn-search-box__results')).toHaveLength(0)
+      })
     })
   })
 
@@ -298,7 +313,7 @@ describe('Searchbox', () => {
       { id: 'a', title: 'A' },
       { id: 'b', title: 'B' }
     ]
-    
+
     beforeEach(() => {
       wrapper = shallow(
         <Searchbox
@@ -333,7 +348,7 @@ describe('Searchbox', () => {
       { id: 'a', title: 'A' },
       { id: 'b', title: 'B' }
     ]
-    
+
     beforeEach(() => {
       wrapper = shallow(
         <Searchbox

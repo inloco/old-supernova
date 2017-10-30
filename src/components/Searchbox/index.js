@@ -6,6 +6,7 @@ import Tooltip from './../Tooltip'
 
 class Searchbox extends React.Component {
   static propTypes = {
+    className: PropTypes.string,
     onSearch: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
     onUnselect: PropTypes.func.isRequired,
@@ -37,6 +38,7 @@ class Searchbox extends React.Component {
   }
 
   static defaultProps = {
+    className: '',
     debounce: 500,
     minLength: 3,
     visibleResults: 5
@@ -85,16 +87,18 @@ class Searchbox extends React.Component {
   render() {
     return (
       <div className={this.getClassName()}>
-        {this.hasSelectedResults() 
-          && this.shouldRenderSelectedResultsOnTop() 
-          && this.renderSelectedResults()
+        {
+          this.hasSelectedResults()
+            && this.shouldRenderSelectedResultsOnTop()
+            && this.renderSelectedResults()
         }
         {this.shouldRenderInput() && this.renderInput()}
         {this.shouldRenderResults() && this.renderResults()}
         {this.props.error && this.renderError()}
-        {this.hasSelectedResults() 
-          && this.shouldRenderSelectedResultsOnBottom() 
-          && this.renderSelectedResults()
+        {
+          this.hasSelectedResults()
+            && this.shouldRenderSelectedResultsOnBottom()
+            && this.renderSelectedResults()
         }
       </div>
     )
@@ -106,11 +110,12 @@ class Searchbox extends React.Component {
       ${this.props.selectedResultsType === "chips" ? 'sn-search-box--chips' : ''}
       ${this.props.disabled ? 'sn-search-box--disabled' : ''}
       ${this.props.error ? 'sn-search-box--error': ''}
+      ${this.props.className}
     `
   }
 
   shouldRenderSelectedResultsOnTop() {
-    return this.props.selectedResultsPlacement === 'top' 
+    return this.props.selectedResultsPlacement === 'top'
             || !this.props.selectedResultsPlacement
   }
 
@@ -127,15 +132,28 @@ class Searchbox extends React.Component {
   }
 
   shouldRenderResults() {
-    return this.props.results
-            && this.state.expandedResults
-            && this.inputHasMinLength()
-            && this.getVisibleResults().length > 0
+    const hasResultsToRender = (
+      this.state.expandedResults
+      && this.inputHasMinLength()
+      && this.getVisibleResults().length > 0
+    )
+
+    const isSingleAndCanRenderResults = (
+      this.props.single
+      && !this.hasSelectedResults()
+    )
+
+    const isMultiple = !this.props.single
+
+    return hasResultsToRender && (
+      isMultiple
+      || isSingleAndCanRenderResults
+    )
   }
 
   renderSelectedResults() {
     if (this.props.selectedResultsType === 'chips') return this.renderChipsResults()
-      
+
     return this.renderSimpleResults()
   }
 
@@ -243,8 +261,8 @@ class Searchbox extends React.Component {
         {
           this.props.loading
             ? <img
-                src={this.props.spinner} 
-                className="sn-search-box__input-wrapper__input--spinner" 
+                src={this.props.spinner}
+                className="sn-search-box__input-wrapper__input--spinner"
                 alt="spinner"
               />
             : <span className="sn-search-box__input-wrapper__input--icon" />

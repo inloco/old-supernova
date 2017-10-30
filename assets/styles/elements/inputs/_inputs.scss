@@ -87,7 +87,7 @@
         border-bottom: $default-input-field-bar-border-bottom-size dashed $default-form-bar-color-disabled;
       }
     }
-  }  
+  }
   input,
   textarea {
     display: block;
@@ -603,8 +603,8 @@
 .sn-form-group__label {
   .sn-tooltips {
     position: absolute;
-    top: $default-input-tooltip-top-position;
     right: 0;
+    top: $default-input-tooltip-top-position;
     color: $default-form-input-tooltip-icon-color;
     .material-icons {
       font-size: $default-input-tooltip-icon-font-size;
@@ -618,6 +618,18 @@
 .sn-form-group__label {
   .sn-tooltips {
     top: 4px;
+  }
+  &--tooltip-right {
+    .sn-tooltips {
+      position: absolute;
+      right: 0;
+    }
+  }
+  &--tooltip-left {
+    .sn-tooltips {
+      position: relative;
+      left: 8px;
+    }
   }
 }
 

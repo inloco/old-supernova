@@ -21,26 +21,28 @@
   min-height: $default-info-box-min-height;
   list-style: none;
   padding: 4px 12px;
-  border-left: 4px solid $default-info-box-default-color;
+  border-left-width: 2px;
+  border-left-style: solid;
   font-weight: normal;
   font-size: 12px;
   margin: 8px 0;
+
   .sn-info-box__title {
     display: block;
-    color: $default-info-box-default-color;
     font-size: 14px;
     margin: 2px 0 2px 0;
     padding: 0;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 500;
     letter-spacing: 0.05em;
   }
+
   .sn-info-box__info-content {
     padding-top: 0;
     padding-bottom: 0;
   }
+
   a {
-    //color: $default-info-box-color-black;
     font-weight: bold;
     letter-spacing: 0.05em;
     margin: 0 0.2em 0 0.2em;
@@ -48,26 +50,25 @@
       text-decoration: underline;
     }
   }
-  span {
-    color: $default-info-box-color-black;
-  }
-  strong {
-    color: $default-info-box-color-black;
+
+  &#{&}--default {
+    border-left-color: $default-info-box-default-border-color;
+    .sn-info-box__title , span { color: $default-info-box-default-color; }
+    a { color: $default-info-box-default-text-color; }
   }
 
-
-  &.sn-info-box--warning {
-    border-left: 4px solid $default-info-box-warning-color;
+  &#{&}--warning {
+    border-left-color: $default-info-box-warning-color;
     .sn-info-box__title , a, span { color: $default-info-box-warning-color; }
   }
 
-  &.sn-info-box--danger {
-    border-left: 4px solid $default-info-box-danger-color;
+  &#{&}--danger {
+    border-left-color: $default-info-box-danger-color;
     .sn-info-box__title, a, span { color: $default-info-box-danger-color; }
   }
 
-  &.sn-info-box--info {
-    border-left: 4px solid $default-info-box-info-color;
+  &#{&}--info {
+    border-left-color: $default-info-box-info-color;
     .sn-info-box__title, a, span { color: $default-info-box-info-color; }
   }
 

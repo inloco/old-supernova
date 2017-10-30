@@ -1,0 +1,92 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2017 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *     component style file
+ *  ----------- *** ------------
+ *
+ */
+
+@import "code-box_variables";
+
+// New Component styles
+/* ----------------------------
+*  - BEM (block, element, modifier) naming structure
+*  - Always use "sn-" prefix (eg: sn-dropdown)
+*  - Put all variables on component variables file
+*  - Use specific classes for styling. Use Html Tags only if necessary.
+*  - Use @include for shadows, breakpoints, flexbox, etc..
+* ----------- *** ------------
+*/
+
+.sn-code-box {
+  // Import Highlight JS for styling code snippets
+  @import "~highlight.js/styles/github-gist.css";
+
+  position: relative;
+  background-color: $default-code-box-background-color;
+  @include shadow-2dp();
+
+  pre {
+    margin-top: 0;
+    font-size: 13px;
+
+    code {
+      padding: 12px 16px;
+      min-height: 24px;
+    }
+  }
+
+  &__title {
+    height: 48px;
+    outline: 0;
+    position: relative;
+    text-decoration: none;
+    display: block;
+    padding: 0 16px;
+    height: 48px;
+    line-height: 48px;
+    font-weight: bold;
+    font-size: 14px;
+    color: $default-code-box-title-color;
+    text-transform: uppercase;
+  }
+
+  &__copy-button {
+    position: absolute;
+    top: $default-code-box-copy-btn-position-top;
+    right: $default-code-box-copy-btn-position-right;
+    width: $default-code-box-copy-btn-size;
+    height: $default-code-box-copy-btn-size;
+    border-radius: 50%;
+    color: $default-code-box-copy-btn-color;
+    opacity: .2;
+
+    &:before {
+      display: inline-block;
+      font-family: "Material Icons";
+      content: "\E14D";
+      font-size: 20px;
+      margin: 4px;
+      width: 24px;
+      height: 24px;
+      line-height: 1.2em;
+      text-align: center;
+    }
+
+    &:hover {
+      opacity: 1;
+      background-color: $default-code-box-copy-btn-background-color;
+      cursor: pointer;
+      @include shadow-2dp();
+
+      &:before {
+        display: block;
+      }
+    }
+  }
+}
