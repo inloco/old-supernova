@@ -9,6 +9,7 @@ import CardList from "./components/Card/List"
 import Checkbox from "./components/Form/Checkbox"
 import Chip from "./components/Chip"
 import CodeBox from "./components/CodeBox"
+import Collapsible from "./components/Collapsible"
 import Content from "./components/Content/Main"
 import Drawer from "./components/Drawer/"
 import DrawerNav from "./components/Drawer/Nav/Main"
@@ -67,6 +68,8 @@ import Meter from "./components/Meter"
 import Text from "./components/Text"
 import Spinner from "./components/Spinner"
 
+const CollapsibleItem = Collapsible.Item
+
 export {
   Alert,
   ArrowSteps,
@@ -80,6 +83,8 @@ export {
   Checkbox,
   Chip,
   CodeBox,
+  Collapsible,
+  CollapsibleItem,
   Content,
   Drawer,
   DrawerNav,

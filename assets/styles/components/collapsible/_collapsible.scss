@@ -1,0 +1,154 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *    collapse component file
+ *  ----------- *** ------------
+ *
+ */
+
+ @import "collapsible_variables";
+
+ .sn-collapsible {
+   position: relative;
+   width: 100%;
+   overflow: hidden;
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
+
+   &__item {
+    $item-root: &;
+
+    width: 100%;
+    border: $default-collapsible-border;
+    border-bottom: none;
+    box-sizing: border-box;
+
+    &:first-child {
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+    }
+
+    &:last-child {
+      border-bottom: $default-collapsible-border;
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+
+    &:first-child:last-child {
+      border-top: $default-collapsible-border;
+      border-bottom: $default-collapsible-border;
+    }
+
+    &__header {
+       display: flex;
+       justify-content: space-between;
+       height: 3em;
+       background-color: $default-collapsible-header-color;
+
+       &__title {
+         width: 100%;
+         display: flex;
+         align-items: center;
+         justify-content: flex-start;
+       }
+
+      &__toggle-button {
+         position: relative;
+         width: 4em;
+         outline: 0;
+         border: 0;
+         background-color: $default-collapsible-header-color;
+
+         &:before {
+           content: "";
+           display: block;
+           position: absolute;
+           height: 9px;
+           width: 2px;
+           background: $default-collapsible-toggle-button-color;
+           top: 50%;
+           left: 50%;
+           border-radius: 0.1em;
+           transform-origin: 50%;
+           transform: translate(0%, -75%) rotate(-45deg);
+           transition: all $transition-default-time ease-in-out 0s;
+         }
+
+         &:after {
+           content: "";
+           display: block;
+           position: absolute;
+           height: 9px;
+           width: 2px;
+           background:  $default-collapsible-toggle-button-color;
+           top: 50%;
+           left: 50%;
+           border-radius: 0.1em;
+           transform-origin: 50%;
+           transform: translate(0%, -25%) rotate(45deg);
+           transition: all $transition-default-time ease-in-out 0s;
+        }
+      }
+    }
+
+    &__content {
+      transition: height $transition-default-time ease-in-out 0s;
+      overflow: hidden;
+
+      &__inner {
+        padding: 15px;
+      }
+    }
+
+    &--borderless {
+      border: none;
+
+      #{$item-root}__header {
+        background-color: transparent;
+        border-bottom: $default-collapsible-border;
+
+        &__toggle-button {
+          background-color: transparent;
+        }
+      }
+    }
+
+    &--disabled {
+      #{$item-root}__header {
+        cursor: not-allowed;
+
+        &__toggle-button {
+          cursor: not-allowed;
+          &:before, &:after {
+            background: $default-collapsible-disabled-text-color;
+          }
+        }
+
+        &__title {
+          color: $default-collapsible-disabled-text-color;
+        }
+      }
+    }
+
+    &--open {
+      #{$item-root}__header__toggle-button {
+        &:before {
+         transform: translate(125%, -50%) rotate(45deg);
+        }
+        &:after {
+         transform: translate(-125%, -50%) rotate(-45deg);
+        }
+      }
+
+      #{$item-root}__content {
+        transition: height $transition-default-time ease-in-out 0s;
+      }
+    }
+  }
+}
