@@ -12,7 +12,7 @@ function toArray(activeKey) {
 
 class Collapsible extends Component {
   static propTypes = {
-    accordion: PropTypes.any,
+    accordion: PropTypes.bool,
     activeKey: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.arrayOf(PropTypes.string),
@@ -28,7 +28,7 @@ class Collapsible extends Component {
   }
 
   static defaultProps = {
-    accordion: null,
+    accordion: false,
     className: '',
     onChange() {},
     defaultActiveKey: '0',
@@ -48,6 +48,8 @@ class Collapsible extends Component {
     this.state = {
       activeKey: toArray(currentActiveKey)
     }
+
+    this.onItemClick = this.onItemClick.bind(this)
   }
 
   setActiveKey(activeKey) {
