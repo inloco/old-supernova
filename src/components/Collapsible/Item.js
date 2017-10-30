@@ -111,7 +111,9 @@ class Item extends Component {
           </div>
         </div>
         <div className={contentClass} style={contentStyle}>
-          <div className="sn-collapsible__item__content__inner" ref={ (divElement) => this.divElement = divElement}>{this.props.details}</div>
+          <div className="sn-collapsible__item__content__inner" ref={ (divElement) => this.divElement = divElement}>
+            {this.props.content}
+          </div>
         </div>
       </div>
     )
