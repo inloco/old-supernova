@@ -47,6 +47,7 @@
     }
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "prop-types": "^15.5.9",
     "react": "^15.5.4",
     "react-copy-to-clipboard": "^4.2.3",
