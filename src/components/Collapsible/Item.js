@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 class Item extends Component {
   static PropTypes = {
@@ -34,12 +35,44 @@ class Item extends Component {
       childrenHeight: 0
     }
 
-    this.onResize = this.onResize.bind(this);
+    this.onResize = this.onResize.bind(this)
     this.updateDimensions = this.updateDimensions.bind(this)
   }
 
+  render() {
+    const {
+      itemClass,
+      headerClass,
+      contentClass
+    } = this.getClassNames()
+
+    const {
+      iconStyle,
+      iconOnClick,
+      headerStyle,
+      headerOnClick,
+      contentStyle
+    } = this.getCustomConfig()
+
+    return (
+      <div className={itemClass}>
+        <div className={headerClass} onClick={headerOnClick} style={headerStyle}>
+          <button className="sn-collapsible__item__header__toggle-button" onClick={iconOnClick} style={iconStyle} />
+          <div className="sn-collapsible__item__header__title">
+            {this.props.title}
+          </div>
+        </div>
+        <div className={contentClass} style={contentStyle}>
+          <div className="sn-collapsible__item__content__inner" ref={ (divElement) => this.divElement = divElement}>
+            {this.props.content}
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   shouldComponentUpdate(nextProps) {
-    return this.props.isActive || nextProps.isActive;
+    return this.props.isActive || nextProps.isActive
   }
 
   updateDimensions() {
@@ -48,38 +81,49 @@ class Item extends Component {
   }
 
   onResize (){
-    if (this.rqf) return
-    if( typeof window !== 'undefined' )
-      this.rqf = window.requestAnimationFrame(() => {
-        this.rqf = null
+    if (this.currentRequestAnimationFrame) return
+
+    if(typeof window !== 'undefined') {
+      this.currentRequestAnimationFrame = window.requestAnimationFrame(() => {
+        this.currentRequestAnimationFrame = null
         this.updateDimensions()
       })
+    }
   }
 
   componentDidMount () {
     this.updateDimensions()
-    if( typeof window !== 'undefined' )
+    if(typeof window !== 'undefined') {
       window.addEventListener('resize', this.onResize, false)
+    }
   }
 
   componentWillUnmount () {
-    if( typeof window !== 'undefined' )
+    if(typeof window !== 'undefined') {
       window.removeEventListener('resize', this.onResize)
+    }
   }
 
-  render() {
-    const itemClass = (
-      `sn-collapsible__item
-      ${(this.props.isActive ? 'sn-collapsible__item--open' : '')}
-      ${(this.props.disabled ? 'sn-collapsible__item--disabled': '')}
-      ${(this.props.borderless ? 'sn-collapsible__item--borderless': '')}
-      ${this.props.className}`
-    ).trim()
-    const headerClass = `sn-collapsible__item__header ${this.props.headerClass}`.trim()
-    const contentClass = `sn-collapsible__item__content ${this.props.contentClass}`.trim()
+  getClassNames() {
+    const itemClass = classNames('sn-collapsible__item', this.props.className, {
+      'sn-collapsible__item--open': this.props.isActive,
+      'sn-collapsible__item--disabled': this.props.disabled,
+      'sn-collapsible__item--borderless':this.props.borderless
+    })
+    const headerClass = classNames('sn-collapsible__item__header', this.props.headerClass)
+    const contentClass = classNames('sn-collapsible__item__content', this.props.contentClass)
 
+    return {
+      itemClass,
+      headerClass,
+      contentClass
+    }
+  }
+
+  getCustomConfig() {
+    const contentHeight = this.props.isActive ? this.state.childrenHeight : 0
     const contentStyle = {
-      height: (this.props.isActive ? this.state.childrenHeight : 0) + 'px'
+      height: `${contentHeight}px`
     }
 
     const collapseTriggerIsHeader = this.props.collapseTrigger === 'header'
@@ -102,21 +146,13 @@ class Item extends Component {
               : ''
     }
 
-    return (
-      <div className={itemClass}>
-        <div className={headerClass} onClick={headerOnClick} style={headerStyle}>
-          <button className="sn-collapsible__item__header__toggle-button" onClick={iconOnClick} style={iconStyle} />
-          <div className="sn-collapsible__item__header__title">
-            {this.props.title}
-          </div>
-        </div>
-        <div className={contentClass} style={contentStyle}>
-          <div className="sn-collapsible__item__content__inner" ref={ (divElement) => this.divElement = divElement}>
-            {this.props.content}
-          </div>
-        </div>
-      </div>
-    )
+    return {
+      iconStyle,
+      iconOnClick,
+      headerStyle,
+      headerOnClick,
+      contentStyle
+    }
   }
 }
 

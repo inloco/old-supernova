@@ -52,6 +52,16 @@ class Collapsible extends Component {
     this.onItemClick = this.onItemClick.bind(this)
   }
 
+  render() {
+    const className = `sn-collapsible ${this.props.className}`.trim()
+
+    return (
+      <div className={className}>
+        {this.getChildren()}
+      </div>
+    )
+  }
+
   setActiveKey(activeKey) {
     if (!('activeKey' in this.props)) {
       this.setState({ activeKey })
@@ -59,7 +69,7 @@ class Collapsible extends Component {
     this.props.onChange(this.props.accordion ? activeKey[0] : activeKey)
   }
 
-  onItemClick(key) {
+  getActiveKey(key) {
     let { activeKey } = this.state
 
     if (this.props.accordion) {
@@ -75,6 +85,12 @@ class Collapsible extends Component {
         activeKey.push(key)
       }
     }
+
+    return activeKey
+  }
+
+  onItemClick(key) {
+    const activeKey = this.getActiveKey(key)
 
     this.setActiveKey(activeKey)
   }
@@ -106,16 +122,6 @@ class Collapsible extends Component {
     })
 
     return children
-  }
-
-  render() {
-    const className = `sn-collapsible ${this.props.className}`.trim()
-
-    return (
-      <div className={className}>
-        {this.getChildren()}
-      </div>
-    )
   }
 }
 
