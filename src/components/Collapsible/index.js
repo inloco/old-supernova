@@ -63,9 +63,12 @@ class Collapsible extends Component {
   }
 
   setActiveKey(activeKey) {
-    if (!('activeKey' in this.props)) {
+    const activeKeyIsNotLocked = !('activeKey' in this.props)
+
+    if (activeKeyIsNotLocked) {
       this.setState({ activeKey })
     }
+
     this.props.onChange(this.props.accordion ? activeKey[0] : activeKey)
   }
 
