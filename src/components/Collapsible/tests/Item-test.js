@@ -83,6 +83,4 @@ describe('Item', () => {
       expect(onResizeSpy.calls.count()).toBe(1)
     })
   })
-
-  // test click dont occur when disabled
 })
