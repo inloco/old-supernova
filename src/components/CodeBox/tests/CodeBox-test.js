@@ -62,9 +62,9 @@ describe('CodeBox', () => {
     })
   })
 
-  describe('when has showTitle as false', () => {
+  describe('when has hideTitle', () => {
     beforeEach(() => {
-      wrapper.setProps({showTitle: false})
+      wrapper.setProps({hideTitle: true})
     })
 
     it('hides title', () => {
@@ -72,9 +72,9 @@ describe('CodeBox', () => {
     })
   })
 
-  describe('when has showCopyToClipboard as false', () => {
+  describe('when has hideCopyToClipboard', () => {
     beforeEach(() => {
-      wrapper.setProps({showCopyToClipboard: false})
+      wrapper.setProps({hideCopyToClipboard: true})
     })
 
     it('hides Copy to Clipboard button', () => {

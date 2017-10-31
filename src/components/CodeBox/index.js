@@ -10,16 +10,16 @@ class CodeBox extends React.PureComponent {
     lang: PropTypes.string,
     title: PropTypes.string,
     className: PropTypes.string,
-    showTitle: PropTypes.bool,
-    showCopyToClipboard: PropTypes.bool
+    hideTitle: PropTypes.bool,
+    hideCopyToClipboard: PropTypes.bool
   }
 
   static defaultProps = {
     lang: 'html',
     title: 'HTML',
     className: '',
-    showTitle: true,
-    showCopyToClipboard: true
+    hideTitle: false,
+    hideCopyToClipboard: false
   }
 
   constructor(props) {
@@ -73,7 +73,7 @@ class CodeBox extends React.PureComponent {
   }
 
   shouldRenderTitle() {
-    return this.props.showTitle
+    return !this.props.hideTitle
   }
 
   renderTitle() {
@@ -85,7 +85,7 @@ class CodeBox extends React.PureComponent {
   }
 
   shouldRenderCopyToClipboard() {
-    return this.props.showCopyToClipboard
+    return !this.props.hideCopyToClipboard
   }
 
   renderCopyToClipboard() {
