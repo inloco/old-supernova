@@ -48,16 +48,17 @@ class Item extends Component {
 
     const {
       iconStyle,
-      iconOnClick,
       headerStyle,
-      headerOnClick,
       contentStyle
-    } = this.getCustomConfig()
+    } = this.getCustomStyles()
+
+    const iconOnClick = this.getIconOnClickAction()
+    const headerOnClick = this.getHeaderOnClickAction()
 
     return (
       <div className={itemClass}>
         <div className={headerClass} onClick={headerOnClick} style={headerStyle}>
-          <button className="sn-collapsible__item__header__toggle-button" onClick={iconOnClick} style={iconStyle} />
+          <button className="sn-collapsible__item__header__toggle-button" onClick={headerOnClick} style={icHeaderyle} />
           <div className="sn-collapsible__item__header__title">
             {this.props.title}
           </div>
@@ -120,16 +121,13 @@ class Item extends Component {
     }
   }
 
-  getCustomConfig() {
+  getCustomStyles() {
     const contentHeight = this.props.isActive ? this.state.childrenHeight : 0
     const contentStyle = {
       height: `${contentHeight}px`
     }
 
     const collapseTriggerIsHeader = this.props.collapseTrigger === 'header'
-    const headerOnClick = collapseTriggerIsHeader
-                          ? this.props.onItemClick
-                          : null
     const headerStyle = {
       cursor: collapseTriggerIsHeader && !this.props.disabled
       ? 'pointer'
@@ -137,9 +135,6 @@ class Item extends Component {
     }
 
     const collapseTriggerIsIcon = this.props.collapseTrigger === 'icon'
-    const iconOnClick = collapseTriggerIsIcon
-                        ? this.props.onItemClick
-                        : null
     const iconStyle = {
       cursor: !this.props.disabled
               ? 'pointer'
@@ -148,11 +143,27 @@ class Item extends Component {
 
     return {
       iconStyle,
-      iconOnClick,
       headerStyle,
-      headerOnClick,
       contentStyle
     }
+  }
+
+  getIconOnClickAction() {
+    const collapseTriggerIsIcon = this.props.collapseTrigger === 'icon'
+    const iconOnClick = collapseTriggerIsIcon
+                        ? this.props.onItemClick
+                        : null
+
+    return iconOnClick
+  }
+
+  getHeaderOnClickAction() {
+    const collapseTriggerIsHeader = this.props.collapseTrigger === 'header'
+    const headerOnClick = collapseTriggerIsHeader
+                          ? this.props.onItemClick
+                          : null
+
+    return headerOnClick
   }
 }
 
