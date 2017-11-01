@@ -62,6 +62,26 @@ describe('CodeBox', () => {
     })
   })
 
+  describe('when has hideTitle', () => {
+    beforeEach(() => {
+      wrapper.setProps({hideTitle: true})
+    })
+
+    it('hides title', () => {
+      expect(wrapper.find('.sn-code-box__title').length).toBe(0)
+    })
+  })
+
+  describe('when has hideCopyToClipboard', () => {
+    beforeEach(() => {
+      wrapper.setProps({hideCopyToClipboard: true})
+    })
+
+    it('hides Copy to Clipboard button', () => {
+      expect(wrapper.find('CopyToClipboard').length).toBe(0)
+    })
+  })
+
   describe('when copy to clipboard is clicked', () => {
     it('calls handleClickButton method when clicked', () => {
       const spy = spyOn(CodeBox.prototype, 'handleClickButton')
