@@ -6,7 +6,7 @@ describe('Item', () => {
   const title = 'Title'
   const content = 'Content'
   const wrapper = shallow(
-    <Item title={title} content={content} />
+    <Item title={title}>{content}</Item>
   )
 
   it('has default class', () => {

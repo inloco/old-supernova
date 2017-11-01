@@ -8,9 +8,9 @@ const content = 'Content'
 
 const buildCollapsibleTemplate = (props = {}) => (
   <Collapsible {...props}>
-    <Item title={title} content={content} />
-    <Item title={title} content={content} />
-    <Item title={title} content={content} />
+    <Item title={title}>{content}</Item>
+    <Item title={title}>{content}</Item>
+    <Item title={title}>{content}</Item>
   </Collapsible>
 )
 

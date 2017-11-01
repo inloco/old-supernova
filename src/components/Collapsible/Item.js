@@ -6,7 +6,6 @@ class Item extends Component {
   static PropTypes = {
     key: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    content: PropTypes.any.isRequired,
     isActive: PropTypes.bool,
     onItemClick: PropTypes.func,
     className: PropTypes.string,
@@ -65,7 +64,7 @@ class Item extends Component {
         </div>
         <div className={contentClass} style={contentStyle}>
           <div className="sn-collapsible__item__content__inner" ref={ (divElement) => this.divElement = divElement}>
-            {this.props.content}
+            {this.props.children}
           </div>
         </div>
       </div>
