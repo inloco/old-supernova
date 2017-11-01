@@ -117,6 +117,12 @@
           background-color: transparent;
         }
       }
+
+      &#{$item-root} {
+        &:last-child {
+          border-bottom: none;
+        }
+      }
     }
 
     &--disabled {
