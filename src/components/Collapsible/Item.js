@@ -129,16 +129,20 @@ class Item extends Component {
 
     const collapseTriggerIsHeader = this.props.collapseTrigger === 'header'
     const headerStyle = {
-      cursor: collapseTriggerIsHeader && !this.props.disabled
-      ? 'pointer'
-      : ''
+      cursor: (
+        collapseTriggerIsHeader && !this.props.disabled
+        ? 'pointer'
+        : ''
+      )
     }
 
     const collapseTriggerIsIcon = this.props.collapseTrigger === 'icon'
     const iconStyle = {
-      cursor: !this.props.disabled
-              ? 'pointer'
-              : ''
+      cursor: (
+        !this.props.disabled
+        ? 'pointer'
+        : ''
+      )
     }
 
     return {
@@ -150,18 +154,22 @@ class Item extends Component {
 
   getIconOnClickAction() {
     const collapseTriggerIsIcon = this.props.collapseTrigger === 'icon'
-    const iconOnClick = collapseTriggerIsIcon
-                        ? this.props.onItemClick
-                        : null
+    const iconOnClick = (
+      collapseTriggerIsIcon
+      ? this.props.onItemClick
+      : null
+    )
 
     return iconOnClick
   }
 
   getHeaderOnClickAction() {
     const collapseTriggerIsHeader = this.props.collapseTrigger === 'header'
-    const headerOnClick = collapseTriggerIsHeader
-                          ? this.props.onItemClick
-                          : null
+    const headerOnClick = (
+      collapseTriggerIsHeader
+      ? this.props.onItemClick
+      : null
+    )
 
     return headerOnClick
   }

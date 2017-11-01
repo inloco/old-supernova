@@ -40,10 +40,12 @@ class Collapsible extends Component {
     super(props)
 
     const { activeKey, defaultActiveKey } = this.props
-    let currentActiveKey = defaultActiveKey
-    if ('activeKey' in this.props) {
-      currentActiveKey = activeKey
-    }
+    const hasLockedActiveKey = 'activeKey' in this.props
+    const currentActiveKey = (
+      hasLockedActiveKey
+      ? activeKey
+      : defaultActiveKey
+    )
 
     this.state = {
       activeKey: toArray(currentActiveKey)
@@ -79,11 +81,11 @@ class Collapsible extends Component {
       activeKey = activeKey[0] === key ? [] : [key]
     } else {
       activeKey = [...activeKey]
-      const index = activeKey.indexOf(key)
-      const isActive = index > -1
+      const currentKeyIndex = activeKey.indexOf(key)
+      const isActive = currentKeyIndex > -1
 
       if (isActive) {
-        activeKey.splice(index, 1)
+        activeKey.splice(currentKeyIndex, 1) // removes key, close toggle
       } else {
         activeKey.push(key)
       }
@@ -107,9 +109,11 @@ class Collapsible extends Component {
       if (!child) return
 
       const key = child.key || String(index)
-      const isActive = accordion
-                     ? activeKey[0] === key
-                     : activeKey.indexOf(key) > -1
+      const isActive = (
+        accordion
+        ? activeKey[0] === key
+        : activeKey.indexOf(key) > -1
+      )
       const collapseTrigger = this.props.collapseTrigger || child.props.collapseTrigger
 
       const childProps = {
