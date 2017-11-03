@@ -34,11 +34,13 @@ describe('Collapsible', () => {
     const wrapper = mount(buildCollapsibleTemplate())
 
     it('has default class', () => {
-      expect(wrapper.hasClass('sn-collapsible')).toBeTruthy()
+      const current = wrapper.find('div').first().hasClass('sn-collapsible')
+
+      expect(current).toBeTruthy()
     })
 
     it('opens and closes clicked items', () => {
-      const itemButton = wrapper.children().last().find('.sn-collapsible__item__header__toggle-button').first()
+      const itemButton = wrapper.find(Item).last().find('.sn-collapsible__item__header__toggle-button').first()
 
       itemButton.simulate('click')
 
@@ -66,12 +68,14 @@ describe('Collapsible', () => {
     const accordionWrapper = mount(buildCollapsibleTemplate({accordion: true}))
 
     it('can have only one item open at once', () => {
-      expect(accordionWrapper.find('.sn-collapsible__item--open').length).toBe(1)
+      const current = accordionWrapper.find('.sn-collapsible__item--open')
 
-      const itemButton = accordionWrapper.children().last().find('.sn-collapsible__item__header__toggle-button').first()
+      expect(current).toHaveLength(1)
+
+      const itemButton = accordionWrapper.find(Item).last().find('.sn-collapsible__item__header__toggle-button').first()
       itemButton.simulate('click')
 
-      expect(accordionWrapper.find('.sn-collapsible__item--open').length).toBe(1)
+      expect(current).toHaveLength(1)
     })
   })
 

@@ -76,6 +76,8 @@ class Item extends Component {
   }
 
   updateDimensions() {
+    if(!this.divElement) return
+
     const childrenHeight = this.divElement.clientHeight
     this.setState({ childrenHeight })
   }
