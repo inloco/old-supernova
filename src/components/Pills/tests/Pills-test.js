@@ -12,13 +12,15 @@ describe('Pills', () => {
       </Pills>)
 
   it('has pills className', () => {
-    expect(wrapper.hasClass('sn-pills')).toBeTruthy()
+    const current = wrapper.find('div').hasClass('sn-pills')
+
+    expect(current).toBeTruthy()
   })
 
   it('has 3 pill items', () => {
-    const items = wrapper.find('[className="sn-pills__label"]')
+    const current = wrapper.find(Pill)
 
-    expect(items.length).toEqual(3)
+    expect(current).toHaveLength(3)
   })
 
   it('has the first pill input checked', () => {
@@ -32,7 +34,7 @@ describe('Pills', () => {
     const inputs = wrapper.find('input')
 
     for(let input of inputs) {
-      expect(input.name).toEqual('lala')
+      expect(input.props.name).toEqual('lala')
     }
   })
 })

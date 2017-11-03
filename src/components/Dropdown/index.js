@@ -186,8 +186,12 @@ class Dropdown extends React.Component {
 
             return (
               <li key={option.value}>
-                <div className="sn-search-box__item-content">{option.name}</div>
-                <button onClick={this.handleRemoveOptionClick.bind(this, option)} type="button" className="sn-search-box__item-button"></button>
+                <div className="sn-search-box__item-content">
+                  {option.name}
+                </div>
+                <button
+                  onClick={this.handleRemoveOptionClick.bind(this, option)}
+                  type="button" className="sn-search-box__item-button" />
               </li>
             )
           })}

@@ -6,23 +6,25 @@ import { shallow } from 'enzyme'
 describe('Icon', () => {
   const onClick = jest.fn()
   const wrapper = shallow(
-    <Icon code="add" className="some" onClick={onClick} color="white" />
+    <Icon code='add' className='some' onClick={onClick} color='white' />
   )
 
   it('has icon className', () => {
     expect(wrapper.hasClass('material-icons')).toBeTruthy()
   })
-  
+
   it('has custom className', () => {
     expect(wrapper.hasClass('some')).toBeTruthy()
   })
 
   it('has material code', () => {
-    expect(wrapper.children().node).toEqual('add')
+    const current = wrapper.props().children
+
+    expect(current).toEqual('add')
   })
 
   it('has color style', () => {
-    expect(wrapper.props().style.color).toBe("white")
+    expect(wrapper.props().style.color).toBe('white')
   })
 
   describe('when click', () => {

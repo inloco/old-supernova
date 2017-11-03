@@ -32,27 +32,32 @@ describe('Alert', () => {
   })
 
   it('has alert class', () => {
-    expect(wrapper.hasClass('sn-alert')).toBeTruthy()
+    const current = wrapper.find('div').first().hasClass('sn-alert')
+
+    expect(current).toBeTruthy()
   })
 
   it('has correct default type', () => {
-    expect(wrapper.hasClass('sn-alert--success')).toBeTruthy()
+    const current = wrapper.find('div').first().hasClass('sn-alert--success')
+
+    expect(current).toBeTruthy()
   })
 
   describe('false properties', () => {
     it('active false has hidden class', () => {
       wrapper.setProps({ active: false })
-      const div = wrapper.find('div')
 
-      expect(wrapper.hasClass('sn-alert-hidden')).toBeTruthy()
+      const current = wrapper.find('div').first().hasClass('sn-alert-hidden')
+
+      expect(current).toBeTruthy()
     })
 
     it('not call function', () => {
       wrapper.setProps({
         closeAfter: undefined,
-        active: true 
+        active: true
       })
-     
+
       setTimeout(() => {
         expect(onClose).not.toBeCalled()
         done()

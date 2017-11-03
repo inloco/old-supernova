@@ -65,12 +65,14 @@ describe('Dropdown', () => {
 
   describe('when clicks in dropdown button', () => {
     const button = wrapper.find('.sn-dropdown__button')
-    const list =   wrapper.find('.sn-dropdown__results')
+    const list = wrapper.find('.sn-dropdown__results')
 
     it('shows the list', () => {
       button.simulate('click')
 
-      expect(list.props().style.display).toEqual('block')
+      const current = wrapper.state().open
+
+      expect(current).toBeTruthy()
     })
 
     describe('when clicks again in the button', () => {

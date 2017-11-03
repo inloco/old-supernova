@@ -17,7 +17,9 @@ describe('DropdownMenu', () => {
   )
 
   it('has correct className', () => {
-    expect(wrapper.hasClass('sn-dropdown-menu')).toBeTruthy()
+    const current = wrapper.find('div').hasClass('sn-dropdown-menu')
+
+    expect(current).toBeTruthy()
   })
 
   it('has an icon', () => {
