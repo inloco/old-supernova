@@ -57,7 +57,7 @@ class Item extends Component {
     return (
       <div className={itemClass}>
         <div className={headerClass} onClick={headerOnClick} style={headerStyle}>
-          <button className="sn-collapsible__item__header__toggle-button" onClick={iconOnClick} style={iconStyle} />
+          <span className="sn-collapsible__item__header__toggle-button" onClick={iconOnClick} style={iconStyle} />
           <div className="sn-collapsible__item__header__title">
             {this.props.title}
           </div>
