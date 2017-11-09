@@ -237,20 +237,20 @@
     margin: $gutter-lg-screen-xsmall 0;
   }
   .sn-grid--cell-gutter-lg > *:first-child {
-    margin: $gutter-lg-screen-xsmall 0;
+    margin: 0 $gutter-lg-screen-xsmall 0 0;
   }
   .sn-grid--cell-gutter-lg > *:last-child {
-    margin: $gutter-lg-screen-xsmall 0;
+    margin: 0 0 0 $gutter-lg-screen-xsmall;
   }
 
   .sn-grid--cell-gutter-xl > * {
     margin: $gutter-xl-screen-xsmall 0;
   }
   .sn-grid--cell-gutter-xl > *:first-child {
-    margin: $gutter-xl-screen-xsmall 0;
+    margin: 0 $gutter-xl-screen-xsmall 0 0;
   }
   .sn-grid--cell-gutter-xl > *:last-child {
-    margin: $gutter-xl-screen-xsmall 0;
+    margin: 0 0 0 $gutter-xl-screen-xsmall;
   }
 }
 
@@ -303,37 +303,37 @@
     margin: $gutter-sm-vm 0;
   }
   &.sn-grid--cell-gutter-sm > *:first-child {
-    margin: $gutter-sm-vm 0 0 0;
+    margin: 0 0 $gutter-sm-vm 0;
   }
   &.sn-grid--cell-gutter-sm > *:last-child {
-    margin: 0 0 $gutter-sm-vm 0;
+    margin: $gutter-sm-vm 0 0 0;
   }
   &.sn-grid--cell-gutter-xs > * {
     margin: $gutter-xs-vm 0;
   }
   &.sn-grid--cell-gutter-xs > *:first-child {
-    margin: $gutter-xs-vm 0 0 0;
+    margin: 0 0 $gutter-xs-vm 0;
   }
   &.sn-grid--cell-gutter-xs > *:last-child {
-    margin: 0 0 $gutter-xs-vm 0;
+    margin: $gutter-xs-vm 0 0 0;
   }
   &.sn-grid--cell-gutter-lg > * {
     margin: $gutter-lg-vm 0;
   }
   &.sn-grid--cell-gutter-lg > *:first-child {
-    margin: $gutter-lg-vm 0 0 0;
+    margin: 0 0 $gutter-lg-vm 0;
   }
   &.sn-grid--cell-gutter-lg > *:last-child {
-    margin: 0 0 $gutter-lg-vm 0;
+    margin: $gutter-lg-vm 0 0 0;
   }
   &.sn-grid--cell-gutter-xl > * {
     margin: $gutter-xl-vm 0;
   }
   &.sn-grid--cell-gutter-xl > *:first-child {
-    margin: $gutter-xl-vm 0 0 0;
+    margin: 0 0 $gutter-xl-vm 0;
   }
   &.sn-grid--cell-gutter-xl > *:last-child {
-    margin: 0 0 $gutter-xl-vm 0;
+    margin: $gutter-xl-vm 0 0 0;
   }
 
   @media (max-width: $screen-xsmall) {
@@ -341,20 +341,20 @@
       margin: $gutter-lg-screen-xsmall 0;
     }
     &.sn-grid--cell-gutter-lg > *:first-child {
-      margin: $gutter-lg-screen-xsmall 0;
+      margin: 0 0 $gutter-lg-screen-xsmall 0;
     }
     &.sn-grid--cell-gutter-lg > *:last-child {
-      margin: $gutter-lg-screen-xsmall 0;
+      margin: $gutter-lg-screen-xsmall 0 0 0;
     }
 
     .sn-grid--cell-gutter-xl > * {
       margin: $gutter-xl-screen-xsmall 0;
     }
     .sn-grid--cell-gutter-xl > *:first-child {
-      margin: $gutter-xl-screen-xsmall 0;
+      margin: 0 0 $gutter-xl-screen-xsmall 0;
     }
     .sn-grid--cell-gutter-xl > *:last-child {
-      margin: $gutter-xl-screen-xsmall 0;
+      margin: $gutter-xl-screen-xsmall 0 0 0;
     }
   }
 }
