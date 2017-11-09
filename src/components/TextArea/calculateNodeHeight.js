@@ -89,7 +89,7 @@ export default function calculateNodeHeight(
   } = calculateNodeStyling(uiTextNode)
 
   hiddenTextarea.setAttribute('style', `${sizingStyle}${HIDDEN_TEXTAREA_STYLE}`)
-  hiddenTextarea.value = ''
+  hiddenTextarea.value = uiTextNode.value || uiTextNode.placeholder || ''
 
   let minHeight = -Infinity
   let maxHeight = Infinity
@@ -101,6 +101,7 @@ export default function calculateNodeHeight(
     : hiddenTextarea.scrollHeight - paddingSize
   )
 
+  hiddenTextarea.value = '' // cleans the text after it's height has been calculated
   const baseSingleRowHeight = hiddenTextarea.scrollHeight - paddingSize
 
   const boxSizingHeight = (
