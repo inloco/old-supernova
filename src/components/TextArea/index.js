@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Label from './../Label'
+import calculateNodeHeight from './calculateNodeHeight'
 
 class TextArea extends React.Component {
   static propTypes = {
@@ -13,19 +14,29 @@ class TextArea extends React.Component {
     limit: PropTypes.number,
     error: PropTypes.any,
     onChange: PropTypes.func,
-    value: PropTypes.string
+    value: PropTypes.string,
+    minRows: PropTypes.number,
+    maxRows: PropTypes.number
   }
 
   static defaultProps = {
     tabIndex: 0,
-    value: ''
+    value: '',
+    label: '',
+    minRows: 2,
+    maxRows: 4
   }
 
   constructor(props) {
     super(props)
 
+    this.currentRequestAnimationFrame = null
+
+    this.onResize = this.onResize.bind(this)
+
     this.state = {
-      value: props.value
+      value: props.value,
+      textareaStyles: null
     }
   }
 
@@ -33,6 +44,33 @@ class TextArea extends React.Component {
     this.setState({
       value: nextProps.value
     })
+
+    this.resizeTextArea()
+  }
+
+  componentDidMount() {
+    this.resizeTextArea()
+
+    if(typeof window !== 'undefined' && !this.props.rows) {
+      window.addEventListener('resize', this.onResize, false)
+    }
+  }
+
+  componentWillUnmount () {
+    if(typeof window !== 'undefined' && this.props.rows) {
+      window.removeEventListener('resize', this.onResize)
+    }
+  }
+
+  onResize (){
+    if (this.currentRequestAnimationFrame) return
+
+    if(typeof window !== 'undefined') {
+      this.currentRequestAnimationFrame = window.requestAnimationFrame(() => {
+        this.resizeTextArea()
+        this.currentRequestAnimationFrame = null
+      })
+    }
   }
 
   render() {
@@ -40,7 +78,10 @@ class TextArea extends React.Component {
 
     return (
       <div className={this.getWrapperClassName()}>
-        <textarea {...this.getTextAreaProps()} />
+        <textarea
+          {...this.getTextAreaProps()}
+          ref={textArea => this.textAreaRef = textArea}
+        />
 
         <Label value={label} htmlFor={id} fixed={fixed} />
 
@@ -52,6 +93,17 @@ class TextArea extends React.Component {
     )
   }
 
+  resizeTextArea() {
+    if (!this.textAreaRef || this.props.rows) {
+      return
+    }
+
+    const { minRows, maxRows } = this.props
+
+    const textareaStyles = calculateNodeHeight(this.textAreaRef, minRows, maxRows)
+    this.setState({ textareaStyles })
+  }
+
   handleChange(event) {
     event.persist()
 
@@ -61,6 +113,8 @@ class TextArea extends React.Component {
 
     if(!haveLimitSize) return undefined
 
+    this.resizeTextArea()
+
     this.setState({ value }, () => onChange && onChange(event))
   }
 
@@ -69,10 +123,16 @@ class TextArea extends React.Component {
   }
 
   getTextAreaProps() {
-    const { value, error, fixed, label, limit, ...validProps } = this.props
+    const { value, error, fixed, label, limit, minRows, maxRows, ...validProps } = this.props
+
+    const style = {
+      ...this.props.style,
+      ...this.state.textareaStyles,
+    }
 
     return {
       ...validProps,
+      style,
       onChange: this.handleChange.bind(this),
       className: this.getTextAreaClassName(),
       value: this.state.value
