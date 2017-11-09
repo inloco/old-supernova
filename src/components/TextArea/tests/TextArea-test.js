@@ -1,7 +1,7 @@
 import React from 'react'
 import TextArea from './../index'
 import Label from './../../Label'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 
 describe('TextArea', () => {
   const onChange = jest.fn()
@@ -78,8 +78,61 @@ describe('TextArea', () => {
   describe('when has error', () => {
     it('render error', () => {
       wrapper.setProps({ error: 'Error Message!' })
-      
+
       expect(wrapper.find('.sn-form-group__message').text()).toEqual('Error Message!')
+    })
+  })
+})
+
+
+describe('TextArea with dynamic height', () => {
+  const wrapper = mount(
+    <TextArea />
+  )
+
+  const textarea = wrapper.find('textarea')
+
+  describe('on value change', () => {
+    it('calls resizeTextArea', () => {
+      const resizeTextAreaSpy = spyOn(TextArea.prototype, 'resizeTextArea')
+      resizeTextAreaSpy.calls.track()
+
+      const mockInputChangeEvent =  {
+        target: {
+          value: 'Hello'
+        },
+        persist: () => {}
+      }
+
+      textarea.simulate('change', mockInputChangeEvent)
+
+      expect(resizeTextAreaSpy.calls.count()).toBe(2)
+    })
+  })
+
+  describe('on window resize', () => {
+    it('calls onResize', () => {
+      const onResizeSpy = spyOn(TextArea.prototype, 'onResize')
+      onResizeSpy.calls.track()
+
+      window.resizeTo(1000, 1000);
+
+      expect(onResizeSpy.calls.count()).toBe(1)
+    })
+  })
+
+  describe('on window resize with box-sizing: \'border-box\'', () => {
+    beforeEach(() => {
+      wrapper.setProps({style: {boxSizing: 'border-box'}})
+    })
+
+    it('calls onResize', () => {
+      const onResizeSpy = spyOn(TextArea.prototype, 'onResize')
+      onResizeSpy.calls.track()
+
+      window.resizeTo(1000, 1000);
+
+      expect(onResizeSpy.calls.count()).toBe(1)
     })
   })
 })

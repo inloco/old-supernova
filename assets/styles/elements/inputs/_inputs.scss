@@ -99,13 +99,13 @@
     line-height: $default-input-line-height;
     width: 100%;
     color: transparent;
-    transition: all $default-form-animation-transition ease;
     box-shadow: none;
   }
   textarea {
     margin-top: $default-textarea-margin-top;
     margin-bottom: $default-textarea-margin-bottom;
     line-height: $default-textarea-line-height;
+    resize: none;
   }
   input[type="file"] {
     line-height: $default-input-line-height;
