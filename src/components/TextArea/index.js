@@ -45,9 +45,7 @@ class TextArea extends React.Component {
       value: nextProps.value
     })
 
-    setTimeout(() => {
-      this.resizeTextArea()
-    })
+    this.resizeTextArea()
   }
 
   componentDidMount() {
