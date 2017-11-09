@@ -49,12 +49,12 @@ class Searchbox extends React.Component {
   }
 
   updateSelectedResultsIfNeeded(nextProps) {
-    if(this.initialSelectedResultsHasChange(nextProps)) {
+    if(this.initialSelectedResultsHasChanged(nextProps)) {
       this.setState({ selectedResults: nextProps.initialSelectedResults })
     }
   }
 
-  initialSelectedResultsHasChange(nextProps) {
+  initialSelectedResultsHasChanged(nextProps) {
     const currentValue = this.props.initialSelectedResults
     const newValue = nextProps.initialSelectedResults
     const existsNewAndCurrentValues = currentValue && newValue
@@ -73,6 +73,8 @@ class Searchbox extends React.Component {
     this.handleMouseEnter = this.handleMouseEnter.bind(this)
     this.handleOnSelectResult = this.handleOnSelectResult.bind(this)
     this.handleCloseClick = this.handleCloseClick.bind(this)
+    this.selectResult = this.selectResult.bind(this)
+    this.unselectResult = this.unselectResult.bind(this)
 
     this.state = {
       inputValue: '',
@@ -236,7 +238,9 @@ class Searchbox extends React.Component {
       )
     }), () => {
       this.props.onUnselect(selectedResult, this.state.selectedResults)
+      this.input && this.input.focus()
     })
+
   }
 
   renderInput() {
@@ -417,7 +421,6 @@ class Searchbox extends React.Component {
 
   handleOnSelectResult(result) {
     this.selectResult(result)
-    this.input && this.input.focus()
   }
 
   selectResult(result) {
@@ -427,6 +430,12 @@ class Searchbox extends React.Component {
     }), () => {
       this.props.onSelect(result, this.state.selectedResults)
     })
+
+    if (this.props.single) {
+      this.setState({ expandedResults: false }, () => {
+        this.input && this.input.focus()
+      })
+    }
   }
 
   renderError() {
