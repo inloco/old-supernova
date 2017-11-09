@@ -238,9 +238,9 @@ class Searchbox extends React.Component {
       )
     }), () => {
       this.props.onUnselect(selectedResult, this.state.selectedResults)
+      this.input && this.input.focus()
     })
 
-    this.focusInput()
   }
 
   renderInput() {
@@ -421,14 +421,6 @@ class Searchbox extends React.Component {
 
   handleOnSelectResult(result) {
     this.selectResult(result)
-    this.focusInput()
-  }
-
-  focusInput() {
-    // timeout to enable ref to get updated re rendered input
-    setTimeout(() => {
-      this.input && this.input.focus()
-    })
   }
 
   selectResult(result) {
@@ -440,7 +432,9 @@ class Searchbox extends React.Component {
     })
 
     if (this.props.single) {
-      this.setState({ expandedResults: false })
+      this.setState({ expandedResults: false }, () => {
+        this.input && this.input.focus()
+      })
     }
   }
 
