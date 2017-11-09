@@ -120,4 +120,19 @@ describe('TextArea with dynamic height', () => {
       expect(onResizeSpy.calls.count()).toBe(1)
     })
   })
+
+  describe('on window resize with box-sizing: \'border-box\'', () => {
+    beforeEach(() => {
+      wrapper.setProps({style: {boxSizing: 'border-box'}})
+    })
+
+    it('calls onResize', () => {
+      const onResizeSpy = spyOn(TextArea.prototype, 'onResize')
+      onResizeSpy.calls.track()
+
+      window.resizeTo(1000, 1000);
+
+      expect(onResizeSpy.calls.count()).toBe(1)
+    })
+  })
 })

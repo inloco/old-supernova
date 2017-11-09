@@ -73,8 +73,8 @@ function calculateNodeStyling(node) {
 
 export default function calculateNodeHeight(
   uiTextNode,
-  minRows = null,
-  maxRows = null
+  minRows,
+  maxRows
 ) {
   if (!hiddenTextarea) {
     hiddenTextarea = document.createElement('textarea')
@@ -89,19 +89,18 @@ export default function calculateNodeHeight(
   } = calculateNodeStyling(uiTextNode)
 
   hiddenTextarea.setAttribute('style', `${sizingStyle}${HIDDEN_TEXTAREA_STYLE}`)
-  hiddenTextarea.value = uiTextNode.value || uiTextNode.placeholder || ''
+  hiddenTextarea.value = ''
 
   let minHeight = -Infinity
   let maxHeight = Infinity
   let overflowY = 'hidden'
 
-  let height = (
+  let partiallyComputedHeight = (
     boxSizing === 'border-box'
     ? hiddenTextarea.scrollHeight + borderSize
     : hiddenTextarea.scrollHeight - paddingSize
   )
 
-  if (minRows || maxRows) hiddenTextarea.value = ''
   const baseSingleRowHeight = hiddenTextarea.scrollHeight - paddingSize
 
   const boxSizingHeight = (
@@ -110,16 +109,12 @@ export default function calculateNodeHeight(
     : 0
   )
 
-  if (minRows) {
-    minHeight = (baseSingleRowHeight * minRows) + boxSizingHeight
-    height = Math.max(minHeight, height)
-  }
+  minHeight = (baseSingleRowHeight * minRows) + boxSizingHeight
+  partiallyComputedHeight = Math.max(minHeight, partiallyComputedHeight)
 
-  if (maxRows) {
-    maxHeight = (baseSingleRowHeight * maxRows) + boxSizingHeight
-    overflowY = height > maxHeight ? '' : 'hidden'
-    height = Math.min(maxHeight, height)
-  }
+  maxHeight = (baseSingleRowHeight * maxRows) + boxSizingHeight
+  overflowY = partiallyComputedHeight > maxHeight ? '' : 'hidden'
+  const height = Math.min(maxHeight, partiallyComputedHeight)
 
   return { height, minHeight, maxHeight, overflowY }
 }
