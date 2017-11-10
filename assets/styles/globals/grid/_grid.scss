@@ -282,7 +282,7 @@
   &.sn-grid--cell-gutter > *:last-child {
     margin: $gutter-vm 0 0 0;
   }
-  .sn-grid--cell-gutter > *:first-child:last-child {
+  &.sn-grid--cell-gutter > *:first-child:last-child {
     margin: 0;
   }
   &.sn-grid--vertical-reverse.sn-grid--cell-gutter > * {
@@ -326,7 +326,7 @@
   &.sn-grid--cell-gutter-sm > *:last-child {
     margin: $gutter-sm-vm 0 0 0;
   }
-  .sn-grid--cell-gutter-sm > *:first-child:last-child {
+  &.sn-grid--cell-gutter-sm > *:first-child:last-child {
     margin: 0;
   }
   &.sn-grid--cell-gutter-xs > * {
@@ -338,7 +338,7 @@
   &.sn-grid--cell-gutter-xs > *:last-child {
     margin: $gutter-xs-vm 0 0 0;
   }
-  .sn-grid--cell-gutter-xs > *:first-child:last-child {
+  &.sn-grid--cell-gutter-xs > *:first-child:last-child {
     margin: 0;
   }
   &.sn-grid--cell-gutter-lg > * {
@@ -350,7 +350,7 @@
   &.sn-grid--cell-gutter-lg > *:last-child {
     margin: $gutter-lg-vm 0 0 0;
   }
-  .sn-grid--cell-gutter-lg > *:first-child:last-child {
+  &.sn-grid--cell-gutter-lg > *:first-child:last-child {
     margin: 0;
   }
   &.sn-grid--cell-gutter-xl > * {
@@ -362,7 +362,7 @@
   &.sn-grid--cell-gutter-xl > *:last-child {
     margin: $gutter-xl-vm 0 0 0;
   }
-  .sn-grid--cell-gutter-xl > *:first-child:last-child {
+  &.sn-grid--cell-gutter-xl > *:first-child:last-child {
     margin: 0;
   }
 
@@ -376,20 +376,20 @@
     &.sn-grid--cell-gutter-lg > *:last-child {
       margin: $gutter-lg-screen-xsmall 0 0 0;
     }
-    .sn-grid--cell-gutter-lg > *:first-child:last-child {
+    &.sn-grid--cell-gutter-lg > *:first-child:last-child {
       margin: 0;
     }
 
-    .sn-grid--cell-gutter-xl > * {
+    &.sn-grid--cell-gutter-xl > * {
       margin: $gutter-xl-screen-xsmall 0;
     }
-    .sn-grid--cell-gutter-xl > *:first-child {
+    &.sn-grid--cell-gutter-xl > *:first-child {
       margin: 0 0 $gutter-xl-screen-xsmall 0;
     }
-    .sn-grid--cell-gutter-xl > *:last-child {
+    &.sn-grid--cell-gutter-xl > *:last-child {
       margin: $gutter-xl-screen-xsmall 0 0 0;
     }
-    .sn-grid--cell-gutter-xl > *:first-child:last-child {
+    &.sn-grid--cell-gutter-xl > *:first-child:last-child {
       margin: 0;
     }
   }
