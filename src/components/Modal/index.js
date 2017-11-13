@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 class Modal extends React.Component {
   static defaultProps = {
@@ -7,7 +8,8 @@ class Modal extends React.Component {
     open: false,
     size: 'md',
     type: '',
-    centered: false
+    centered: false,
+    className: ''
   }
 
   static propTypes = {
@@ -17,7 +19,8 @@ class Modal extends React.Component {
     type: PropTypes.string,
     centered: PropTypes.bool,
     children: PropTypes.any,
-    onClose: PropTypes.func
+    onClose: PropTypes.func,
+    className: PropTypes.string
   }
 
   constructor(props) {
@@ -46,10 +49,10 @@ class Modal extends React.Component {
     const centeredClassName = this.props.centered ? 'sn-modal--centered' : ''
 
     return(
-      <div className={this.props.className}>
+      <div>
         <div
           id={this.props.id}
-          className={`sn-modal ${openClassName} ${sizeClassName} ${typeClassName} ${centeredClassName}`}
+          className={this.getClassName()}
           onClick={this.handleBackdropClick}
         >
           <div
@@ -63,6 +66,15 @@ class Modal extends React.Component {
         {this.state.open && this.renderBackdrop()}
       </div>
     )
+  }
+
+  getClassName() {
+    return classNames('sn-modal', this.props.className, {
+      'sn-modal--open': this.props.open,
+      [`sn-modal--${this.props.size}`]: this.props.size,
+      [`sn-modal--${this.props.type}`]: this.props.type,
+      'sn-modal--centered': this.props.centered
+    })
   }
 
   // Modal Header uses to close on click in x button

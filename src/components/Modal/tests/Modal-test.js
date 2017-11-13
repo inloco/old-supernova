@@ -35,7 +35,7 @@ describe('Modal', () => {
   it('dont shows the backdrop', () => {
     expect(wrapper.find('.sn-modal__backdrop').length).toEqual(0)
   })
-  
+
   it('has correct id', () => {
     wrapper.setProps({ id: 1 })
 
@@ -46,7 +46,7 @@ describe('Modal', () => {
     it('calls the onClick', () => {
       const modal = wrapper.find('.sn-modal')
       modal.simulate('click')
-      
+
       expect(onClose).toBeCalled()
     })
   })
@@ -71,15 +71,28 @@ describe('Modal', () => {
 
     it('has dialog class', () => {
       const modal = wrapper.find('[id=1]')
+      const expectedClasses = ['sn-modal', 'sn-modal--md',  'sn-modal--dialog']
 
-      expect(modal.hasClass('sn-modal  sn-modal--md sn-modal--dialog')).toBeTruthy()
+      expect(expectedClasses.every(expectedClass => modal.hasClass(expectedClass))).toBeTruthy()
     })
 
     it('has dialog class when open', () => {
       wrapper.setProps({ open: true })
       const modal = wrapper.find('[id=1]')
+      const expectedClasses = ['sn-modal', 'sn-modal--open', 'sn-modal--md', 'sn-modal--dialog']
 
-      expect(modal.hasClass('sn-modal sn-modal--open sn-modal--md sn-modal--dialog')).toBeTruthy()
+      expect(expectedClasses.every(expectedClass => modal.hasClass(expectedClass))).toBeTruthy()
+    })
+  })
+
+  describe('when has className prop', () => {
+    const customClass = 'custom-class'
+    beforeEach(() => {
+      wrapper.setProps({ className: customClass })
+    })
+
+    it('has custom class', () => {
+      expect(wrapper.find(`.${customClass}`).length).toEqual(1)
     })
   })
 

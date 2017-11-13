@@ -31,4 +31,13 @@ describe('Modal', () => {
       expect(span.props().children).toEqual(undefined)
     })
   })
+
+  describe('when has className prop', () => {
+    const customClass = 'custom-class'
+    wrapper.setProps({ className: customClass })
+
+    it('has custom class', () => {
+      expect(wrapper.hasClass(customClass)).toBeTruthy()
+    })
+  })
 })
