@@ -23,4 +23,13 @@ describe('Modal', () => {
       expect(wrapper.props().children.length).toEqual(0)
     })
   })
+
+  describe('when has className prop', () => {
+    const customClass = 'custom-class'
+    wrapper.setProps({ className: customClass })
+
+    it('has custom class', () => {
+      expect(wrapper.hasClass(customClass)).toBeTruthy()
+    })
+  })
 })

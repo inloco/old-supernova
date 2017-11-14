@@ -1,17 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import Button from './../Button'
 import Icon from './../Icons'
 
 class Header extends React.PureComponent {
   static propTypes = {
     title: PropTypes.string,
-    noHoverEffects: PropTypes.bool
+    noHoverEffects: PropTypes.bool,
+    className: PropTypes.string
+  }
+  static defaultProps = {
+    className: ''
+  }
+
+  getClassName() {
+    return classNames('sn-modal__header', this.props.className)
   }
 
   render() {
     return(
-      <div className="sn-modal__header">
+      <div className={this.getClassName()}>
         <Button
           onClick={this.context.onClose}
           type="button"

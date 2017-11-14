@@ -32,4 +32,13 @@ describe("Tooltip", () => {
   it("has size className", () => {
     expect(wrapper.hasClass("sn-tooltips--sm")).toBeTruthy()
   })
+
+  describe('when has className prop', () => {
+    const customClass = 'custom-class'
+    wrapper.setProps({className: customClass})
+
+    it('has custom class', () => {
+      expect(wrapper.hasClass(customClass)).toBeTruthy()
+    })
+  })
 })
