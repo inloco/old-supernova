@@ -59,4 +59,13 @@ describe('Toggle component', () => {
       expect(wrapper.find(labelSelector).exists()).toBeFalsy()
     })
   })
+
+  describe('when has className prop', () => {
+    const customClass = 'custom-class'
+    wrapper.setProps({ className: customClass })
+
+    it('has custom class', () => {
+      expect(wrapper.hasClass(customClass)).toBeTruthy()
+    })
+  })
 })

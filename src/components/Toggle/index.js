@@ -1,12 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Text from '../Text'
+import classNames from 'classnames'
 
 class Toggle extends React.Component {
   static propTypes = {
     value: PropTypes.string,
     onChange: PropTypes.func,
-    label: PropTypes.string
+    label: PropTypes.string,
+    className: PropTypes.string
+  }
+
+  static defaultProps = {
+    className: ''
   }
 
   constructor(props) {
@@ -19,10 +25,10 @@ class Toggle extends React.Component {
     const hasLabel = !!this.props.label
 
     return (
-      <div className="sn-toggle">
+      <div className={this.getClassName()}>
         <div className={this.getButtonClasses()} onClick={this.handleClick}>
-          <div className="sn-toggle__button__bar"></div>
-          <div className="sn-toggle__button__circle"></div>
+          <div className='sn-toggle__button__bar'></div>
+          <div className='sn-toggle__button__circle'></div>
         </div>
 
         {hasLabel && this.renderLabel()}
@@ -30,9 +36,16 @@ class Toggle extends React.Component {
     )
   }
 
+  getClassName() {
+    return classNames(
+      'sn-toggle',
+      this.props.className
+    )
+  }
+
   renderLabel() {
     return (
-      <div className="sn-toggle__label" onClick={this.handleClick}>
+      <div className='sn-toggle__label' onClick={this.handleClick}>
         <Text>{this.props.label}</Text>
       </div>
     )
@@ -46,10 +59,10 @@ class Toggle extends React.Component {
   }
 
   getButtonClasses() {
-    const baseClass = 'sn-toggle__button'
-    const activeClass = this.props.value === 'true' ? 'is-active' : ''
-
-    return `${baseClass} ${activeClass}`
+    return classNames('sn-toggle__button', {
+      'is-active': this.props.value === 'true'
+      }
+    )
   }
 }
 
