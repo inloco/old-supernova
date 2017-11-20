@@ -83,11 +83,16 @@ describe('CodeBox', () => {
   })
 
   describe('when copy to clipboard is clicked', () => {
+    beforeEach(() => {
+      wrapper.setProps({hideCopyToClipboard: false})
+    })
+
     it('calls handleClickButton method when clicked', () => {
       const spy = spyOn(CodeBox.prototype, 'handleClickButton')
       spy.calls.track()
 
-      const button = wrapper.find('.sn-code-box__copy-button').first()
+      const button = wrapper.find('div').find('.sn-code-box__copy-button').first()
+
       button.simulate('click')
 
       expect(spy.calls.count()).toBe(1)

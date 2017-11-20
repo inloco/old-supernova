@@ -3,24 +3,25 @@ import Spinner from '../index'
 import { mount } from 'enzyme'
 
 describe('Spinner', () => {
-  const wrapper = mount(
-    <Spinner iconUrl={'https://stylishthemes.github.io/GitHub-Dark/images/octocat-spinner-smil.min.svg'} />
-  )
+  const url = 'https://stylishthemes.github.io/GitHub-Dark/images/octocat-spinner-smil.min.svg'
+  const wrapper = mount(<Spinner iconUrl={url} />)
 
   it('has a spinner class', () => {
-    expect(wrapper.hasClass('sn-spinner')).toBeTruthy()
+    const current = wrapper.find('div').hasClass('sn-spinner')
+
+    expect(current).toBeTruthy()
   })
-  
+
   it('does not has a rotation class when rotation isn\'t forced', () => {
     expect(wrapper.hasClass('sn-spinner--rotate')).toBeFalsy()
   })
 
   it('has a rotation class when rotation is forced', () => {
-    wrapper.setProps({
-      forceRotation: true
-    })
+    wrapper.setProps({ forceRotation: true })
 
-    expect(wrapper.hasClass('sn-spinner--rotate')).toBeTruthy()
+    const current = wrapper.find('div').hasClass('sn-spinner--rotate')
+
+    expect(current).toBeTruthy()
   })
 
 

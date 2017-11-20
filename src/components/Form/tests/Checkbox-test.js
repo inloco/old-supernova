@@ -3,7 +3,7 @@ import Checkbox from "./../Checkbox"
 import { shallow } from "enzyme"
 
 describe("Checkbox", () => {
-  const wrapper = shallow(<Checkbox/>)
+  const wrapper = shallow(<Checkbox label='xalala' />)
 
   it("has checkbox class", () => {
     expect(wrapper.hasClass("sn-checkbox")).toBeTruthy()
@@ -19,7 +19,7 @@ describe("Checkbox", () => {
 
   it("executes onClick props when is clicked", () => {
     const clickFun = jest.fn()
-    const wrapper = shallow(<Checkbox onClick={clickFun}/>)
+    const wrapper = shallow(<Checkbox label='xalala' onClick={clickFun}/>)
 
     wrapper.find('input').simulate('click')
 
@@ -27,7 +27,7 @@ describe("Checkbox", () => {
   })
 
   it("comes checked when is true", () => {
-    const wrapper = shallow(<Checkbox checked={true}/>)
+    const wrapper = shallow(<Checkbox label='xalala' checked={true}/>)
 
     expect(wrapper.find("input").props().checked).toBeTruthy()
   })

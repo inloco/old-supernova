@@ -9,7 +9,9 @@ describe('Pills items', () => {
       <Pill onClick={onClick} label="Item 1" value="zoombie"/>)
 
   it(`has 'pills items' className`, () => {
-    expect(wrapper.hasClass('sn-pills__label')).toBeTruthy()
+    const current = wrapper.find('label').hasClass('sn-pills__label')
+
+    expect(current).toBeTruthy()
   })
 
   it('has content', () => {

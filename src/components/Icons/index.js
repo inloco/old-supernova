@@ -11,15 +11,13 @@ class Icon extends React.PureComponent {
 
   render() {
     const { color } = this.props
-    const style = {
-      color: color
-    }
+    const style = { color: color }
 
     return (
-      <i 
-      onClick={this.props.onClick}
-      className={`material-icons ${this.props.className}`}
-      style={style}
+      <i
+        onClick={this.props.onClick}
+        className={`material-icons ${this.props.className}`}
+        style={style}
       >
         {this.props.code}
       </i>
