@@ -107,6 +107,8 @@ class Item extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (!this.divElement) return
+
     const childrenHeightHasChanged = this.divElement.clientHeight !== this.state.childrenHeight
 
     if (childrenHeightHasChanged) this.updateDimensions()
