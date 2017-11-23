@@ -106,6 +106,14 @@ class Item extends Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (!this.divElement) return
+
+    const childrenHeightHasChanged = this.divElement.clientHeight !== this.state.childrenHeight
+
+    if (childrenHeightHasChanged) this.updateDimensions()
+  }
+
   getClassNames() {
     const itemClass = classNames('sn-collapsible__item', this.props.className, {
       'sn-collapsible__item--open': this.props.isActive,
