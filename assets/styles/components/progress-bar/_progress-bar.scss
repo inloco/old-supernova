@@ -1,0 +1,50 @@
+@import "progress-bar_variables";
+
+.sn-progress-bar {
+  padding: 40px 20px;
+  width: auto;
+  background: $color-white;
+  position: relative;
+  font-size: 10px;
+  border: 1px solid $palette-grey-200;
+  border-radius: 5px;
+}
+
+.sn-progress-bar__inner-wrapper {
+  background-color: $default-progress-bar-secondary-background-color;
+  height: 20px;
+  width: 100%;
+  position: relative;
+}
+
+.sn-progress-bar__progress-wrapper {
+  background-color: $default-progress-bar-background-color;
+  height: 20px;
+  position: relative;
+}
+
+.sn-progress-bar__initial-text {
+  position: absolute;
+  bottom: -20px;
+  color: $palette-grey-500;
+}
+
+.sn-progress-bar__inner-text {
+  position: absolute;
+  left: 70%;
+  top: -25px;
+  white-space: nowrap;
+}
+
+.sn-progress-bar__final-text {
+  position: absolute;
+  left: 100%;
+  transform: translateX(-100%);
+  color: $palette-grey-500;
+  white-space: nowrap;
+}
+
+.sn-progress-bar__message-text {
+  display: block;
+  margin-top: 30px;
+}

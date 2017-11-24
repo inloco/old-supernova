@@ -67,6 +67,7 @@ import WizardStep from "./components/Wizard/Step"
 import Meter from "./components/Meter"
 import Text from "./components/Text"
 import Spinner from "./components/Spinner"
+import ProgressBar from "./components/ProgressBar"
 
 const CollapsibleItem = Collapsible.Item
 
@@ -140,5 +141,6 @@ export {
   WizardStep,
   Meter,
   Text,
-  Spinner
+  Spinner,
+  ProgressBar
 }
