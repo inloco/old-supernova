@@ -17,6 +17,7 @@ export class ProgressBar extends React.PureComponent {
     const { message } = this.props
     const paddingStyle = message ? { paddingBottom: '20px' } : {}
     const progressStyle = this.getStyle()
+    const percentage = this.getPercentage()
 
     const beginValue = this.formatValue(this.props.beginValue)
     const currentValue = this.formatValue(this.props.currentValue)
@@ -33,7 +34,7 @@ export class ProgressBar extends React.PureComponent {
             style={progressStyle}
           >
             <Text className='sn-progress-bar__inner-text' span>
-              { currentValue }
+              { `${currentValue} (${percentage})` }
             </Text>
           </div>
           <Text className='sn-progress-bar__final-text' span>
@@ -46,14 +47,10 @@ export class ProgressBar extends React.PureComponent {
   }
 
   getStyle() {
-    const { color } = this.props
+    const colorStyle = { backgroundColor: this.props.color }
+    const style = { width: this.getPercentage(), ...colorStyle }
 
-    const colorStyle = { backgroundColor: color }
-    const widthStyle = { width: this.getWidth() }
-
-    if (color) return Object.assign(colorStyle, widthStyle)
-
-    return widthStyle
+    return style
   }
 
   formatValue(value) {
@@ -62,17 +59,19 @@ export class ProgressBar extends React.PureComponent {
     return Number(value).toLocaleString()
   }
 
-  getWidth() {
+  getPercentage() {
     const { beginValue, currentValue, endValue, date } = this.props
 
     const begin = date ? 0 : beginValue
     const current = date ? this.getDiffDays(beginValue, currentValue) : currentValue
     const end = date ? this.getDiffDays(beginValue, endValue) : endValue
-    let width = ((current - begin) * 100) / (end - begin)
-    width = width < 1 ? 1 : width
-    width = width > 100 ? 100 : width
 
-    return `${width}%`
+    let percentage = ((current - begin) * 100) / (end - begin)
+    if (percentage < 0) percentage = 0
+    if (percentage > 0 && percentage < 1) percentage = 1
+    if (percentage > 100) percentage = 100
+
+    return `${percentage.toFixed(1)}%`
   }
 
   getDiffDays (current, end) {
