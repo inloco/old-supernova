@@ -8,7 +8,7 @@ export class ProgressBar extends React.PureComponent {
     beginValue: PropTypes.any.isRequired,
     currentValue: PropTypes.any.isRequired,
     endValue: PropTypes.any.isRequired,
-    message: PropTypes.string,
+    message: PropTypes.any,
     date: PropTypes.bool,
     color: PropTypes.string
   }
@@ -18,6 +18,7 @@ export class ProgressBar extends React.PureComponent {
     const paddingStyle = message ? { paddingBottom: '20px' } : {}
     const progressStyle = this.getStyle()
     const percentage = this.getPercentage()
+    const translateStyle = { transform: this.getTranslate(percentage) }
 
     const beginValue = this.formatValue(this.props.beginValue)
     const currentValue = this.formatValue(this.props.currentValue)
@@ -33,9 +34,14 @@ export class ProgressBar extends React.PureComponent {
             className='sn-progress-bar__progress-wrapper'
             style={progressStyle}
           >
-            <Text className='sn-progress-bar__inner-text' span>
-              { `${currentValue} (${percentage})` }
+            <Text className='sn-progress-bar__percentage-text' span>
+              <center>
+                { percentage }
+              </center>
             </Text>
+            <span className='sn-progress-bar__inner-text' style={translateStyle}>
+              { currentValue }
+            </span>
           </div>
           <Text className='sn-progress-bar__final-text' span>
             { endValue }
@@ -43,6 +49,19 @@ export class ProgressBar extends React.PureComponent {
         </div>
         { this.props.message && this.renderMessage() }
       </div>
+    )
+  }
+
+  renderMessage() {
+    return(
+      <Text
+        type='caption'
+        color='sn-color--secondary-text'
+        className='sn-progress-bar__message-text'
+        span
+      >
+        { this.props.message }
+      </Text>
     )
   }
 
@@ -71,7 +90,7 @@ export class ProgressBar extends React.PureComponent {
     if (percentage > 0 && percentage < 1) percentage = 1
     if (percentage > 100) percentage = 100
 
-    return `${percentage.toFixed(1)}%`
+    return `${percentage.toFixed(0)}%`
   }
 
   getDiffDays (current, end) {
@@ -84,17 +103,12 @@ export class ProgressBar extends React.PureComponent {
     return diffInDays + 1
   }
 
-  renderMessage() {
-    return(
-      <Text
-        type='caption'
-        color='sn-color--secondary-text'
-        className='sn-progress-bar__message-text'
-        span
-      >
-        { this.props.message }
-      </Text>
-    )
+  getTranslate(percentage) {
+    const currentPercentage = percentage.slice(0,-1)
+
+    if (currentPercentage < 70) return {}
+
+    return 'translate(-100%, 0px)'
   }
 }
 

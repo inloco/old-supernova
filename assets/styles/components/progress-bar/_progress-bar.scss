@@ -11,15 +11,17 @@
 
   &__inner-wrapper {
     background-color: $default-progress-bar-secondary-background-color;
-    height: 20px;
+    height: 25px;
     width: 100%;
     position: relative;
+    border-radius: 5px;
   }
 
   &__progress-wrapper {
     background-color: $default-progress-bar-background-color;
-    height: 20px;
+    height: 25px;
     position: relative;
+    border-radius: 5px;
   }
 
   &__initial-text {
@@ -28,11 +30,21 @@
     color: $palette-grey-500;
   }
 
+  &__percentage-text {
+    font-size: 12px;
+    color: $color-white;
+    font-weight: 500;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+  }
+
   &__inner-text {
     position: absolute;
-    left: 55%;
+    left: 100%;
     top: -25px;
     white-space: nowrap;
+    font-size: 12px;
   }
 
   &__final-text {

@@ -23,8 +23,8 @@ describe('ProgressBar', () => {
     })
 
     it('has current value', () => {
-      const current = wrapper.find(Text).get(1).props.children
-      const expected = '5 (50.0%)'
+      const current = wrapper.find('.sn-progress-bar__inner-text').text()
+      const expected = '5'
 
       expect(current).toEqual(expected)
     })
@@ -38,7 +38,7 @@ describe('ProgressBar', () => {
 
     it('has current 50% of width', () => {
       const current = wrapper.find('.sn-progress-bar__progress-wrapper')
-      const expected = '50.0%'
+      const expected = '50%'
 
       expect(current.prop('style').width).toEqual(expected)
     })
@@ -69,8 +69,8 @@ describe('ProgressBar', () => {
     })
 
     it('has current value', () => {
-      const current = wrapper.find(Text).get(1).props.children
-      const expected = '5 (50.0%)'
+      const current = wrapper.find('.sn-progress-bar__inner-text').text()
+      const expected = '5'
 
       expect(current).toEqual(expected)
     })
@@ -84,7 +84,7 @@ describe('ProgressBar', () => {
 
     it('has current 50% of width', () => {
       const current = wrapper.find('.sn-progress-bar__progress-wrapper')
-      const expected = '50.0%'
+      const expected = '50%'
 
       expect(current.prop('style').width).toEqual(expected)
     })
@@ -115,8 +115,8 @@ describe('ProgressBar', () => {
       })
 
       it('has current value', () => {
-        const current = wrapper.find(Text).get(1).props.children
-        const expected = '0 (0.0%)'
+        const current = wrapper.find('.sn-progress-bar__inner-text').text()
+        const expected = '0'
 
         expect(current).toEqual(expected)
       })
@@ -130,7 +130,7 @@ describe('ProgressBar', () => {
 
       it('has current 0% of width', () => {
         const current = wrapper.find('.sn-progress-bar__progress-wrapper')
-        const expected = '0.0%'
+        const expected = '0%'
 
         expect(current.prop('style').width).toEqual(expected)
       })
@@ -153,8 +153,8 @@ describe('ProgressBar', () => {
       })
 
       it('has current value', () => {
-        const current = wrapper.find(Text).get(1).props.children
-        const expected = '500 (50.0%)'
+        const current = wrapper.find('.sn-progress-bar__inner-text').text()
+        const expected = '500'
 
         expect(current).toEqual(expected)
       })
@@ -168,7 +168,7 @@ describe('ProgressBar', () => {
 
       it('has current 500% of width', () => {
         const current = wrapper.find('.sn-progress-bar__progress-wrapper')
-        const expected = '50.0%'
+        const expected = '50%'
 
         expect(current.prop('style').width).toEqual(expected)
       })
@@ -191,8 +191,8 @@ describe('ProgressBar', () => {
       })
 
       it('has current value', () => {
-        const current = wrapper.find(Text).get(1).props.children
-        const expected = `${Number(1000).toLocaleString()} (100.0%)`
+        const current = wrapper.find('.sn-progress-bar__inner-text').text()
+        const expected = Number(1000).toLocaleString()
 
         expect(current).toEqual(expected)
       })
@@ -206,7 +206,7 @@ describe('ProgressBar', () => {
 
       it('has current 100% of width', () => {
         const current = wrapper.find('.sn-progress-bar__progress-wrapper')
-        const expected = '100.0%'
+        const expected = '100%'
 
         expect(current.prop('style').width).toEqual(expected)
       })
@@ -229,22 +229,22 @@ describe('ProgressBar', () => {
       })
 
       it('has current value', () => {
-        const current = wrapper.find(Text).get(1).props.children
-        const expected = `${Number(1200).toLocaleString()} (100.0%)`
+        const current = wrapper.find('.sn-progress-bar__inner-text').text()
+        const expected = Number(1200).toLocaleString()
 
         expect(current).toEqual(expected)
       })
 
       it('has end value', () => {
         const current = wrapper.find(Text).get(2).props.children
-        const expected = `${Number(1000).toLocaleString()}`
+        const expected = Number(1000).toLocaleString()
 
         expect(current).toEqual(expected)
       })
 
       it('has current 100% of width', () => {
         const current = wrapper.find('.sn-progress-bar__progress-wrapper')
-        const expected = '100.0%'
+        const expected = '100%'
 
         expect(current.prop('style').width).toEqual(expected)
       })
@@ -270,8 +270,8 @@ describe('ProgressBar', () => {
       })
 
       it('has current value', () => {
-        const current = wrapper.find(Text).get(1).props.children
-        const expected = '20 Nov (16.7%)'
+        const current = wrapper.find('.sn-progress-bar__inner-text').text()
+        const expected = '20 Nov'
 
         expect(current).toEqual(expected)
       })
@@ -283,9 +283,9 @@ describe('ProgressBar', () => {
         expect(current).toEqual(expected)
       })
 
-      it('has current 16.7% of width', () => {
+      it('has current 17% of width', () => {
         const current = wrapper.find('.sn-progress-bar__progress-wrapper')
-        const expected = '16.7%'
+        const expected = '17%'
 
         expect(current.prop('style').width).toEqual(expected)
       })
@@ -309,8 +309,8 @@ describe('ProgressBar', () => {
       })
 
       it('has current value', () => {
-        const current = wrapper.find(Text).get(1).props.children
-        const expected = '22 Nov (50.0%)'
+        const current = wrapper.find('.sn-progress-bar__inner-text').text()
+        const expected = '22 Nov'
 
         expect(current).toEqual(expected)
       })
@@ -324,7 +324,7 @@ describe('ProgressBar', () => {
 
       it('has current 50% of width', () => {
         const current = wrapper.find('.sn-progress-bar__progress-wrapper')
-        const expected = '50.0%'
+        const expected = '50%'
 
         expect(current.prop('style').width).toEqual(expected)
       })
@@ -348,8 +348,8 @@ describe('ProgressBar', () => {
       })
 
       it('has current value', () => {
-        const current = wrapper.find(Text).get(1).props.children
-        const expected = '25 Nov (100.0%)'
+        const current = wrapper.find('.sn-progress-bar__inner-text').text()
+        const expected = '25 Nov'
 
         expect(current).toEqual(expected)
       })
@@ -363,7 +363,7 @@ describe('ProgressBar', () => {
 
       it('has current 100% of width', () => {
         const current = wrapper.find('.sn-progress-bar__progress-wrapper')
-        const expected = '100.0%'
+        const expected = '100%'
 
         expect(current.prop('style').width).toEqual(expected)
       })
@@ -387,8 +387,8 @@ describe('ProgressBar', () => {
       })
 
       it('has current value', () => {
-        const current = wrapper.find(Text).get(1).props.children
-        const expected = '27 Nov (100.0%)'
+        const current = wrapper.find('.sn-progress-bar__inner-text').text()
+        const expected = '27 Nov'
 
         expect(current).toEqual(expected)
       })
@@ -402,7 +402,7 @@ describe('ProgressBar', () => {
 
       it('has current 100% of width', () => {
         const current = wrapper.find('.sn-progress-bar__progress-wrapper')
-        const expected = '100.0%'
+        const expected = '100%'
 
         expect(current.prop('style').width).toEqual(expected)
       })
