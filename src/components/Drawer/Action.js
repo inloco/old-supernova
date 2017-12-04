@@ -23,7 +23,7 @@ class Action extends React.PureComponent {
     const customClass = this.props.className
 
     if (!customClass) return baseClass
-    return `${baseclass} ${customClass}`
+    return `${baseClass} ${customClass}`
   }
 
   renderText() {
