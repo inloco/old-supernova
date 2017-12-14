@@ -39,11 +39,17 @@ Now you have the supernova linked to the supernova-doc. If you change something 
 6. Review your code if necessary
 7. Merge the supernova pull request
 8. Create the new tag in the supernova project
+
  - git checkout master
+ 
  - git pull origin master
+ 
  - git pull origin --tags
+ 
  - git tag -a v2.4.2 -m "The message you put in the /Versions page" (Here you will use the same version you used in the /Versions page)
+ 
  - git push origin --tags
+ 
 9. Merge the supernova-doc pull request
 10. Send a alert to #guild_product_alerts
 
