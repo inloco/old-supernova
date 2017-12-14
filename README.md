@@ -15,13 +15,21 @@ If you want to update the Supernova project, you have to follow this steps:
 1. Clone the supernova doc
 2. Do your changes
 3. Test and update the Supernova-doc(Repository) with your changes in the supernova project
+
  - Go to the supernova project
+ 
  - npm install
+ 
  - npm run build
+ 
  - npm link
+ 
  - Go to the supernova-doc project
+ 
  - npm link supernova-inloco
+ 
  - Go to the supernova project
+ 
  - npm run build -- --watch
 
 Now you have the supernova linked to the supernova-doc. If you change something in the supernova project you just have to refresh the page and your change will appear in the supernova-doc screen
