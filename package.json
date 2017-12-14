@@ -1,5 +1,5 @@
 {
-  "name": "deprecate-supernova-inloco",
+  "name": "supernova-inloco",
   "version": "0.1.8",
   "description": "In Loco Media Front-End Packages",
   "main": "./build/index.js",
