@@ -247,6 +247,51 @@ describe('Searchbox', () => {
         expect(wrapper.find('.sn-search-box__results')).toHaveLength(0)
       })
     })
+
+    describe('when has focusInputOnResultUnselect prop', () => {
+      describe('when it is false', () => {
+        beforeEach(() => {
+          wrapper.setProps({
+            focusInputOnResultUnselect: false,
+            selectedResults: [{ id: '1', title: 'Selected' }]
+          })
+
+          const firstSelectedResult = wrapper.find('.sn-search-box__item-button').first()
+          const expectedResult = []
+
+          firstSelectedResult.simulate('click')
+        })
+
+        it('doesn\'t focus on the search input after unselecting a result', () => {
+          expect(wrapper.find(ResultCard)).toHaveLength(0)
+        })
+      })
+    })
+
+    describe('when has resultsMaxHeight prop', () => {
+      describe('when max height is lesser than the list scroll height', () => {
+        beforeEach(() => {
+          wrapper.setProps({
+            resultsMaxHeight: 2000,
+            results: [
+              { id: '1', title: 'Result 1'},
+              { id: '2', title: 'Result 2'},
+              { id: '3', title: 'Result 3'},
+              { id: '4', title: 'Result 4'},
+              { id: '5', title: 'Result 5'}
+            ]
+          })
+
+          input.simulate('focus')
+
+          input.simulate('change', { target: { value: 'result' } })
+        })
+
+        it('doesn\'t show scroll bar', () => {
+          expect(wrapper.find('ul.sn-search-box__results').props().style.overflowY).toBeFalsy()
+        })
+      })
+    })
   })
 
   describe('when has error', () => {
