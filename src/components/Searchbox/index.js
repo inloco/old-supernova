@@ -21,7 +21,10 @@ class Searchbox extends React.Component {
     disabled: PropTypes.bool,
     placeholder: PropTypes.string,
     selectedResultsPlacement: PropTypes.string,
+    clearInputOnResultSelect: PropTypes.bool,
+    focusInputOnResultUnselect: PropTypes.bool,
     selectedResultsType: PropTypes.string,
+    resultsMaxHeight: PropTypes.number,
     chipTooltip: PropTypes.any,
     results: PropTypes.arrayOf(
       PropTypes.shape({
@@ -41,17 +44,40 @@ class Searchbox extends React.Component {
     className: '',
     debounce: 500,
     minLength: 3,
-    visibleResults: 5
+    visibleResults: 5,
+    focusInputOnResultUnselect: false,
+    clearInputOnResultSelect: false,
+    resultsMaxHeight: null
   }
 
   componentWillReceiveProps(nextProps) {
     this.updateSelectedResultsIfNeeded(nextProps)
   }
 
+  componentWillUpdate() {
+    this.updateResultsListStyleIfNeeded()
+  }
+
   updateSelectedResultsIfNeeded(nextProps) {
     if(this.initialSelectedResultsHasChanged(nextProps)) {
       this.setState({ selectedResults: nextProps.initialSelectedResults })
     }
+  }
+
+  updateResultsListStyleIfNeeded() {
+    if (!this.listElement) return
+
+    const overflowY = (
+      this.props.resultsMaxHeight && this.listElement.scrollHeight > this.props.resultsMaxHeight
+        ? 'scroll'
+        : 'hidden'
+    )
+
+    if (overflowY === this.state.listStyle.overflowY) return
+
+    this.setState(prevState => ({
+      listStyle: { ...prevState.listStyle, overflowY }
+    }))
   }
 
   initialSelectedResultsHasChanged(nextProps) {
@@ -80,7 +106,11 @@ class Searchbox extends React.Component {
       inputValue: '',
       expandedResults: false,
       selectedResults: this.props.initialSelectedResults || [],
-      hoveredResult: undefined
+      hoveredResult: undefined,
+      listStyle: {
+        maxHeight: props.resultsMaxHeight + 'px',
+        overflowX: 'hidden'
+      }
     }
 
     this.visibleResultsCount = 0
@@ -238,7 +268,7 @@ class Searchbox extends React.Component {
       )
     }), () => {
       this.props.onUnselect(selectedResult, this.state.selectedResults)
-      this.input && this.input.focus()
+      this.props.focusInputOnResultUnselect && this.input && this.input.focus()
     })
 
   }
@@ -370,12 +400,17 @@ class Searchbox extends React.Component {
     const results = this.getVisibleResults()
 
     return (
-      <ul className="sn-search-box__results">
+      <ul
+        className="sn-search-box__results"
+        style={this.state.listStyle}
+        ref={(listElement) => this.listElement = listElement}
+      >
         {results.map((result, i) => (
           <li
             onMouseEnter={this.handleMouseEnter(i)}
             key={result.id}
-            className={i === this.state.hoveredResult ? 'hovered' : ''}>
+            className={i === this.state.hoveredResult ? 'hovered' : ''}
+          >
             <ResultCard
               result={result}
               onSelectResult={this.handleOnSelectResult}
@@ -424,9 +459,15 @@ class Searchbox extends React.Component {
   }
 
   selectResult(result) {
+    const inputValue = (
+      this.props.clearInputOnResultSelect
+      ? ''
+      : this.state.inputValue
+    )
+
     this.setState(prevState => ({
       selectedResults: prevState.selectedResults.concat(result),
-      inputValue: ''
+      inputValue
     }), () => {
       this.props.onSelect(result, this.state.selectedResults)
     })
