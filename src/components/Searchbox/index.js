@@ -306,15 +306,19 @@ class Searchbox extends React.Component {
   }
 
   handleInputChange(event) {
+    this.setState({ inputValue: event.target.value }, () => {
+      this.search()
+    })
+  }
+
+  search() {
     const { onSearch, debounce } = this.props
 
-    this.setState({ inputValue: event.target.value }, () => {
-      clearTimeout(this.onSearchTimeout)
+    clearTimeout(this.onSearchTimeout)
 
-      this.onSearchTimeout = setTimeout(() => {
-        this.inputHasMinLength() && onSearch(this.state.inputValue)
-      }, debounce)
-    })
+    this.onSearchTimeout = setTimeout(() => {
+      this.inputHasMinLength() && onSearch(this.state.inputValue)
+    }, debounce)
   }
 
   inputHasMinLength() {
@@ -326,6 +330,8 @@ class Searchbox extends React.Component {
       expandedResults: true,
       hoveredResult: undefined
     })
+
+    if (this.props.minLength === 0) this.search()
   }
 
   handleInputBlur(event) {
