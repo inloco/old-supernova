@@ -47,7 +47,8 @@ class Searchbox extends React.Component {
     visibleResults: 5,
     focusInputOnResultUnselect: false,
     clearInputOnResultSelect: false,
-    resultsMaxHeight: null
+    resultsMaxHeight: null,
+    results: null
   }
 
   componentWillReceiveProps(nextProps) {
@@ -331,7 +332,12 @@ class Searchbox extends React.Component {
       hoveredResult: undefined
     })
 
-    if (this.props.minLength === 0) this.search()
+    const shouldSearch = (
+      this.props.minLength === 0
+      && this.props.results === null
+    )
+
+    if(shouldSearch) this.search()
   }
 
   handleInputBlur(event) {
@@ -440,6 +446,8 @@ class Searchbox extends React.Component {
   }
 
   getNotSelectedResults(results) {
+    if (!results) return []
+
     return results.filter(result =>
       !this.state.selectedResults.some(selectedResult =>
         selectedResult.id === result.id
