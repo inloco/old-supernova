@@ -33,4 +33,14 @@ describe('Radio', () => {
       expect(onChange).toBeCalledWith(1)
     })
   })
+
+  describe('when has disabled prop', () => {
+    beforeEach(() => {
+      wrapper.setProps({disabled: true})
+    })
+
+    it('has disabled class', () => {
+      expect(wrapper.hasClass('sn-radio--disabled')).toBeTruthy()
+    })
+  })
 })

@@ -1,10 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 class Radio extends React.Component {
   static propTypes = {
     label: PropTypes.string.isRequired,
-    numeric: PropTypes.bool
+    numeric: PropTypes.bool,
+    disabled: PropTypes.bool
+  }
+
+  static defaultProps = {
+    disabled: false
   }
 
   constructor(props) {
@@ -17,7 +23,7 @@ class Radio extends React.Component {
     const { label, numeric, ...inputProps } = this.props
 
     return (
-      <div className="sn-radio">
+      <div className={this.getClassName()}>
         <label>
           <input
             type="radio"
@@ -31,6 +37,12 @@ class Radio extends React.Component {
         </label>
       </div>
     )
+  }
+
+  getClassName() {
+    return classNames('sn-radio', {
+      'sn-radio--disabled': this.props.disabled
+    })
   }
 
   handleInputChange(e) {
