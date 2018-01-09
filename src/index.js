@@ -25,8 +25,6 @@ import Footer from "./components/Footer"
 import FormGroup from "./components/Form/Group"
 import Grid from "./components/Grid"
 import Cell from "./components/Grid/Cell"
-import Header from "./components/Header/Main"
-import Layout from "./components/Layout/Main"
 import Modal from "./components/Modal/"
 import ModalBody from "./components/Modal/Body"
 import ModalFooter from "./components/Modal/Footer"
@@ -69,6 +67,38 @@ import Text from "./components/Text"
 import Spinner from "./components/Spinner"
 import ProgressBar from "./components/ProgressBar"
 
+import {
+  BasicLayout,
+  MainLayout,
+  HeaderLayout,
+  SubHeaderLayout,
+  ContentLayout,
+  FooterLayout,
+  SysbarLayout,
+  DrawerLayout,
+  AsideLayout,
+
+  Brand,
+  Sysbar,
+  NavDrawer,
+  NavDrawerAnchor,
+  NavDrawerFooter,
+  Nav,
+  NavList,
+  NavListItem,
+  NavIcon,
+  NavText,
+  NavLink,
+  NavInfo,
+  NavLabel,
+  Header,
+  NavSeparator,
+  Breadcrumb,
+  BreadcrumbItem,
+
+  BasicLayoutTemplate
+} from "./components/Layouts"
+
 const CollapsibleItem = Collapsible.Item
 
 export {
@@ -100,12 +130,10 @@ export {
   Footer,
   FormGroup,
   Grid,
-  Header,
   Modal,
   ModalBody,
   ModalFooter,
   ModalHeader,
-  Layout,
   Paginator,
   PaginatorFirst,
   PaginatorLast,
@@ -142,5 +170,32 @@ export {
   Meter,
   Text,
   Spinner,
-  ProgressBar
+  ProgressBar,
+  BasicLayout,
+  MainLayout,
+  HeaderLayout,
+  SubHeaderLayout,
+  ContentLayout,
+  FooterLayout,
+  SysbarLayout,
+  DrawerLayout,
+  AsideLayout,
+  Brand,
+  Sysbar,
+  NavDrawer,
+  NavDrawerAnchor,
+  NavDrawerFooter,
+  Nav,
+  NavList,
+  NavListItem,
+  NavIcon,
+  NavText,
+  NavLink,
+  NavInfo,
+  NavLabel,
+  Header,
+  NavSeparator,
+  Breadcrumb,
+  BreadcrumbItem,
+  BasicLayoutTemplate
 }

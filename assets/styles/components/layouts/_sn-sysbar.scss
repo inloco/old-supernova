@@ -1,0 +1,74 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *       layout sass file
+ *  ----------- *** ------------
+ *
+ */
+
+
+ .sn-sysbar {
+	 @include flexbox();
+	 padding: 0 8px;
+	 align-items: center;
+ } // ./sysbar
+
+
+.sn-layout__sysbar {
+
+	&#{&}--dark-theme {
+		.sn-sysbar {
+			background-color: $product-color-inloco;
+			.sn-drawer-button {
+				color: white !important;
+			}
+			@extend %nav-dark-theme;
+		}
+		~ .sn-layout__drawer {
+			display: none;
+		}
+ 	}
+
+	&#{&}--light-theme {
+		.sn-sysbar {
+			background-color: white;
+			.sn-drawer-button {
+				color: $product-color-inloco !important;
+			}
+			.sn-nav {
+			 @extend %nav-light-theme;
+			}
+		}
+	}
+
+	.sn-drawer__label {
+		font-size: 0;
+		flex: 0;
+		padding: 0;
+		width: 0;
+		margin: 12px 8px;
+		border-right: 1px solid $layout-drawer-divisor-color;
+		&:before {
+			display: none;
+		}
+		&:after {
+			display: none;
+		}
+	}
+
+  hr {
+    height: 24px;
+		width: 0;
+		margin: 12px 8px;
+		padding: 0;
+    border-bottom: 0;
+		border-right: 1px solid $layout-drawer-divisor-color;
+		background-color: transparent;
+  }
+
+}

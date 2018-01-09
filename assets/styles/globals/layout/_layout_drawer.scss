@@ -16,291 +16,291 @@
 
 // Drawer
 
-.sn-layout__drawer {
-  position: fixed;
-  width: $default-layout-drawer-width;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+// .sn-layout__drawer {
+//   position: fixed;
+//   width: $default-layout-drawer-width;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   overflow-x: hidden;
+//   overflow-y: auto;
 
-  z-index: $default-layout-drawer-zindex;
-  box-sizing: border-box;
-  border-right: $default-layout-drawer-border-right solid $default-layout-drawer-border-color;
-  @include shadow-2dp();
-  background: $default-layout-drawer-bg-color;
-  color: $default-layout-text-color;
+//   z-index: $default-layout-drawer-zindex;
+//   box-sizing: border-box;
+//   border-right: $default-layout-drawer-border-right solid $default-layout-drawer-border-color;
+//   @include shadow-2dp();
+//   background: $default-layout-drawer-bg-color;
+//   color: $default-layout-text-color;
 
-  // Transform offscreen.
-  @include translateX($default-layout-drawer-transform);
-  transform-style: preserve-3d;
-  will-change: transform;
-  @include animation-default();
-  transition-property: transform;
+//   // Transform offscreen.
+//   @include translateX($default-layout-drawer-transform);
+//   transform-style: preserve-3d;
+//   will-change: transform;
+//   @include animation-default();
+//   transition-property: transform;
 
-  @media screen and (min-width: $default-layout-screen-size-threshold + 1px) {
-    .sn-layout--fixed-drawer & {
-      transform: translateX(0);
-    }
-  }
-  &.is-visible {
-    transform: translateX(0);
-    & ~ .sn-layout__content.sn-layout__content {
-      overflow: hidden;
-    }
-  }
-  &* {
-    flex-shrink: 0;
-  }
+//   @media screen and (min-width: $default-layout-screen-size-threshold + 1px) {
+//     .sn-layout--fixed-drawer & {
+//       transform: translateX(0);
+//     }
+//   }
+//   &.is-visible {
+//     transform: translateX(0);
+//     & ~ .sn-layout__content.sn-layout__content {
+//       overflow: hidden;
+//     }
+//   }
+//   &* {
+//     flex-shrink: 0;
+//   }
 
-  .sn-layout__drawer--wrap {
-    min-height: 100%;
-    position: relative;
-    width: 100%;
-  }
-
-
-  // Drawer Title
-  .sn-layout__drawer-title {
-    position: relative;
-    height: $default-layout-drawer-title-height;
-    padding: $default-layout-drawer-title-padding-vertical $default-layout-drawer-desktop-padding;
-    font-size: $default-layout-drawer-title-font-size;
-    border-bottom: $default-layout-drawer-title-border-bottom solid $default-dividers-color;
-    @media screen and (max-width: $default-layout-screen-size-threshold) {
-      //line-height: $default-layout-header-mobile-height;
-      padding-left: $default-layout-drawer-mobile-padding;
-    }
-
-    img, .sn-layout__drawer-title__image {
-      max-width: $default-layout-drawer-title-image-max-width;
-      max-height: $default-layout-drawer-title-image-max-height;
-      border: 0;
-    }
-  }
-
-  // Drawer User
-  .sn-layout__drawer-user {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    padding: $default-layout-drawer-user-padding;
-    margin-bottom: $default-layout-drawer-user-margin-bottom;
-    border-bottom: $default-layout-drawer-user-border-bottom solid $default-dividers-color;
-    //-webkit-box-shadow: $shadow-user-menu;
-    //box-shadow: $shadow-user-menu;
-    z-index: 1;
-    &:after {
-      clear: both;
-    }
-
-    .sn-layout__drawer-user__avatar {
-      position: relative;
-      float: left;
-      width: $default-layout-drawer-user-avatar-width;
-      height: $default-layout-drawer-user-avatar-height;
-      margin: $default-layout-drawer-user-avatar-margin;
-      background-color: transparent;
-      .sn-layout__drawer-user__avatar-mask {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        width: $default-layout-drawer-user-avatar-mask-width;
-        height: $default-layout-drawer-user-avatar-mask-height;
-        padding: 0;
-        border: 0 !important;
-        border-color: transparent;
-        background-color: transparent;
-        border-radius: 50%;
-        overflow: hidden;
-        @include transition(all .2s linear);
-        // &:hover {
-        //   cursor: pointer;
-        //   opacity: 1;
-        //   background-color: #FFF;
-        //   @include shadow-3dp();
-        //   &:before {
-        //     position: absolute;
-        //     top: $default-layout-drawer-user-avatar-mask-hover-top;
-        //     left: $default-layout-drawer-user-avatar-mask-hover-left;
-        //     display: inline-block;
-        //     font-family: 'Material Icons';
-        //     font-style: normal;
-        //     font-weight: normal;
-        //     content: "\e3C9";
-        //     line-height: 1;
-        //     outline: none;
-        //     color: #000;
-        //     -webkit-font-smoothing: antialiased;
-        //     -moz-osx-font-smoothing: grayscale;
-        //     width: $default-layout-drawer-user-avatar-mask-hover-width;
-        //     height: $default-layout-drawer-user-avatar-mask-hover-height;
-        //     padding: $default-layout-drawer-user-avatar-mask-hover-padding;
-        //     border: 0;
-        //     font-size: $default-layout-drawer-user-avatar-mask-hover-font-size;
-        //   }
-        // }
-
-        .sn-layout__drawer-user__avatar-image {
-          image-rendering: auto;
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          margin: auto;
-          padding: 0;
-          width: $default-layout-drawer-user-avatar-image-width;
-          height: $default-layout-drawer-user-avatar-image-height;
-          border-radius: 50%;
-          outline: none;
-          border: 0;
-          border-color: transparent;
-          background-color: transparent;
-          @include transition(all .2s linear);
-          cursor: default;
-          // &:hover {
-          //   opacity: 0.2;
-          // }
-        }
-      }
-    }
-    .sn-layout__drawer-user__info {
-      float: left;
-      width: $default-layout-drawer-user-info-width;
-      padding: $default-layout-drawer-user-info-padding;
-      &.sn-layout__drawer-user__info-only{
-        padding-left: $default-layout-drawer-user-info-extra-padding;
-      }
-      .sn-layout__drawer-user__info-name {
-        display: inline-block;
-        width: $default-layout-drawer-user-info-name-width;
-        padding: $default-layout-drawer-user-info-name-padding;
-        font-size: $default-layout-drawer-user-info-name-font-size;
-        line-height: $default-layout-drawer-user-info-name-line-height;
-        word-break: break-word;
-      }
-      .sn-layout__drawer-user__info-contact {
-        display: inline-block;
-        width: $default-layout-drawer-user-info-contact-width;
-        padding: $default-layout-drawer-user-info-contact-padding;
-        font-size: $default-layout-drawer-user-info-contact-font-size;
-        line-height: $default-layout-drawer-user-info-contact-line-height;
-        word-break: break-all;
-        color: $default-text-color-secondary;
-      }
-      .sn-layout__drawer-user__info-actions {
-        width: 100%;
-        min-height: $default-layout-drawer-user-info-actions-min-height;
-        margin: $default-layout-drawer-user-info-actions-margin;
-        padding: 0;
-        font-size: $default-layout-drawer-user-info-actions-font-size;
-        clear: both;
-        color: black;
-        list-style: none;
-        li {
-          position: relative;
-          display: inline;
-          margin: $default-layout-drawer-user-info-actions-li-margin;
-          &.active {
-            a {
-              color: $default-layout-drawer-user-link-color-hover;
-            }
-          }
-          a {
-            display: inline-block;
-            position: relative;
-            height: $default-layout-drawer-user-info-actions-link-height;
-            padding: $default-layout-drawer-user-info-actions-link-padding;
-            color: $default-layout-drawer-user-link-color;
-            &:hover, &:active {
-              color: $default-layout-drawer-user-link-color-hover;
-              text-decoration: none;
-            }
-            &:focus {
-              color: $default-layout-drawer-user-link-color-hover;
-              text-decoration: none;
-            }
-            i {
-              position: absolute;
-              top: $default-layout-drawer-user-info-actions-icon-top;
-              left: 0;
-              font-size: $default-layout-drawer-user-info-actions-icon-font-size;
-            }
-          }
-        }
-        p {
-          font-size: $default-layout-drawer-user-info-actions-p-font-size;
-        }
-      }
-
-      &:after {
-        clear: both;
-      }
-    }
-  }
+//   .sn-layout__drawer--wrap {
+//     min-height: 100%;
+//     position: relative;
+//     width: 100%;
+//   }
 
 
-  // Drawer Navigation
+//   // Drawer Title
+//   .sn-layout__drawer-title {
+//     position: relative;
+//     height: $default-layout-drawer-title-height;
+//     padding: $default-layout-drawer-title-padding-vertical $default-layout-drawer-desktop-padding;
+//     font-size: $default-layout-drawer-title-font-size;
+//     border-bottom: $default-layout-drawer-title-border-bottom solid $default-dividers-color;
+//     @media screen and (max-width: $default-layout-screen-size-threshold) {
+//       //line-height: $default-layout-header-mobile-height;
+//       padding-left: $default-layout-drawer-mobile-padding;
+//     }
 
-  .sn-layout__drawer-navigation {
-    position: relative;
-    flex-direction: column;
-    align-items: stretch;
-    padding-top: $default-layout-drawer-navigation-padding-top;
-    height: 100%;
-    > a,
-    .sn-layout__drawer-navigation__link {
-      position: relative;
-      display: block;
-      flex-shrink: 0;
-      margin: 0;
-      font-size: $default-layout-drawer-navigation-link-font-size;
-      padding: $default-layout-drawer-desktop-padding;
-      color: $default-layout-drawer-navigation-link-color;
-      text-decoration: none;
-      clear: both;
-      @media screen and (max-width: $default-layout-screen-size-threshold) {
-        padding: $default-layout-drawer-navigation-padding-top
-        $default-layout-drawer-mobile-padding;
-      }
-      &:hover {
-        color: $default-layout-drawer-navigation-link-hover-color;
-        background-color: $default-layout-drawer-navigation-link-hover-bg-color;
-      }
-      i {
-        float: left;
-        width: $default-layout-drawer-navigation-link-width;
-        height: $default-layout-drawer-navigation-link-height;
-        font-size: $default-layout-drawer-navigation-link-icon-size;
-        vertical-align: middle;
-        margin: $default-layout-drawer-navigation-link-margin;
-      }
-      &.sn-layout__drawer-navigation__link--current {
-        color: $default-layout-drawer-user-link-color-hover;
-        background-color: $default-layout-drawer-navigation-link-active-background;
-      }
-    }
+//     img, .sn-layout__drawer-title__image {
+//       max-width: $default-layout-drawer-title-image-max-width;
+//       max-height: $default-layout-drawer-title-image-max-height;
+//       border: 0;
+//     }
+//   }
 
-    > a:last-child,
-    .sn-layout__drawer-navigation__link:last-child {
-      margin-bottom: $default-layout-drawer-navigation-last-child-margin;
-    }
+//   // Drawer User
+//   .sn-layout__drawer-user {
+//     position: relative;
+//     display: inline-block;
+//     width: 100%;
+//     padding: $default-layout-drawer-user-padding;
+//     margin-bottom: $default-layout-drawer-user-margin-bottom;
+//     border-bottom: $default-layout-drawer-user-border-bottom solid $default-dividers-color;
+//     //-webkit-box-shadow: $shadow-user-menu;
+//     //box-shadow: $shadow-user-menu;
+//     z-index: 1;
+//     &:after {
+//       clear: both;
+//     }
 
-    .sn-layout__drawer-navigation__section {
-      width: calc(100% - $default-layout-drawer-navigation-section-padding);
-      display: block;
-      padding: $default-layout-drawer-navigation-section-padding;
-      font-size: $default-layout-drawer-navigation-section-font-size;
-      color: $default-layout-drawer-navigation-section-color;
-      background-color: $default-layout-drawer-navigation-section-bg-color;
-    }
-  }
-}
+//     .sn-layout__drawer-user__avatar {
+//       position: relative;
+//       float: left;
+//       width: $default-layout-drawer-user-avatar-width;
+//       height: $default-layout-drawer-user-avatar-height;
+//       margin: $default-layout-drawer-user-avatar-margin;
+//       background-color: transparent;
+//       .sn-layout__drawer-user__avatar-mask {
+//         position: absolute;
+//         left: 0;
+//         right: 0;
+//         top: 0;
+//         bottom: 0;
+//         margin: auto;
+//         width: $default-layout-drawer-user-avatar-mask-width;
+//         height: $default-layout-drawer-user-avatar-mask-height;
+//         padding: 0;
+//         border: 0 !important;
+//         border-color: transparent;
+//         background-color: transparent;
+//         border-radius: 50%;
+//         overflow: hidden;
+//         @include transition(all .2s linear);
+//         // &:hover {
+//         //   cursor: pointer;
+//         //   opacity: 1;
+//         //   background-color: #FFF;
+//         //   @include shadow-3dp();
+//         //   &:before {
+//         //     position: absolute;
+//         //     top: $default-layout-drawer-user-avatar-mask-hover-top;
+//         //     left: $default-layout-drawer-user-avatar-mask-hover-left;
+//         //     display: inline-block;
+//         //     font-family: 'Material Icons';
+//         //     font-style: normal;
+//         //     font-weight: normal;
+//         //     content: "\e3C9";
+//         //     line-height: 1;
+//         //     outline: none;
+//         //     color: #000;
+//         //     -webkit-font-smoothing: antialiased;
+//         //     -moz-osx-font-smoothing: grayscale;
+//         //     width: $default-layout-drawer-user-avatar-mask-hover-width;
+//         //     height: $default-layout-drawer-user-avatar-mask-hover-height;
+//         //     padding: $default-layout-drawer-user-avatar-mask-hover-padding;
+//         //     border: 0;
+//         //     font-size: $default-layout-drawer-user-avatar-mask-hover-font-size;
+//         //   }
+//         // }
+
+//         .sn-layout__drawer-user__avatar-image {
+//           image-rendering: auto;
+//           position: absolute;
+//           top: 0;
+//           left: 0;
+//           right: 0;
+//           bottom: 0;
+//           margin: auto;
+//           padding: 0;
+//           width: $default-layout-drawer-user-avatar-image-width;
+//           height: $default-layout-drawer-user-avatar-image-height;
+//           border-radius: 50%;
+//           outline: none;
+//           border: 0;
+//           border-color: transparent;
+//           background-color: transparent;
+//           @include transition(all .2s linear);
+//           cursor: default;
+//           // &:hover {
+//           //   opacity: 0.2;
+//           // }
+//         }
+//       }
+//     }
+//     .sn-layout__drawer-user__info {
+//       float: left;
+//       width: $default-layout-drawer-user-info-width;
+//       padding: $default-layout-drawer-user-info-padding;
+//       &.sn-layout__drawer-user__info-only{
+//         padding-left: $default-layout-drawer-user-info-extra-padding;
+//       }
+//       .sn-layout__drawer-user__info-name {
+//         display: inline-block;
+//         width: $default-layout-drawer-user-info-name-width;
+//         padding: $default-layout-drawer-user-info-name-padding;
+//         font-size: $default-layout-drawer-user-info-name-font-size;
+//         line-height: $default-layout-drawer-user-info-name-line-height;
+//         word-break: break-word;
+//       }
+//       .sn-layout__drawer-user__info-contact {
+//         display: inline-block;
+//         width: $default-layout-drawer-user-info-contact-width;
+//         padding: $default-layout-drawer-user-info-contact-padding;
+//         font-size: $default-layout-drawer-user-info-contact-font-size;
+//         line-height: $default-layout-drawer-user-info-contact-line-height;
+//         word-break: break-all;
+//         color: $default-text-color-secondary;
+//       }
+//       .sn-layout__drawer-user__info-actions {
+//         width: 100%;
+//         min-height: $default-layout-drawer-user-info-actions-min-height;
+//         margin: $default-layout-drawer-user-info-actions-margin;
+//         padding: 0;
+//         font-size: $default-layout-drawer-user-info-actions-font-size;
+//         clear: both;
+//         color: black;
+//         list-style: none;
+//         li {
+//           position: relative;
+//           display: inline;
+//           margin: $default-layout-drawer-user-info-actions-li-margin;
+//           &.active {
+//             a {
+//               color: $default-layout-drawer-user-link-color-hover;
+//             }
+//           }
+//           a {
+//             display: inline-block;
+//             position: relative;
+//             height: $default-layout-drawer-user-info-actions-link-height;
+//             padding: $default-layout-drawer-user-info-actions-link-padding;
+//             color: $default-layout-drawer-user-link-color;
+//             &:hover, &:active {
+//               color: $default-layout-drawer-user-link-color-hover;
+//               text-decoration: none;
+//             }
+//             &:focus {
+//               color: $default-layout-drawer-user-link-color-hover;
+//               text-decoration: none;
+//             }
+//             i {
+//               position: absolute;
+//               top: $default-layout-drawer-user-info-actions-icon-top;
+//               left: 0;
+//               font-size: $default-layout-drawer-user-info-actions-icon-font-size;
+//             }
+//           }
+//         }
+//         p {
+//           font-size: $default-layout-drawer-user-info-actions-p-font-size;
+//         }
+//       }
+
+//       &:after {
+//         clear: both;
+//       }
+//     }
+//   }
+
+
+//   // Drawer Navigation
+
+//   .sn-layout__drawer-navigation {
+//     position: relative;
+//     flex-direction: column;
+//     align-items: stretch;
+//     padding-top: $default-layout-drawer-navigation-padding-top;
+//     height: 100%;
+//     > a,
+//     .sn-layout__drawer-navigation__link {
+//       position: relative;
+//       display: block;
+//       flex-shrink: 0;
+//       margin: 0;
+//       font-size: $default-layout-drawer-navigation-link-font-size;
+//       padding: $default-layout-drawer-desktop-padding;
+//       color: $default-layout-drawer-navigation-link-color;
+//       text-decoration: none;
+//       clear: both;
+//       @media screen and (max-width: $default-layout-screen-size-threshold) {
+//         padding: $default-layout-drawer-navigation-padding-top
+//         $default-layout-drawer-mobile-padding;
+//       }
+//       &:hover {
+//         color: $default-layout-drawer-navigation-link-hover-color;
+//         background-color: $default-layout-drawer-navigation-link-hover-bg-color;
+//       }
+//       i {
+//         float: left;
+//         width: $default-layout-drawer-navigation-link-width;
+//         height: $default-layout-drawer-navigation-link-height;
+//         font-size: $default-layout-drawer-navigation-link-icon-size;
+//         vertical-align: middle;
+//         margin: $default-layout-drawer-navigation-link-margin;
+//       }
+//       &.sn-layout__drawer-navigation__link--current {
+//         color: $default-layout-drawer-user-link-color-hover;
+//         background-color: $default-layout-drawer-navigation-link-active-background;
+//       }
+//     }
+
+//     > a:last-child,
+//     .sn-layout__drawer-navigation__link:last-child {
+//       margin-bottom: $default-layout-drawer-navigation-last-child-margin;
+//     }
+
+//     .sn-layout__drawer-navigation__section {
+//       width: calc(100% - $default-layout-drawer-navigation-section-padding);
+//       display: block;
+//       padding: $default-layout-drawer-navigation-section-padding;
+//       font-size: $default-layout-drawer-navigation-section-font-size;
+//       color: $default-layout-drawer-navigation-section-color;
+//       background-color: $default-layout-drawer-navigation-section-bg-color;
+//     }
+//   }
+// }
 // ./ Drawer
 
 

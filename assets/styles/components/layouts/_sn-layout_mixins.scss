@@ -1,0 +1,301 @@
+/*
+ *
+ *  IN LOCO
+ *  www.inlocomedia.com
+ *
+ *  Copyright 2016 - All Rights Reserved.
+ *
+ *  -------- SUPERNOVA ---------
+ *       layout sass file
+ *  ----------- *** ------------
+ *
+ */
+
+
+ @import "sn-layout_variables";
+
+
+// Mixins
+
+@mixin flexbox() {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -ms-text-overflow: "...";
+  text-overflow: "...";
+  min-height: none;
+}
+
+@mixin flexitem($grow, $shrink, $size) {
+  -webkit-box-flex: $grow $shrink $size;    /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: $grow $shrink $size;       /* OLD - Firefox 19- (buggy but mostly works) */
+  -ms-flex: $grow $shrink $size;            /* TWEENER - IE 10 */
+  -webkit-flex: $grow $shrink $size;        /* NEW - Chrome */
+  flex: $grow $shrink $size;                /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+@mixin flexdirection($direction) {
+  -ms-flex-direction: $direction; /* TWEENER - IE 10 */
+  -webkit-flex-direction: $direction; /* Safari 6.1+ */
+  flex-direction: $direction;
+}
+
+
+
+.hide {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.content-grid {
+  padding: 32px;
+}
+
+@media screen and (max-width: $layout-responsive-breakpoint) {
+  .content-grid {
+    padding: 24px;
+  }
+}
+
+
+// DRAWER COLLAPSED
+
+%drawer-collapsed {
+  @media screen and (min-width: $layout-responsive-breakpoint) {
+    @include flexitem(0, 1, $layout-drawer-collapsed-width);
+    width: $layout-drawer-collapsed-width;
+    z-index: 90000;
+
+    .sn-drawer {
+      .sn-brand {
+        img {
+          display: none;
+        }
+        .sn-brand__img__collapsed {
+          display: block;
+        }
+      }
+      .sn-nav {
+        .sn-nav__list {
+          margin: 19px 0;
+        }
+      }
+    }
+    .sn-drawer__label {
+      font-size: 0;
+      flex: 0;
+      &:before {
+        margin-right: 0;
+        height: 0;
+      }
+      &:after {
+        margin-left: 0;
+        height: 0;
+      }
+      padding: 0;
+      height: 1px;
+    }
+    .sn-drawer__footer {
+      .sn-nav {
+        &:first-child {
+          padding-top: 4px;
+        }
+        .sn-nav__list {
+          margin: 12px 0;
+          > .sn-nav__list__item {
+            ul {
+              bottom: 12px;
+            }
+          }
+        }
+      }
+    }
+    hr {
+      margin: 0 8px;
+      padding: 0;
+    }
+  }
+}
+
+
+%nav-dark-theme {
+  .sn-drawer-button {
+    display: none !important;
+    visibility: hidden;
+  }
+}
+
+// NAV LIGHT THEME
+
+%nav-light-theme {
+  a {
+    color: $nav-list-text-color;
+  }
+  .sn-drawer__label, hr {
+    border-right: 1px solid $nav-list-label-color;
+  }
+  .sn-nav__list {
+    .sn-nav__list__item {
+      color: $nav-list-text-color;
+      ul {
+        background-color: white;
+        .sn-nav__list__item {
+          &:hover {
+            background-color: $nav-list-hover-background-color;
+          }
+        }
+        a {
+          color: $nav-list-text-color;
+        }
+      }
+      ul {
+        .sn-nav__list__item__icon {
+          color: $nav-list-icon-color;
+        }
+        .sn-nav__list__item__text {
+          color: $nav-list-text-color;
+        }
+      }
+      &.is-selected {
+        background-color: $nav-list-hover-background-color;
+      }
+      &:hover {
+        background-color: lighten($nav-list-hover-background-color, 35%);
+      }
+    }
+    .sn-nav__list__item--expandable {
+      &:after {
+					content: "";
+					margin-top: 11px;
+					right: 11px;
+					position: absolute;
+					border-style: solid;
+					border-width: 4px 4px 0 4px;
+					border-color: #9e9e9e transparent transparent transparent;
+			}
+      &:hover {
+        background-color: lighten($nav-list-hover-background-color, 35%);
+      }
+      &.is-expanded {
+        &:hover, &:active {
+          background-color: $nav-list-hover-background-color !important;
+        }
+      }
+    }
+    .sn-nav__list__info {
+      color: $nav-list-info-color;
+    }
+    .sn-nav__list__label {
+      color: $nav-list-label-color;
+    }
+  }
+}
+
+
+
+// NAV COLLAPSED
+
+// Inside Sysbar
+%nav-collapsed--sysbar {
+  .sn-nav {
+    &__list {
+      &__item {
+        &__text, {
+          display: none;
+        }
+        ul {
+          .sn-nav__list__item {
+            .sn-nav__list__item__text {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Inside Drawer
+%nav-collapsed--drawer {
+  @media screen and (min-width: $layout-responsive-breakpoint) {
+    .sn-nav {
+      &__list {
+        &__item {
+          ul {
+            display: none;
+            position: absolute;
+            left: 52px;
+            min-width: 192px;
+            margin: 0;
+            padding: 4px 0;
+            border-radius: 2px;
+            background-color: white;
+            box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+            flex-wrap: nowrap;
+            .sn-nav__list__item {
+              &:hover {
+                background-color: $nav-list-hover-background-color;
+              }
+            }
+            a {
+              color: $nav-list-text-color;
+            }
+          }
+          &__text{
+            display: none;
+          }
+          &:hover {
+            ul {
+              display: block;
+            }
+          }
+          ul {
+            .sn-nav__list__item__icon {
+              color: $nav-list-icon-color;
+            }
+            .sn-nav__list__item__text {
+              color: $nav-list-text-color;
+            }
+          }
+        }
+        &__item--expandable {
+          &:after {
+            content: "";
+            margin-top: 11px;
+					  right: 11px;
+            position: absolute;
+            border-style: solid;
+            border-width: 4px 0 4px 4px;
+            border-color: transparent transparent transparent #9e9e9e;
+          }
+          cursor: default;
+          > a {
+            cursor: default;
+          }
+          > ul {
+            .sn-nav__list__item__text {
+              display: block;
+            }
+          }
+          .sn-nav__list__item__link {
+            display: block;
+          }
+        }
+        &__info {
+          color: $nav-list-info-color;
+        }
+        &__label {
+          display: block;
+          padding: 8px 16px;
+          font-size: 12px;
+          line-height: 14px;
+          text-transform: uppercase;
+          color: $nav-list-label-color;
+          cursor: default !important;
+        }
+      }
+    }
+  }
+}
