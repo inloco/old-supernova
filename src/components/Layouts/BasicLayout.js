@@ -19,7 +19,7 @@ class BasicLayout extends React.Component {
     })
 
     return (
-      <div className="sn-structure">
+      <div className='sn-structure'>
         <div className={layoutClass}>
           {this.props.children}
         </div>

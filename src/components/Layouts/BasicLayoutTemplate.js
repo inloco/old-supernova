@@ -11,20 +11,19 @@ class BasicLayoutTemplate extends React.Component {
     sysbar: PropTypes.element,
     header: PropTypes.element,
     subheader: PropTypes.element,
+    children: PropTypes.any,
     footer: PropTypes.element,
-    openDrawer: PropTypes.bool,
-    content: PropTypes.any
+    openDrawer: PropTypes.bool
   }
 
   static defaultProps = {
-    drawer: null,
-    aside: null,
     sysbar: null,
+    drawer: null,
     header: null,
+    aside: null,
     subheader: null,
     footer: null,
-    openDrawer: false,
-    content: null
+    openDrawer: false
   }
 
   render() {
@@ -33,23 +32,17 @@ class BasicLayoutTemplate extends React.Component {
     })
 
     return (
-      <div className="sn-structure">
+      <div className='sn-structure'>
         <div className={layoutClass}>
           {this.props.sysbar}
-
           {this.props.drawer}
-
           <MainLayout>
             {this.props.header}
             {this.props.subheader}
-
             {this.props.children}
-
             {this.props.footer}
           </MainLayout>
-
           {this.props.aside}
-
         </div>
       </div>
     )
