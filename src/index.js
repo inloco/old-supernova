@@ -66,38 +66,21 @@ import Meter from "./components/Meter"
 import Text from "./components/Text"
 import Spinner from "./components/Spinner"
 import ProgressBar from "./components/ProgressBar"
-
-import {
-  BasicLayout,
-  MainLayout,
-  HeaderLayout,
-  SubHeaderLayout,
-  ContentLayout,
-  FooterLayout,
-  SysbarLayout,
-  DrawerLayout,
-  AsideLayout,
-
-  Brand,
-  Sysbar,
-  NavDrawer,
-  NavDrawerAnchor,
-  NavDrawerFooter,
-  Nav,
-  NavList,
-  NavListItem,
-  NavIcon,
-  NavText,
-  NavLink,
-  NavInfo,
-  NavLabel,
-  Header,
-  NavSeparator,
-  Breadcrumb,
-  BreadcrumbItem,
-
-  BasicLayoutTemplate
-} from "./components/Layouts"
+import SnLayout from "./components/Layout/SnLayout"
+import SnHeader from "./components/Layout/snComponents/SnHeader"
+import SnHeaderTitle from "./components/Layout/snComponents/SnHeader/SnHeaderTitle"
+import SnHeaderTitleItem from "./components/Layout/snComponents/SnHeader/SnHeaderTitleItem"
+import SnDrawer from "./components/Layout/snComponents/SnDrawer"
+import SnSysbar from "./components/Layout/snComponents/SnSysbar"
+import SnNav from "./components/Layout/snComponents/_Shared/SnNav"
+import SnNavIcon from "./components/Layout/snComponents/_Shared/SnNav/SnNavIcon"
+import SnNavILink from "./components/Layout/snComponents/_Shared/SnNav/SnNavILink"
+import SnNavInfo from "./components/Layout/snComponents/_Shared/SnNav/SnNavInfo"
+import SnNavLabel from "./components/Layout/snComponents/_Shared/SnNav/SnNavLabel"
+import SnNavList from "./components/Layout/snComponents/_Shared/SnNav/SnNavList"
+import SnNavListItem from "./components/Layout/snComponents/_Shared/SnNav/SnNavListItem"
+import SnNavSection from "./components/Layout/snComponents/_Shared/SnNav/SnNavSection"
+import SnNavText from "./components/Layout/snComponents/_Shared/SnNav/SnNavText"
 
 const CollapsibleItem = Collapsible.Item
 
@@ -171,31 +154,19 @@ export {
   Text,
   Spinner,
   ProgressBar,
-  BasicLayout,
-  MainLayout,
-  HeaderLayout,
-  SubHeaderLayout,
-  ContentLayout,
-  FooterLayout,
-  SysbarLayout,
-  DrawerLayout,
-  AsideLayout,
-  Brand,
-  Sysbar,
-  NavDrawer,
-  NavDrawerAnchor,
-  NavDrawerFooter,
-  Nav,
-  NavList,
-  NavListItem,
-  NavIcon,
-  NavText,
-  NavLink,
-  NavInfo,
-  NavLabel,
-  Header,
-  NavSeparator,
-  Breadcrumb,
-  BreadcrumbItem,
-  BasicLayoutTemplate
+  SnLayout,
+  SnHeader,
+  SnHeaderTitle,
+  SnHeaderTitleItem,
+  SnDrawer,
+  SnSysbar,
+  SnNav,
+  SnNavIcon,
+  SnNavILink,
+  SnNavInfo,
+  SnNavLabel,
+  SnNavList,
+  SnNavListItem,
+  SnNavSection,
+  SnNavText
 }

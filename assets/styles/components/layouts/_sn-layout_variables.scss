@@ -12,8 +12,8 @@
  */
 
 // Remove
- $default-brand-color				 			: #78BE20;
- $default-brand-accent-color			: #78BE20;
+$default-brand-color				 			: #78BE20;
+$default-brand-accent-color			: #78BE20;
 // ----
 
 
@@ -80,8 +80,8 @@ $z-layout-drawer-oculted								: 1000;
 $default-obfuscator-background-color    : rgba(#000, 0.5);
 $animation-curve-fast-out-slow-in       : cubic-bezier(0.4, 0, 0.2, 1) !default;
 @mixin animation-default($duration:0.2s) {
-	transition-duration                   : $duration;
-	transition-timing-function            : $animation-curve-fast-out-slow-in;
+ transition-duration                   : $duration;
+ transition-timing-function            : $animation-curve-fast-out-slow-in;
 }
 
 $layout-drawer-brand-padding-vertical		: calc((#{$layout-header-height} - 24px)/2); // 36px;

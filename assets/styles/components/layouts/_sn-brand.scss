@@ -12,49 +12,50 @@
  */
 
 
-@import "sn-layout_variables";
+ @import "sn-layout_variables";
 
 
-.sn-brand {
-	position: relative;
-	@include flexbox();
-	margin-left: 4px;
-	img {
-		display: block;
-		@include flexitem(0, 0, auto);
-	}
-	.sn-brand__img__collapsed {
-		display: none;
-	}
-}
+ .sn-brand {
+	 position: relative;
+	 @include flexbox();
+	 margin-left: 4px;
+	 img {
+		 display: block;
+		 @include flexitem(0, 0, auto);
+	 }
+	 .sn-brand__img__collapsed {
+		 display: none;
+	 }
+ }
 
-.sn-layout__sysbar {
-	.sn-brand {
-		padding: $layout-sysbar-brand-padding-vertical $layout-sysbar-brand-padding-horizontal;
-		height: $layout-sysbar-brand-height;
-		padding-left: 12px;
-		img {
-			max-height: 100%;
-		}
-	}
-}
+ .sn-layout__sysbar {
+	 .sn-brand {
+		 padding: $layout-sysbar-brand-padding-vertical $layout-sysbar-brand-padding-horizontal;
+		 height: $layout-sysbar-brand-height;
+		 padding-left: 12px;
+		 img {
+			 max-height: 100%;
+		 }
+	 }
+ }
 
-@media screen and (max-width: $layout-responsive-breakpoint) {
-	.sn-layout__sysbar {
-		.sn-brand {
-			padding-left: 8px;
-		}
-	}
-}
+ @media screen and (max-width: $layout-responsive-breakpoint) {
+	 .sn-layout__sysbar {
+		 .sn-brand {
+			 padding-left: 8px;
+		 }
+	 }
+ }
 
-.sn-layout__drawer {
-	.sn-brand {
-		margin: $layout-drawer-brand-margin;
-		padding: $layout-drawer-brand-padding-vertical $layout-drawer-brand-padding-horizontal;
-		padding-left: 12px;
-		border-bottom: 1px solid $layout-drawer-divisor-color;
-		img {
-			max-height: 24px;
-		}
-	}
-}
+ .sn-layout__drawer {
+	 .sn-brand {
+		 margin: $layout-drawer-brand-margin;
+		 padding: $layout-drawer-brand-padding-vertical $layout-drawer-brand-padding-horizontal;
+		 padding-left: 12px;
+		 max-height: 24px;
+		 border-bottom: 1px solid $layout-drawer-divisor-color;
+		 img {
+			 max-height: 24px;
+		 }
+	 }
+ }

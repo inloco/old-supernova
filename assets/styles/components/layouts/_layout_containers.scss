@@ -72,7 +72,6 @@
 		@include flexitem(0, 1, $layout-drawer-width);
 		background-color: $layout-drawer-background-color;
 		height: 100%;
-		// z-index: $z-layout-drawer;
 
 		&#{&}--collapsed {
 			@extend %drawer-collapsed;
@@ -90,8 +89,7 @@
 		@include flexitem(1, 1, 1%);
 		@include flexbox();
 		@include flexdirection(column);
-		overflow-x: hidden;
-		overflow-y: inherit;
+		overflow: hidden;
 		height: 100%;
 		min-height: 100vh;
 		background-color: transparent;
@@ -182,10 +180,6 @@
 			opacity: 0;
 			transition-property: opacity;
 			visibility: visible;
-			// &.is-visible {
-				// pointer-events: auto;
-			// 	opacity: 1;
-			// }
 		}
 	}
 
@@ -229,8 +223,7 @@
 
 	@media screen and (max-width: $layout-responsive-breakpoint) {
 		.sn-layout__drawer {
-			// display: none;
-			transform: translateX(-240px);
+			display: none;
 			position: absolute;
 			left: 0;
 			width: $layout-drawer-width !important;
@@ -253,7 +246,7 @@
 		.sn-layout__sysbar ~ .sn-layout__main {
 			.sn-header {
 				.sn-drawer-button {
-					display: block;
+					display: none;
 				}
 			}
 		}
@@ -262,20 +255,17 @@
 	&.sn-layout--open-drawer {
 		@media screen and (max-width: $layout-responsive-breakpoint) {
 			.sn-layout__drawer {
-				// display: block;
-				transform: translateX(0px);
-				// z-index: $z-layout-drawer-oculted;
-				box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.14),
-				2px 3px 1px -2px rgba(0, 0, 0, 0.2),
-				2px 1px 5px 0 rgba(0, 0, 0, 0.12);
-			}
-
-			.sn-layout__obfuscator {
-				cursor: pointer;
-				pointer-events: auto;
-				visibility: visible;
 				display: block;
-				opacity: 1;
+				z-index: $z-layout-drawer-oculted;
+				box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.14),
+										2px 3px 1px -2px rgba(0, 0, 0, 0.2),
+										2px 1px 5px 0 rgba(0, 0, 0, 0.12);
+				+ .sn-layout__obfuscator {
+					visibility: visible;
+					display: block;
+					opacity: 1;
+					pointer-events: auto;
+				}
 			}
 		}
 	}
