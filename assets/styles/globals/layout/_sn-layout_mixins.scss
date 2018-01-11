@@ -80,6 +80,8 @@
       .sn-nav {
         .sn-nav__list {
           margin: 19px 0;
+          max-height: calc(100vh - 50%);
+          overflow-y: auto;
         }
       }
     }

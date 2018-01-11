@@ -50,7 +50,7 @@
     }
 
     &:first-child {
-      padding-left: calc(#{$default-steps-first-item-header-left} + #{$default-layout-header-title-group-title-wrap-margin-left});
+      padding-left: calc(#{$default-steps-first-item-header-left} + 40px);
 
       &:before {
         display: none;
