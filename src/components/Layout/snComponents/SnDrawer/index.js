@@ -8,7 +8,7 @@ class SnDrawer extends React.Component {
     alt: PropTypes.string,
     collapsedSrc: PropTypes.string,
     navItems: PropTypes.element,
-    footerItems: PropTypes.element
+    footer: PropTypes.element
   }
 
   render() {
@@ -16,7 +16,7 @@ class SnDrawer extends React.Component {
       <div className='sn-drawer'>
         { this.props.src && this.renderSnBrand() }
         { this.props.navItems }
-        { this.props.footerItems && this.renderSnDrawerFoot() }
+        { this.props.footer }
       </div>
     )
   }
@@ -28,14 +28,6 @@ class SnDrawer extends React.Component {
         alt={ this.props.alt }
         collapsedSrc={ this.props.collapsedSrc }
       />
-    )
-  }
-
-  renderSnDrawerFoot() {
-    return(
-      <div className='sn-drawer__footer'>
-        { this.props.footerItems }
-      </div>
     )
   }
 }

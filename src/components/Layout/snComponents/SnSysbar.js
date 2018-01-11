@@ -6,9 +6,9 @@ import SnNav from './_Shared/SnNav'
 
 class SnSysbar extends React.Component {
   static propTypes = {
-    handleDrawerButtonClick: PropTypes.func.isRequired,
     src: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
+    handleDrawerButtonClick: PropTypes.func,
     navIsCollapsed: PropTypes.bool,
     navItems: PropTypes.element
   }

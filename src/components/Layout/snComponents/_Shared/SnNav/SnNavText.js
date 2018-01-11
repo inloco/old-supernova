@@ -3,18 +3,18 @@ import PropTypes from 'prop-types'
 
 class SnNavText extends React.Component {
   static propTypes = {
-    value: PropTypes.string
+    children: PropTypes.string
   }
 
   static defaultProps = {
-    value: ''
+    children: ''
   }
 
   render() {
     return (
-      <li className='sn-nav__list__item__text'>
-        { this.props.value }
-      </li>
+      <div className='sn-nav__list__item__text'>
+        { this.props.children }
+      </div>
     )
   }
 }

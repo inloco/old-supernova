@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
-class SysbarLayout extends React.Component {
+class Sysbar extends React.Component {
   static propTypes = {
-    children: PropTypes.element,
+    children: PropTypes.any,
     theme: PropTypes.oneOf(['dark', 'light'])
   }
 
@@ -25,4 +26,4 @@ class SysbarLayout extends React.Component {
   }
 }
 
-export default SysbarLayout
+export default Sysbar

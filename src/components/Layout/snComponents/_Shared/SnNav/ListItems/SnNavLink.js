@@ -1,22 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SnNavText from './SnNavText'
-import SnNavIcon from './SnNavIcon'
+import SnNavText from './../SnNavText'
+import SnNavIcon from './../SnNavIcon'
 import { Link } from 'react-router-dom'
 
 class SnNavLink extends React.Component {
   static propTypes = {
     href: PropTypes.string,
     target: PropTypes.string,
-    value: PropTypes.string,
+    children: PropTypes.string,
     iconCode: PropTypes.string,
     external: PropTypes.bool
   }
 
   static defaultProps = {
-    href: null,
+    href: '',
     target: '_self',
-    value: '',
+    children: '',
     iconCode: null,
     external: false
   }
@@ -59,7 +59,9 @@ class SnNavLink extends React.Component {
     return(
       <React.Fragment>
         { iconCode && <SnNavIcon code={ iconCode } /> }
-        <SnNavText value={ this.props.value } />
+        <SnNavText>
+          { this.props.children }
+        </SnNavText>
       </React.Fragment>
     )
   }

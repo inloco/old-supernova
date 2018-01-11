@@ -1,15 +1,16 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-class DrawerLayout extends React.Component {
+class Drawer extends React.Component {
   static propTypes = {
+    children: PropTypes.any,
     collapsed: PropTypes.bool,
     obfuscatorClick: PropTypes.func
   }
 
   static defaultProps = {
-    collapsed: false,
+    collapsed: true,
     obfuscatorClick: () => {}
   }
 
@@ -19,7 +20,7 @@ class DrawerLayout extends React.Component {
     })
 
     return (
-      <Fragment>
+      <React.Fragment>
         <div className={drawerClasses}>
           { this.props.children }
         </div>
@@ -27,9 +28,9 @@ class DrawerLayout extends React.Component {
           className='sn-layout__obfuscator'
           onClick={ this.props.obfuscatorClick }
         />
-      </Fragment>
+      </React.Fragment>
     )
   }
 }
 
-export default DrawerLayout
+export default Drawer

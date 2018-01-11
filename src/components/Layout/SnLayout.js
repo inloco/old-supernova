@@ -16,14 +16,17 @@ class SnLayout extends React.Component {
     sysbar: PropTypes.element,
     drawer: PropTypes.element,
     aside: PropTypes.element,
-    fixedContent: PropTypes.bool
+    fixedContent: PropTypes.bool,
+    drawerCollapsed: PropTypes.bool,
+    children: PropTypes.any
   }
 
   static defaultProps = {
     sysbar: null,
     drawer: null,
     aside: null,
-    fixedContent: true
+    fixedContent: true,
+    drawerCollapsed: true
   }
 
   constructor(props) {
@@ -35,7 +38,7 @@ class SnLayout extends React.Component {
   render() {
     return (
       <Structure>
-        <Layout openDrawer={this.props.openDrawer}>
+        <Layout openDrawer={this.state.openDrawer}>
           { this.props.sysbar && this.renderSysbar() }
           { this.props.drawer && this.renderDrawer() }
           <Main>
@@ -52,25 +55,42 @@ class SnLayout extends React.Component {
   }
 
   renderSysbar() {
+    const SnSysbar = () => {
+      return React.cloneElement(
+        this.props.sysbar,
+        { handleDrawerButtonClick: this.handleDrawerButtonClick }
+      )
+    }
+
     return(
       <Sysbar>
-        { React.cloneElement(this.props.sysbar, { handleDrawerButtonClick }) }
+        <SnSysbar />
       </Sysbar>
     )
   }
 
   renderDrawer() {
     return(
-      <Drawer>
+      <Drawer
+        collapsed={ this.props.drawerCollapsed }
+        obfuscatorClick={ this.handleObfuscatorClick }
+      >
         { this.props.drawer }
       </Drawer>
     )
   }
 
   renderHeader() {
+    const SnHeader = () => {
+      return React.cloneElement(
+        this.props.header,
+        { handleDrawerButtonClick: this.handleDrawerButtonClick }
+      )
+    }
+
     return(
       <Header>
-        { React.cloneElement(this.props.header, { handleDrawerButtonClick }) }
+        <SnHeader />
       </Header>
     )
   }
@@ -102,12 +122,12 @@ class SnLayout extends React.Component {
   renderFixedContent() {
     return (
       <React.Fragment>
-        { this.renderHeader() }
-        { this.renderSubheader() }
+        { this.props.header && this.renderHeader() }
+        { this.props.subheader && this.renderSubheader() }
         <Content>
           { this.props.children }
         </Content>
-        { this.renderFooter() }
+        { this.props.footer && this.renderFooter() }
       </React.Fragment>
     )
   }
@@ -115,16 +135,20 @@ class SnLayout extends React.Component {
   renderContentFlow() {
     return (
       <Content>
-        { this.renderHeader() }
-        { this.renderSubheader() }
+        { this.props.header && this.renderHeader() }
+        { this.props.subheader && this.renderSubheader() }
         { this.props.children }
-        { this.renderFooter() }
+        { this.props.footer && this.renderFooter() }
       </Content>
     )
   }
 
   handleDrawerButtonClick = () => {
-    this.setState({ openDrawer: !this.state.openDrawer })
+    this.setState({ openDrawer: true })
+  }
+
+  handleObfuscatorClick = () => {
+    this.setState({ openDrawer: false })
   }
 }
 

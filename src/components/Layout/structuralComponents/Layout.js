@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 class Layout extends React.Component {
   static propTypes = {
-    children: PropTypes.element,
+    children: PropTypes.any,
     openDrawer: PropTypes.bool
   }
 

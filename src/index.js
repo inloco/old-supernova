@@ -71,14 +71,15 @@ import SnHeader from "./components/Layout/snComponents/SnHeader"
 import SnHeaderTitle from "./components/Layout/snComponents/SnHeader/SnHeaderTitle"
 import SnHeaderTitleItem from "./components/Layout/snComponents/SnHeader/SnHeaderTitleItem"
 import SnDrawer from "./components/Layout/snComponents/SnDrawer"
+import SnDrawerFooter from "./components/Layout/snComponents/SnDrawer/SnDrawerFooter"
 import SnSysbar from "./components/Layout/snComponents/SnSysbar"
 import SnNav from "./components/Layout/snComponents/_Shared/SnNav"
 import SnNavIcon from "./components/Layout/snComponents/_Shared/SnNav/SnNavIcon"
-import SnNavILink from "./components/Layout/snComponents/_Shared/SnNav/SnNavILink"
-import SnNavInfo from "./components/Layout/snComponents/_Shared/SnNav/SnNavInfo"
-import SnNavLabel from "./components/Layout/snComponents/_Shared/SnNav/SnNavLabel"
+import SnNavLink from "./components/Layout/snComponents/_Shared/SnNav/ListItems/SnNavLink"
+import SnNavInfo from "./components/Layout/snComponents/_Shared/SnNav/ListItems/SnNavInfo"
+import SnNavLabel from "./components/Layout/snComponents/_Shared/SnNav/ListItems/SnNavLabel"
 import SnNavList from "./components/Layout/snComponents/_Shared/SnNav/SnNavList"
-import SnNavListItem from "./components/Layout/snComponents/_Shared/SnNav/SnNavListItem"
+import SnNavListItem from "./components/Layout/snComponents/_Shared/SnNav/ListItems/SnNavListItem"
 import SnNavSection from "./components/Layout/snComponents/_Shared/SnNav/SnNavSection"
 import SnNavText from "./components/Layout/snComponents/_Shared/SnNav/SnNavText"
 
@@ -159,10 +160,11 @@ export {
   SnHeaderTitle,
   SnHeaderTitleItem,
   SnDrawer,
+  SnDrawerFooter,
   SnSysbar,
   SnNav,
   SnNavIcon,
-  SnNavILink,
+  SnNavLink,
   SnNavInfo,
   SnNavLabel,
   SnNavList,

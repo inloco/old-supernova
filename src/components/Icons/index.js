@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 class Icon extends React.PureComponent {
   static propTypes = {
@@ -12,11 +13,12 @@ class Icon extends React.PureComponent {
   render() {
     const { color } = this.props
     const style = { color: color }
+    const classes = classNames('material-icons', this.props.className)
 
     return (
       <i
         onClick={this.props.onClick}
-        className={`material-icons ${this.props.className}`}
+        className={classes}
         style={style}
       >
         {this.props.code}

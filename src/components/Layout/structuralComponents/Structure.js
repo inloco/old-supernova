@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 class Structure extends React.Component {
   static propTypes = {
-    children: PropTypes.element
+    children: PropTypes.any
   }
 
   render() {

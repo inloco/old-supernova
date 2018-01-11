@@ -3,21 +3,21 @@ import PropTypes from 'prop-types'
 
 class SnNavSection extends React.Component {
   static propTypes = {
-    value: PropTypes.string
+    children: PropTypes.string
   }
 
   static defaultProps = {
-    value: null
+    children: null
   }
 
   render() {
-    const { value } = this.props
+    const { children } = this.props
 
-    if(!value) return <hr />
+    if(!children) return <hr />
 
     return (
-      <div class='sn-drawer__label'>
-        { value }
+      <div className='sn-drawer__label'>
+        { children }
       </div>
     )
   }
