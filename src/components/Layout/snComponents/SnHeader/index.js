@@ -4,7 +4,7 @@ import SnDrawerButton from './../_Shared/SnDrawerButton'
 
 class SnHeader extends React.Component {
   static propTypes = {
-    headerTitle: PropTypes.element.isRequired,
+    children: PropTypes.element,
     nav: PropTypes.element
   }
 
@@ -12,7 +12,7 @@ class SnHeader extends React.Component {
     return (
       <div className='sn-header'>
         <SnDrawerButton onClick={ this.context.handleOpenDrawerClick } />
-        { this.props.headerTitle }
+        { this.props.children }
         { this.props.nav }
       </div>
     )

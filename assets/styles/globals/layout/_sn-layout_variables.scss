@@ -50,7 +50,9 @@ $layout-header-height										: 96px;
 $layout-subheader-height								: 32px;
 $layout-footer-height										: 96px;
 $layout-aside-width											: 240px;
-
+/* ALERT: If you change this value, you've to change the
+   LAYOUT_RESPONSIVE_BREAKPOINT constant in SnLayout
+*/
 $layout-responsive-breakpoint						: 480px;
 
 $layout-sysbar-background-color					: white;

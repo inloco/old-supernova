@@ -11,11 +11,16 @@ import Content from './structuralComponents/Content'
 import Footer from './structuralComponents/Footer'
 import Aside from './structuralComponents/Aside'
 
+// ALERT: This value should be equals to $layout-responsive-breakpoint
+const LAYOUT_RESPONSIVE_BREAKPOINT = 480
+
 class SnLayout extends React.Component {
   static propTypes = {
     sysbar: PropTypes.element,
     drawer: PropTypes.element,
     aside: PropTypes.element,
+    header: PropTypes.element,
+    subheader: PropTypes.element,
     footer: PropTypes.element,
     fixedContent: PropTypes.bool,
     drawerIsCollapsed: PropTypes.bool,
@@ -26,6 +31,8 @@ class SnLayout extends React.Component {
     sysbar: null,
     drawer: null,
     aside: null,
+    header: null,
+    subheader: null,
     footer: null,
     fixedContent: true,
     drawerIsCollapsed: true
@@ -34,13 +41,29 @@ class SnLayout extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { drawerIsOpen: false }
+    this.state = {
+      drawerIsOpen: false,
+      // This value should be greater than LAYOUT_RESPONSIVE_BREAKPOINT
+      layoutWidth: LAYOUT_RESPONSIVE_BREAKPOINT + 1
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleScreenSizeChange)
+
+    this.handleScreenSizeChange()
+  }
+
+  componentDidUnMount() {
+    window.removeEventListener('resize', this.handleScreenSizeChange)
   }
 
   getChildContext() {
+    const drawerMenuIsShowing = this.drawerMenuIsShowing()
+
     return {
       drawerIsCollapsed: this.props.drawerIsCollapsed,
-      drawerIsOpened: this.state.drawerIsCollapsed,
+      drawerIsOpened: drawerMenuIsShowing && this.state.drawerIsOpen,
       handleOpenDrawerClick: this.handleOpenDrawerClick,
       handleCloseDrawerClick: this.handleCloseDrawerClick
     }
@@ -146,6 +169,14 @@ class SnLayout extends React.Component {
 
   handleCloseDrawerClick = () => {
     this.setState({ drawerIsOpen: false })
+  }
+
+  handleScreenSizeChange = () => {
+    this.setState({ layoutWidth: window.innerWidth })
+  }
+
+  drawerMenuIsShowing() {
+    return this.state.layoutWidth <= LAYOUT_RESPONSIVE_BREAKPOINT
   }
 }
 

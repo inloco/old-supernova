@@ -8,7 +8,7 @@ class SnHeaderTitleItem extends React.Component {
   }
 
   static defaultProps = {
-    url: '#',
+    href: '#',
     value: ''
   }
 

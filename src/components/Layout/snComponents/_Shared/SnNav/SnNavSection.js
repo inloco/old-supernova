@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import drawerIsCollapsed from './drawerIsCollapsed'
 
 class SnNavSection extends React.Component {
   static propTypes = {
@@ -12,8 +13,9 @@ class SnNavSection extends React.Component {
 
   render() {
     const { children } = this.props
+    const isCollapsed = drawerIsCollapsed(this.context)
 
-    if(!children) return <hr />
+    if(isCollapsed || !children) return <hr />
 
     return (
       <div className='sn-drawer__label'>
@@ -21,6 +23,11 @@ class SnNavSection extends React.Component {
       </div>
     )
   }
+}
+
+SnNavSection.contextTypes = {
+  drawerIsCollapsed: PropTypes.bool,
+  drawerIsOpened: PropTypes.bool
 }
 
 export default SnNavSection
