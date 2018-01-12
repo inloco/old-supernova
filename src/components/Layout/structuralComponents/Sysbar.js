@@ -4,16 +4,13 @@ import classNames from 'classnames'
 
 class Sysbar extends React.Component {
   static propTypes = {
-    children: PropTypes.any,
-    theme: PropTypes.oneOf(['dark', 'light'])
+    hasDrawer: PropTypes.bool.isRequired,
+    children: PropTypes.any
   }
 
-  static defaultProps = {
-    theme: null
-  }
 
   render() {
-    const { theme } = this.props
+    const theme = this.props.hasDrawer ? 'light' : 'dark'
     const sysbarClasses = classNames('sn-layout__sysbar', {
       [`sn-layout__sysbar--${theme}-theme`]: theme
     })

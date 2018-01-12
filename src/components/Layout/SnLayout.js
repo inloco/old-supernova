@@ -89,8 +89,10 @@ class SnLayout extends React.Component {
   }
 
   renderSysbar() {
+    const hasDrawer = this.props.drawer !== null
+
     return(
-      <Sysbar>
+      <Sysbar hasDrawer={hasDrawer}>
         { this.props.sysbar }
       </Sysbar>
     )
