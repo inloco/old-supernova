@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-class SubHeader extends React.Component {
+class Subheader extends React.Component {
   static propTypes = {
     children: PropTypes.any
   }
@@ -15,4 +15,4 @@ class SubHeader extends React.Component {
   }
 }
 
-export default SubHeader
+export default Subheader

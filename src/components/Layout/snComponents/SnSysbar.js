@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import SnDrawerButton from './_Shared/SnDrawerButton'
 import SnBrand from './_Shared/SnBrand'
-import SnNav from './_Shared/SnNav'
 
 class SnSysbar extends React.Component {
   static propTypes = {

@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 class Item extends Component {
-  static PropTypes = {
-    key: PropTypes.string.isRequired,
+  static propTypes = {
     title: PropTypes.string.isRequired,
     isActive: PropTypes.bool,
     onItemClick: PropTypes.func,

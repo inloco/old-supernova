@@ -8,12 +8,12 @@ class Sysbar extends React.Component {
     children: PropTypes.any
   }
 
-
   render() {
     const theme = this.props.hasDrawer ? 'light' : 'dark'
-    const sysbarClasses = classNames('sn-layout__sysbar', {
-      [`sn-layout__sysbar--${theme}-theme`]: theme
-    })
+    const sysbarClasses = classNames(
+      'sn-layout__sysbar',
+      `sn-layout__sysbar--${theme}-theme`
+    )
 
     return (
       <div className={sysbarClasses}>
