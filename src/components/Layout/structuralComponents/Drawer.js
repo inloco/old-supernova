@@ -4,19 +4,18 @@ import classNames from 'classnames'
 
 class Drawer extends React.Component {
   static propTypes = {
+    handleCloseDrawerClick: PropTypes.func.isRequired,
     children: PropTypes.any,
-    collapsed: PropTypes.bool,
-    obfuscatorClick: PropTypes.func
+    isCollapsed: PropTypes.bool
   }
 
   static defaultProps = {
-    collapsed: true,
-    obfuscatorClick: () => {}
+    isCollapsed: true
   }
 
   render() {
     const drawerClasses = classNames('sn-layout__drawer', {
-      'sn-layout__drawer--collapsed': this.props.collapsed
+      'sn-layout__drawer--collapsed': this.props.isCollapsed
     })
 
     return (
@@ -26,7 +25,7 @@ class Drawer extends React.Component {
         </div>
         <div
           className='sn-layout__obfuscator'
-          onClick={ this.props.obfuscatorClick }
+          onClick={ this.props.handleCloseDrawerClick }
         />
       </React.Fragment>
     )

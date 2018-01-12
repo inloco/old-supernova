@@ -4,20 +4,23 @@ import SnDrawerButton from './../_Shared/SnDrawerButton'
 
 class SnHeader extends React.Component {
   static propTypes = {
-    handleDrawerButtonClick: PropTypes.func.isRequired,
     headerTitle: PropTypes.element.isRequired,
-    navItems: PropTypes.element
+    nav: PropTypes.element
   }
 
   render() {
     return (
       <div className='sn-header'>
-        <SnDrawerButton onClick={ this.props.handleDrawerButtonClick } />
+        <SnDrawerButton onClick={ this.context.handleOpenDrawerClick } />
         { this.props.headerTitle }
-        { this.props.navItems }
+        { this.props.nav }
       </div>
     )
   }
+}
+
+SnHeader.contextTypes = {
+  handleOpenDrawerClick: PropTypes.func
 }
 
 export default SnHeader

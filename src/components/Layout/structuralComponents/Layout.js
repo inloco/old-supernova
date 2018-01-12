@@ -5,12 +5,12 @@ import classNames from 'classnames'
 class Layout extends React.Component {
   static propTypes = {
     children: PropTypes.any,
-    openDrawer: PropTypes.bool
+    drawerIsOpen: PropTypes.bool
   }
 
   render() {
     const layoutClasses = classNames('sn-layout', {
-      'sn-layout--open-drawer': this.props.openDrawer
+      'sn-layout--open-drawer': this.props.drawerIsOpen
     })
 
     return (

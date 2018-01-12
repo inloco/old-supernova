@@ -10,8 +10,7 @@ class SnNavLink extends React.Component {
     target: PropTypes.string,
     children: PropTypes.string,
     iconCode: PropTypes.string,
-    external: PropTypes.bool,
-    handleObfuscatorClick: PropTypes.func
+    external: PropTypes.bool
   }
 
   static defaultProps = {
@@ -24,15 +23,13 @@ class SnNavLink extends React.Component {
 
   render() {
     return (
-      <li className='sn-nav__list__item' onClick={this.handleClick}>
+      <li
+        className='sn-nav__list__item'
+        onClick={ this.context.handleCloseDrawerClick }
+      >
         { this.props.external ? this.renderExternalLink() : this.renderLink() }
       </li>
     )
-  }
-
-  handleClick = () => {
-    console.log('oxi by SnNavLink', this.props.handleObfuscatorClick)
-    this.props.handleObfuscatorClick
   }
 
   renderExternalLink() {
@@ -71,6 +68,10 @@ class SnNavLink extends React.Component {
       </React.Fragment>
     )
   }
+}
+
+SnNavLink.contextTypes = {
+  handleCloseDrawerClick: PropTypes.func
 }
 
 export default SnNavLink

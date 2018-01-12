@@ -8,27 +8,14 @@ class SnDrawer extends React.Component {
     alt: PropTypes.string,
     collapsedSrc: PropTypes.string,
     nav: PropTypes.element,
-    footer: PropTypes.element,
-    drawerIsCollapsed: PropTypes.bool,
-    handleObfuscatorClick: PropTypes.func
+    footer: PropTypes.element
   }
 
   render() {
-    console.log('passei by SnDrawer', this.props.handleObfuscatorClick)
-    const SnNav = () => {
-      return React.cloneElement(
-        this.props.nav,
-        {
-          drawerIsCollapsed: this.props.drawerIsCollapsed,
-          handleObfuscatorClick: this.props.handleObfuscatorClick
-        }
-      )
-    }
-
     return (
       <div className='sn-drawer'>
         { this.props.src && this.renderSnBrand() }
-        <SnNav />
+        { this.props.nav }
         { this.props.footer }
       </div>
     )

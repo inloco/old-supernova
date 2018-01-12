@@ -8,30 +8,26 @@ class SnSysbar extends React.Component {
   static propTypes = {
     src: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
-    handleDrawerButtonClick: PropTypes.func,
-    navIsCollapsed: PropTypes.bool,
-    navItems: PropTypes.element
+    nav: PropTypes.element
   }
 
   static defaultProps = {
-    navIsCollapsed: false
+    nav: null
   }
 
   render() {
     return (
       <div className='sn-sysbar'>
-        <SnDrawerButton onClick={ this.props.handleDrawerButtonClick } />
+        <SnDrawerButton onClick={ this.context.handleOpenDrawerClick } />
         <SnBrand src={ this.props.src } alt={ this.props.alt } />
-        { this.props.navItems && this.renderSnNav() }
+        { this.props.nav }
       </div>
     )
   }
+}
 
-  renderSnNav() {
-    return React.cloneElement(
-      this.props.navItems, { isCollapsed: this.props.navIsCollapsed }
-    )
-  }
+SnSysbar.contextTypes = {
+  handleOpenDrawerClick: PropTypes.func
 }
 
 export default SnSysbar

@@ -16,8 +16,9 @@ class SnLayout extends React.Component {
     sysbar: PropTypes.element,
     drawer: PropTypes.element,
     aside: PropTypes.element,
+    footer: PropTypes.element,
     fixedContent: PropTypes.bool,
-    drawerCollapsed: PropTypes.bool,
+    drawerIsCollapsed: PropTypes.bool,
     children: PropTypes.any
   }
 
@@ -25,24 +26,30 @@ class SnLayout extends React.Component {
     sysbar: null,
     drawer: null,
     aside: null,
+    footer: null,
     fixedContent: true,
-    drawerCollapsed: true
+    drawerIsCollapsed: true
   }
 
   constructor(props) {
     super(props)
 
-    this.state = {
-      openDrawer: false,
-      defaultDrawerCollapsed: props.drawerCollapsed,
-      currentDrawerCollapsed: props.drawerCollapsed
+    this.state = { drawerIsOpen: false }
+  }
+
+  getChildContext() {
+    return {
+      drawerIsCollapsed: this.props.drawerIsCollapsed,
+      drawerIsOpened: this.state.drawerIsCollapsed,
+      handleOpenDrawerClick: this.handleOpenDrawerClick,
+      handleCloseDrawerClick: this.handleCloseDrawerClick
     }
   }
 
   render() {
     return (
       <Structure>
-        <Layout openDrawer={this.state.openDrawer}>
+        <Layout drawerIsOpen={this.state.drawerIsOpen}>
           { this.props.sysbar && this.renderSysbar() }
           { this.props.drawer && this.renderDrawer() }
           <Main>
@@ -59,69 +66,21 @@ class SnLayout extends React.Component {
   }
 
   renderSysbar() {
-    const SnSysbar = () => {
-      return React.cloneElement(
-        this.props.sysbar,
-        { handleDrawerButtonClick: this.handleDrawerButtonClick }
-      )
-    }
-
     return(
       <Sysbar>
-        <SnSysbar />
+        { this.props.sysbar }
       </Sysbar>
     )
   }
 
   renderDrawer() {
-    const SnDrawer = () => {
-      return React.cloneElement(
-        this.props.drawer,
-        {
-          drawerIsCollapsed: this.state.currentDrawerCollapsed,
-          handleObfuscatorClick: this.handleObfuscatorClick
-        }
-      )
-    }
-
     return(
       <Drawer
-        collapsed={ this.props.drawerCollapsed }
-        obfuscatorClick={ this.handleObfuscatorClick }
+        isCollapsed={ this.props.drawerIsCollapsed }
+        handleCloseDrawerClick={ this.handleCloseDrawerClick }
       >
-        <SnDrawer />
+        { this.props.drawer }
       </Drawer>
-    )
-  }
-
-  renderHeader() {
-    const SnHeader = () => {
-      return React.cloneElement(
-        this.props.header,
-        { handleDrawerButtonClick: this.handleDrawerButtonClick }
-      )
-    }
-
-    return(
-      <Header>
-        <SnHeader />
-      </Header>
-    )
-  }
-
-  renderSubheader() {
-    return(
-      <Subheader>
-        { this.props.subheader }
-      </Subheader>
-    )
-  }
-
-  renderFooter() {
-    return(
-      <Footer>
-        { this.props.footer }
-      </Footer>
     )
   }
 
@@ -157,17 +116,44 @@ class SnLayout extends React.Component {
     )
   }
 
-  handleDrawerButtonClick = () => {
-    this.setState({ openDrawer: true, currentDrawerCollapsed: false })
+  renderHeader() {
+    return(
+      <Header>
+        { this.props.header }
+      </Header>
+    )
   }
 
-  handleObfuscatorClick = () => {
-    console.log('fui chamado by handleObfuscatorClick')
-    this.setState({
-      openDrawer: false,
-      currentDrawerCollapsed: this.state.defaultDrawerCollapsed
-    })
+  renderSubheader() {
+    return(
+      <Subheader>
+        { this.props.subheader }
+      </Subheader>
+    )
   }
+
+  renderFooter() {
+    return(
+      <Footer>
+        { this.props.footer }
+      </Footer>
+    )
+  }
+
+  handleOpenDrawerClick = () => {
+    this.setState({ drawerIsOpen: true })
+  }
+
+  handleCloseDrawerClick = () => {
+    this.setState({ drawerIsOpen: false })
+  }
+}
+
+SnLayout.childContextTypes = {
+  drawerIsCollapsed: PropTypes.bool,
+  drawerIsOpened: PropTypes.bool,
+  handleOpenDrawerClick: PropTypes.func,
+  handleCloseDrawerClick: PropTypes.func
 }
 
 export default SnLayout
