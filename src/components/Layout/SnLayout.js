@@ -32,7 +32,11 @@ class SnLayout extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { openDrawer: false }
+    this.state = {
+      openDrawer: false,
+      defaultDrawerCollapsed: props.drawerCollapsed,
+      currentDrawerCollapsed: props.drawerCollapsed
+    }
   }
 
   render() {
@@ -70,12 +74,22 @@ class SnLayout extends React.Component {
   }
 
   renderDrawer() {
+    const SnDrawer = () => {
+      return React.cloneElement(
+        this.props.drawer,
+        {
+          drawerIsCollapsed: this.state.currentDrawerCollapsed,
+          handleObfuscatorClick: this.handleObfuscatorClick
+        }
+      )
+    }
+
     return(
       <Drawer
         collapsed={ this.props.drawerCollapsed }
         obfuscatorClick={ this.handleObfuscatorClick }
       >
-        { this.props.drawer }
+        <SnDrawer />
       </Drawer>
     )
   }
@@ -144,11 +158,15 @@ class SnLayout extends React.Component {
   }
 
   handleDrawerButtonClick = () => {
-    this.setState({ openDrawer: true })
+    this.setState({ openDrawer: true, currentDrawerCollapsed: false })
   }
 
   handleObfuscatorClick = () => {
-    this.setState({ openDrawer: false })
+    console.log('fui chamado by handleObfuscatorClick')
+    this.setState({
+      openDrawer: false,
+      currentDrawerCollapsed: this.state.defaultDrawerCollapsed
+    })
   }
 }
 

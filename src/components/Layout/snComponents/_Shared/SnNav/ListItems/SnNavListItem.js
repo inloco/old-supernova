@@ -5,7 +5,8 @@ import classNames from 'classnames'
 class SnNavListItem extends React.Component {
   static propTypes = {
     expandable: PropTypes.bool,
-    children: PropTypes.any
+    children: PropTypes.any,
+    drawerIsCollapsed: PropTypes.bool
   }
 
   static defaultProps = {
@@ -19,9 +20,10 @@ class SnNavListItem extends React.Component {
   }
 
   render() {
+    const isExpanded = !this.props.drawerIsCollapsed && this.state.expanded
     const navlistItemClasses = classNames('sn-nav__list__item',{
       'sn-nav__list__item--expandable': this.props.expandable,
-      'is-expandeds': this.state.expanded
+      'is-expanded': isExpanded
     })
 
     return (

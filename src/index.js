@@ -11,14 +11,6 @@ import Chip from "./components/Chip"
 import CodeBox from "./components/CodeBox"
 import Collapsible from "./components/Collapsible"
 import Content from "./components/Content/Main"
-import Drawer from "./components/Drawer/"
-import DrawerNav from "./components/Drawer/Nav/Main"
-import DrawerNavLink from "./components/Drawer/Nav/Link"
-import DrawerNavSection from "./components/Drawer/Nav/Section"
-import DrawerTitle from "./components/Drawer/Title"
-import DrawerProfile from "./components/Drawer/Profile"
-import DrawerAction from "./components/Drawer/Action"
-import DrawerFooter from "./components/Drawer/Footer"
 import Dropdown from "./components/Dropdown/"
 import DropdownMenu from "./components/DropdownMenu"
 import Footer from "./components/Footer"
@@ -40,7 +32,6 @@ import Pill from "./components/Pills/Pill"
 import Radio from "./components/Radio"
 import Searchbox from "./components/Searchbox"
 import Select from "./components/Form/Select"
-import Subheader from "./components/Subheader"
 import Table from "./components/Table"
 import TableHead from "./components/Table/Head"
 import TableRow from "./components/Table/Row"
@@ -94,26 +85,18 @@ export {
   BubbleStep,
   Card,
   CardList,
-  Cell,
   Checkbox,
   Chip,
   CodeBox,
   Collapsible,
   CollapsibleItem,
   Content,
-  Drawer,
-  DrawerNav,
-  DrawerNavLink,
-  DrawerNavSection,
-  DrawerTitle,
-  DrawerProfile,
-  DrawerAction,
-  DrawerFooter,
   Dropdown,
   DropdownMenu,
   Footer,
   FormGroup,
   Grid,
+  Cell,
   Modal,
   ModalBody,
   ModalFooter,
@@ -129,7 +112,6 @@ export {
   Radio,
   Searchbox,
   Select,
-  Subheader,
   Table,
   TableHead,
   TableRow,

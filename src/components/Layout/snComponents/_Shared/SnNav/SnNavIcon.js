@@ -20,7 +20,11 @@ class SnNavIcon extends React.Component {
 
     return (
       <div className='sn-nav__list__item__icon'>
-        { code ? <Icon code={ code } /> : <img src={ src } atl={ atl } /> }
+        {
+          src
+          ? <img src={ src } atl={ atl } />
+          : <Icon code={ code } />
+        }
       </div>
     )
   }
