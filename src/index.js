@@ -73,6 +73,18 @@ import SnNavList from "./components/Layout/snComponents/_Shared/SnNav/SnNavList"
 import SnNavListItem from "./components/Layout/snComponents/_Shared/SnNav/ListItems/SnNavListItem"
 import SnNavSection from "./components/Layout/snComponents/_Shared/SnNav/SnNavSection"
 import SnNavText from "./components/Layout/snComponents/_Shared/SnNav/SnNavText"
+import Aside from "./components/Layout/structuralComponents/Aside"
+import Content from "./components/Layout/structuralComponents/Content"
+import Drawer from "./components/Layout/structuralComponents/Drawer"
+import Footer from "./components/Layout/structuralComponents/Footer"
+import Header from "./components/Layout/structuralComponents/Header"
+import Layout from "./components/Layout/structuralComponents/Layout"
+import Main from "./components/Layout/structuralComponents/Main"
+import Structure from "./components/Layout/structuralComponents/Structure"
+import Subheader from "./components/Layout/structuralComponents/Subheader"
+import Sysbar from "./components/Layout/structuralComponents/Sysbar"
+import SnBrand from "./components/Layout/snComponents/_Shared/SnBrand"
+import SnDrawerButton from "./components/Layout/snComponents/_Shared/SnDrawerButton"
 
 const CollapsibleItem = Collapsible.Item
 
@@ -152,5 +164,17 @@ export {
   SnNavList,
   SnNavListItem,
   SnNavSection,
-  SnNavText
+  SnNavText,
+  Aside,
+  Content,
+  Drawer,
+  Footer,
+  Header,
+  Layout,
+  Main,
+  Structure,
+  Subheader,
+  Sysbar,
+  SnBrand,
+  SnDrawerButton
 }
