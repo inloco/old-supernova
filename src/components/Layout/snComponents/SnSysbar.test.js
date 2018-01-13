@@ -7,7 +7,7 @@ import { shallow } from 'enzyme'
 
 describe('SnSysbar', () => {
   const handleOpenDrawerClick = jest.fn()
-  const src = 'Xalala'
+  const src = 'Src'
   const alt = 'Alt'
   const nav = <SnNav />
   const context = { handleOpenDrawerClick }

@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 
 describe('SnBrand', () => {
   describe('when has CollapsedSrc', () => {
-    const src = 'Xalala'
+    const src = 'Src'
     const alt = 'Alt'
     const collapsedSrc = 'CollapsedSrc'
     const wrapper = shallow(
@@ -68,7 +68,7 @@ describe('SnBrand', () => {
   })
 
   describe('when has no CollapsedSrc', () => {
-    const src = 'Xalala'
+    const src = 'Src'
     const alt = 'Alt'
     const wrapper = shallow(
       <SnBrand

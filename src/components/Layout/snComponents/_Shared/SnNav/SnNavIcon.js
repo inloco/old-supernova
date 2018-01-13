@@ -6,23 +6,23 @@ class SnNavIcon extends React.Component {
   static propTypes = {
     code: PropTypes.string,
     src: PropTypes.string,
-    atl: PropTypes.string,
+    alt: PropTypes.string,
   }
 
   static defaultProps = {
     code: 'menu',
     src: null,
-    atl: null
+    alt: null
   }
 
   render() {
-    const { code, src, atl } = this.props
+    const { code, src, alt } = this.props
 
     return (
       <div className='sn-nav__list__item__icon'>
         {
           src
-          ? <img src={ src } atl={ atl } />
+          ? <img src={ src } alt={ alt } />
           : <Icon code={ code } />
         }
       </div>

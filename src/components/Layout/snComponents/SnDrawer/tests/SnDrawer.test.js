@@ -7,7 +7,7 @@ import { shallow } from 'enzyme'
 
 describe('SnDrawer', () => {
   describe('when has src', () => {
-    const src = 'Xalala'
+    const src = 'Src'
     const alt = 'Alt'
     const collapsedSrc = 'CollapsedSrc'
     const nav = <SnNav />
