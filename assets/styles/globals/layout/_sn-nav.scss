@@ -92,7 +92,7 @@
 				&:before {
 					content: "";
 					top: 12px;
-					left: 196px;
+					left: 94%;
 					position: relative;
 					width: 0;
 					height: 0;
@@ -138,14 +138,12 @@
 		}
 
 		a {
-			// flex: 1 1 auto;
 			@include flexitem(1, 1, auto);
 			@include flexbox();
 			@include flexdirection(row);
 			flex-wrap: wrap;
 			padding: 0;
 			margin: 0;
-			// color: white;
 			text-decoration: none;
 		}
 	}
@@ -160,34 +158,110 @@
 
 	// DEFAULT THEME (LIGHT)
 	.sn-nav {
+		display: flex;
+		justify-content: flex-end;
+		padding: 0 4px;
 		&__list {
-			&__item {
+			@include flexdirection(row);
+			max-height: calc(60vh);
+			overflow-y: auto;
+			margin: 0;
+			&:last-child {
 				ul {
+					right: 8px;
+				}
+			}
+			&__item {
+				margin: 2px 2px;
+				white-space: nowrap;
+				flex-wrap: nowrap;
+				flex: 1 1 100%;
+				&:hover {
+					cursor: default;
+					ul {
+						display: block;
+					}
+				}
+				&__item__text {
+					white-space: nowrap;
+				}
+				ul {
+					margin: 2px 8px;
 					background-color: white;
 					.sn-nav__list__item {
+						flex: 1 1 100%;
 						&:hover {
 							background-color: $nav-list-hover-background-color;
 						}
+						.sn-nav__list__item__link {
+							flex-wrap: nowrap;
+						}
 					}
 					a {
+						flex: 1 1 100%;
 						color: $nav-list-text-color;
+						flex-wrap: nowrap;
 					}
-				}
-				ul {
 					.sn-nav__list__item__icon {
 						color: $nav-list-icon-color;
 					}
 					.sn-nav__list__item__text {
+						flex: 1 1 100%;
+						white-space: nowrap;
 						color: $nav-list-text-color;
 					}
 				}
 			}
+			&__item--expandable {
+				&:before {
+					display: none;
+				}
+				&:after {
+					content: "";
+					top: 14px;
+					right: 0;
+					position: relative;
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 4px 4px 0 4px;
+					border-color: #9e9e9e transparent transparent transparent;
+				}
+				ul {
+					position: absolute;
+					left: auto !important;
+					top: 46px;
+					margin: 0;
+					padding: 4px;
+					box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+					flex-wrap: nowrap;
+				}
+				&.is-expanded {
+					&:after {
+						border-width: 0 4px 4px 4px;
+						border-color: transparent transparent #9e9e9e transparent;
+					}
+					ul {
+						padding: 4px !important;
+					}
+				}
+			}
 			&__info {
+				word-break: normal;
 				color: $nav-list-info-color;
 			}
 			&__label {
+				display: block;
+				padding: 8px 16px;
+				font-size: 12px;
+				line-height: 14px;
+				text-transform: uppercase;
+				cursor: default !important;
 				color: $nav-list-label-color;
 			}
+		}
+		&.is-collapsed {
+			@extend %nav-collapsed--sysbar;
 		}
 	}
 
@@ -198,80 +272,6 @@
 		}
 	}
 
-
-	.sn-nav {
-		display: flex;
-		justify-content: flex-end;
-		padding: 0 4px;
-		&__list {
-			@include flexdirection(row);
-			max-height: $nav-list-item-max-height;
-			margin: 0;
-			&__item {
-				margin: 2px 2px;
-				ul {
-					.sn-nav__list__item {
-						margin: 2px 8px;
-					}
-				}
-			}
-			&__item--expandable {
-				&:before {
-					content: "";
-					top: 12px;
-					left: 196px;
-					position: relative;
-					width: 0;
-					height: 0;
-					border-style: solid;
-					border-width: 4px 4px 0 4px;
-					border-color: #ffffff transparent transparent transparent;
-				}
-				ul {
-					position: absolute;
-					left: auto !important;
-					top: 46px;
-					margin: 0;
-					padding: 4px 0;
-					box-shadow: 4px 4px 8px rgba(0,0,0,.3);
-					flex-wrap: nowrap;
-				}
-				&.is-expanded {
-					&:before {
-						border-width: 0 4px 4px 4px;
-						border-color: transparent transparent #ffffff transparent;
-					}
-					ul {
-						padding: 4px !important;
-					}
-				}
-			}
-			&:hover {
-				ul {
-					display: block;
-				}
-			}
-			&:last-child {
-				ul {
-					right: 8px;
-				}
-			}
-			&__info {
-				word-break: normal;
-			}
-			&__label {
-				display: block;
-				padding: 8px 16px;
-				font-size: 12px;
-				line-height: 14px;
-				text-transform: uppercase;
-				cursor: default !important;
-			}
-		}
-		&.is-collapsed {
-			@extend %nav-collapsed--sysbar;
-		}
-	}
 }
 
 // Nav inside Sysbar

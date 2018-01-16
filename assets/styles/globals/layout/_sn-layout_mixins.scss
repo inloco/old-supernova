@@ -15,51 +15,6 @@
  @import "sn-layout_variables";
 
 
-// Mixins
-
-@mixin flexbox() {
-  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;      /* TWEENER - IE 10 */
-  display: -webkit-flex;     /* NEW - Chrome */
-  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  -ms-text-overflow: "...";
-  text-overflow: "...";
-  min-height: none;
-}
-
-@mixin flexitem($grow, $shrink, $size) {
-  -webkit-box-flex: $grow $shrink $size;    /* OLD - iOS 6-, Safari 3.1-6 */
-  -moz-box-flex: $grow $shrink $size;       /* OLD - Firefox 19- (buggy but mostly works) */
-  -ms-flex: $grow $shrink $size;            /* TWEENER - IE 10 */
-  -webkit-flex: $grow $shrink $size;        /* NEW - Chrome */
-  flex: $grow $shrink $size;                /* NEW, Spec - Opera 12.1, Firefox 20+ */
-}
-
-@mixin flexdirection($direction) {
-  -ms-flex-direction: $direction; /* TWEENER - IE 10 */
-  -webkit-flex-direction: $direction; /* Safari 6.1+ */
-  flex-direction: $direction;
-}
-
-
-
-.hide {
-  display: none !important;
-  visibility: hidden !important;
-}
-
-.content-grid {
-  padding: 32px;
-}
-
-@media screen and (max-width: $layout-responsive-breakpoint) {
-  .content-grid {
-    padding: 24px;
-  }
-}
-
-
 // DRAWER COLLAPSED
 
 %drawer-collapsed {
@@ -79,7 +34,7 @@
       }
       .sn-nav {
         .sn-nav__list {
-          margin: 19px 0;
+          margin: 20px 0;
           max-height: calc(100vh - 50%);
           overflow-y: auto;
         }
@@ -136,6 +91,7 @@
 %nav-light-theme {
   a {
     color: $nav-list-text-color;
+    flex-wrap: nowrap;
   }
   .sn-drawer__label, hr {
     border-right: 1px solid $nav-list-label-color;
