@@ -24,7 +24,7 @@
     "material-design-icons": "^3.0.1"
   },
   "jest": {
-    "testRegex": "(.*)-test.js$",
+    "testRegex": "(.*)(-|.)test.js$",
     "testPathIgnorePatterns": [
       "<rootDir>/lib/",
       "<rootDir>/build/"
@@ -53,12 +53,14 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "material-design-icons": "^3.0.1",
-    "moment": "^2.19.2",
+    "moment": "^2.20.1",
     "prop-types": "^15.6.0",
-    "react": "^16.0.0",
+    "react": "^16.2.0",
     "react-copy-to-clipboard": "^5.0.1",
-    "react-dom": "^16.0.0",
-    "react-highlight": "briancappello/react-highlight#react-v16-compiled"
+    "react-dom": "^16.2.0",
+    "react-highlight": "github:briancappello/react-highlight#react-v16-compiled",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -69,10 +71,10 @@
     "chalk": "^2.3.0",
     "child_process": "^1.0.2",
     "dotenv": "^4.0.0",
-    "enzyme": "^3.1.0",
-    "enzyme-adapter-react-16": "^1.0.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^21.2.1",
     "react-addons-test-utils": "^15.6.2",
-    "react-test-renderer": "^16.0.0"
+    "react-test-renderer": "^16.2.0"
   }
 }
