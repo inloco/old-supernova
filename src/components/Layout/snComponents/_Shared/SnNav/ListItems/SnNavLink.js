@@ -10,7 +10,10 @@ class SnNavLink extends React.Component {
     target: PropTypes.string,
     children: PropTypes.string,
     iconCode: PropTypes.string,
-    external: PropTypes.bool
+    iconSrc: PropTypes.string,
+    iconAlt: PropTypes.string,
+    external: PropTypes.bool,
+    onClick: PropTypes.func
   }
 
   static defaultProps = {
@@ -18,7 +21,8 @@ class SnNavLink extends React.Component {
     target: null,
     children: '',
     iconCode: null,
-    external: false
+    external: false,
+    iconAlt: ''
   }
 
   render() {
@@ -50,6 +54,7 @@ class SnNavLink extends React.Component {
         className='sn-nav__list__item__link'
         to={this.props.href}
         target={this.props.target}
+        onClick={this.handleOnClick}
       >
         { this.renderElements() }
       </Link>
@@ -57,16 +62,27 @@ class SnNavLink extends React.Component {
   }
 
   renderElements() {
-    const { iconCode } = this.props
+    const { iconCode, iconSrc, iconAlt } = this.props
 
     return(
       <React.Fragment>
         { iconCode && <SnNavIcon code={ iconCode } /> }
+        { iconSrc && <img src={ iconSrc } alt={ iconAlt } /> }
         <SnNavText>
           { this.props.children }
         </SnNavText>
       </React.Fragment>
     )
+  }
+
+  handleOnClick = (e) => {
+    const { onClick } = this.props
+
+    if(onClick) {
+      e.stopPropagation()
+
+      onClick()
+    }
   }
 }
 

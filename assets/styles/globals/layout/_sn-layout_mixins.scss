@@ -37,6 +37,7 @@
           margin: 20px 0;
           max-height: calc(100vh - 50%);
           overflow-y: auto;
+          overflow-x: hidden;
         }
         .sn-nav__list__item--expandable {
           padding: 6px 4px;

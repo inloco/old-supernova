@@ -56,8 +56,8 @@ class SnLayout extends React.Component {
     this.handleScreenSizeChange()
   }
 
-  componentDidUnMount() {
-    window.removeEventListener('resize', this.handleScreenSizeChange)
+  componentWillUnMount() {
+    window.removeEventListener('resize')
   }
 
   getChildContext() {
