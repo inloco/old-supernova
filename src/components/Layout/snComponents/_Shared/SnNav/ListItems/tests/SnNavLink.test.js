@@ -9,8 +9,9 @@ describe('SnNavLink', () => {
   describe('when external is false', () => {
     const href = 'Href'
     const target = 'Target'
+    const onClick = jest.fn()
     const wrapper = shallow(
-      <SnNavLink href={href} target={target}>
+      <SnNavLink href={href} target={target} onClick={onClick}>
         Children
       </SnNavLink>
     )
@@ -26,6 +27,12 @@ describe('SnNavLink', () => {
       const current = wrapper.hasClass('sn-nav__list__item')
 
       expect(current).toBeTruthy()
+    })
+
+    it('calls on Click on link is clicked', () => {
+      wrapper.find(Link).simulate('click')
+
+      expect(onClick).toBeCalled()
     })
 
     describe('Children', () => {
@@ -85,8 +92,14 @@ describe('SnNavLink', () => {
   describe('when external is true', () => {
     const href = 'Href'
     const target = 'Target'
+    const onClick = jest.fn()
     const wrapper = shallow(
-      <SnNavLink href={href} target={target} external>
+      <SnNavLink
+        href={href}
+        target={target}
+        onClick={onClick}
+        external
+      >
         Children
       </SnNavLink>
     )
@@ -102,6 +115,12 @@ describe('SnNavLink', () => {
       const current = wrapper.hasClass('sn-nav__list__item')
 
       expect(current).toBeTruthy()
+    })
+
+    it('calls on Click on link is clicked', () => {
+      wrapper.find('a').simulate('click')
+
+      expect(onClick).toBeCalled()
     })
 
     describe('Children', () => {

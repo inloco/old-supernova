@@ -42,6 +42,7 @@ class SnNavLink extends React.Component {
         className='sn-nav__list__item__link'
         href={ this.props.href }
         target={ this.props.target }
+        onClick={this.handleOnClick}
       >
         { this.renderElements() }
       </a>
@@ -79,7 +80,7 @@ class SnNavLink extends React.Component {
     const { onClick } = this.props
 
     if(onClick) {
-      e.stopPropagation()
+      e && e.stopPropagation()
 
       onClick()
     }
