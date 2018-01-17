@@ -335,6 +335,68 @@ describe('SnLayout', () => {
     })
   })
 
+  describe('Main', () => {
+    describe('when has customizableContent equals to true', () => {
+      const children = 't-children'
+      const wrapper = shallow(
+        <SnLayout
+          sysbar={<div />}
+          drawer={<div />}
+          aside={<div />}
+          customizableContent
+        >
+          <div id={children}>Children</div>
+        </SnLayout>
+      )
+
+      it('has a Structure', () => {
+        const current = wrapper.find(Structure)
+        const expected = 1
+
+        expect(current).toHaveLength(expected)
+      })
+
+      it('has a Layout', () => {
+        const current = wrapper.find(Layout)
+        const expected = 1
+
+        expect(current).toHaveLength(expected)
+      })
+
+      describe('has specific order', () => {
+        const layout = wrapper.find(Layout)
+
+        it('has Sysbar in 0', () => {
+          const current = layout.children().get(0).type
+          const expected = Sysbar
+
+          expect(current).toEqual(expected)
+        })
+
+        it('has Drawer in 1', () => {
+          const current = layout.children().get(1).type
+          const expected = Drawer
+
+          expect(current).toEqual(expected)
+        })
+
+        it('has children in 2', () => {
+          const current = layout.children().get(2).props.id
+          const expected = children
+
+          expect(current).toEqual(expected)
+        })
+
+        it('has Aside in 3', () => {
+          const current = layout.children().get(3).type
+          const expected = Aside
+
+          expect(current).toEqual(expected)
+        })
+      })
+    })
+  })
+
   describe('handleOpenDrawerClick', () => {
     const wrapper = shallow(
       <SnLayout />

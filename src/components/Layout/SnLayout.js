@@ -24,7 +24,8 @@ class SnLayout extends React.Component {
     footer: PropTypes.element,
     fixedContent: PropTypes.bool,
     drawerIsCollapsed: PropTypes.bool,
-    children: PropTypes.any
+    children: PropTypes.any,
+    customizableContent: PropTypes.bool
   }
 
   static defaultProps = {
@@ -35,7 +36,8 @@ class SnLayout extends React.Component {
     subheader: null,
     footer: null,
     fixedContent: true,
-    drawerIsCollapsed: true
+    drawerIsCollapsed: true,
+    customizableContent: false
   }
 
   constructor(props) {
@@ -75,13 +77,11 @@ class SnLayout extends React.Component {
         <Layout drawerIsOpen={this.state.drawerIsOpen}>
           { this.props.sysbar && this.renderSysbar() }
           { this.props.drawer && this.renderDrawer() }
-          <Main>
-            {
-              this.props.fixedContent
-              ? this.renderFixedContent()
-              : this.renderContentFlow()
-            }
-          </Main>
+          {
+            this.props.customizableContent
+            ? this.props.children
+            : this.renderContent()
+          }
           { this.props.aside && this.renderAside() }
         </Layout>
       </Structure>
@@ -106,6 +106,18 @@ class SnLayout extends React.Component {
       >
         { this.props.drawer }
       </Drawer>
+    )
+  }
+
+  renderContent() {
+    return(
+      <Main>
+        {
+          this.props.fixedContent
+          ? this.renderFixedContent()
+          : this.renderContentFlow()
+        }
+      </Main>
     )
   }
 
