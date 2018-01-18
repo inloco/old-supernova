@@ -4,6 +4,8 @@ import ArrowStep from "./components/Steps/Arrow/Step"
 import Board from "./components/Board"
 import BubbleSteps from "./components/Steps/Bubble"
 import BubbleStep from "./components/Steps/Bubble/Step"
+import SmallBubbleSteps from "./components/Steps/SmallBubble"
+import SmallBubbleStep from "./components/Steps/SmallBubble/Step"
 import Card from "./components/Card"
 import CardList from "./components/Card/List"
 import Checkbox from "./components/Form/Checkbox"
@@ -95,6 +97,8 @@ export {
   Board,
   BubbleSteps,
   BubbleStep,
+  SmallBubbleSteps,
+  SmallBubbleStep,
   Card,
   CardList,
   Checkbox,
