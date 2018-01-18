@@ -307,10 +307,104 @@
   }
   //./sn-steps__bubble
 
+// SMALL BUBBLE STEPS
 
+  &.sn-steps__small-bubble {
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
 
+    .container {
+      @include flexbox();
+      width: auto;
+      margin: 0 auto;
+    }
+    .sn-steps__small-bubble-list {
+      @include flexbox();
+      width: auto;
+      margin: 0 auto;
+      padding: 0;
 
+      li {
+        @include flex(1);
+        list-style-type: none;
+        min-width: 84px;
+        float: left;
+        font-size: 14px;
+        line-height: 14px;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 400;
+        color: $default-steps-waiting-color;
 
+        &:before {
+          width: 16px;
+          height: 16px;
+          content: '';
+          line-height: 25px;
+          border: 1px solid $default-steps-waiting-color;
+          display: block;
+          text-align: center;
+          margin: 0 auto 10px auto;
+          border-radius: 50%;
+          background-color: #F5F5F5;
+        }
+
+        &:after {
+          width: 100%;
+          height: 1px;
+          content: '';
+          position: absolute;
+          background-color: $default-steps-waiting-color;
+          top: 9px;
+          left: -50%;
+          z-index: -1;
+        }
+
+        &:first-child:after {
+          content: none;
+        }
+
+        &.is-done {
+          color: $default-steps-waiting-color;
+          &:before {
+            content: '\2713';
+            border-color: #2979FF;
+            background-color: #2979FF;
+            color: white;
+            font-size: 14px;
+            line-height: 17px;
+          }
+        }
+
+        &.is-done + li:after {
+          background-color: #2979FF;
+        }
+
+        &.is-active {
+          color: #2979FF;
+          &:before {
+            content: '\25CF';
+            background-color: #F5F5F5;
+            border: 2px solid #2979FF;
+            font-size: 22px;
+            line-height: 17px;
+          }
+
+          &:after {
+            height: 2px;
+          }
+        }
+
+        &.is-active + li:after {
+          background-color: #BDBDBD;
+        }
+      }
+    }
+    //./sn-steps__small-bubble-list
+  }
+  //./sn-steps__small-bubble
 
   // MEDIA
   @media only screen
