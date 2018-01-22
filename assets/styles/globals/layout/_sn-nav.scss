@@ -18,6 +18,10 @@
   padding: 8px 0;
 }
 
+.sn-drawer__footer .sn-nav__list__item {
+  padding: 6px 0px;
+}
+
 // Nav
 .sn-nav {
   @include flexitem(4, 1, auto);

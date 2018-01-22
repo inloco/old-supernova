@@ -78,7 +78,7 @@
 
   // Main Container
 
-  &__main {
+  &__main, form {
     position: relative;
     @include flexitem(1, 1, 1%);
     @include flexbox();
