@@ -85,8 +85,8 @@
     @include flexdirection(column);
     overflow: hidden;
     height: 100%;
-    min-height: 100vh;
     background-color: transparent;
+
 
     // Main Header Container
     &__header {
