@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 class SnNavLabel extends React.Component {
   static propTypes = {
-    children: PropTypes.string
+    children: PropTypes.any
   }
 
   static defaultProps = {

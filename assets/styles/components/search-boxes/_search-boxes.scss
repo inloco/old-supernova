@@ -18,7 +18,6 @@
 
 .sn-search-box {
   position: relative;
-  width: 100%;
   min-height: $default-search-box-min-height;
   background-color: $default-search-box-background-color;
   @include shadow-2dp();
@@ -31,14 +30,14 @@
     margin: 0;
     li {
       position: relative;
-      min-height: 32px;
+      min-height: 40px;
       font-size: 14px;
       color: #000;
       text-overflow: ellipsis;
       word-break: break-all;
 
       .sn-search-box__item-content {
-        padding: 6px 0;
+        padding: 10px 0;
       }
 
       .sn-search-box__item-button {
@@ -179,7 +178,6 @@
       background: #FFF;
       &.is-selected {
         color: black;
-        font-weight: bold;
       }
   
       &--icon {

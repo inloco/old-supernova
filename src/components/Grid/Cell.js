@@ -35,19 +35,7 @@ class Cell extends React.PureComponent {
 
     return (
       <div
-        className={`
-          ${sizeClassName}
-          ${className}
-          ${percentClassName}
-          ${fixedClassName}
-          ${dynamicClassName}
-          ${paddingClassName}
-          ${orderClassName}
-          ${alignClassName}
-          ${alignContentClassName}
-          ${wrapClassName}
-          ${ellipsisClassName}
-        `}
+        className={`${sizeClassName} ${className} ${percentClassName} ${fixedClassName} ${dynamicClassName} ${paddingClassName} ${orderClassName} ${alignClassName} ${alignContentClassName} ${wrapClassName} ${ellipsisClassName}`}
       >
        {children}
       </div>

@@ -11,71 +11,69 @@
  *
  */
 
-
  @import "sn-layout_variables";
 
-
 .sn-drawer {
-	@include flexbox();
-	@include flexdirection(column);
-	height: 100%;
-	max-width: $layout-drawer-width;
-	color: white;
+  @include flexbox();
+  @include flexdirection(column);
+  height: 100%;
+  max-width: $layout-drawer-width;
+  color: white;
 }
 
 .sn-drawer__brand {
-	@include flexitem(0, 0, auto);
+  @include flexitem(0, 0, auto);
 }
 
 .sn-drawer__footer {
-	@include flexitem(0, 0, 48px);
-	margin: 0;
-	color: white;
-	&:before {
-		display: block;
-		content:" ";
-		margin: 0 8px;
-		border-top: 1px solid $layout-drawer-label-color;
-	}
+  @include flexitem(0, 0, 48px);
+  margin: 0;
+  color: white;
+  &:before {
+    display: block;
+    content:" ";
+    margin: 0 8px;
+    border-top: 1px solid $layout-drawer-label-color;
+  }
 }
 
 .sn-drawer__label {
-	@include flexitem(0, 1, auto);
-	@include flexbox();
-	flex-wrap: no-wrap;
-	font-size: 12px;
-	margin: 8px;
-	padding: 5px 0;
-	letter-spacing: .02em;
-	color: $layout-drawer-label-color;
-	&:before {
-		content: "";
-		flex: 0 0 auto;
-		width: auto;
-		height: 6px;
-		padding: 0px 4px;
-		margin-right: 8px;
-		border-bottom: 1px solid $layout-drawer-label-color;
-	}
-	&:after {
-		content: "";
-		flex: 1 1 auto;
-		width: auto;
-		height: 6px;
-		padding: 0px 8px;
-		margin-left: 8px;
-		border-bottom: 1px solid $layout-drawer-label-color;
-	}
+  @include flexitem(0, 1, auto);
+  @include flexbox();
+  flex-wrap: no-wrap;
+  font-size: 12px;
+  margin: 8px;
+  padding: 5px 0;
+  letter-spacing: .02em;
+  color: $layout-drawer-label-color;
+  &:before {
+    content: "";
+    flex: 0 0 auto;
+    width: auto;
+    height: 6px;
+    padding: 0px 4px;
+    margin-right: 8px;
+    border-bottom: 1px solid $layout-drawer-label-color;
+  }
+  &:after {
+    content: "";
+    flex: 1 1 auto;
+    width: auto;
+    height: 6px;
+    padding: 0px 8px;
+    margin-left: 8px;
+    border-bottom: 1px solid $layout-drawer-label-color;
+  }
 }
 
 hr {
-	display: block;
-	margin: 0px 8px;
-	padding: 0 0 11px 0;
-	border: 0;
-	height: 0;
-	border-bottom: 1px solid $layout-drawer-label-color;
-	background-color: transparent;
+  display: block;
+  margin: 0px 8px;
+  padding: 0 0 11px 0;
+  border: 0;
+  height: 0;
+  border-bottom: 1px solid $layout-drawer-label-color;
+  background-color: transparent;
 }
 
 // Include Nav Collapsed placeholder

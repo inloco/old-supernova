@@ -11,88 +11,81 @@
  *
  */
 
-
 // Remove
-$default-brand-color				 		: #78BE20;
-$default-brand-accent-color			: #78BE20;
+$default-brand-color             : #78BE20;
+$default-brand-accent-color      : #78BE20;
 // ----
-
 
 // Icons Paths
 
-$icon-white-arrow-up				: "/assets/images/icon-up-arrow-white.svg";
-$icon-white-arrow-down			: "/assets/images/icon-down-arrow-white.svg";
-$icon-white-arrow-left			: "/assets/images/icon-left-arrow-white.svg";
-$icon-white-arrow-right			: "/assets/images/icon-right-arrow-white.svg";
-$icon-black-arrow-up				: "/assets/images/icon-up-arrow-black.svg";
-$icon-black-arrow-down			: "/assets/images/icon-down-arrow-black.svg";
-$icon-black-arrow-left			: "/assets/images/icon-left-arrow-black.svg";
-$icon-black-arrow-right			: "/assets/images/icon-right-arrow-black.svg";
-
+$icon-white-arrow-up        : "/assets/images/icon-up-arrow-white.svg";
+$icon-white-arrow-down      : "/assets/images/icon-down-arrow-white.svg";
+$icon-white-arrow-left      : "/assets/images/icon-left-arrow-white.svg";
+$icon-white-arrow-right     : "/assets/images/icon-right-arrow-white.svg";
+$icon-black-arrow-up        : "/assets/images/icon-up-arrow-black.svg";
+$icon-black-arrow-down      : "/assets/images/icon-down-arrow-black.svg";
+$icon-black-arrow-left      : "/assets/images/icon-left-arrow-black.svg";
+$icon-black-arrow-right     : "/assets/images/icon-right-arrow-black.svg";
 
 // Product Colors
 
-$product-color-media										: #78BE20;
-$product-color-engage										: #3498db;
-$product-color-inloco										: #3A4356; //oxford
-// $product-color-inloco										: #333F48;
-// $product-color-inloco										: #253746;
+$product-color-media                     : #78BE20;
+$product-color-engage                    : #3498db;
+$product-color-inloco                    : #3A4356; //oxford
 
-$product-brand-color										: $default-brand-color;
-$product-accent-color										: $default-brand-accent-color;
-
+$product-brand-color                     : $default-brand-color;
+$product-accent-color                    : $default-brand-accent-color;
 
 // Drawer
 
-$layout-sysbar-height										: 48px;
-$layout-drawer-width										: 240px;
-$layout-drawer-collapsed-width					: 60px;
-$layout-header-height										: 96px;
-$layout-subheader-height								: 32px;
-$layout-footer-height										: 96px;
-$layout-aside-width											: 240px;
+$layout-sysbar-height                    : 48px;
+$layout-drawer-width                     : 240px;
+$layout-drawer-collapsed-width           : 60px;
+$layout-header-height                    : 96px;
+$layout-subheader-height                 : 32px;
+$layout-footer-height                    : 96px;
+$layout-aside-width                      : 240px;
 /* ALERT: If you change this value, you've to change the
    LAYOUT_RESPONSIVE_BREAKPOINT constant in SnLayout
 */
-$layout-responsive-breakpoint						: 480px;
+$layout-responsive-breakpoint           : 480px;
 
-$layout-sysbar-background-color					: white;
-$layout-drawer-background-color					: $product-color-inloco;
-$layout-drawer-list-info								: rgba(255,255,255,0.5);
-$layout-drawer-divisor-color						: rgba(255,255,255,0.3);
-$layout-drawer-label-color							: $layout-drawer-divisor-color;
-$layout-header-background-color					: white;
-$layout-subheader-background-color			: #E0E0E0;
-$layout-footer-background-color					: #E0E0E0;
-$layout-aside-background-color					: #E0E0E0;
-$layout-containers-borders							: #C9C9C9;
-$layout-drawer-button-color							: $layout-drawer-background-color;
+$layout-sysbar-background-color         : white;
+$layout-drawer-background-color         : $product-color-inloco;
+$layout-drawer-list-info                : rgba(255,255,255,0.5);
+$layout-drawer-divisor-color            : rgba(255,255,255,0.3);
+$layout-drawer-label-color              : $layout-drawer-divisor-color;
+$layout-header-background-color         : white;
+$layout-subheader-background-color      : #E0E0E0;
+$layout-footer-background-color         : #E0E0E0;
+$layout-aside-background-color          : #E0E0E0;
+$layout-containers-borders              : #C9C9C9;
+$layout-drawer-button-color             : $layout-drawer-background-color;
 
-$nav-list-item-max-height								:	48px;
-$nav-list-icon-color										: #9E9E9E;
-$nav-list-text-color										: #757575;
-$nav-list-hover-background-color				: rgba(0, 0, 0, 0.08);
-$nav-list-label-color										: #BDBDBD;
-$nav-list-info-color										: #BDBDBD;
+$nav-list-item-max-height               : 48px;
+$nav-list-icon-color                    : #9E9E9E;
+$nav-list-text-color                    : #757575;
+$nav-list-hover-background-color        : rgba(0, 0, 0, 0.08);
+$nav-list-label-color                   : #BDBDBD;
+$nav-list-info-color                    : #BDBDBD;
 
-$z-layout-drawer												: 700;
-$z-layout-sysbar												: 800;
-$z-layout-obfuscator										: 900; // background-overlay
-$z-layout-drawer-oculted								: 1000;
+$z-layout-drawer                        : 700;
+$z-layout-sysbar                        : 800;
+$z-layout-obfuscator                    : 900; // background-overlay
+$z-layout-drawer-oculted                : 1000;
 
 $default-obfuscator-background-color    : rgba(#000, 0.5);
 $animation-curve-fast-out-slow-in       : cubic-bezier(0.4, 0, 0.2, 1) !default;
 @mixin animation-default($duration:0.2s) {
- transition-duration                   : $duration;
- transition-timing-function            : $animation-curve-fast-out-slow-in;
+ transition-duration                    : $duration;
+ transition-timing-function             : $animation-curve-fast-out-slow-in;
 }
 
-$layout-drawer-brand-padding-vertical		: calc((#{$layout-header-height} - 24px)/2); // 36px;
-$layout-drawer-brand-padding-horizontal	: 8px;
-$layout-drawer-brand-margin							: 0 8px 0 8px;
+$layout-drawer-brand-padding-vertical    : calc((#{$layout-header-height} - 24px)/2); // 36px;
+$layout-drawer-brand-padding-horizontal  : 8px;
+$layout-drawer-brand-margin              : 0 8px 0 8px;
 
-$layout-sysbar-brand-padding-vertical		: 12px;
-$layout-sysbar-brand-padding-horizontal	: 16px;
-$layout-sysbar-brand-height							: $layout-sysbar-height - ($layout-sysbar-brand-padding-vertical * 2);
-$layout-sysbar-brand-maxwidth						: $layout-drawer-width - ($layout-drawer-brand-padding-horizontal * 2);
-
+$layout-sysbar-brand-padding-vertical    : 12px;
+$layout-sysbar-brand-padding-horizontal  : 16px;
+$layout-sysbar-brand-height              : $layout-sysbar-height - ($layout-sysbar-brand-padding-vertical * 2);
+$layout-sysbar-brand-maxwidth            : $layout-drawer-width - ($layout-drawer-brand-padding-horizontal * 2);

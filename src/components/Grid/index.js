@@ -38,19 +38,7 @@ class Grid extends React.PureComponent {
 
     return (
       <div
-        className={`
-          sn-grid
-          ${gridTypeClassName}
-          ${responsiveClassName}
-          ${bleedClassName}
-          ${gutterClassName}
-          ${paddingClassName}
-          ${wrapClassName}
-          ${alignClassName}
-          ${alignJustifyClassName}
-          ${alignContentClassName}
-          ${className}
-        `}
+        className={`sn-grid ${gridTypeClassName} ${responsiveClassName} ${bleedClassName} ${gutterClassName} ${paddingClassName} ${wrapClassName} ${alignClassName} ${alignJustifyClassName} ${alignContentClassName} ${className}`}
       >
         {children}
       </div>
