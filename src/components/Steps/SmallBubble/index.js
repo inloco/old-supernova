@@ -6,9 +6,9 @@ class Steps extends BaseSteps {
   render() {
     return (
       <div className='sn-steps sn-steps__small-bubble'>
-        <ul className='sn-steps__small-bubble-list'>
+        <div className='sn-steps__small-bubble-list'>
           {this.renderSteps()}
-        </ul>
+        </div>
       </div>
     )
   }

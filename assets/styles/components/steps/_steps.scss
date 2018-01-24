@@ -321,7 +321,7 @@
     }
     .sn-steps__small-bubble-list {
       @include flexbox();
-      width: auto;
+      width: 100%;
       margin: 0 auto;
       padding: 0;
 
@@ -339,8 +339,8 @@
         color: $default-steps-waiting-color;
 
         &:before {
-          width: 16px;
-          height: 16px;
+          width: 17px;
+          height: 17px;
           content: '';
           line-height: 25px;
           border: 1px solid $default-steps-waiting-color;
@@ -369,12 +369,17 @@
         &.is-done {
           color: $default-steps-waiting-color;
           &:before {
-            content: '\2713';
+            font-family: "Material Icons";
+            content: "\E876";
             border-color: #2979FF;
             background-color: #2979FF;
             color: white;
-            font-size: 14px;
+            font-size: 17px;
             line-height: 17px;
+          }
+
+          &:after {
+            height: 2px;
           }
         }
 
@@ -385,10 +390,11 @@
         &.is-active {
           color: #2979FF;
           &:before {
-            content: '\25CF';
+            font-family: "Material Icons";
+            content: "\E061";
             background-color: #F5F5F5;
             border: 2px solid #2979FF;
-            font-size: 22px;
+            font-size: 17px;
             line-height: 17px;
           }
 
