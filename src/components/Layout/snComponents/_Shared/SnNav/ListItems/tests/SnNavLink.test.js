@@ -200,6 +200,37 @@ describe('SnNavLink', () => {
     })
   })
 
+  describe('when has iconSrc', () => {
+    const iconSrc = 'IconSrc'
+    const iconAlt = 'IconAlt'
+    const wrapper = shallow(
+      <SnNavLink iconSrc={iconSrc} iconAlt={iconAlt}>
+        Children
+      </SnNavLink>
+    )
+
+    it('has SnNavIcon', () => {
+      const current = wrapper.find(SnNavIcon)
+      const expected = 1
+
+      expect(current).toHaveLength(expected)
+    })
+
+    it('has src props', () => {
+      const current = wrapper.find(SnNavIcon).props().src
+      const expected = iconSrc
+
+      expect(current).toEqual(expected)
+    })
+
+    it('has alt props', () => {
+      const current = wrapper.find(SnNavIcon).props().alt
+      const expected = iconAlt
+
+      expect(current).toEqual(expected)
+    })
+  })
+
   describe('handleCloseDrawerClick', () => {
     const handleCloseDrawerClick = jest.fn()
     const context = {
@@ -214,7 +245,7 @@ describe('SnNavLink', () => {
 
     it('calls handleCloseDrawerClick on li click', () => {
       wrapper.find('li').simulate('click')
- 
+
       expect(handleCloseDrawerClick).toBeCalled()
     })
   })

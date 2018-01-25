@@ -68,7 +68,7 @@ class SnNavLink extends React.Component {
     return(
       <React.Fragment>
         { iconCode && <SnNavIcon code={ iconCode } /> }
-        { iconSrc && <img src={ iconSrc } alt={ iconAlt } /> }
+        { iconSrc && <SnNavIcon src={ iconSrc } alt={ iconAlt } /> }
         <SnNavText>
           { this.props.children }
         </SnNavText>

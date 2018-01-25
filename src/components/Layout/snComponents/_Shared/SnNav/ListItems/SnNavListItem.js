@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import drawerIsCollapsed from './../drawerIsCollapsed'
 
 class SnNavListItem extends React.Component {
   static propTypes = {
@@ -20,15 +19,17 @@ class SnNavListItem extends React.Component {
   }
 
   render() {
-    const isCollapsed = drawerIsCollapsed(this.context)
-    const isExpanded = !isCollapsed && this.state.expanded
     const navlistItemClasses = classNames('sn-nav__list__item',{
       'sn-nav__list__item--expandable': this.props.expandable,
-      'is-expanded': isExpanded
+      'is-expanded': this.state.expanded
     })
 
     return (
-      <li className={  navlistItemClasses } onClick={ this.handleExpansion }>
+      <li
+        className={  navlistItemClasses }
+        onClick={ this.handleExpansion }
+        onMouseLeave={this.blurListItem}
+      >
         { this.props.children }
       </li>
     )
@@ -41,11 +42,12 @@ class SnNavListItem extends React.Component {
 
     this.setState(prevState => ({ expanded: !prevState.expanded }))
   }
-}
 
-SnNavListItem.contextTypes = {
-  drawerIsCollapsed: PropTypes.bool,
-  drawerIsOpened: PropTypes.bool
+  blurListItem = () => {
+    setTimeout(() => {
+      this.setState({ expanded: false })
+    }, 200)
+  }
 }
 
 export default SnNavListItem
