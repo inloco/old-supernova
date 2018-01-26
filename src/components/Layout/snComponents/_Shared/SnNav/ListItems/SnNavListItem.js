@@ -18,6 +18,14 @@ class SnNavListItem extends React.Component {
     this.state = ({ expanded: false })
   }
 
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
   render() {
     const navlistItemClasses = classNames('sn-nav__list__item',{
       'sn-nav__list__item--expandable': this.props.expandable,
@@ -28,7 +36,7 @@ class SnNavListItem extends React.Component {
       <li
         className={  navlistItemClasses }
         onClick={ this.handleExpansion }
-        onMouseLeave={this.blurListItem}
+        ref={node => this.wrapperRef = node}
       >
         { this.props.children }
       </li>
@@ -43,10 +51,10 @@ class SnNavListItem extends React.Component {
     this.setState(prevState => ({ expanded: !prevState.expanded }))
   }
 
-  blurListItem = () => {
-    setTimeout(() => {
+  handleClickOutside = (event) => {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
       this.setState({ expanded: false })
-    }, 200)
+    }
   }
 }
 

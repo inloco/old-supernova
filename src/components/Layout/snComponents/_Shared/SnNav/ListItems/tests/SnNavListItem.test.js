@@ -1,6 +1,6 @@
 import React from 'react'
 import SnNavListItem from './../SnNavListItem'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 
 describe('SnNavListItem', () => {
   describe('when the state expanded is false', () => {
@@ -236,19 +236,20 @@ describe('SnNavListItem', () => {
     })
   })
 
-  describe('blurListItem', () => {
-    const wrapper = shallow(
+  describe('handleClickOutside', () => {
+    const wrapper = mount(
       <SnNavListItem expandable={false}>
         <div>Children</div>
       </SnNavListItem>
     ).setState({ expanded: true })
 
     it('should change the expanded state to false', () => {
-      wrapper.instance().blurListItem()
+      const event = { target: 'somTarget' }
+      wrapper.instance().handleClickOutside(event)
 
       const current = wrapper.state().expanded
 
-      expect(current).toBeTruthy()
+      expect(current).toBeFalsy()
     })
   })
 })
