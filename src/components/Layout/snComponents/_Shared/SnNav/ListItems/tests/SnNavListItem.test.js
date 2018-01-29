@@ -1,720 +1,164 @@
 import React from 'react'
 import SnNavListItem from './../SnNavListItem'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 
 describe('SnNavListItem', () => {
-  describe('when the state expandable is false', () => {
+  describe('when the state expanded is false', () => {
     describe('when expandable is false', () => {
-      describe('when drawerIsCollapsed is false and drawerIsOpened is false', () => {
-        const context = {
-          drawerIsCollapsed: false,
-          drawerIsOpened: false
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable={false}>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        )
+      const wrapper = shallow(
+        <SnNavListItem expandable={false}>
+          <div>Children</div>
+        </SnNavListItem>
+      )
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
+      it('is a li', () => {
+        const current = wrapper.type()
+        const expected = 'li'
 
-          expect(current).toBe(expected)
-        })
-
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has no expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has no expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(current).toBe(expected)
       })
 
-      describe('when drawerIsCollapsed is false and drawerIsOpened is true', () => {
-        const context = {
-          drawerIsCollapsed: false,
-          drawerIsOpened: true
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable={false}>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        )
+      it('has specific class', () => {
+        const current = wrapper.hasClass('sn-nav__list__item')
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
-
-          expect(current).toBe(expected)
-        })
-
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has no expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has no expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(current).toBeTruthy()
       })
 
-      describe('when drawerIsCollapsed is true and drawerIsOpened is false', () => {
-        const context = {
-          drawerIsCollapsed: true,
-          drawerIsOpened: false
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable={false}>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        )
+      it('has no expandable class', () => {
+        const current = wrapper.hasClass('sn-nav__list__item--expandable')
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
-
-          expect(current).toBe(expected)
-        })
-
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has no expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has no expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(current).toBeFalsy()
       })
 
-      describe('when drawerIsCollapsed is true and drawerIsOpened is true', () => {
-        const context = {
-          drawerIsCollapsed: true,
-          drawerIsOpened: true
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable={false}>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        )
+      it('has no expanded class', () => {
+        const current = wrapper.hasClass('is-expanded')
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
+        expect(current).toBeFalsy()
+      })
 
-          expect(current).toBe(expected)
-        })
+      it('has children', () => {
+        const children = wrapper.children()
 
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has no expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has no expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(children).not.toBe(undefined)
       })
     })
 
     describe('when expandable is true', () => {
-      describe('when drawerIsCollapsed is false and drawerIsOpened is false', () => {
-        const context = {
-          drawerIsCollapsed: false,
-          drawerIsOpened: false
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        )
+      const wrapper = shallow(
+        <SnNavListItem expandable>
+          <div>Children</div>
+        </SnNavListItem>
+      )
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
+      it('is a li', () => {
+        const current = wrapper.type()
+        const expected = 'li'
 
-          expect(current).toBe(expected)
-        })
-
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has no expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(current).toBe(expected)
       })
 
-      describe('when drawerIsCollapsed is false and drawerIsOpened is true', () => {
-        const context = {
-          drawerIsCollapsed: false,
-          drawerIsOpened: true
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        )
+      it('has specific class', () => {
+        const current = wrapper.hasClass('sn-nav__list__item')
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
-
-          expect(current).toBe(expected)
-        })
-
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has no expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(current).toBeTruthy()
       })
 
-      describe('when drawerIsCollapsed is true and drawerIsOpened is false', () => {
-        const context = {
-          drawerIsCollapsed: true,
-          drawerIsOpened: false
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        )
+      it('has expandable class', () => {
+        const current = wrapper.hasClass('sn-nav__list__item--expandable')
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
-
-          expect(current).toBe(expected)
-        })
-
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has no expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(current).toBeTruthy()
       })
 
-      describe('when drawerIsCollapsed is true and drawerIsOpened is true', () => {
-        const context = {
-          drawerIsCollapsed: true,
-          drawerIsOpened: true
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        )
+      it('has no expanded class', () => {
+        const current = wrapper.hasClass('is-expanded')
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
+        expect(current).toBeFalsy()
+      })
 
-          expect(current).toBe(expected)
-        })
+      it('has children', () => {
+        const children = wrapper.children()
 
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has no expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(children).not.toBe(undefined)
       })
     })
   })
 
-  describe('when the state expandable is true', () => {
+  describe('when the state expanded is true', () => {
     describe('when expandable is false', () => {
-      describe('when drawerIsCollapsed is false and drawerIsOpened is false', () => {
-        const context = {
-          drawerIsCollapsed: false,
-          drawerIsOpened: false
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable={false}>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        ).setState({ expanded: true })
+      const wrapper = shallow(
+        <SnNavListItem expandable={false}>
+          <div>Children</div>
+        </SnNavListItem>
+      ).setState({ expanded: true })
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
+      it('is a li', () => {
+        const current = wrapper.type()
+        const expected = 'li'
 
-          expect(current).toBe(expected)
-        })
-
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has no expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(current).toBe(expected)
       })
 
-      describe('when drawerIsCollapsed is false and drawerIsOpened is true', () => {
-        const context = {
-          drawerIsCollapsed: false,
-          drawerIsOpened: true
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable={false}>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        ).setState({ expanded: true })
+      it('has specific class', () => {
+        const current = wrapper.hasClass('sn-nav__list__item')
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
-
-          expect(current).toBe(expected)
-        })
-
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has no expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(current).toBeTruthy()
       })
 
-      describe('when drawerIsCollapsed is true and drawerIsOpened is false', () => {
-        const context = {
-          drawerIsCollapsed: true,
-          drawerIsOpened: false
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable={false}>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        ).setState({ expanded: true })
+      it('has no expandable class', () => {
+        const current = wrapper.hasClass('sn-nav__list__item--expandable')
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
-
-          expect(current).toBe(expected)
-        })
-
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has no expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has no expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(current).toBeFalsy()
       })
 
-      describe('when drawerIsCollapsed is true and drawerIsOpened is true', () => {
-        const context = {
-          drawerIsCollapsed: true,
-          drawerIsOpened: true
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable={false}>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        ).setState({ expanded: true })
+      it('has expanded class', () => {
+        const current = wrapper.hasClass('is-expanded')
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
+        expect(current).toBeTruthy()
+      })
 
-          expect(current).toBe(expected)
-        })
+      it('has children', () => {
+        const children = wrapper.children()
 
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has no expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(children).not.toBe(undefined)
       })
     })
 
     describe('when expandable is true', () => {
-      describe('when drawerIsCollapsed is false and drawerIsOpened is false', () => {
-        const context = {
-          drawerIsCollapsed: false,
-          drawerIsOpened: false
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        ).setState({ expanded: true })
+      const wrapper = shallow(
+        <SnNavListItem expandable>
+          <div>Children</div>
+        </SnNavListItem>
+      ).setState({ expanded: true })
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
+      it('is a li', () => {
+        const current = wrapper.type()
+        const expected = 'li'
 
-          expect(current).toBe(expected)
-        })
-
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(current).toBe(expected)
       })
 
-      describe('when drawerIsCollapsed is false and drawerIsOpened is true', () => {
-        const context = {
-          drawerIsCollapsed: false,
-          drawerIsOpened: true
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        ).setState({ expanded: true })
+      it('has specific class', () => {
+        const current = wrapper.hasClass('sn-nav__list__item')
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
-
-          expect(current).toBe(expected)
-        })
-
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(current).toBeTruthy()
       })
 
-      describe('when drawerIsCollapsed is true and drawerIsOpened is false', () => {
-        const context = {
-          drawerIsCollapsed: true,
-          drawerIsOpened: false
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        ).setState({ expanded: true })
+      it('has expandable class', () => {
+        const current = wrapper.hasClass('sn-nav__list__item--expandable')
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
-
-          expect(current).toBe(expected)
-        })
-
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has no expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeFalsy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(current).toBeTruthy()
       })
 
-      describe('when drawerIsCollapsed is true and drawerIsOpened is true', () => {
-        const context = {
-          drawerIsCollapsed: true,
-          drawerIsOpened: true
-        }
-        const wrapper = shallow(
-          <SnNavListItem expandable>
-            <div>Children</div>
-          </SnNavListItem>,
-          { context }
-        ).setState({ expanded: true })
+      it('has expanded class', () => {
+        const current = wrapper.hasClass('is-expanded')
 
-        it('is a li', () => {
-          const current = wrapper.type()
-          const expected = 'li'
+        expect(current).toBeTruthy()
+      })
 
-          expect(current).toBe(expected)
-        })
+      it('has children', () => {
+        const children = wrapper.children()
 
-        it('has specific class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has expandable class', () => {
-          const current = wrapper.hasClass('sn-nav__list__item--expandable')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has expanded class', () => {
-          const current = wrapper.hasClass('is-expanded')
-
-          expect(current).toBeTruthy()
-        })
-
-        it('has children', () => {
-          const children = wrapper.children()
-
-          expect(children).not.toBe(undefined)
-        })
+        expect(children).not.toBe(undefined)
       })
     })
   })
@@ -789,6 +233,23 @@ describe('SnNavListItem', () => {
           expect(current).toEqual(expected)
         })
       })
+    })
+  })
+
+  describe('handleClickOutside', () => {
+    const wrapper = mount(
+      <SnNavListItem expandable={false}>
+        <div>Children</div>
+      </SnNavListItem>
+    ).setState({ expanded: true })
+
+    it('should change the expanded state to false', () => {
+      const event = { target: 'somTarget' }
+      wrapper.instance().handleClickOutside(event)
+
+      const current = wrapper.state().expanded
+
+      expect(current).toBeFalsy()
     })
   })
 })

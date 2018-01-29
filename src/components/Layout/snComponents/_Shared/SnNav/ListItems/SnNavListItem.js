@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import drawerIsCollapsed from './../drawerIsCollapsed'
 
 class SnNavListItem extends React.Component {
   static propTypes = {
@@ -19,16 +18,26 @@ class SnNavListItem extends React.Component {
     this.state = ({ expanded: false })
   }
 
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
   render() {
-    const isCollapsed = drawerIsCollapsed(this.context)
-    const isExpanded = !isCollapsed && this.state.expanded
     const navlistItemClasses = classNames('sn-nav__list__item',{
       'sn-nav__list__item--expandable': this.props.expandable,
-      'is-expanded': isExpanded
+      'is-expanded': this.state.expanded
     })
 
     return (
-      <li className={  navlistItemClasses } onClick={ this.handleExpansion }>
+      <li
+        className={  navlistItemClasses }
+        onClick={ this.handleExpansion }
+        ref={node => this.wrapperRef = node}
+      >
         { this.props.children }
       </li>
     )
@@ -41,11 +50,12 @@ class SnNavListItem extends React.Component {
 
     this.setState(prevState => ({ expanded: !prevState.expanded }))
   }
-}
 
-SnNavListItem.contextTypes = {
-  drawerIsCollapsed: PropTypes.bool,
-  drawerIsOpened: PropTypes.bool
+  handleClickOutside = (event) => {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      this.setState({ expanded: false })
+    }
+  }
 }
 
 export default SnNavListItem
