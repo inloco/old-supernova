@@ -18,28 +18,47 @@ class ResultCard extends React.PureComponent {
 
   render() {
     const { result } = this.props
+    const {
+      title,
+      info,
+      subtitle,
+      secondaryImage,
+      tag
+    } = result
 
     return (
       <div onMouseDown={this.handleMouseDown}>
         <div className="sn-search-box__item-content">
-          <Grid responsive="mobile-lg" gutter>
-            <Cell size="1">
+          <Grid responsive="mobile-lg" gutter="xs">
+            {secondaryImage && (
+              <Cell align="center">
+                <img className="sn-search-box__item-content__image" src={secondaryImage} />
+              </Cell>
+            )}
+
+            <Cell size="1" align="center">
               <Text span fontWeight="bold">
-                {result.title}
+                {title}
+              </Text>
+              {tag && (
+                <Text span className="sn-search-box__item-content__tag">
+                  {tag}
+                </Text>
+              )}
+            </Cell>
+
+            <Cell size="auto" alignContent="right" align="center">
+              <Text span color="sn-color--secondary-text" wrap="caption">
+                {info}
               </Text>
             </Cell>
 
-            <Cell size="auto" alignContent="right">
-              <Text span color="sn-color--secondary-text" wrap="caption">
-                {result.info}
-              </Text>
-            </Cell>
           </Grid>
 
           <Grid responsive="mobile-lg">
             <Cell size="1">
               <Text span color="sn-color--secondary-text" wrap="caption">
-                {result.subtitle}
+                {subtitle}
               </Text>
             </Cell>
           </Grid>
