@@ -30,7 +30,11 @@ class Searchbox extends React.Component {
     results: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.any.isRequired,
-        title: PropTypes.string.isRequired
+        title: PropTypes.string.isRequired,
+        info: PropTypes.string,
+        subtitle: PropTypes.string,
+        secondaryImage: PropTypes.string,
+        tag: PropTypes.string
       })
     ),
     initialSelectedResults: PropTypes.arrayOf(
