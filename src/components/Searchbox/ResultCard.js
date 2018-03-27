@@ -7,7 +7,13 @@ import PropTypes from 'prop-types'
 class ResultCard extends React.PureComponent {
   static propTypes = {
     onSelectResult: PropTypes.func.isRequired,
-    result: PropTypes.object.isRequired
+    result: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      info: PropTypes.string,
+      subtitle: PropTypes.string,
+      secondaryImage: PropTypes.string,
+      tag: PropTypes.string
+    }).isRequired
   }
 
   constructor(props) {
