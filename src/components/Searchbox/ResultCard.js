@@ -36,21 +36,13 @@ class ResultCard extends React.PureComponent {
       <div onMouseDown={this.handleMouseDown}>
         <div className="sn-search-box__item-content">
           <Grid responsive="mobile-lg" gutter="xs">
-            {secondaryImage && (
-              <Cell align="center">
-                <img className="sn-search-box__item-content__image" src={secondaryImage} />
-              </Cell>
-            )}
+            {this.renderSecondaryImage(secondaryImage)}
 
             <Cell size="1" align="center">
               <Text span fontWeight="bold">
                 {title}
               </Text>
-              {tag && (
-                <Text span className="sn-search-box__item-content__tag">
-                  {tag}
-                </Text>
-              )}
+              {this.renderTag(tag)}
             </Cell>
 
             <Cell size="auto" alignContent="right" align="center">
@@ -72,6 +64,28 @@ class ResultCard extends React.PureComponent {
 
         <button type="button" className="sn-search-box__item-button"></button>
       </div>
+    )
+  }
+
+  renderSecondaryImage(secondaryImage) {
+    if (!secondaryImage)
+      return
+
+    return (
+      <Cell align="center">
+        <img className="sn-search-box__item-content__image" src={secondaryImage} />
+      </Cell>
+    )
+  }
+
+  renderTag(tag) {
+    if (!tag)
+      return
+
+    return (
+      <Text span className="sn-search-box__item-content__tag">
+        {tag}
+      </Text>
     )
   }
 
