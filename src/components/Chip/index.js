@@ -12,6 +12,8 @@ class Chip extends React.Component {
     iconCode: PropTypes.string,
     iconColor: PropTypes.string,
     iconClick: PropTypes.func,
+    secondaryImage: PropTypes.string,
+    tag: PropTypes.string,
     reversed: PropTypes.any
   }
 
