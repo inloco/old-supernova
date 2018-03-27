@@ -26,12 +26,18 @@ class SnNavLink extends React.Component {
   }
 
   render() {
+    const { active, external } = this.props
+
+    const classes = active
+      ? 'sn-nav__list__item is-selected'
+      : 'sn-nav__list__item'
+
     return (
       <li
-        className='sn-nav__list__item'
+        className={classes}
         onClick={ this.context.handleCloseDrawerClick }
       >
-        { this.props.external ? this.renderExternalLink() : this.renderLink() }
+        { external ? this.renderExternalLink() : this.renderLink() }
       </li>
     )
   }
