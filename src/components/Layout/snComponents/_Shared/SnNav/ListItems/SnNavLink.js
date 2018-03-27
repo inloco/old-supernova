@@ -13,7 +13,8 @@ class SnNavLink extends React.Component {
     iconSrc: PropTypes.string,
     iconAlt: PropTypes.string,
     external: PropTypes.bool,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    active: PropTypes.bool
   }
 
   static defaultProps = {
