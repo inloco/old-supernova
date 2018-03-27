@@ -7,7 +7,9 @@ describe('ResultCard', () => {
   const result = {
     title: 'foo',
     info: 'some',
-    subtitle: 'subtitle'
+    subtitle: 'subtitle',
+    secondaryImage: 'http://some-url.com/',
+    tag: 'Some tag'
   }
   const wrapper = shallow(
     <ResultCard
@@ -28,9 +30,22 @@ describe('ResultCard', () => {
     expect(wrapper.text().includes('subtitle'))
   })
 
+  it('displays secondary image', () => {
+    const target = wrapper.find('.sn-search-box__item-content__image')
+    expect(target.exists()).toBeTruthy()
+    expect(target.props().src).toEqual(result.secondaryImage)
+  })
+
+  it('displays tag', () => {
+    const target = wrapper.find('.sn-search-box__item-content__tag')
+    expect(target.exists()).toBeTruthy()
+    expect(target.props().children).toEqual(result.tag)
+  })
+
   it('calls onSelectResult when clicked', () => {
     wrapper.simulate('mouseDown')
 
     expect(onSelectResult).toBeCalled()
   })
+
 })

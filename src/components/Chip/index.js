@@ -12,6 +12,8 @@ class Chip extends React.Component {
     iconCode: PropTypes.string,
     iconColor: PropTypes.string,
     iconClick: PropTypes.func,
+    secondaryImage: PropTypes.string,
+    tag: PropTypes.string,
     reversed: PropTypes.any
   }
 
@@ -34,11 +36,29 @@ class Chip extends React.Component {
       >
         <div className="sn-chip__inner-wrapper">
           {this.renderLeftIconOrImage()}
+          {this.renderSecondaryImage()}
           <span className="sn-chip__inner-wrapper__text">{text}</span>
+          {this.renderTag()}
           {this.renderRightIconOrImage()}
         </div>
       </div>
     )
+  }
+
+  renderSecondaryImage() {
+    const { secondaryImage } = this.props
+    if (!secondaryImage)
+      return
+
+    return <img className="sn-chip__inner-wrapper__secondary-image" src={secondaryImage} />
+  }
+
+  renderTag() {
+    const { tag } = this.props
+    if (!tag)
+      return
+
+    return <span className="sn-chip__inner-wrapper__tag">{tag}</span>
   }
 
   renderLeftIconOrImage() {
@@ -49,7 +69,7 @@ class Chip extends React.Component {
     } = this.props
 
     if (reversed && iconCode) return this.renderIcon()
-    
+
     if (!reversed && imageUrl) return this.renderImage()
   }
 
@@ -61,7 +81,7 @@ class Chip extends React.Component {
     } = this.props
 
     if (reversed && imageUrl) return this.renderImage()
-    
+
     if (!reversed && iconCode) return this.renderIcon()
   }
 
@@ -74,7 +94,7 @@ class Chip extends React.Component {
     } = this.props
 
     return (
-      <Icon 
+      <Icon
         className={extraClasses}
         code={iconCode}
         onClick={iconClick}

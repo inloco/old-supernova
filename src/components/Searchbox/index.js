@@ -26,10 +26,15 @@ class Searchbox extends React.Component {
     selectedResultsType: PropTypes.string,
     resultsMaxHeight: PropTypes.number,
     chipTooltip: PropTypes.any,
+    chipIconCode: PropTypes.string,
     results: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.any.isRequired,
-        title: PropTypes.string.isRequired
+        title: PropTypes.string.isRequired,
+        info: PropTypes.string,
+        subtitle: PropTypes.string,
+        secondaryImage: PropTypes.string,
+        tag: PropTypes.string
       })
     ),
     initialSelectedResults: PropTypes.arrayOf(
@@ -48,7 +53,8 @@ class Searchbox extends React.Component {
     focusInputOnResultUnselect: false,
     clearInputOnResultSelect: false,
     resultsMaxHeight: null,
-    results: null
+    results: null,
+    chipIconCode: 'cancel'
   }
 
   componentWillReceiveProps(nextProps) {
@@ -235,11 +241,16 @@ class Searchbox extends React.Component {
   }
 
   renderSimpleResultChip(selectedResult) {
+    const { chipIconCode } = this.props
+    const { title, secondaryImage, tag } = selectedResult
+
     return (
       <Chip
-        text={selectedResult.title}
-        iconCode="cancel"
+        text={title}
+        iconCode={chipIconCode}
         iconClick={this.handleCloseClick(selectedResult)}
+        secondaryImage={secondaryImage}
+        tag={tag}
         reversed
       />
     )

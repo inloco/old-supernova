@@ -10,7 +10,7 @@ describe('Chip', () => {
       text='Text'
     />
   )
-  
+
   it('has text', () => {
     expect(wrapper.find('span').contains('Text')).toBeTruthy()
   })
@@ -36,7 +36,7 @@ describe('Chip with image and icon', () => {
       imageUrlAltText="alt text"
     />
   )
-  
+
   it('has text', () => {
     expect(wrapper.find('span').contains('Text')).toBeTruthy()
   })
@@ -88,6 +88,68 @@ describe('Chip with image and icon', () => {
   })
 })
 
+describe('Chip with icon and secondary image', () => {
+  const secondaryImage = 'http://some-url.com/'
+  const wrapper = shallow(
+    <Chip
+      text='Text'
+      iconCode="home"
+      iconClick={() => {}}
+      secondaryImage={secondaryImage}
+    />
+  )
+
+  it('has text', () => {
+    expect(wrapper.find('span').contains('Text')).toBeTruthy()
+  })
+
+  it('has text class', () => {
+    expect(wrapper.find('span').hasClass('sn-chip__inner-wrapper__text')).toBeTruthy()
+  })
+
+  it('has class', () => {
+    expect(wrapper.hasClass('sn-chip')).toBeTruthy()
+  })
+
+  it('has secondary image', () => {
+    const target = wrapper.find('.sn-chip__inner-wrapper__secondary-image')
+    expect(target.exists()).toBeTruthy()
+    expect(target.props().src).toEqual(secondaryImage)
+  })
+})
+
+describe('Chip with icon and tag', () => {
+  const tag = 'Some tag'
+  const wrapper = shallow(
+    <Chip
+      text="Text"
+      iconCode="home"
+      iconClick={() => {}}
+      imageUrl="home"
+      imageUrlAltText="alt text"
+      tag={tag}
+    />
+  )
+
+  it('has text', () => {
+    expect(wrapper.find('span').contains('Text')).toBeTruthy()
+  })
+
+  it('has text class', () => {
+    expect(wrapper.find('span.sn-chip__inner-wrapper__text').hasClass('sn-chip__inner-wrapper__text')).toBeTruthy()
+  })
+
+  it('has class', () => {
+    expect(wrapper.hasClass('sn-chip')).toBeTruthy()
+  })
+
+  it('has tag', () => {
+    const target = wrapper.find('.sn-chip__inner-wrapper__tag')
+    expect(target.exists()).toBeTruthy()
+    expect(target.props().children).toEqual(tag)
+  })
+})
+
 describe('Chip with reversed image and icon', () => {
   const fooFunc = jest.fn()
 
@@ -104,7 +166,7 @@ describe('Chip with reversed image and icon', () => {
       reversed
     />
   )
-  
+
   it('has text', () => {
     expect(wrapper.find('span').contains('Text')).toBeTruthy()
   })
