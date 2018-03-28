@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 import SnNavText from './../SnNavText'
 import SnNavIcon from './../SnNavIcon'
 import { Link } from 'react-router-dom'
@@ -29,9 +30,7 @@ class SnNavLink extends React.Component {
   render() {
     const { active, external } = this.props
 
-    const classes = active
-      ? 'sn-nav__list__item is-selected'
-      : 'sn-nav__list__item'
+    const classes = classnames('sn-nav__list__item', { 'is-selected': active })
 
     return (
       <li
