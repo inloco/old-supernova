@@ -249,4 +249,17 @@ describe('SnNavLink', () => {
       expect(handleCloseDrawerClick).toBeCalled()
     })
   })
+
+  describe('when is active', () => {
+    const wrapper = shallow(
+      <SnNavLink active>
+        Children
+      </SnNavLink>
+    )
+
+    it('adds is-selected class to wrapper element', () => {
+      const target = wrapper.find('.sn-nav__list__item.is-selected')
+      expect(target.exists()).toBeTruthy()
+    })
+  })
 })

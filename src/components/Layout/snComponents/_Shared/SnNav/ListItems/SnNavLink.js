@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 import SnNavText from './../SnNavText'
 import SnNavIcon from './../SnNavIcon'
 import { Link } from 'react-router-dom'
@@ -13,7 +14,8 @@ class SnNavLink extends React.Component {
     iconSrc: PropTypes.string,
     iconAlt: PropTypes.string,
     external: PropTypes.bool,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    active: PropTypes.bool
   }
 
   static defaultProps = {
@@ -26,12 +28,16 @@ class SnNavLink extends React.Component {
   }
 
   render() {
+    const { active, external } = this.props
+
+    const classes = classnames('sn-nav__list__item', { 'is-selected': active })
+
     return (
       <li
-        className='sn-nav__list__item'
+        className={classes}
         onClick={ this.context.handleCloseDrawerClick }
       >
-        { this.props.external ? this.renderExternalLink() : this.renderLink() }
+        { external ? this.renderExternalLink() : this.renderLink() }
       </li>
     )
   }

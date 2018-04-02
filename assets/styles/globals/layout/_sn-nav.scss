@@ -51,8 +51,8 @@
       @include flexbox();
       @include flexdirection(row);
       flex-wrap: wrap;
-      margin: 2px 8px;
-      padding: 6px 8px;
+      margin: 2px 0;
+      padding: 6px 16px;
       border-radius: 2px;
       color: white;
       a {
@@ -69,7 +69,7 @@
       }
 
       &.is-selected {
-        background-color: darken($layout-drawer-background-color, 12%);
+        background-color: darken($layout-drawer-background-color, 6%);
       }
 
       &__icon {
