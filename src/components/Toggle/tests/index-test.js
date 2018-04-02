@@ -68,4 +68,18 @@ describe('Toggle component', () => {
       expect(wrapper.hasClass(customClass)).toBeTruthy()
     })
   })
+
+  describe('when is read-only', () => {
+    beforeAll(() => {
+      onChange.mockReset()
+      wrapper.setProps({ readOnly: true })
+    })
+
+    it('does not call onChange function', () => {
+      const button = wrapper.find(buttonSelector)
+      button.simulate('click')
+
+      expect(onChange).not.toBeCalled()
+    })
+  })
 })
