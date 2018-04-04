@@ -22,7 +22,8 @@ class Toggle extends React.Component {
   }
 
   render() {
-    const hasLabel = !!this.props.label
+    const { label } = this.props
+    const hasLabel = !!label
 
     return (
       <div className={this.getClassName()}>
@@ -37,9 +38,12 @@ class Toggle extends React.Component {
   }
 
   getClassName() {
+    const { className, readOnly } = this.props
+
     return classNames(
       'sn-toggle',
-      this.props.className
+      className,
+      { 'is-read-only': readOnly }
     )
   }
 
@@ -52,7 +56,10 @@ class Toggle extends React.Component {
   }
 
   handleClick() {
-    const { value, onChange } = this.props
+    const { value, readOnly, onChange } = this.props
+    if (readOnly)
+      return
+
     const newValue = (value !== 'true').toString()
 
     onChange && onChange(newValue)

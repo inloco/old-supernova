@@ -64,4 +64,15 @@
       margin-bottom: 0;
     }
   }
+
+  &.is-read-only {
+    .sn-toggle__label { cursor: default; }
+    .sn-toggle__button {
+      cursor: default;
+      &.is-active {
+        .sn-toggle__button__bar { background-color: $default-toggle-bar-color; }
+        .sn-toggle__button__circle { background-color: lighten($default-toggle-circle-active-color, 15%); }
+      }
+    }
+  }
 }
