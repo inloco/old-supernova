@@ -13,3 +13,5 @@ coverage
 .env
 checkCoverage
 build
+
+assets/css

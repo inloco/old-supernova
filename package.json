@@ -11,7 +11,9 @@
     "url": "git+ssh://git@bitbucket.org/ubeedev/supernova.git"
   },
   "scripts": {
-    "build": "babel src -d lib -q",
+    "build:sass": "node-sass assets/styles/basic.scss assets/css/basic.css",
+    "build:js": "babel src -d lib -q",
+    "build": "npm run build:js && npm run build:sass",
     "test": "jest --runInBand",
     "test:watch": "jest --watch",
     "start-dev:doc": "cd docs && node index.js",
@@ -54,6 +56,7 @@
     "classnames": "^2.2.5",
     "material-design-icons": "^3.0.1",
     "moment": "^2.20.1",
+    "node-sass": "^4.8.3",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-copy-to-clipboard": "^5.0.1",
