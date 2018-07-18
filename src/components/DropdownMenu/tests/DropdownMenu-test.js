@@ -44,7 +44,15 @@ describe('DropdownMenu', () => {
   })
 
   describe('when click in dropdown', () => {
-    beforeEach(() => wrapper.simulate('click'))
+    beforeEach(() => {
+      wrapper.setProps({ onClick: jest.fn() })
+      wrapper.simulate('click')
+    })
+
+    it('should call "onClick" prop', () => {
+      const { props: { onClick } } = wrapper.instance()
+      expect(onClick).toHaveBeenCalled()
+    })
 
     it('change the state to open', () => {
       expect(wrapper.state().open).toBeTruthy()
