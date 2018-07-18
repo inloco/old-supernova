@@ -7,11 +7,14 @@ class DropdownMenu extends React.Component {
     options: PropTypes.arrayOf(PropTypes.shape({
       href: PropTypes.string,
       label: PropTypes.string.isRequired
-    }))
+    })),
+    onClick: PropTypes.func,
+    onOptionClick: PropTypes.func
   }
 
   static defaultProps = {
-    options: []
+    options: [],
+    onClick: () => {}
   }
 
   constructor(props) {
@@ -53,8 +56,9 @@ class DropdownMenu extends React.Component {
     )
   }
 
-  handleDropdownClick() {
+  handleDropdownClick(event) {
     this.open()
+    this.props.onClick(event)
   }
 
   renderOptions() {
