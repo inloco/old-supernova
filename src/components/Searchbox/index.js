@@ -378,14 +378,11 @@ class Searchbox extends React.Component {
 
   selectHoveredResult() {
     const hovered = this.state.hoveredResult
+    const results = this.getVisibleResults()
+    const selectedResult = results[hovered]
 
-    if (hovered !== undefined) {
-      const results = this.getVisibleResults()
-      const selectedResult = results[hovered]
-
-      this.handleOnSelectResult(selectedResult)
-      this.setState({ hoveredResult: undefined })
-    }
+    this.handleOnSelectResult(selectedResult)
+    this.setState({ hoveredResult: undefined })
   }
 
   handleKeyDown(event) {
@@ -401,8 +398,10 @@ class Searchbox extends React.Component {
         event.preventDefault()
         break
       case 'Enter':
-        this.selectHoveredResult()
-        event.preventDefault()
+        if (this.state.hoveredResult !== undefined) {
+          this.selectHoveredResult()
+          event.preventDefault()
+        }
         break
     }
   }

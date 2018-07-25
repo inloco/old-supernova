@@ -198,15 +198,30 @@ describe('Searchbox', () => {
       })
 
       it('selects hovered result when Enter is pressed', () => {
-        wrapper.setState({ hoveredResult: 0 })
+        wrapper.setState({ hoveredResult: 0, selectedResults: [] })
+        const preventDefault = jest.fn()
         input.simulate('keyDown', {
           key: 'Enter',
           persist: jest.fn(),
-          preventDefault: jest.fn()
+          preventDefault
         })
 
         expect(wrapper.state().hoveredResult).toEqual(undefined)
         expect(wrapper.state().selectedResults).toHaveLength(1)
+        expect(preventDefault).toHaveBeenCalled()
+      })
+
+      it('should not call preventDefault if no result is being hovered', () => {
+        wrapper.setState({ hoveredResult: undefined, selectedResults: [] })
+        const preventDefault = jest.fn()
+        input.simulate('keyDown', {
+          key: 'Enter',
+          persist: jest.fn(),
+          preventDefault
+        })
+
+        expect(wrapper.state().selectedResults).toHaveLength(0)
+        expect(preventDefault).not.toHaveBeenCalled()
       })
     })
 
