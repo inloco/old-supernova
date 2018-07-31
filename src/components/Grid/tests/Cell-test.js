@@ -111,4 +111,11 @@ describe('Cell', () => {
       expect(cell.length).toEqual(1)
     })
   })
+
+  it('should pass "onClick" callback to root element', () => {
+    const onClick = jest.fn()
+    wrapper.setProps({ onClick })
+    wrapper.simulate('click')
+    expect(onClick).toHaveBeenCalled()
+  })
 })
