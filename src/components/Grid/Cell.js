@@ -13,7 +13,8 @@ class Cell extends React.PureComponent {
     align: PropTypes.string,
     alignContent: PropTypes.string,
     wrap: PropTypes.string,
-    ellipsis: PropTypes.any
+    ellipsis: PropTypes.any,
+    onClick: PropTypes.func,
   }
 
   static defaultProps = {
@@ -21,7 +22,7 @@ class Cell extends React.PureComponent {
   }
 
   render() {
-    const { className, children } = this.props
+    const { className, children, onClick } = this.props
     const sizeClassName = this.getSizeClassName()
     const percentClassName = this.getPercentClassName()
     const fixedClassName = this.getfixedClassName()
@@ -36,6 +37,7 @@ class Cell extends React.PureComponent {
     return (
       <div
         className={`${sizeClassName} ${className} ${percentClassName} ${fixedClassName} ${dynamicClassName} ${paddingClassName} ${orderClassName} ${alignClassName} ${alignContentClassName} ${wrapClassName} ${ellipsisClassName}`}
+        onClick={onClick}
       >
        {children}
       </div>
