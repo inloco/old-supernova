@@ -1,6 +1,6 @@
 {
   "name": "supernova-inloco",
-  "version": "4.2.5",
+  "version": "4.2.6",
   "description": "In Loco Media Front-End Packages",
   "main": "./lib/index.js",
   "author": "In Loco Media Front-End Team",
