@@ -44,4 +44,10 @@ describe('SnHeaderTitleItem', () => {
       expect(current).toEqual(expected)
     })
   })
+
+  it('should pass "onClick" handler to root element', () => {
+    const onClick = jest.fn()
+    wrapper.setProps({ onClick })
+    expect(wrapper.props()).toHaveProperty('onClick', onClick)
+  })
 })
