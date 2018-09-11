@@ -20,4 +20,9 @@ describe('Content', () => {
 
     expect(children).not.toBe(undefined)
   })
+
+  it('should pass ref to children as context data', () => {
+    const provider = wrapper.childAt(0)
+    expect(provider.props()).toHaveProperty('value', wrapper.instance().ref)
+  })
 })
