@@ -1,7 +1,23 @@
-machine:
-  node:
-    version: 6.2.1
-
-test:
-  post:
-    - npm run coverage $CIRCLE_BRANCH
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.8.0-jessie
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore NPM Package Cache
+          keys:
+            - v1-npm-deps-{{ checksum "package-lock.json" }}
+            - v1-npm-deps-
+      - run:
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          name: Save NPM Package Cache
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Run Tests With Coverage
+          command: npm run coverage $CIRCLE_BRANCH
