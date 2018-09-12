@@ -76,7 +76,7 @@ import SnNavListItem from "./components/Layout/snComponents/_Shared/SnNav/ListIt
 import SnNavSection from "./components/Layout/snComponents/_Shared/SnNav/SnNavSection"
 import SnNavText from "./components/Layout/snComponents/_Shared/SnNav/SnNavText"
 import StructuralAside from "./components/Layout/structuralComponents/Aside"
-import StructuralContent from "./components/Layout/structuralComponents/Content"
+import StructuralContent, { LayoutContentRefContext } from "./components/Layout/structuralComponents/Content"
 import StructuralDrawer from "./components/Layout/structuralComponents/Drawer"
 import StructuralFooter from "./components/Layout/structuralComponents/Footer"
 import StructuralHeader from "./components/Layout/structuralComponents/Header"
@@ -113,6 +113,7 @@ export {
   FormGroup,
   Grid,
   Cell,
+  LayoutContentRefContext,
   Modal,
   ModalBody,
   ModalFooter,
