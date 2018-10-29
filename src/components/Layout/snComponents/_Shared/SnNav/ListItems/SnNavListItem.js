@@ -4,6 +4,7 @@ import classNames from 'classnames'
 
 class SnNavListItem extends React.Component {
   static propTypes = {
+    className: PropTypes.string,
     expandable: PropTypes.bool,
     children: PropTypes.any
   }
@@ -27,10 +28,15 @@ class SnNavListItem extends React.Component {
   }
 
   render() {
-    const navlistItemClasses = classNames('sn-nav__list__item',{
-      'sn-nav__list__item--expandable': this.props.expandable,
-      'is-expanded': this.state.expanded
-    })
+    const { className, expandable } = this.props
+    const navlistItemClasses = classNames(
+      'sn-nav__list__item',
+      className,
+      {
+        'sn-nav__list__item--expandable': expandable,
+        'is-expanded': this.state.expanded
+      }
+    )
 
     return (
       <li
