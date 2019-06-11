@@ -1,6 +1,9 @@
 # Supernova - **DEPRECATED**
 This is an **OLD COMPONENT LIBRARY** that **SHOULD NOT** be used on new projects.
+
 The only reason it still exists is because some existing In Loco projects still use it.
+
+New projects should use [Orion](https://github.com/inloco/orion) instead.
 
 ## Install
 ```sh
