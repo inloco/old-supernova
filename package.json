@@ -1,5 +1,5 @@
 {
-  "name": "supernova-inloco",
+  "name": "@inloco/old-supernova",
   "version": "4.2.10",
   "description": "In Loco Media Front-End Packages",
   "main": "./lib/index.js",
@@ -8,7 +8,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/ubeedev/supernova.git"
+    "url": "git+ssh://git@github.com:inloco/old-supernova.git"
   },
   "scripts": {
     "build:sass": "node-sass assets/styles/basic.scss assets/css/basic.css",

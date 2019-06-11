@@ -1,8 +1,11 @@
-# Supernova #
+# Supernova - **DEPRECATED**
+This is an **OLD COMPONENT LIBRARY** that **SHOULD NOT** be used on new projects.
+The only reason it still exists is because some existing In Loco projects still use it.
+
 ## Install
 ```sh
-git clone git@bitbucket.org:ubeedev/supernova.git
-cd supernova
+git clone git@github.com:inloco/old-supernova.git
+cd old-supernova
 npm install
 ```
 
