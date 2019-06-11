@@ -5,7 +5,6 @@
   "main": "./lib/index.js",
   "author": "In Loco Media Front-End Team",
   "license": "ISC",
-  "private": true,
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com:inloco/old-supernova.git"
