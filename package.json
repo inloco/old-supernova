@@ -1,6 +1,6 @@
 {
   "name": "@inloco/old-supernova",
-  "version": "4.2.10",
+  "version": "4.2.11",
   "description": "In Loco Media Front-End Packages",
   "main": "./lib/index.js",
   "author": "In Loco Media Front-End Team",
@@ -20,9 +20,9 @@
     "coverage": "node scripts/coverage.js"
   },
   "peerDependencies": {
+    "material-design-icons": "3.0.1",
     "react": "16.0.0",
-    "react-dom": "16.0.0",
-    "material-design-icons": "3.0.1"
+    "react-dom": "16.0.0"
   },
   "jest": {
     "testRegex": "(.*)(-|.)test.js$",
